@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=21.0",
+            "certifi >= 14.05.14",
+            "six >= 1.10",
+            "python_dateutil >= 2.5.3",
+            "urllib3 >= 1.15.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "netilion_api"
+version = "1.0.4"
+authors = [
+  { name="Andrey Dodonov", email="Andrey.Dodonov@endress.com" },
+]
+description = "Client for accessing Netilion cloud"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.4"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = [
+    "Netilion",
+    "Cloud",
+    "IIoT",
+    "Automation",
+    "E+H",
+    "Endress+Hauser"
+]
+
+[project.urls]
+"Homepage" = "https://staging-env.netilion.endress.com/"
+"API" = "https://api.staging-env.netilion.endress.com/doc/v1/"
