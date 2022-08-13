@@ -1,14 +1,10 @@
 [build-system]
-requires = ["setuptools>=21.0",
-            "certifi >= 14.05.14",
-            "six >= 1.10",
-            "python_dateutil >= 2.5.3",
-            "urllib3 >= 1.15.1"]
+requires = ["setuptools>=21.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "netilion_api"
-version = "1.0.4"
+version = "1.0.8"
 authors = [
   { name="Andrey Dodonov", email="Andrey.Dodonov@endress.com" },
 ]

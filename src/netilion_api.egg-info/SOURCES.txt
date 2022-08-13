@@ -1,6 +1,7 @@
 LICENSE
 README.md
 pyproject.toml
+src/setup.py
 src/netilion_api/__init__.py
 src/netilion_api/api_client.py
 src/netilion_api/configuration.py
@@ -122,6 +123,9 @@ src/netilion_api/models/assets_response.py
 src/netilion_api/models/assignable.py
 src/netilion_api/models/attachment_link_request.py
 src/netilion_api/models/attachment_response.py
+src/netilion_api/models/attachments_body.py
+src/netilion_api/models/attachments_id_body.py
+src/netilion_api/models/attachments_id_body1.py
 src/netilion_api/models/attachments_response.py
 src/netilion_api/models/bill_of_material_base.py
 src/netilion_api/models/bill_of_material_i_ds.py
@@ -226,6 +230,7 @@ src/netilion_api/models/health_condition_cause_i_ds.py
 src/netilion_api/models/health_condition_cause_request.py
 src/netilion_api/models/health_condition_cause_response.py
 src/netilion_api/models/health_condition_extended.py
+src/netilion_api/models/health_condition_extended_rules.py
 src/netilion_api/models/health_condition_remedy_base.py
 src/netilion_api/models/health_condition_remedy_request.py
 src/netilion_api/models/health_condition_remedy_response.py
@@ -234,6 +239,10 @@ src/netilion_api/models/health_condition_response.py
 src/netilion_api/models/health_conditions_request.py
 src/netilion_api/models/health_conditions_request_health_conditions.py
 src/netilion_api/models/health_conditions_response.py
+src/netilion_api/models/id_pictures_body.py
+src/netilion_api/models/id_pictures_body1.py
+src/netilion_api/models/id_pictures_body2.py
+src/netilion_api/models/id_pictures_body3.py
 src/netilion_api/models/instrumentation_asset_history.py
 src/netilion_api/models/instrumentation_assets_history_response.py
 src/netilion_api/models/instrumentation_base.py
@@ -315,6 +324,10 @@ src/netilion_api/models/permitable.py
 src/netilion_api/models/permitable1.py
 src/netilion_api/models/picture_link_request.py
 src/netilion_api/models/picture_response.py
+src/netilion_api/models/pictures_id_body.py
+src/netilion_api/models/pictures_id_body1.py
+src/netilion_api/models/pictures_id_body2.py
+src/netilion_api/models/pictures_id_body3.py
 src/netilion_api/models/pictures_response.py
 src/netilion_api/models/product_base.py
 src/netilion_api/models/product_categories_response.py
@@ -400,6 +413,7 @@ src/netilion_api/models/sign_ins_response.py
 src/netilion_api/models/software_attachment_link_request_patch.py
 src/netilion_api/models/software_attachment_link_request_post.py
 src/netilion_api/models/software_attachment_response.py
+src/netilion_api/models/software_attachments_body.py
 src/netilion_api/models/software_attachments_response.py
 src/netilion_api/models/software_i_ds.py
 src/netilion_api/models/software_request_patch.py
@@ -431,6 +445,7 @@ src/netilion_api/models/specifications_rename.py
 src/netilion_api/models/specifications_request.py
 src/netilion_api/models/specifications_response.py
 src/netilion_api/models/specifications_ui_visible_request.py
+src/netilion_api/models/specifications_ui_visible_response.py
 src/netilion_api/models/subscription_asset_assignment_request.py
 src/netilion_api/models/subscription_base.py
 src/netilion_api/models/subscription_request.py
