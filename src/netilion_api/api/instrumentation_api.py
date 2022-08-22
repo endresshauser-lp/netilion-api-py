@@ -1883,7 +1883,7 @@ class InstrumentationApi(object):
     def get_events_of_instrumentation(self, instrumentation_id, **kwargs):  # noqa: E501
         """Get all events of one instrumentation  # noqa: E501
 
-        Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, status, type``  # noqa: E501
+        Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_instrumentation(instrumentation_id, async_req=True)
@@ -1919,7 +1919,7 @@ class InstrumentationApi(object):
     def get_events_of_instrumentation_with_http_info(self, instrumentation_id, **kwargs):  # noqa: E501
         """Get all events of one instrumentation  # noqa: E501
 
-        Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, status, type``  # noqa: E501
+        Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_instrumentation_with_http_info(instrumentation_id, async_req=True)

@@ -3938,7 +3938,7 @@ class AssetApi(object):
     def get_events_of_asset(self, asset_id, **kwargs):  # noqa: E501
         """Get all events of one asset  # noqa: E501
 
-        Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, status, type``  # noqa: E501
+        Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_asset(asset_id, async_req=True)
@@ -3974,7 +3974,7 @@ class AssetApi(object):
     def get_events_of_asset_with_http_info(self, asset_id, **kwargs):  # noqa: E501
         """Get all events of one asset  # noqa: E501
 
-        Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, status, type``  # noqa: E501
+        Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_asset_with_http_info(asset_id, async_req=True)

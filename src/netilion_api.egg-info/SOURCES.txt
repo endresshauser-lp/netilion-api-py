@@ -1,7 +1,6 @@
 LICENSE
 README.md
 pyproject.toml
-src/setup.py
 src/netilion_api/__init__.py
 src/netilion_api/api_client.py
 src/netilion_api/configuration.py
@@ -209,6 +208,7 @@ src/netilion_api/models/event_base.py
 src/netilion_api/models/event_request.py
 src/netilion_api/models/event_request_no_assets.py
 src/netilion_api/models/event_request_no_instrumentations.py
+src/netilion_api/models/event_request_no_nodes.py
 src/netilion_api/models/event_response.py
 src/netilion_api/models/event_status_base.py
 src/netilion_api/models/event_status_request.py
@@ -220,6 +220,7 @@ src/netilion_api/models/event_type_response.py
 src/netilion_api/models/event_types.py
 src/netilion_api/models/events.py
 src/netilion_api/models/events1.py
+src/netilion_api/models/events2.py
 src/netilion_api/models/events_response.py
 src/netilion_api/models/extended_order_code.py
 src/netilion_api/models/features.py

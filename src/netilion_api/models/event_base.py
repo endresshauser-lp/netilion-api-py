@@ -47,6 +47,7 @@ class EventBase(object):
           'EventRequestNoAssets': 'EventRequestNoAssets',
 'EventResponse': 'EventResponse',
 'EventRequestNoInstrumentations': 'EventRequestNoInstrumentations',
+'EventRequestNoNodes': 'EventRequestNoNodes',
 'EventRequest': 'EventRequest'    }
 
     def __init__(self, name=None, description=None, responsible=None, start_datetime=None, end_datetime=None):  # noqa: E501

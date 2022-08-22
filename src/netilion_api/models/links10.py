@@ -31,6 +31,7 @@ class Links10(object):
         'assets': 'Link',
         'documents': 'Link',
         'instrumentations': 'Link',
+        'nodes': 'Link',
         'specifications': 'Link'
     }
 
@@ -38,14 +39,16 @@ class Links10(object):
         'assets': 'assets',
         'documents': 'documents',
         'instrumentations': 'instrumentations',
+        'nodes': 'nodes',
         'specifications': 'specifications'
     }
 
-    def __init__(self, assets=None, documents=None, instrumentations=None, specifications=None):  # noqa: E501
+    def __init__(self, assets=None, documents=None, instrumentations=None, nodes=None, specifications=None):  # noqa: E501
         """Links10 - a model defined in Swagger"""  # noqa: E501
         self._assets = None
         self._documents = None
         self._instrumentations = None
+        self._nodes = None
         self._specifications = None
         self.discriminator = None
         self.assets = assets
@@ -53,6 +56,8 @@ class Links10(object):
             self.documents = documents
         if instrumentations is not None:
             self.instrumentations = instrumentations
+        if nodes is not None:
+            self.nodes = nodes
         if specifications is not None:
             self.specifications = specifications
 
@@ -120,6 +125,27 @@ class Links10(object):
         """
 
         self._instrumentations = instrumentations
+
+    @property
+    def nodes(self):
+        """Gets the nodes of this Links10.  # noqa: E501
+
+
+        :return: The nodes of this Links10.  # noqa: E501
+        :rtype: Link
+        """
+        return self._nodes
+
+    @nodes.setter
+    def nodes(self, nodes):
+        """Sets the nodes of this Links10.
+
+
+        :param nodes: The nodes of this Links10.  # noqa: E501
+        :type: Link
+        """
+
+        self._nodes = nodes
 
     @property
     def specifications(self):

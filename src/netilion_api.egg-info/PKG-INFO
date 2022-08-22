@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: netilion-api
-Version: 1.0.8
+Version: 1.0.9
 Summary: Client for accessing Netilion cloud
 Author-email: Andrey Dodonov <Andrey.Dodonov@endress.com>
 License: Copyright (c) 2018 The Python Packaging Authority

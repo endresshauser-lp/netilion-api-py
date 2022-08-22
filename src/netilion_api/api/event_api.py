@@ -452,6 +452,113 @@ class EventApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def create_event_for_node(self, body, node_id, **kwargs):  # noqa: E501
+        """Create a new event for a node  # noqa: E501
+
+        Events must have a name, and can have a start_datetime (if not provided, the date of creation will be used as default value), end_datetime, event_type, event_status, description and responsible  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_event_for_node(body, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param EventRequestNoNodes body: Object to be created. (required)
+        :param int node_id: Id of the instrumentation (required)
+        :return: EventResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_event_for_node_with_http_info(body, node_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_event_for_node_with_http_info(body, node_id, **kwargs)  # noqa: E501
+            return data
+
+    def create_event_for_node_with_http_info(self, body, node_id, **kwargs):  # noqa: E501
+        """Create a new event for a node  # noqa: E501
+
+        Events must have a name, and can have a start_datetime (if not provided, the date of creation will be used as default value), end_datetime, event_type, event_status, description and responsible  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_event_for_node_with_http_info(body, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param EventRequestNoNodes body: Object to be created. (required)
+        :param int node_id: Id of the instrumentation (required)
+        :return: EventResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'node_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_event_for_node" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `create_event_for_node`")  # noqa: E501
+        # verify the required parameter 'node_id' is set
+        if ('node_id' not in params or
+                params['node_id'] is None):
+            raise ValueError("Missing the required parameter `node_id` when calling `create_event_for_node`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'node_id' in params:
+            path_params['node_id'] = params['node_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/nodes/{node_id}/events', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='EventResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def delete_event(self, id, **kwargs):  # noqa: E501
         """Delete an event  # noqa: E501
 
@@ -896,7 +1003,7 @@ class EventApi(object):
     def get_event_by_id(self, id, **kwargs):  # noqa: E501
         """Get a single event  # noqa: E501
 
-        Get a specific event identified by the id in the URL.  Possible include values: ```assets, instrumentations, status, type```  # noqa: E501
+        Get a specific event identified by the id in the URL.  Possible include values: ```assets, instrumentations, nodes, status, type```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_event_by_id(id, async_req=True)
@@ -919,7 +1026,7 @@ class EventApi(object):
     def get_event_by_id_with_http_info(self, id, **kwargs):  # noqa: E501
         """Get a single event  # noqa: E501
 
-        Get a specific event identified by the id in the URL.  Possible include values: ```assets, instrumentations, status, type```  # noqa: E501
+        Get a specific event identified by the id in the URL.  Possible include values: ```assets, instrumentations, nodes, status, type```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_event_by_id_with_http_info(id, async_req=True)
@@ -1439,7 +1546,7 @@ class EventApi(object):
     def get_events(self, **kwargs):  # noqa: E501
         """Get a range of events  # noqa: E501
 
-        Returns a list of events. If the query has no matches, the response is an empty list.  Possible include values: ```assets, instrumentations, status, type```  # noqa: E501
+        Returns a list of events. If the query has no matches, the response is an empty list.  Possible include values: ```assets, instrumentations, nodes, status, type```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events(async_req=True)
@@ -1474,7 +1581,7 @@ class EventApi(object):
     def get_events_with_http_info(self, **kwargs):  # noqa: E501
         """Get a range of events  # noqa: E501
 
-        Returns a list of events. If the query has no matches, the response is an empty list.  Possible include values: ```assets, instrumentations, status, type```  # noqa: E501
+        Returns a list of events. If the query has no matches, the response is an empty list.  Possible include values: ```assets, instrumentations, nodes, status, type```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_with_http_info(async_req=True)
@@ -1582,7 +1689,7 @@ class EventApi(object):
     def get_events_of_asset(self, asset_id, **kwargs):  # noqa: E501
         """Get all events of one asset  # noqa: E501
 
-        Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, status, type``  # noqa: E501
+        Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_asset(asset_id, async_req=True)
@@ -1618,7 +1725,7 @@ class EventApi(object):
     def get_events_of_asset_with_http_info(self, asset_id, **kwargs):  # noqa: E501
         """Get all events of one asset  # noqa: E501
 
-        Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, status, type``  # noqa: E501
+        Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_asset_with_http_info(asset_id, async_req=True)
@@ -1733,7 +1840,7 @@ class EventApi(object):
     def get_events_of_instrumentation(self, instrumentation_id, **kwargs):  # noqa: E501
         """Get all events of one instrumentation  # noqa: E501
 
-        Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, status, type``  # noqa: E501
+        Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_instrumentation(instrumentation_id, async_req=True)
@@ -1769,7 +1876,7 @@ class EventApi(object):
     def get_events_of_instrumentation_with_http_info(self, instrumentation_id, **kwargs):  # noqa: E501
         """Get all events of one instrumentation  # noqa: E501
 
-        Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, status, type``  # noqa: E501
+        Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_instrumentation_with_http_info(instrumentation_id, async_req=True)
@@ -1867,6 +1974,157 @@ class EventApi(object):
 
         return self.api_client.call_api(
             '/instrumentations/{instrumentation_id}/events', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='EventsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_events_of_node(self, node_id, **kwargs):  # noqa: E501
+        """Get all events of one node  # noqa: E501
+
+        Returns a list of all events belonging to a node in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_events_of_node(node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int node_id: The resource defined in the URL (required)
+        :param int page: Page number to load
+        :param int per_page: Number of items to load per page
+        :param str include: Comma separated list of objects to include in response
+        :param str name: Filter accepts `*` as wildcard
+        :param str type_id: One or multiple ids (comma list). Expected id format is integer
+        :param str status_id: One or multiple ids (comma list). Expected id format is integer
+        :param str start_datetime: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str start_datetime_from: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str start_datetime_to: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str end_datetime: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date end_datetime_from: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str end_datetime_to: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
+        :param str order_by: Order result by attribute value, accepts `start_datetime`, `end_datetime`, `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
+        :return: EventsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_events_of_node_with_http_info(node_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_events_of_node_with_http_info(node_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_events_of_node_with_http_info(self, node_id, **kwargs):  # noqa: E501
+        """Get all events of one node  # noqa: E501
+
+        Returns a list of all events belonging to a node in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_events_of_node_with_http_info(node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int node_id: The resource defined in the URL (required)
+        :param int page: Page number to load
+        :param int per_page: Number of items to load per page
+        :param str include: Comma separated list of objects to include in response
+        :param str name: Filter accepts `*` as wildcard
+        :param str type_id: One or multiple ids (comma list). Expected id format is integer
+        :param str status_id: One or multiple ids (comma list). Expected id format is integer
+        :param str start_datetime: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str start_datetime_from: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str start_datetime_to: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str end_datetime: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date end_datetime_from: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str end_datetime_to: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
+        :param str order_by: Order result by attribute value, accepts `start_datetime`, `end_datetime`, `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
+        :return: EventsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['node_id', 'page', 'per_page', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'order_by']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_events_of_node" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'node_id' is set
+        if ('node_id' not in params or
+                params['node_id'] is None):
+            raise ValueError("Missing the required parameter `node_id` when calling `get_events_of_node`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'node_id' in params:
+            path_params['node_id'] = params['node_id']  # noqa: E501
+
+        query_params = []
+        if 'page' in params:
+            query_params.append(('page', params['page']))  # noqa: E501
+        if 'per_page' in params:
+            query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include' in params:
+            query_params.append(('include', params['include']))  # noqa: E501
+        if 'name' in params:
+            query_params.append(('name', params['name']))  # noqa: E501
+        if 'type_id' in params:
+            query_params.append(('type_id', params['type_id']))  # noqa: E501
+        if 'status_id' in params:
+            query_params.append(('status_id', params['status_id']))  # noqa: E501
+        if 'start_datetime' in params:
+            query_params.append(('start_datetime', params['start_datetime']))  # noqa: E501
+        if 'start_datetime_from' in params:
+            query_params.append(('start_datetime_from', params['start_datetime_from']))  # noqa: E501
+        if 'start_datetime_to' in params:
+            query_params.append(('start_datetime_to', params['start_datetime_to']))  # noqa: E501
+        if 'end_datetime' in params:
+            query_params.append(('end_datetime', params['end_datetime']))  # noqa: E501
+        if 'end_datetime_from' in params:
+            query_params.append(('end_datetime_from', params['end_datetime_from']))  # noqa: E501
+        if 'end_datetime_to' in params:
+            query_params.append(('end_datetime_to', params['end_datetime_to']))  # noqa: E501
+        if 'tenant_id' in params:
+            query_params.append(('tenant_id', params['tenant_id']))  # noqa: E501
+        if 'order_by' in params:
+            query_params.append(('order_by', params['order_by']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/nodes/{node_id}/events', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2033,6 +2291,133 @@ class EventApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='InstrumentationsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_nodes_of_event(self, event_id, **kwargs):  # noqa: E501
+        """Get all nodes of one event  # noqa: E501
+
+        Returns a list of all nodes of an event that are available in your scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ```specifications, specifications[key1,key2], pictures, tenant, parent, status, type, type.tenant, type.parent instrumentations```  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nodes_of_event(event_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int event_id: The resource defined in the URL (required)
+        :param int page: Page number to load
+        :param int per_page: Number of items to load per page
+        :param str include: Comma separated list of objects to include in response
+        :param str type_id: One or multiple ids (comma list). Expected id format is integer
+        :param str parent_id: One or multiple ids (comma list). \"null\" to retrieve all objects without parent, \"!null\" for all objects with parent.
+        :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
+        :param str permission: Filter by permission of current user. Accepts `can_permit`, `can_delete`, `can_update`, `can_read` (default)
+        :param str order_by: Order result by attribute value, accepts `id`, `tag`, `created_at` or `updated_at`, add `-` as a prefix for descending order. Default value is `id`
+        :return: NodesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_nodes_of_event_with_http_info(event_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_nodes_of_event_with_http_info(event_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_nodes_of_event_with_http_info(self, event_id, **kwargs):  # noqa: E501
+        """Get all nodes of one event  # noqa: E501
+
+        Returns a list of all nodes of an event that are available in your scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ```specifications, specifications[key1,key2], pictures, tenant, parent, status, type, type.tenant, type.parent instrumentations```  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_nodes_of_event_with_http_info(event_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int event_id: The resource defined in the URL (required)
+        :param int page: Page number to load
+        :param int per_page: Number of items to load per page
+        :param str include: Comma separated list of objects to include in response
+        :param str type_id: One or multiple ids (comma list). Expected id format is integer
+        :param str parent_id: One or multiple ids (comma list). \"null\" to retrieve all objects without parent, \"!null\" for all objects with parent.
+        :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
+        :param str permission: Filter by permission of current user. Accepts `can_permit`, `can_delete`, `can_update`, `can_read` (default)
+        :param str order_by: Order result by attribute value, accepts `id`, `tag`, `created_at` or `updated_at`, add `-` as a prefix for descending order. Default value is `id`
+        :return: NodesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['event_id', 'page', 'per_page', 'include', 'type_id', 'parent_id', 'tenant_id', 'permission', 'order_by']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_nodes_of_event" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'event_id' is set
+        if ('event_id' not in params or
+                params['event_id'] is None):
+            raise ValueError("Missing the required parameter `event_id` when calling `get_nodes_of_event`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'event_id' in params:
+            path_params['event_id'] = params['event_id']  # noqa: E501
+
+        query_params = []
+        if 'page' in params:
+            query_params.append(('page', params['page']))  # noqa: E501
+        if 'per_page' in params:
+            query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include' in params:
+            query_params.append(('include', params['include']))  # noqa: E501
+        if 'type_id' in params:
+            query_params.append(('type_id', params['type_id']))  # noqa: E501
+        if 'parent_id' in params:
+            query_params.append(('parent_id', params['parent_id']))  # noqa: E501
+        if 'tenant_id' in params:
+            query_params.append(('tenant_id', params['tenant_id']))  # noqa: E501
+        if 'permission' in params:
+            query_params.append(('permission', params['permission']))  # noqa: E501
+        if 'order_by' in params:
+            query_params.append(('order_by', params['order_by']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/events/{event_id}/nodes', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='NodesResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2567,6 +2952,113 @@ class EventApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def remove_event_from_node(self, body, node_id, **kwargs):  # noqa: E501
+        """Remove events from a node  # noqa: E501
+
+        Remove one or more events from an node in your accessible scope. If the event has no more related nodes, the event will be deleted  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_event_from_node(body, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Events2 body: Resources that shall be removed. (required)
+        :param int node_id: Id of the node from which the events will removed. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.remove_event_from_node_with_http_info(body, node_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.remove_event_from_node_with_http_info(body, node_id, **kwargs)  # noqa: E501
+            return data
+
+    def remove_event_from_node_with_http_info(self, body, node_id, **kwargs):  # noqa: E501
+        """Remove events from a node  # noqa: E501
+
+        Remove one or more events from an node in your accessible scope. If the event has no more related nodes, the event will be deleted  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_event_from_node_with_http_info(body, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Events2 body: Resources that shall be removed. (required)
+        :param int node_id: Id of the node from which the events will removed. (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'node_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method remove_event_from_node" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `remove_event_from_node`")  # noqa: E501
+        # verify the required parameter 'node_id' is set
+        if ('node_id' not in params or
+                params['node_id'] is None):
+            raise ValueError("Missing the required parameter `node_id` when calling `remove_event_from_node`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'node_id' in params:
+            path_params['node_id'] = params['node_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/nodes/{node_id}/events', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def remove_instrumentations_from_event(self, body, event_id, **kwargs):  # noqa: E501
         """Remove instrumentations from an event  # noqa: E501
 
@@ -2660,6 +3152,113 @@ class EventApi(object):
 
         return self.api_client.call_api(
             '/events/{event_id}/instrumentations', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def remove_nodes_from_event(self, body, event_id, **kwargs):  # noqa: E501
+        """Remove nodes from an event  # noqa: E501
+
+        Remove one or more nodes from an event. If the event has no more related nodes, instrumentations or assets, the event will be deleted  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_nodes_from_event(body, event_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param NodeIDs body: Resources that shall be removed. (required)
+        :param int event_id: Id of the event where the node will be removed (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.remove_nodes_from_event_with_http_info(body, event_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.remove_nodes_from_event_with_http_info(body, event_id, **kwargs)  # noqa: E501
+            return data
+
+    def remove_nodes_from_event_with_http_info(self, body, event_id, **kwargs):  # noqa: E501
+        """Remove nodes from an event  # noqa: E501
+
+        Remove one or more nodes from an event. If the event has no more related nodes, instrumentations or assets, the event will be deleted  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_nodes_from_event_with_http_info(body, event_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param NodeIDs body: Resources that shall be removed. (required)
+        :param int event_id: Id of the event where the node will be removed (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'event_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method remove_nodes_from_event" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `remove_nodes_from_event`")  # noqa: E501
+        # verify the required parameter 'event_id' is set
+        if ('event_id' not in params or
+                params['event_id'] is None):
+            raise ValueError("Missing the required parameter `event_id` when calling `remove_nodes_from_event`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'event_id' in params:
+            path_params['event_id'] = params['event_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/events/{event_id}/nodes', 'DELETE',
             path_params,
             query_params,
             header_params,

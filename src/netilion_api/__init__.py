@@ -216,6 +216,7 @@ from netilion_api.models.event_base import EventBase
 from netilion_api.models.event_request import EventRequest
 from netilion_api.models.event_request_no_assets import EventRequestNoAssets
 from netilion_api.models.event_request_no_instrumentations import EventRequestNoInstrumentations
+from netilion_api.models.event_request_no_nodes import EventRequestNoNodes
 from netilion_api.models.event_response import EventResponse
 from netilion_api.models.event_status_base import EventStatusBase
 from netilion_api.models.event_status_request import EventStatusRequest
@@ -227,6 +228,7 @@ from netilion_api.models.event_type_response import EventTypeResponse
 from netilion_api.models.event_types import EventTypes
 from netilion_api.models.events import Events
 from netilion_api.models.events1 import Events1
+from netilion_api.models.events2 import Events2
 from netilion_api.models.events_response import EventsResponse
 from netilion_api.models.extended_order_code import ExtendedOrderCode
 from netilion_api.models.features import Features
