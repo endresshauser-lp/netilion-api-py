@@ -75,6 +75,8 @@ from netilion_api.api.values_api import ValuesApi
 # import ApiClient
 from netilion_api.api_client import ApiClient
 from netilion_api.configuration import Configuration
+from netilion_api.configuration import AuthType
+from netilion_api.configuration import OAuthPasswordGrant
 # import models into sdk package
 from netilion_api.models.api_key_base import APIKeyBase
 from netilion_api.models.api_key_request import APIKeyRequest

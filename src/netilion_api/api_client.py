@@ -490,9 +490,10 @@ class ApiClient(object):
         """
         if not auth_settings:
             return
-
+        
+        settings = self.configuration.auth_settings()
         for auth in auth_settings:
-            auth_setting = self.configuration.auth_settings().get(auth)
+            auth_setting = settings.get(auth)
             if auth_setting:
                 if not auth_setting['value']:
                     continue
