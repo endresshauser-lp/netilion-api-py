@@ -20,9 +20,22 @@ import netilion_api
 from netilion_api.rest import ApiException
 
 configuration = netilion_api.Configuration()
+configuration.host = 'https://api.staging-env.iiot.endress.com/v1'
+
+# FOR BASIC AUTH
 configuration.api_key['API-Key'] = 'YOUR_BASIC_API_KEY'
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
+
+# !OR!
+
+# FOR OAUTH 2 PASSWORD GRANT
+configuration.auth_type = netilion_api.AuthType.OAUTH_PASSWORD_GRANT
+configuration.oauth_password_grant = netilion_api.OAuthPasswordGrant(username="YOUR_USERNAME",
+                                                                     password="YOUR_PASSWORD",
+                                                                     api_key="YOUR_OAUTH_API_KEY", # sometimes referred also as client id
+                                                                     api_secret="YOUR_OAUTH_API_SECRET", # sometimes referred also as client secret
+                                                                     oauth_token_url="https://api.staging-env.netilion.endress.com/oauth/token")
 
 # full list of APIs see in swagger https://api.staging-env.netilion.endress.com/doc/v1/
 api_instance = netilion_api.AssetApi(netilion_api.ApiClient(configuration))
