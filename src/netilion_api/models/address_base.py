@@ -89,7 +89,7 @@ class AddressBase(object):
     def street(self):
         """Gets the street of this AddressBase.  # noqa: E501
 
-        streetname  # noqa: E501
+        street name  # noqa: E501
 
         :return: The street of this AddressBase.  # noqa: E501
         :rtype: str
@@ -100,7 +100,7 @@ class AddressBase(object):
     def street(self, street):
         """Sets the street of this AddressBase.
 
-        streetname  # noqa: E501
+        street name  # noqa: E501
 
         :param street: The street of this AddressBase.  # noqa: E501
         :type: str

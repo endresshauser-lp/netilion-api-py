@@ -30,24 +30,42 @@ class ProductBase(object):
     swagger_types = {
         'product_code': 'str',
         'name': 'str',
-        'description': 'str'
+        'description': 'str',
+        'phase_out_date': 'date',
+        'order_stop_date': 'date',
+        'spare_parts_until': 'date',
+        'spare_sensors_until': 'date',
+        'repair_until': 'date',
+        'calibration_until': 'date'
     }
 
     attribute_map = {
         'product_code': 'product_code',
         'name': 'name',
-        'description': 'description'
+        'description': 'description',
+        'phase_out_date': 'phase_out_date',
+        'order_stop_date': 'order_stop_date',
+        'spare_parts_until': 'spare_parts_until',
+        'spare_sensors_until': 'spare_sensors_until',
+        'repair_until': 'repair_until',
+        'calibration_until': 'calibration_until'
     }
 
     discriminator_value_class_map = {
           'ProductResponse': 'ProductResponse',
 'ProductRequest': 'ProductRequest'    }
 
-    def __init__(self, product_code=None, name=None, description=None):  # noqa: E501
+    def __init__(self, product_code=None, name=None, description=None, phase_out_date=None, order_stop_date=None, spare_parts_until=None, spare_sensors_until=None, repair_until=None, calibration_until=None):  # noqa: E501
         """ProductBase - a model defined in Swagger"""  # noqa: E501
         self._product_code = None
         self._name = None
         self._description = None
+        self._phase_out_date = None
+        self._order_stop_date = None
+        self._spare_parts_until = None
+        self._spare_sensors_until = None
+        self._repair_until = None
+        self._calibration_until = None
         self.discriminator = 'productBaseType'
         if product_code is not None:
             self.product_code = product_code
@@ -55,6 +73,18 @@ class ProductBase(object):
             self.name = name
         if description is not None:
             self.description = description
+        if phase_out_date is not None:
+            self.phase_out_date = phase_out_date
+        if order_stop_date is not None:
+            self.order_stop_date = order_stop_date
+        if spare_parts_until is not None:
+            self.spare_parts_until = spare_parts_until
+        if spare_sensors_until is not None:
+            self.spare_sensors_until = spare_sensors_until
+        if repair_until is not None:
+            self.repair_until = repair_until
+        if calibration_until is not None:
+            self.calibration_until = calibration_until
 
     @property
     def product_code(self):
@@ -124,6 +154,144 @@ class ProductBase(object):
         """
 
         self._description = description
+
+    @property
+    def phase_out_date(self):
+        """Gets the phase_out_date of this ProductBase.  # noqa: E501
+
+        Date of product phase out  # noqa: E501
+
+        :return: The phase_out_date of this ProductBase.  # noqa: E501
+        :rtype: date
+        """
+        return self._phase_out_date
+
+    @phase_out_date.setter
+    def phase_out_date(self, phase_out_date):
+        """Sets the phase_out_date of this ProductBase.
+
+        Date of product phase out  # noqa: E501
+
+        :param phase_out_date: The phase_out_date of this ProductBase.  # noqa: E501
+        :type: date
+        """
+
+        self._phase_out_date = phase_out_date
+
+    @property
+    def order_stop_date(self):
+        """Gets the order_stop_date of this ProductBase.  # noqa: E501
+
+        Date of order stop  # noqa: E501
+
+        :return: The order_stop_date of this ProductBase.  # noqa: E501
+        :rtype: date
+        """
+        return self._order_stop_date
+
+    @order_stop_date.setter
+    def order_stop_date(self, order_stop_date):
+        """Sets the order_stop_date of this ProductBase.
+
+        Date of order stop  # noqa: E501
+
+        :param order_stop_date: The order_stop_date of this ProductBase.  # noqa: E501
+        :type: date
+        """
+
+        self._order_stop_date = order_stop_date
+
+    @property
+    def spare_parts_until(self):
+        """Gets the spare_parts_until of this ProductBase.  # noqa: E501
+
+        Date until spare parts are available  # noqa: E501
+
+        :return: The spare_parts_until of this ProductBase.  # noqa: E501
+        :rtype: date
+        """
+        return self._spare_parts_until
+
+    @spare_parts_until.setter
+    def spare_parts_until(self, spare_parts_until):
+        """Sets the spare_parts_until of this ProductBase.
+
+        Date until spare parts are available  # noqa: E501
+
+        :param spare_parts_until: The spare_parts_until of this ProductBase.  # noqa: E501
+        :type: date
+        """
+
+        self._spare_parts_until = spare_parts_until
+
+    @property
+    def spare_sensors_until(self):
+        """Gets the spare_sensors_until of this ProductBase.  # noqa: E501
+
+        Date until spare sensors are available  # noqa: E501
+
+        :return: The spare_sensors_until of this ProductBase.  # noqa: E501
+        :rtype: date
+        """
+        return self._spare_sensors_until
+
+    @spare_sensors_until.setter
+    def spare_sensors_until(self, spare_sensors_until):
+        """Sets the spare_sensors_until of this ProductBase.
+
+        Date until spare sensors are available  # noqa: E501
+
+        :param spare_sensors_until: The spare_sensors_until of this ProductBase.  # noqa: E501
+        :type: date
+        """
+
+        self._spare_sensors_until = spare_sensors_until
+
+    @property
+    def repair_until(self):
+        """Gets the repair_until of this ProductBase.  # noqa: E501
+
+        Date until repair of product is offered  # noqa: E501
+
+        :return: The repair_until of this ProductBase.  # noqa: E501
+        :rtype: date
+        """
+        return self._repair_until
+
+    @repair_until.setter
+    def repair_until(self, repair_until):
+        """Sets the repair_until of this ProductBase.
+
+        Date until repair of product is offered  # noqa: E501
+
+        :param repair_until: The repair_until of this ProductBase.  # noqa: E501
+        :type: date
+        """
+
+        self._repair_until = repair_until
+
+    @property
+    def calibration_until(self):
+        """Gets the calibration_until of this ProductBase.  # noqa: E501
+
+        Date until calibration of product is offered  # noqa: E501
+
+        :return: The calibration_until of this ProductBase.  # noqa: E501
+        :rtype: date
+        """
+        return self._calibration_until
+
+    @calibration_until.setter
+    def calibration_until(self, calibration_until):
+        """Sets the calibration_until of this ProductBase.
+
+        Date until calibration of product is offered  # noqa: E501
+
+        :param calibration_until: The calibration_until of this ProductBase.  # noqa: E501
+        :type: date
+        """
+
+        self._calibration_until = calibration_until
 
     def get_real_child_model(self, data):
         """Returns the real base class specified by the discriminator"""

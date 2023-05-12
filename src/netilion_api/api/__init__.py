@@ -31,7 +31,6 @@ from netilion_api.api.instrumentation_type_api import InstrumentationTypeApi
 from netilion_api.api.lookup_api import LookupApi
 from netilion_api.api.node_api import NodeApi
 from netilion_api.api.node_type_api import NodeTypeApi
-from netilion_api.api.notification_api import NotificationApi
 from netilion_api.api.permission_api import PermissionApi
 from netilion_api.api.permission_request_api import PermissionRequestApi
 from netilion_api.api.product_api import ProductApi

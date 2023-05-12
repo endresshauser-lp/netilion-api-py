@@ -54,8 +54,7 @@ class DeliveryProducts(object):
         self.product_id = product_id
         self.product_code = product_code
         self.quantity = quantity
-        if href is not None:
-            self.href = href
+        self.href = href
         if assets is not None:
             self.assets = assets
 
@@ -154,6 +153,8 @@ class DeliveryProducts(object):
         :param href: The href of this DeliveryProducts.  # noqa: E501
         :type: str
         """
+        if href is None:
+            raise ValueError("Invalid value for `href`, must not be `None`")  # noqa: E501
 
         self._href = href
 

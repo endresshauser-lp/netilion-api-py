@@ -2049,9 +2049,9 @@ class UserApi(object):
             collection_formats=collection_formats)
 
     def get_usage_of_user(self, user_id, **kwargs):  # noqa: E501
-        """Get the use of storage and the number of assets registred of a user  # noqa: E501
+        """Get the use of file storage, data storage and the number of assets registred of a user  # noqa: E501
 
-        Returns the storage and number of assets of a specific user identified by id in the url.'  # noqa: E501
+        Returns the file storage, data storage and number of assets of a specific user identified by id in the url.'  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_usage_of_user(user_id, async_req=True)
@@ -2071,9 +2071,9 @@ class UserApi(object):
             return data
 
     def get_usage_of_user_with_http_info(self, user_id, **kwargs):  # noqa: E501
-        """Get the use of storage and the number of assets registred of a user  # noqa: E501
+        """Get the use of file storage, data storage and the number of assets registred of a user  # noqa: E501
 
-        Returns the storage and number of assets of a specific user identified by id in the url.'  # noqa: E501
+        Returns the file storage, data storage and number of assets of a specific user identified by id in the url.'  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_usage_of_user_with_http_info(user_id, async_req=True)
@@ -2614,7 +2614,7 @@ class UserApi(object):
     def lookup_user(self, email, **kwargs):  # noqa: E501
         """Lookup user by email  # noqa: E501
 
-        Get a user for a given email adress.  # noqa: E501
+        Get a user for a given email address.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.lookup_user(email, async_req=True)
@@ -2636,7 +2636,7 @@ class UserApi(object):
     def lookup_user_with_http_info(self, email, **kwargs):  # noqa: E501
         """Lookup user by email  # noqa: E501
 
-        Get a user for a given email adress.  # noqa: E501
+        Get a user for a given email address.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.lookup_user_with_http_info(email, async_req=True)

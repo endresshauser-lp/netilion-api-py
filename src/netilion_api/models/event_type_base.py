@@ -30,30 +30,35 @@ class EventTypeBase(object):
     swagger_types = {
         'code': 'str',
         'name': 'str',
-        'description': 'str'
+        'description': 'str',
+        'deletable': 'bool'
     }
 
     attribute_map = {
         'code': 'code',
         'name': 'name',
-        'description': 'description'
+        'description': 'description',
+        'deletable': 'deletable'
     }
 
     discriminator_value_class_map = {
           'EventTypeResponse': 'EventTypeResponse',
 'EventTypeRequest': 'EventTypeRequest'    }
 
-    def __init__(self, code=None, name=None, description=None):  # noqa: E501
+    def __init__(self, code=None, name=None, description=None, deletable=None):  # noqa: E501
         """EventTypeBase - a model defined in Swagger"""  # noqa: E501
         self._code = None
         self._name = None
         self._description = None
+        self._deletable = None
         self.discriminator = 'eventTypeBaseType'
         if code is not None:
             self.code = code
         self.name = name
         if description is not None:
             self.description = description
+        if deletable is not None:
+            self.deletable = deletable
 
     @property
     def code(self):
@@ -125,6 +130,29 @@ class EventTypeBase(object):
         """
 
         self._description = description
+
+    @property
+    def deletable(self):
+        """Gets the deletable of this EventTypeBase.  # noqa: E501
+
+        Events with deletable types can be deleted.  # noqa: E501
+
+        :return: The deletable of this EventTypeBase.  # noqa: E501
+        :rtype: bool
+        """
+        return self._deletable
+
+    @deletable.setter
+    def deletable(self, deletable):
+        """Sets the deletable of this EventTypeBase.
+
+        Events with deletable types can be deleted.  # noqa: E501
+
+        :param deletable: The deletable of this EventTypeBase.  # noqa: E501
+        :type: bool
+        """
+
+        self._deletable = deletable
 
     def get_real_child_model(self, data):
         """Returns the real base class specified by the discriminator"""

@@ -35,7 +35,7 @@ class ValuesApi(object):
     def create_asset_values(self, body, asset_id, **kwargs):  # noqa: E501
         """Create asset values  # noqa: E501
 
-        Store values measured by an asset. For performance reasons, this endpoint behaves somewhat differently than normal endpoints:  * The data passed to this endpoint is processed asynchronously. * This endpoint always returns an empty response with status 204 No Content. * The data will be validated during processing. Invalid data will be dropped silently. * The request size is limited to 500kb, requests larger then 500kb will get an \"413 Payload Too Large\" error.  Data validations and manipultation:    * Keys and groups can only consist of the charaters [a-z A-Z 0-9 . - _ ].   * Keys and groups will be converted to lower case strings.   * Keys and groups must be between 1 and 128 characters long.   * Units can be passed as id or code. See the units endpoint for all available units.   * The timestamp is not mandatory and will be set to the time the value was transmitted to the server (This only works if the values get transfered one at a time, if you send multiple values without timestamp at once, all values will get the same timestamp and there for only the last one will be stored)  # noqa: E501
+        Store values measured by an asset. For performance reasons, this endpoint behaves somewhat differently than normal endpoints:  * The data passed to this endpoint is processed asynchronously. * This endpoint always returns an empty response with status 204 No Content. * The data will be validated during processing. Invalid data will be dropped silently. * The request size is limited to 500kb, requests larger then 500kb will get an \"413 Payload Too Large\" error.  Data validations and manipulation:    * Keys and groups can only consist of the characters [a-z A-Z 0-9 . - _ ].   * Keys and groups will be converted to lower case strings.   * Keys and groups must be between 1 and 128 characters long.   * Units can be passed as id or code. See the units endpoint for all available units.   * The timestamp is not mandatory and will be set to the time the value was transmitted to the server (This only works if the values get transferred one at a time, if you send multiple values without timestamp at once, all values will get the same timestamp and there for only the last one will be stored)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_asset_values(body, asset_id, async_req=True)
@@ -58,7 +58,7 @@ class ValuesApi(object):
     def create_asset_values_with_http_info(self, body, asset_id, **kwargs):  # noqa: E501
         """Create asset values  # noqa: E501
 
-        Store values measured by an asset. For performance reasons, this endpoint behaves somewhat differently than normal endpoints:  * The data passed to this endpoint is processed asynchronously. * This endpoint always returns an empty response with status 204 No Content. * The data will be validated during processing. Invalid data will be dropped silently. * The request size is limited to 500kb, requests larger then 500kb will get an \"413 Payload Too Large\" error.  Data validations and manipultation:    * Keys and groups can only consist of the charaters [a-z A-Z 0-9 . - _ ].   * Keys and groups will be converted to lower case strings.   * Keys and groups must be between 1 and 128 characters long.   * Units can be passed as id or code. See the units endpoint for all available units.   * The timestamp is not mandatory and will be set to the time the value was transmitted to the server (This only works if the values get transfered one at a time, if you send multiple values without timestamp at once, all values will get the same timestamp and there for only the last one will be stored)  # noqa: E501
+        Store values measured by an asset. For performance reasons, this endpoint behaves somewhat differently than normal endpoints:  * The data passed to this endpoint is processed asynchronously. * This endpoint always returns an empty response with status 204 No Content. * The data will be validated during processing. Invalid data will be dropped silently. * The request size is limited to 500kb, requests larger then 500kb will get an \"413 Payload Too Large\" error.  Data validations and manipulation:    * Keys and groups can only consist of the characters [a-z A-Z 0-9 . - _ ].   * Keys and groups will be converted to lower case strings.   * Keys and groups must be between 1 and 128 characters long.   * Units can be passed as id or code. See the units endpoint for all available units.   * The timestamp is not mandatory and will be set to the time the value was transmitted to the server (This only works if the values get transferred one at a time, if you send multiple values without timestamp at once, all values will get the same timestamp and there for only the last one will be stored)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_asset_values_with_http_info(body, asset_id, async_req=True)
@@ -278,11 +278,15 @@ class ValuesApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
+        :param str status: Status of the value. Possible values are good, uncertain, bad.
+        :param bool hold:
+        :param bool simulated:
         :param str order_by: Order result by attribute value, accepts `timestamp`, add `-` as a prefix for descending order. Default ordering is the order the values were entered in.
         :return: AssetKeyValuesResponse
                  If the method is called asynchronously,
@@ -311,18 +315,22 @@ class ValuesApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
+        :param str status: Status of the value. Possible values are good, uncertain, bad.
+        :param bool hold:
+        :param bool simulated:
         :param str order_by: Order result by attribute value, accepts `timestamp`, add `-` as a prefix for descending order. Default ordering is the order the values were entered in.
         :return: AssetKeyValuesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'key', 'page', 'per_page', 'include', 'use_preferred_units', '_from', 'to', 'unit_id', 'aggregation', 'interval', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'key', 'page', 'per_page', 'include', 'use_preferred_units', 'include_total_count', '_from', 'to', 'unit_id', 'aggregation', 'interval', 'status', 'hold', 'simulated', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -363,6 +371,8 @@ class ValuesApi(object):
             query_params.append(('include', params['include']))  # noqa: E501
         if 'use_preferred_units' in params:
             query_params.append(('use_preferred_units', params['use_preferred_units']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if '_from' in params:
             query_params.append(('from', params['_from']))  # noqa: E501
         if 'to' in params:
@@ -373,6 +383,12 @@ class ValuesApi(object):
             query_params.append(('aggregation', params['aggregation']))  # noqa: E501
         if 'interval' in params:
             query_params.append(('interval', params['interval']))  # noqa: E501
+        if 'status' in params:
+            query_params.append(('status', params['status']))  # noqa: E501
+        if 'hold' in params:
+            query_params.append(('hold', params['hold']))  # noqa: E501
+        if 'simulated' in params:
+            query_params.append(('simulated', params['simulated']))  # noqa: E501
         if 'order_by' in params:
             query_params.append(('order_by', params['order_by']))  # noqa: E501
 
@@ -544,11 +560,15 @@ class ValuesApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
+        :param str status: Status of the value. Possible values are good, uncertain, bad.
+        :param bool hold:
+        :param bool simulated:
         :param str order_by: Order result by attribute value, accepts `timestamp`, add `-` as a prefix for descending order. Default ordering is the order the values were entered in.
         :return: AssetKeyValuesResponse
                  If the method is called asynchronously,
@@ -577,18 +597,22 @@ class ValuesApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
+        :param str status: Status of the value. Possible values are good, uncertain, bad.
+        :param bool hold:
+        :param bool simulated:
         :param str order_by: Order result by attribute value, accepts `timestamp`, add `-` as a prefix for descending order. Default ordering is the order the values were entered in.
         :return: AssetKeyValuesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['batch_id', 'key', 'page', 'per_page', 'include', 'use_preferred_units', '_from', 'to', 'unit_id', 'aggregation', 'interval', 'order_by']  # noqa: E501
+        all_params = ['batch_id', 'key', 'page', 'per_page', 'include', 'use_preferred_units', 'include_total_count', '_from', 'to', 'unit_id', 'aggregation', 'interval', 'status', 'hold', 'simulated', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -629,6 +653,8 @@ class ValuesApi(object):
             query_params.append(('include', params['include']))  # noqa: E501
         if 'use_preferred_units' in params:
             query_params.append(('use_preferred_units', params['use_preferred_units']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if '_from' in params:
             query_params.append(('from', params['_from']))  # noqa: E501
         if 'to' in params:
@@ -639,6 +665,12 @@ class ValuesApi(object):
             query_params.append(('aggregation', params['aggregation']))  # noqa: E501
         if 'interval' in params:
             query_params.append(('interval', params['interval']))  # noqa: E501
+        if 'status' in params:
+            query_params.append(('status', params['status']))  # noqa: E501
+        if 'hold' in params:
+            query_params.append(('hold', params['hold']))  # noqa: E501
+        if 'simulated' in params:
+            query_params.append(('simulated', params['simulated']))  # noqa: E501
         if 'order_by' in params:
             query_params.append(('order_by', params['order_by']))  # noqa: E501
 
@@ -810,11 +842,15 @@ class ValuesApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
+        :param str status: Status of the value. Possible values are good, uncertain, bad.
+        :param bool hold:
+        :param bool simulated:
         :param str order_by: Order result by attribute value, accepts `timestamp`, add `-` as a prefix for descending order. Default ordering is the order the values were entered in.
         :return: AssetKeyValuesResponse
                  If the method is called asynchronously,
@@ -843,18 +879,22 @@ class ValuesApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
+        :param str status: Status of the value. Possible values are good, uncertain, bad.
+        :param bool hold:
+        :param bool simulated:
         :param str order_by: Order result by attribute value, accepts `timestamp`, add `-` as a prefix for descending order. Default ordering is the order the values were entered in.
         :return: AssetKeyValuesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'key', 'page', 'per_page', 'include', 'use_preferred_units', '_from', 'to', 'unit_id', 'aggregation', 'interval', 'order_by']  # noqa: E501
+        all_params = ['instrumentation_id', 'key', 'page', 'per_page', 'include', 'use_preferred_units', 'include_total_count', '_from', 'to', 'unit_id', 'aggregation', 'interval', 'status', 'hold', 'simulated', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -895,6 +935,8 @@ class ValuesApi(object):
             query_params.append(('include', params['include']))  # noqa: E501
         if 'use_preferred_units' in params:
             query_params.append(('use_preferred_units', params['use_preferred_units']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if '_from' in params:
             query_params.append(('from', params['_from']))  # noqa: E501
         if 'to' in params:
@@ -905,6 +947,12 @@ class ValuesApi(object):
             query_params.append(('aggregation', params['aggregation']))  # noqa: E501
         if 'interval' in params:
             query_params.append(('interval', params['interval']))  # noqa: E501
+        if 'status' in params:
+            query_params.append(('status', params['status']))  # noqa: E501
+        if 'hold' in params:
+            query_params.append(('hold', params['hold']))  # noqa: E501
+        if 'simulated' in params:
+            query_params.append(('simulated', params['simulated']))  # noqa: E501
         if 'order_by' in params:
             query_params.append(('order_by', params['order_by']))  # noqa: E501
 
@@ -1076,11 +1124,15 @@ class ValuesApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
+        :param str status: Status of the value. Possible values are good, uncertain, bad.
+        :param bool hold:
+        :param bool simulated:
         :param str order_by: Order result by attribute value, accepts `timestamp`, add `-` as a prefix for descending order. Default ordering is the order the values were entered in.
         :return: AssetKeyValuesResponse
                  If the method is called asynchronously,
@@ -1109,18 +1161,22 @@ class ValuesApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
+        :param str status: Status of the value. Possible values are good, uncertain, bad.
+        :param bool hold:
+        :param bool simulated:
         :param str order_by: Order result by attribute value, accepts `timestamp`, add `-` as a prefix for descending order. Default ordering is the order the values were entered in.
         :return: AssetKeyValuesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['system_id', 'key', 'page', 'per_page', 'include', 'use_preferred_units', '_from', 'to', 'unit_id', 'aggregation', 'interval', 'order_by']  # noqa: E501
+        all_params = ['system_id', 'key', 'page', 'per_page', 'include', 'use_preferred_units', 'include_total_count', '_from', 'to', 'unit_id', 'aggregation', 'interval', 'status', 'hold', 'simulated', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1161,6 +1217,8 @@ class ValuesApi(object):
             query_params.append(('include', params['include']))  # noqa: E501
         if 'use_preferred_units' in params:
             query_params.append(('use_preferred_units', params['use_preferred_units']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if '_from' in params:
             query_params.append(('from', params['_from']))  # noqa: E501
         if 'to' in params:
@@ -1171,6 +1229,12 @@ class ValuesApi(object):
             query_params.append(('aggregation', params['aggregation']))  # noqa: E501
         if 'interval' in params:
             query_params.append(('interval', params['interval']))  # noqa: E501
+        if 'status' in params:
+            query_params.append(('status', params['status']))  # noqa: E501
+        if 'hold' in params:
+            query_params.append(('hold', params['hold']))  # noqa: E501
+        if 'simulated' in params:
+            query_params.append(('simulated', params['simulated']))  # noqa: E501
         if 'order_by' in params:
             query_params.append(('order_by', params['order_by']))  # noqa: E501
 

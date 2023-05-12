@@ -42,8 +42,7 @@ class NotificationBase(object):
     }
 
     discriminator_value_class_map = {
-          'NotificationResponse': 'NotificationResponse',
-'NotificationRequest': 'NotificationRequest'    }
+          'NotificationResponse': 'NotificationResponse'    }
 
     def __init__(self, name=None, content=None, start_datetime=None, end_datetime=None):  # noqa: E501
         """NotificationBase - a model defined in Swagger"""  # noqa: E501

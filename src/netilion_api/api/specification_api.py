@@ -4751,7 +4751,7 @@ class SpecificationApi(object):
     def update_specifications_of_event(self, body, event_id, **kwargs):  # noqa: E501
         """Update specifications of an event  # noqa: E501
 
-        Update the specification object of an event in your accessible scope. To add specifications, just add the key and set the value object with value, unit and source_timestamp. To mark an existing specification to be unknown, the value could be set to null. To delete keys, use the delete method. Multiple specification objects can be sent in the same request. Keys inside a specification are unique and can only be added once. Keys can only consist of a-z A-Z 0-9 . - _ all uppercase A-Z are converted to lower-case a-z. For a key that is send mutliple times in the request body, only the last key-value is saved.  # noqa: E501
+        Update the specification object of an event in your accessible scope. To add specifications, just add the key and set the value object with value, unit and source_timestamp. To mark an existing specification to be unknown, the value could be set to null. To delete keys, use the delete method. Multiple specification objects can be sent in the same request. Keys inside a specification are unique and can only be added once. Keys can only consist of a-z A-Z 0-9 . - _ all uppercase A-Z are converted to lower-case a-z. For a key that is send multiple times in the request body, only the last key-value is saved.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_specifications_of_event(body, event_id, async_req=True)
@@ -4774,7 +4774,7 @@ class SpecificationApi(object):
     def update_specifications_of_event_with_http_info(self, body, event_id, **kwargs):  # noqa: E501
         """Update specifications of an event  # noqa: E501
 
-        Update the specification object of an event in your accessible scope. To add specifications, just add the key and set the value object with value, unit and source_timestamp. To mark an existing specification to be unknown, the value could be set to null. To delete keys, use the delete method. Multiple specification objects can be sent in the same request. Keys inside a specification are unique and can only be added once. Keys can only consist of a-z A-Z 0-9 . - _ all uppercase A-Z are converted to lower-case a-z. For a key that is send mutliple times in the request body, only the last key-value is saved.  # noqa: E501
+        Update the specification object of an event in your accessible scope. To add specifications, just add the key and set the value object with value, unit and source_timestamp. To mark an existing specification to be unknown, the value could be set to null. To delete keys, use the delete method. Multiple specification objects can be sent in the same request. Keys inside a specification are unique and can only be added once. Keys can only consist of a-z A-Z 0-9 . - _ all uppercase A-Z are converted to lower-case a-z. For a key that is send multiple times in the request body, only the last key-value is saved.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_specifications_of_event_with_http_info(body, event_id, async_req=True)

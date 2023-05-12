@@ -51,7 +51,7 @@ class PermissionRequestCreateRequestAsset(object):
     def serial_number(self):
         """Gets the serial_number of this PermissionRequestCreateRequestAsset.  # noqa: E501
 
-        serial number of the asset user wnats to access to  # noqa: E501
+        serial number of the asset user wants to access to  # noqa: E501
 
         :return: The serial_number of this PermissionRequestCreateRequestAsset.  # noqa: E501
         :rtype: str
@@ -62,7 +62,7 @@ class PermissionRequestCreateRequestAsset(object):
     def serial_number(self, serial_number):
         """Sets the serial_number of this PermissionRequestCreateRequestAsset.
 
-        serial number of the asset user wnats to access to  # noqa: E501
+        serial number of the asset user wants to access to  # noqa: E501
 
         :param serial_number: The serial_number of this PermissionRequestCreateRequestAsset.  # noqa: E501
         :type: str

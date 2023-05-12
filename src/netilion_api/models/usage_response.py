@@ -29,23 +29,28 @@ class UsageResponse(object):
     """
     swagger_types = {
         'asset_count': 'int',
-        'file_storage': 'int'
+        'file_storage': 'int',
+        'data_storage': 'int'
     }
 
     attribute_map = {
         'asset_count': 'asset_count',
-        'file_storage': 'file_storage'
+        'file_storage': 'file_storage',
+        'data_storage': 'data_storage'
     }
 
-    def __init__(self, asset_count=None, file_storage=None):  # noqa: E501
+    def __init__(self, asset_count=None, file_storage=None, data_storage=None):  # noqa: E501
         """UsageResponse - a model defined in Swagger"""  # noqa: E501
         self._asset_count = None
         self._file_storage = None
+        self._data_storage = None
         self.discriminator = None
         if asset_count is not None:
             self.asset_count = asset_count
         if file_storage is not None:
             self.file_storage = file_storage
+        if data_storage is not None:
+            self.data_storage = data_storage
 
     @property
     def asset_count(self):
@@ -74,7 +79,7 @@ class UsageResponse(object):
     def file_storage(self):
         """Gets the file_storage of this UsageResponse.  # noqa: E501
 
-        Use of storage for this user (in bytes)  # noqa: E501
+        Use of file storage for this user (in bytes)  # noqa: E501
 
         :return: The file_storage of this UsageResponse.  # noqa: E501
         :rtype: int
@@ -85,13 +90,36 @@ class UsageResponse(object):
     def file_storage(self, file_storage):
         """Sets the file_storage of this UsageResponse.
 
-        Use of storage for this user (in bytes)  # noqa: E501
+        Use of file storage for this user (in bytes)  # noqa: E501
 
         :param file_storage: The file_storage of this UsageResponse.  # noqa: E501
         :type: int
         """
 
         self._file_storage = file_storage
+
+    @property
+    def data_storage(self):
+        """Gets the data_storage of this UsageResponse.  # noqa: E501
+
+        Use of data storage for this user (in bytes)  # noqa: E501
+
+        :return: The data_storage of this UsageResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._data_storage
+
+    @data_storage.setter
+    def data_storage(self, data_storage):
+        """Sets the data_storage of this UsageResponse.
+
+        Use of data storage for this user (in bytes)  # noqa: E501
+
+        :param data_storage: The data_storage of this UsageResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._data_storage = data_storage
 
     def to_dict(self):
         """Returns the model properties as a dict"""

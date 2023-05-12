@@ -323,7 +323,7 @@ class SubscriptionResponse(SubscriptionBase):
     def usable(self):
         """Gets the usable of this SubscriptionResponse.  # noqa: E501
 
-        indecates whether the subscription can be used as a user subscription (user is owner or a seat user) in our service applications e.g. Analytics. This information will only be part of the response if scope with value 'USER' is used.  # noqa: E501
+        indicates whether the subscription can be used as a user subscription (user is owner or a seat user) in our service applications e.g. Analytics. This information will only be part of the response if scope with value 'USER' is used.  # noqa: E501
 
         :return: The usable of this SubscriptionResponse.  # noqa: E501
         :rtype: bool
@@ -334,7 +334,7 @@ class SubscriptionResponse(SubscriptionBase):
     def usable(self, usable):
         """Sets the usable of this SubscriptionResponse.
 
-        indecates whether the subscription can be used as a user subscription (user is owner or a seat user) in our service applications e.g. Analytics. This information will only be part of the response if scope with value 'USER' is used.  # noqa: E501
+        indicates whether the subscription can be used as a user subscription (user is owner or a seat user) in our service applications e.g. Analytics. This information will only be part of the response if scope with value 'USER' is used.  # noqa: E501
 
         :param usable: The usable of this SubscriptionResponse.  # noqa: E501
         :type: bool

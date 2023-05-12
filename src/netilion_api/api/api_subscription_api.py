@@ -724,7 +724,7 @@ class APISubscriptionApi(object):
         :param date production_date_to: Expected date format is YYYY-MM-DD
         :param str specifications_key: Filter accepts `*` as wildcard (if used as single specifications filter), supports comma list of keys in connection with specifications_value filter
         :param str specifications_value: Filter accepts `*` as wildcard, supports comma list of values in connection with specifications_key filter. Does not work for vectors
-        :param str node_id: One or multiple ids (comma list). Filter acccepts \"null\" for all assets with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components (nodes, instrumentations and systems), but this is not usable in combination with a comma list.
+        :param str node_id: One or multiple ids (comma list). Filter accepts \"null\" for all assets with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components (nodes, instrumentations and systems), but this is not usable in combination with a comma list.
         :param date created_at: Expected date format is YYYY-MM-DD
         :param str created_at_from: Expected date format is YYYY-MM-DDThh:mm:ss
         :param str created_at_to: Expected date format is YYYY-MM-DDThh:mm:ss
@@ -770,7 +770,7 @@ class APISubscriptionApi(object):
         :param date production_date_to: Expected date format is YYYY-MM-DD
         :param str specifications_key: Filter accepts `*` as wildcard (if used as single specifications filter), supports comma list of keys in connection with specifications_value filter
         :param str specifications_value: Filter accepts `*` as wildcard, supports comma list of values in connection with specifications_key filter. Does not work for vectors
-        :param str node_id: One or multiple ids (comma list). Filter acccepts \"null\" for all assets with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components (nodes, instrumentations and systems), but this is not usable in combination with a comma list.
+        :param str node_id: One or multiple ids (comma list). Filter accepts \"null\" for all assets with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components (nodes, instrumentations and systems), but this is not usable in combination with a comma list.
         :param date created_at: Expected date format is YYYY-MM-DD
         :param str created_at_from: Expected date format is YYYY-MM-DDThh:mm:ss
         :param str created_at_to: Expected date format is YYYY-MM-DDThh:mm:ss

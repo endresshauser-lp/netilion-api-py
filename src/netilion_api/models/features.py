@@ -29,7 +29,7 @@ class Features(object):
     """
     swagger_types = {
         'feature_key': 'str',
-        'options': 'list[Ooptions]'
+        'options': 'list[Options]'
     }
 
     attribute_map = {
@@ -77,7 +77,7 @@ class Features(object):
 
 
         :return: The options of this Features.  # noqa: E501
-        :rtype: list[Ooptions]
+        :rtype: list[Options]
         """
         return self._options
 
@@ -87,7 +87,7 @@ class Features(object):
 
 
         :param options: The options of this Features.  # noqa: E501
-        :type: list[Ooptions]
+        :type: list[Options]
         """
 
         self._options = options

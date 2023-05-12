@@ -143,7 +143,7 @@ class PermissionRequestResponse(object):
     def response_message(self):
         """Gets the response_message of this PermissionRequestResponse.  # noqa: E501
 
-        message of the owner to the requestor  # noqa: E501
+        message of the owner to the requester  # noqa: E501
 
         :return: The response_message of this PermissionRequestResponse.  # noqa: E501
         :rtype: str
@@ -154,7 +154,7 @@ class PermissionRequestResponse(object):
     def response_message(self, response_message):
         """Sets the response_message of this PermissionRequestResponse.
 
-        message of the owner to the requestor  # noqa: E501
+        message of the owner to the requester  # noqa: E501
 
         :param response_message: The response_message of this PermissionRequestResponse.  # noqa: E501
         :type: str

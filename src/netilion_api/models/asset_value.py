@@ -32,7 +32,10 @@ class AssetValue(object):
         'unit': 'NestedID',
         'group': 'str',
         'timestamp': 'str',
-        'value': 'float'
+        'value': 'float',
+        'status': 'str',
+        'simulated': 'bool',
+        'hold': 'bool'
     }
 
     attribute_map = {
@@ -40,16 +43,22 @@ class AssetValue(object):
         'unit': 'unit',
         'group': 'group',
         'timestamp': 'timestamp',
-        'value': 'value'
+        'value': 'value',
+        'status': 'status',
+        'simulated': 'simulated',
+        'hold': 'hold'
     }
 
-    def __init__(self, key=None, unit=None, group=None, timestamp=None, value=None):  # noqa: E501
+    def __init__(self, key=None, unit=None, group=None, timestamp=None, value=None, status=None, simulated=None, hold=None):  # noqa: E501
         """AssetValue - a model defined in Swagger"""  # noqa: E501
         self._key = None
         self._unit = None
         self._group = None
         self._timestamp = None
         self._value = None
+        self._status = None
+        self._simulated = None
+        self._hold = None
         self.discriminator = None
         if key is not None:
             self.key = key
@@ -61,6 +70,12 @@ class AssetValue(object):
             self.timestamp = timestamp
         if value is not None:
             self.value = value
+        if status is not None:
+            self.status = status
+        if simulated is not None:
+            self.simulated = simulated
+        if hold is not None:
+            self.hold = hold
 
     @property
     def key(self):
@@ -174,6 +189,71 @@ class AssetValue(object):
         """
 
         self._value = value
+
+    @property
+    def status(self):
+        """Gets the status of this AssetValue.  # noqa: E501
+
+        Possible values are good, uncertain, bad.  # noqa: E501
+
+        :return: The status of this AssetValue.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this AssetValue.
+
+        Possible values are good, uncertain, bad.  # noqa: E501
+
+        :param status: The status of this AssetValue.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
+
+    @property
+    def simulated(self):
+        """Gets the simulated of this AssetValue.  # noqa: E501
+
+
+        :return: The simulated of this AssetValue.  # noqa: E501
+        :rtype: bool
+        """
+        return self._simulated
+
+    @simulated.setter
+    def simulated(self, simulated):
+        """Sets the simulated of this AssetValue.
+
+
+        :param simulated: The simulated of this AssetValue.  # noqa: E501
+        :type: bool
+        """
+
+        self._simulated = simulated
+
+    @property
+    def hold(self):
+        """Gets the hold of this AssetValue.  # noqa: E501
+
+
+        :return: The hold of this AssetValue.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hold
+
+    @hold.setter
+    def hold(self, hold):
+        """Sets the hold of this AssetValue.
+
+
+        :param hold: The hold of this AssetValue.  # noqa: E501
+        :type: bool
+        """
+
+        self._hold = hold
 
     def to_dict(self):
         """Returns the model properties as a dict"""

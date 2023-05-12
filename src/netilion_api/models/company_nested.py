@@ -48,8 +48,7 @@ class CompanyNested(object):
         self.id = id
         if name is not None:
             self.name = name
-        if href is not None:
-            self.href = href
+        self.href = href
 
     @property
     def id(self):
@@ -119,6 +118,8 @@ class CompanyNested(object):
         :param href: The href of this CompanyNested.  # noqa: E501
         :type: str
         """
+        if href is None:
+            raise ValueError("Invalid value for `href`, must not be `None`")  # noqa: E501
 
         self._href = href
 

@@ -136,7 +136,7 @@ class WebhookEventResponse(object):
     def last_send_at(self):
         """Gets the last_send_at of this WebhookEventResponse.  # noqa: E501
 
-        datewhen webhook event was last send  # noqa: E501
+        date when webhook event was last send  # noqa: E501
 
         :return: The last_send_at of this WebhookEventResponse.  # noqa: E501
         :rtype: str
@@ -147,7 +147,7 @@ class WebhookEventResponse(object):
     def last_send_at(self, last_send_at):
         """Sets the last_send_at of this WebhookEventResponse.
 
-        datewhen webhook event was last send  # noqa: E501
+        date when webhook event was last send  # noqa: E501
 
         :param last_send_at: The last_send_at of this WebhookEventResponse.  # noqa: E501
         :type: str

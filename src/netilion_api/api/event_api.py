@@ -1566,6 +1566,9 @@ class EventApi(object):
         :param date end_datetime_from: Expected date format is YYYY-MM-DDThh:mm:ss
         :param str end_datetime_to: Expected date format is YYYY-MM-DDThh:mm:ss
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
+        :param str asset_id: One or multiple ids (comma list). Expected id format is integer
+        :param str instrumentation_id: One or multiple ids (comma list). Expected id format is integer
+        :param str node_id: One or multiple ids (comma list). Expected id format is integer
         :param str order_by: Order result by attribute value, accepts `start_datetime`, `end_datetime`, `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: EventsResponse
                  If the method is called asynchronously,
@@ -1601,13 +1604,16 @@ class EventApi(object):
         :param date end_datetime_from: Expected date format is YYYY-MM-DDThh:mm:ss
         :param str end_datetime_to: Expected date format is YYYY-MM-DDThh:mm:ss
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
+        :param str asset_id: One or multiple ids (comma list). Expected id format is integer
+        :param str instrumentation_id: One or multiple ids (comma list). Expected id format is integer
+        :param str node_id: One or multiple ids (comma list). Expected id format is integer
         :param str order_by: Order result by attribute value, accepts `start_datetime`, `end_datetime`, `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: EventsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'asset_id', 'instrumentation_id', 'node_id', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1654,6 +1660,12 @@ class EventApi(object):
             query_params.append(('end_datetime_to', params['end_datetime_to']))  # noqa: E501
         if 'tenant_id' in params:
             query_params.append(('tenant_id', params['tenant_id']))  # noqa: E501
+        if 'asset_id' in params:
+            query_params.append(('asset_id', params['asset_id']))  # noqa: E501
+        if 'instrumentation_id' in params:
+            query_params.append(('instrumentation_id', params['instrumentation_id']))  # noqa: E501
+        if 'node_id' in params:
+            query_params.append(('node_id', params['node_id']))  # noqa: E501
         if 'order_by' in params:
             query_params.append(('order_by', params['order_by']))  # noqa: E501
 
@@ -3704,7 +3716,7 @@ class EventApi(object):
     def update_specifications_of_event(self, body, event_id, **kwargs):  # noqa: E501
         """Update specifications of an event  # noqa: E501
 
-        Update the specification object of an event in your accessible scope. To add specifications, just add the key and set the value object with value, unit and source_timestamp. To mark an existing specification to be unknown, the value could be set to null. To delete keys, use the delete method. Multiple specification objects can be sent in the same request. Keys inside a specification are unique and can only be added once. Keys can only consist of a-z A-Z 0-9 . - _ all uppercase A-Z are converted to lower-case a-z. For a key that is send mutliple times in the request body, only the last key-value is saved.  # noqa: E501
+        Update the specification object of an event in your accessible scope. To add specifications, just add the key and set the value object with value, unit and source_timestamp. To mark an existing specification to be unknown, the value could be set to null. To delete keys, use the delete method. Multiple specification objects can be sent in the same request. Keys inside a specification are unique and can only be added once. Keys can only consist of a-z A-Z 0-9 . - _ all uppercase A-Z are converted to lower-case a-z. For a key that is send multiple times in the request body, only the last key-value is saved.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_specifications_of_event(body, event_id, async_req=True)
@@ -3727,7 +3739,7 @@ class EventApi(object):
     def update_specifications_of_event_with_http_info(self, body, event_id, **kwargs):  # noqa: E501
         """Update specifications of an event  # noqa: E501
 
-        Update the specification object of an event in your accessible scope. To add specifications, just add the key and set the value object with value, unit and source_timestamp. To mark an existing specification to be unknown, the value could be set to null. To delete keys, use the delete method. Multiple specification objects can be sent in the same request. Keys inside a specification are unique and can only be added once. Keys can only consist of a-z A-Z 0-9 . - _ all uppercase A-Z are converted to lower-case a-z. For a key that is send mutliple times in the request body, only the last key-value is saved.  # noqa: E501
+        Update the specification object of an event in your accessible scope. To add specifications, just add the key and set the value object with value, unit and source_timestamp. To mark an existing specification to be unknown, the value could be set to null. To delete keys, use the delete method. Multiple specification objects can be sent in the same request. Keys inside a specification are unique and can only be added once. Keys can only consist of a-z A-Z 0-9 . - _ all uppercase A-Z are converted to lower-case a-z. For a key that is send multiple times in the request body, only the last key-value is saved.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_specifications_of_event_with_http_info(body, event_id, async_req=True)

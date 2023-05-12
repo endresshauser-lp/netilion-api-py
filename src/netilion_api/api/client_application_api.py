@@ -1890,7 +1890,7 @@ class ClientApplicationApi(object):
     def get_webhook_events(self, client_application_id, id, **kwargs):  # noqa: E501
         """Get events of a webhook  # noqa: E501
 
-        Get webhook events. Events are the messages that are send to the webhok URL.  # noqa: E501
+        Get webhook events. Events are the messages that are send to the webhook URL.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_webhook_events(client_application_id, id, async_req=True)
@@ -1921,7 +1921,7 @@ class ClientApplicationApi(object):
     def get_webhook_events_with_http_info(self, client_application_id, id, **kwargs):  # noqa: E501
         """Get events of a webhook  # noqa: E501
 
-        Get webhook events. Events are the messages that are send to the webhok URL.  # noqa: E501
+        Get webhook events. Events are the messages that are send to the webhook URL.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_webhook_events_with_http_info(client_application_id, id, async_req=True)

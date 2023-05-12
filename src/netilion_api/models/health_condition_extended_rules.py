@@ -65,7 +65,7 @@ class HealthConditionExtendedRules(object):
     def type(self):
         """Gets the type of this HealthConditionExtendedRules.  # noqa: E501
 
-        type of the rule, possible values are 'bit', 'bitarea' and 'channel'  # noqa: E501
+        type of the rule, possible values are 'bit', 'bitarea', 'channel' and 'integer'  # noqa: E501
 
         :return: The type of this HealthConditionExtendedRules.  # noqa: E501
         :rtype: str
@@ -76,7 +76,7 @@ class HealthConditionExtendedRules(object):
     def type(self, type):
         """Sets the type of this HealthConditionExtendedRules.
 
-        type of the rule, possible values are 'bit', 'bitarea' and 'channel'  # noqa: E501
+        type of the rule, possible values are 'bit', 'bitarea', 'channel' and 'integer'  # noqa: E501
 
         :param type: The type of this HealthConditionExtendedRules.  # noqa: E501
         :type: str
@@ -90,6 +90,7 @@ class HealthConditionExtendedRules(object):
     def bit(self):
         """Gets the bit of this HealthConditionExtendedRules.  # noqa: E501
 
+        needed for rule of type 'bit'  # noqa: E501
 
         :return: The bit of this HealthConditionExtendedRules.  # noqa: E501
         :rtype: int
@@ -100,6 +101,7 @@ class HealthConditionExtendedRules(object):
     def bit(self, bit):
         """Sets the bit of this HealthConditionExtendedRules.
 
+        needed for rule of type 'bit'  # noqa: E501
 
         :param bit: The bit of this HealthConditionExtendedRules.  # noqa: E501
         :type: int
@@ -111,6 +113,7 @@ class HealthConditionExtendedRules(object):
     def start_bit(self):
         """Gets the start_bit of this HealthConditionExtendedRules.  # noqa: E501
 
+        needed for rule of type 'bitarea'  # noqa: E501
 
         :return: The start_bit of this HealthConditionExtendedRules.  # noqa: E501
         :rtype: int
@@ -121,6 +124,7 @@ class HealthConditionExtendedRules(object):
     def start_bit(self, start_bit):
         """Sets the start_bit of this HealthConditionExtendedRules.
 
+        needed for rule of type 'bitarea'  # noqa: E501
 
         :param start_bit: The start_bit of this HealthConditionExtendedRules.  # noqa: E501
         :type: int
@@ -132,6 +136,7 @@ class HealthConditionExtendedRules(object):
     def end_bit(self):
         """Gets the end_bit of this HealthConditionExtendedRules.  # noqa: E501
 
+        needed for rule of type 'bitarea'  # noqa: E501
 
         :return: The end_bit of this HealthConditionExtendedRules.  # noqa: E501
         :rtype: int
@@ -142,6 +147,7 @@ class HealthConditionExtendedRules(object):
     def end_bit(self, end_bit):
         """Sets the end_bit of this HealthConditionExtendedRules.
 
+        needed for rule of type 'bitarea'  # noqa: E501
 
         :param end_bit: The end_bit of this HealthConditionExtendedRules.  # noqa: E501
         :type: int
@@ -153,6 +159,7 @@ class HealthConditionExtendedRules(object):
     def value(self):
         """Gets the value of this HealthConditionExtendedRules.  # noqa: E501
 
+        needed for rules of type 'bitarea', 'channel', 'integer'  # noqa: E501
 
         :return: The value of this HealthConditionExtendedRules.  # noqa: E501
         :rtype: int
@@ -163,6 +170,7 @@ class HealthConditionExtendedRules(object):
     def value(self, value):
         """Sets the value of this HealthConditionExtendedRules.
 
+        needed for rules of type 'bitarea', 'channel', 'integer'  # noqa: E501
 
         :param value: The value of this HealthConditionExtendedRules.  # noqa: E501
         :type: int

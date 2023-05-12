@@ -3095,7 +3095,7 @@ class DocumentApi(object):
     def replace_categories_of_document(self, body, document_id, **kwargs):  # noqa: E501
         """Replace the categories of a document  # noqa: E501
 
-        Replaces all categories belonging to a document. You can send a list of resoucres that will replace all previous values.  # noqa: E501
+        Replaces all categories belonging to a document. You can send a list of resources that will replace all previous values.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.replace_categories_of_document(body, document_id, async_req=True)
@@ -3118,7 +3118,7 @@ class DocumentApi(object):
     def replace_categories_of_document_with_http_info(self, body, document_id, **kwargs):  # noqa: E501
         """Replace the categories of a document  # noqa: E501
 
-        Replaces all categories belonging to a document. You can send a list of resoucres that will replace all previous values.  # noqa: E501
+        Replaces all categories belonging to a document. You can send a list of resources that will replace all previous values.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.replace_categories_of_document_with_http_info(body, document_id, async_req=True)

@@ -31,6 +31,7 @@ class UserAddressRequest(AddressBase):
     swagger_types = {
         'first_name': 'str',
         'last_name': 'str',
+        'email': 'str',
         'vat_number': 'str'
     }
     if hasattr(AddressBase, "swagger_types"):
@@ -39,21 +40,25 @@ class UserAddressRequest(AddressBase):
     attribute_map = {
         'first_name': 'first_name',
         'last_name': 'last_name',
+        'email': 'email',
         'vat_number': 'vat_number'
     }
     if hasattr(AddressBase, "attribute_map"):
         attribute_map.update(AddressBase.attribute_map)
 
-    def __init__(self, first_name=None, last_name=None, vat_number=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, first_name=None, last_name=None, email=None, vat_number=None, *args, **kwargs):  # noqa: E501
         """UserAddressRequest - a model defined in Swagger"""  # noqa: E501
         self._first_name = None
         self._last_name = None
+        self._email = None
         self._vat_number = None
         self.discriminator = None
         if first_name is not None:
             self.first_name = first_name
         if last_name is not None:
             self.last_name = last_name
+        if email is not None:
+            self.email = email
         if vat_number is not None:
             self.vat_number = vat_number
         AddressBase.__init__(self, *args, **kwargs)
@@ -103,6 +108,29 @@ class UserAddressRequest(AddressBase):
         """
 
         self._last_name = last_name
+
+    @property
+    def email(self):
+        """Gets the email of this UserAddressRequest.  # noqa: E501
+
+        email  # noqa: E501
+
+        :return: The email of this UserAddressRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._email
+
+    @email.setter
+    def email(self, email):
+        """Sets the email of this UserAddressRequest.
+
+        email  # noqa: E501
+
+        :param email: The email of this UserAddressRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._email = email
 
     @property
     def vat_number(self):

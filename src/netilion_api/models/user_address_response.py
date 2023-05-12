@@ -29,23 +29,33 @@ class UserAddressResponse(AddressBase):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'country_name': 'str'
+        'country_name': 'str',
+        'email': 'str',
+        'vat_number': 'str'
     }
     if hasattr(AddressBase, "swagger_types"):
         swagger_types.update(AddressBase.swagger_types)
 
     attribute_map = {
-        'country_name': 'country_name'
+        'country_name': 'country_name',
+        'email': 'email',
+        'vat_number': 'vat_number'
     }
     if hasattr(AddressBase, "attribute_map"):
         attribute_map.update(AddressBase.attribute_map)
 
-    def __init__(self, country_name=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, country_name=None, email=None, vat_number=None, *args, **kwargs):  # noqa: E501
         """UserAddressResponse - a model defined in Swagger"""  # noqa: E501
         self._country_name = None
+        self._email = None
+        self._vat_number = None
         self.discriminator = None
         if country_name is not None:
             self.country_name = country_name
+        if email is not None:
+            self.email = email
+        if vat_number is not None:
+            self.vat_number = vat_number
         AddressBase.__init__(self, *args, **kwargs)
 
     @property
@@ -70,6 +80,52 @@ class UserAddressResponse(AddressBase):
         """
 
         self._country_name = country_name
+
+    @property
+    def email(self):
+        """Gets the email of this UserAddressResponse.  # noqa: E501
+
+        email  # noqa: E501
+
+        :return: The email of this UserAddressResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._email
+
+    @email.setter
+    def email(self, email):
+        """Sets the email of this UserAddressResponse.
+
+        email  # noqa: E501
+
+        :param email: The email of this UserAddressResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._email = email
+
+    @property
+    def vat_number(self):
+        """Gets the vat_number of this UserAddressResponse.  # noqa: E501
+
+        value added tax identification number.  # noqa: E501
+
+        :return: The vat_number of this UserAddressResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._vat_number
+
+    @vat_number.setter
+    def vat_number(self, vat_number):
+        """Sets the vat_number of this UserAddressResponse.
+
+        value added tax identification number.  # noqa: E501
+
+        :param vat_number: The vat_number of this UserAddressResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._vat_number = vat_number
 
     def to_dict(self):
         """Returns the model properties as a dict"""

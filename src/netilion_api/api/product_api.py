@@ -4749,7 +4749,7 @@ class ProductApi(object):
     def get_spare_parts_of_product(self, product_id, **kwargs):  # noqa: E501
         """Get all spare parts of a product  # noqa: E501
 
-        Returns a list of spare pasrts assigned to the specified product. You can apply the query parameters listed below to get a filtered list. Parameters supporting translation: ```name, description```. To get a translation set Accept-Language.  # noqa: E501
+        Returns a list of spare parts assigned to the specified product. You can apply the query parameters listed below to get a filtered list. Parameters supporting translation: ```name, description```. To get a translation set Accept-Language.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_spare_parts_of_product(product_id, async_req=True)
@@ -4781,7 +4781,7 @@ class ProductApi(object):
     def get_spare_parts_of_product_with_http_info(self, product_id, **kwargs):  # noqa: E501
         """Get all spare parts of a product  # noqa: E501
 
-        Returns a list of spare pasrts assigned to the specified product. You can apply the query parameters listed below to get a filtered list. Parameters supporting translation: ```name, description```. To get a translation set Accept-Language.  # noqa: E501
+        Returns a list of spare parts assigned to the specified product. You can apply the query parameters listed below to get a filtered list. Parameters supporting translation: ```name, description```. To get a translation set Accept-Language.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_spare_parts_of_product_with_http_info(product_id, async_req=True)

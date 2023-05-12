@@ -247,9 +247,9 @@ class DeliveryApi(object):
             collection_formats=collection_formats)
 
     def add_purchase_orders_to_delivery(self, body, delivery_id, **kwargs):  # noqa: E501
-        """Add all purchase oders to a delivery  # noqa: E501
+        """Add all purchase orders to a delivery  # noqa: E501
 
-        Add one or more all purchase oders to a delivery.  # noqa: E501
+        Add one or more all purchase orders to a delivery.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_purchase_orders_to_delivery(body, delivery_id, async_req=True)
@@ -257,7 +257,7 @@ class DeliveryApi(object):
 
         :param async_req bool
         :param PurchaseOrderIDs body: Resources that shall be added. (required)
-        :param int delivery_id: Id of the delivery to which the all purchase oders will be added (required)
+        :param int delivery_id: Id of the delivery to which the all purchase orders will be added (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -270,9 +270,9 @@ class DeliveryApi(object):
             return data
 
     def add_purchase_orders_to_delivery_with_http_info(self, body, delivery_id, **kwargs):  # noqa: E501
-        """Add all purchase oders to a delivery  # noqa: E501
+        """Add all purchase orders to a delivery  # noqa: E501
 
-        Add one or more all purchase oders to a delivery.  # noqa: E501
+        Add one or more all purchase orders to a delivery.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.add_purchase_orders_to_delivery_with_http_info(body, delivery_id, async_req=True)
@@ -280,7 +280,7 @@ class DeliveryApi(object):
 
         :param async_req bool
         :param PurchaseOrderIDs body: Resources that shall be added. (required)
-        :param int delivery_id: Id of the delivery to which the all purchase oders will be added (required)
+        :param int delivery_id: Id of the delivery to which the all purchase orders will be added (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.

@@ -33,6 +33,11 @@ class SubscriptionBase(object):
         'external_reference': 'str',
         'status': 'str',
         'notification_status': 'str',
+        'asset_notification_status': 'str',
+        'file_storage_notification_status': 'str',
+        'data_storage_notification_status': 'str',
+        'data_storage_notification_status_updated_at': 'str',
+        'file_storage_notification_status_updated_at': 'str',
         'customer_purchase_order': 'str',
         'start_date': 'str',
         'end_date': 'str',
@@ -44,6 +49,7 @@ class SubscriptionBase(object):
         'number_assigned_assets': 'int',
         'asset_quota': 'int',
         'storage_quota': 'int',
+        'data_storage_quota': 'int',
         'seat_quota': 'int',
         'force_mfa': 'bool',
         'reseller_label': 'str'
@@ -55,6 +61,11 @@ class SubscriptionBase(object):
         'external_reference': 'external_reference',
         'status': 'status',
         'notification_status': 'notification_status',
+        'asset_notification_status': 'asset_notification_status',
+        'file_storage_notification_status': 'file_storage_notification_status',
+        'data_storage_notification_status': 'data_storage_notification_status',
+        'data_storage_notification_status_updated_at': 'data_storage_notification_status_updated_at',
+        'file_storage_notification_status_updated_at': 'file_storage_notification_status_updated_at',
         'customer_purchase_order': 'customer_purchase_order',
         'start_date': 'start_date',
         'end_date': 'end_date',
@@ -66,6 +77,7 @@ class SubscriptionBase(object):
         'number_assigned_assets': 'number_assigned_assets',
         'asset_quota': 'asset_quota',
         'storage_quota': 'storage_quota',
+        'data_storage_quota': 'data_storage_quota',
         'seat_quota': 'seat_quota',
         'force_mfa': 'force_mfa',
         'reseller_label': 'reseller_label'
@@ -75,13 +87,18 @@ class SubscriptionBase(object):
           'SubscriptionResponse': 'SubscriptionResponse',
 'SubscriptionRequest': 'SubscriptionRequest'    }
 
-    def __init__(self, display_name=None, description=None, external_reference=None, status=None, notification_status=None, customer_purchase_order=None, start_date=None, end_date=None, billed_until=None, trial_end_date=None, cancelled_at=None, external_user_reference=None, external_plan_variant_reference=None, number_assigned_assets=None, asset_quota=None, storage_quota=None, seat_quota=None, force_mfa=None, reseller_label=None):  # noqa: E501
+    def __init__(self, display_name=None, description=None, external_reference=None, status=None, notification_status=None, asset_notification_status=None, file_storage_notification_status=None, data_storage_notification_status=None, data_storage_notification_status_updated_at=None, file_storage_notification_status_updated_at=None, customer_purchase_order=None, start_date=None, end_date=None, billed_until=None, trial_end_date=None, cancelled_at=None, external_user_reference=None, external_plan_variant_reference=None, number_assigned_assets=None, asset_quota=None, storage_quota=None, data_storage_quota=None, seat_quota=None, force_mfa=None, reseller_label=None):  # noqa: E501
         """SubscriptionBase - a model defined in Swagger"""  # noqa: E501
         self._display_name = None
         self._description = None
         self._external_reference = None
         self._status = None
         self._notification_status = None
+        self._asset_notification_status = None
+        self._file_storage_notification_status = None
+        self._data_storage_notification_status = None
+        self._data_storage_notification_status_updated_at = None
+        self._file_storage_notification_status_updated_at = None
         self._customer_purchase_order = None
         self._start_date = None
         self._end_date = None
@@ -93,6 +110,7 @@ class SubscriptionBase(object):
         self._number_assigned_assets = None
         self._asset_quota = None
         self._storage_quota = None
+        self._data_storage_quota = None
         self._seat_quota = None
         self._force_mfa = None
         self._reseller_label = None
@@ -107,6 +125,16 @@ class SubscriptionBase(object):
             self.status = status
         if notification_status is not None:
             self.notification_status = notification_status
+        if asset_notification_status is not None:
+            self.asset_notification_status = asset_notification_status
+        if file_storage_notification_status is not None:
+            self.file_storage_notification_status = file_storage_notification_status
+        if data_storage_notification_status is not None:
+            self.data_storage_notification_status = data_storage_notification_status
+        if data_storage_notification_status_updated_at is not None:
+            self.data_storage_notification_status_updated_at = data_storage_notification_status_updated_at
+        if file_storage_notification_status_updated_at is not None:
+            self.file_storage_notification_status_updated_at = file_storage_notification_status_updated_at
         if customer_purchase_order is not None:
             self.customer_purchase_order = customer_purchase_order
         if start_date is not None:
@@ -129,6 +157,8 @@ class SubscriptionBase(object):
             self.asset_quota = asset_quota
         if storage_quota is not None:
             self.storage_quota = storage_quota
+        if data_storage_quota is not None:
+            self.data_storage_quota = data_storage_quota
         if seat_quota is not None:
             self.seat_quota = seat_quota
         if force_mfa is not None:
@@ -186,7 +216,7 @@ class SubscriptionBase(object):
     def external_reference(self):
         """Gets the external_reference of this SubscriptionBase.  # noqa: E501
 
-        can be used to store id of external subscription managment system  # noqa: E501
+        can be used to store id of external subscription management system  # noqa: E501
 
         :return: The external_reference of this SubscriptionBase.  # noqa: E501
         :rtype: str
@@ -197,7 +227,7 @@ class SubscriptionBase(object):
     def external_reference(self, external_reference):
         """Sets the external_reference of this SubscriptionBase.
 
-        can be used to store id of external subscription managment system  # noqa: E501
+        can be used to store id of external subscription management system  # noqa: E501
 
         :param external_reference: The external_reference of this SubscriptionBase.  # noqa: E501
         :type: str
@@ -250,6 +280,121 @@ class SubscriptionBase(object):
         """
 
         self._notification_status = notification_status
+
+    @property
+    def asset_notification_status(self):
+        """Gets the asset_notification_status of this SubscriptionBase.  # noqa: E501
+
+        specific status of the mail notification for the asset limitation in the subscription, can be no_notification, first_notification, second_notification or alert_notification  # noqa: E501
+
+        :return: The asset_notification_status of this SubscriptionBase.  # noqa: E501
+        :rtype: str
+        """
+        return self._asset_notification_status
+
+    @asset_notification_status.setter
+    def asset_notification_status(self, asset_notification_status):
+        """Sets the asset_notification_status of this SubscriptionBase.
+
+        specific status of the mail notification for the asset limitation in the subscription, can be no_notification, first_notification, second_notification or alert_notification  # noqa: E501
+
+        :param asset_notification_status: The asset_notification_status of this SubscriptionBase.  # noqa: E501
+        :type: str
+        """
+
+        self._asset_notification_status = asset_notification_status
+
+    @property
+    def file_storage_notification_status(self):
+        """Gets the file_storage_notification_status of this SubscriptionBase.  # noqa: E501
+
+        specific status of the mail notification for the file storage limitation in the subscription, can be no_notification, first_notification, second_notification or alert_notification  # noqa: E501
+
+        :return: The file_storage_notification_status of this SubscriptionBase.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_storage_notification_status
+
+    @file_storage_notification_status.setter
+    def file_storage_notification_status(self, file_storage_notification_status):
+        """Sets the file_storage_notification_status of this SubscriptionBase.
+
+        specific status of the mail notification for the file storage limitation in the subscription, can be no_notification, first_notification, second_notification or alert_notification  # noqa: E501
+
+        :param file_storage_notification_status: The file_storage_notification_status of this SubscriptionBase.  # noqa: E501
+        :type: str
+        """
+
+        self._file_storage_notification_status = file_storage_notification_status
+
+    @property
+    def data_storage_notification_status(self):
+        """Gets the data_storage_notification_status of this SubscriptionBase.  # noqa: E501
+
+        status of the mail notification for the data storage limitation in the subscription, can be no_notification, first_notification, second_notification or alert_notification  # noqa: E501
+
+        :return: The data_storage_notification_status of this SubscriptionBase.  # noqa: E501
+        :rtype: str
+        """
+        return self._data_storage_notification_status
+
+    @data_storage_notification_status.setter
+    def data_storage_notification_status(self, data_storage_notification_status):
+        """Sets the data_storage_notification_status of this SubscriptionBase.
+
+        status of the mail notification for the data storage limitation in the subscription, can be no_notification, first_notification, second_notification or alert_notification  # noqa: E501
+
+        :param data_storage_notification_status: The data_storage_notification_status of this SubscriptionBase.  # noqa: E501
+        :type: str
+        """
+
+        self._data_storage_notification_status = data_storage_notification_status
+
+    @property
+    def data_storage_notification_status_updated_at(self):
+        """Gets the data_storage_notification_status_updated_at of this SubscriptionBase.  # noqa: E501
+
+        last date when data_storage_notification_status was changed  # noqa: E501
+
+        :return: The data_storage_notification_status_updated_at of this SubscriptionBase.  # noqa: E501
+        :rtype: str
+        """
+        return self._data_storage_notification_status_updated_at
+
+    @data_storage_notification_status_updated_at.setter
+    def data_storage_notification_status_updated_at(self, data_storage_notification_status_updated_at):
+        """Sets the data_storage_notification_status_updated_at of this SubscriptionBase.
+
+        last date when data_storage_notification_status was changed  # noqa: E501
+
+        :param data_storage_notification_status_updated_at: The data_storage_notification_status_updated_at of this SubscriptionBase.  # noqa: E501
+        :type: str
+        """
+
+        self._data_storage_notification_status_updated_at = data_storage_notification_status_updated_at
+
+    @property
+    def file_storage_notification_status_updated_at(self):
+        """Gets the file_storage_notification_status_updated_at of this SubscriptionBase.  # noqa: E501
+
+        last date when file_storage_notification_status was changed  # noqa: E501
+
+        :return: The file_storage_notification_status_updated_at of this SubscriptionBase.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_storage_notification_status_updated_at
+
+    @file_storage_notification_status_updated_at.setter
+    def file_storage_notification_status_updated_at(self, file_storage_notification_status_updated_at):
+        """Sets the file_storage_notification_status_updated_at of this SubscriptionBase.
+
+        last date when file_storage_notification_status was changed  # noqa: E501
+
+        :param file_storage_notification_status_updated_at: The file_storage_notification_status_updated_at of this SubscriptionBase.  # noqa: E501
+        :type: str
+        """
+
+        self._file_storage_notification_status_updated_at = file_storage_notification_status_updated_at
 
     @property
     def customer_purchase_order(self):
@@ -393,7 +538,7 @@ class SubscriptionBase(object):
     def external_user_reference(self):
         """Gets the external_user_reference of this SubscriptionBase.  # noqa: E501
 
-        can be used to store user id of external subscription managment system  # noqa: E501
+        can be used to store user id of external subscription management system  # noqa: E501
 
         :return: The external_user_reference of this SubscriptionBase.  # noqa: E501
         :rtype: str
@@ -404,7 +549,7 @@ class SubscriptionBase(object):
     def external_user_reference(self, external_user_reference):
         """Sets the external_user_reference of this SubscriptionBase.
 
-        can be used to store user id of external subscription managment system  # noqa: E501
+        can be used to store user id of external subscription management system  # noqa: E501
 
         :param external_user_reference: The external_user_reference of this SubscriptionBase.  # noqa: E501
         :type: str
@@ -416,7 +561,7 @@ class SubscriptionBase(object):
     def external_plan_variant_reference(self):
         """Gets the external_plan_variant_reference of this SubscriptionBase.  # noqa: E501
 
-        can be used to store paln variant of external subscription managment system  # noqa: E501
+        can be used to store plan variant of external subscription management system  # noqa: E501
 
         :return: The external_plan_variant_reference of this SubscriptionBase.  # noqa: E501
         :rtype: str
@@ -427,7 +572,7 @@ class SubscriptionBase(object):
     def external_plan_variant_reference(self, external_plan_variant_reference):
         """Sets the external_plan_variant_reference of this SubscriptionBase.
 
-        can be used to store paln variant of external subscription managment system  # noqa: E501
+        can be used to store plan variant of external subscription management system  # noqa: E501
 
         :param external_plan_variant_reference: The external_plan_variant_reference of this SubscriptionBase.  # noqa: E501
         :type: str
@@ -485,7 +630,7 @@ class SubscriptionBase(object):
     def storage_quota(self):
         """Gets the storage_quota of this SubscriptionBase.  # noqa: E501
 
-        number of bought storage (in bytes)  # noqa: E501
+        size of bought file storage (in bytes)  # noqa: E501
 
         :return: The storage_quota of this SubscriptionBase.  # noqa: E501
         :rtype: int
@@ -496,13 +641,36 @@ class SubscriptionBase(object):
     def storage_quota(self, storage_quota):
         """Sets the storage_quota of this SubscriptionBase.
 
-        number of bought storage (in bytes)  # noqa: E501
+        size of bought file storage (in bytes)  # noqa: E501
 
         :param storage_quota: The storage_quota of this SubscriptionBase.  # noqa: E501
         :type: int
         """
 
         self._storage_quota = storage_quota
+
+    @property
+    def data_storage_quota(self):
+        """Gets the data_storage_quota of this SubscriptionBase.  # noqa: E501
+
+        size of bought data storage (in bytes)  # noqa: E501
+
+        :return: The data_storage_quota of this SubscriptionBase.  # noqa: E501
+        :rtype: int
+        """
+        return self._data_storage_quota
+
+    @data_storage_quota.setter
+    def data_storage_quota(self, data_storage_quota):
+        """Sets the data_storage_quota of this SubscriptionBase.
+
+        size of bought data storage (in bytes)  # noqa: E501
+
+        :param data_storage_quota: The data_storage_quota of this SubscriptionBase.  # noqa: E501
+        :type: int
+        """
+
+        self._data_storage_quota = data_storage_quota
 
     @property
     def seat_quota(self):

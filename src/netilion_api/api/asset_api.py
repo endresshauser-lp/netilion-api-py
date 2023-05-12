@@ -784,7 +784,7 @@ class AssetApi(object):
     def create_asset(self, body, **kwargs):  # noqa: E501
         """Create a new asset  # noqa: E501
 
-        Create a new asset. An asset is an instance of a product and therefore needs to refer to one when creating it. The serialnumber of the given asset needs to be unique within the products manufacturer scope. The asset will not be created when this constraint is violated. The user gains `can_read`, `can_update`, `can_delete`, `can_permit` per default on the newly created asset. To assign a parent asset the user needs `can_permit` permission on the parent.  # noqa: E501
+        Create a new asset. An asset is an instance of a product and therefore needs to refer to one when creating it. The serial number of the given asset needs to be unique within the products manufacturer scope. The asset will not be created when this constraint is violated. The user gains `can_read`, `can_update`, `can_delete`, `can_permit` per default on the newly created asset. To assign a parent asset the user needs `can_permit` permission on the parent.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_asset(body, async_req=True)
@@ -806,7 +806,7 @@ class AssetApi(object):
     def create_asset_with_http_info(self, body, **kwargs):  # noqa: E501
         """Create a new asset  # noqa: E501
 
-        Create a new asset. An asset is an instance of a product and therefore needs to refer to one when creating it. The serialnumber of the given asset needs to be unique within the products manufacturer scope. The asset will not be created when this constraint is violated. The user gains `can_read`, `can_update`, `can_delete`, `can_permit` per default on the newly created asset. To assign a parent asset the user needs `can_permit` permission on the parent.  # noqa: E501
+        Create a new asset. An asset is an instance of a product and therefore needs to refer to one when creating it. The serial number of the given asset needs to be unique within the products manufacturer scope. The asset will not be created when this constraint is violated. The user gains `can_read`, `can_update`, `can_delete`, `can_permit` per default on the newly created asset. To assign a parent asset the user needs `can_permit` permission on the parent.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_asset_with_http_info(body, async_req=True)
@@ -883,7 +883,7 @@ class AssetApi(object):
     def create_asset_container(self, body, id, **kwargs):  # noqa: E501
         """Create an export for a standard container  # noqa: E501
 
-        Creates a data export for asset container, currenty only the VDI 2770 standard is supported  # noqa: E501
+        Creates a data export for asset container, currently only the VDI 2770 standard is supported  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_asset_container(body, id, async_req=True)
@@ -906,7 +906,7 @@ class AssetApi(object):
     def create_asset_container_with_http_info(self, body, id, **kwargs):  # noqa: E501
         """Create an export for a standard container  # noqa: E501
 
-        Creates a data export for asset container, currenty only the VDI 2770 standard is supported  # noqa: E501
+        Creates a data export for asset container, currently only the VDI 2770 standard is supported  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_asset_container_with_http_info(body, id, async_req=True)
@@ -987,10 +987,117 @@ class AssetApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def create_asset_schedule(self, body, asset_id, **kwargs):  # noqa: E501
+        """Create a schedule for an asset  # noqa: E501
+
+        Create a new schedule for an asset.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_asset_schedule(body, asset_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AssetScheduleRequest body: Schedule of the asset (required)
+        :param int asset_id: Id of the specified asset (required)
+        :return: AssetScheduleResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_asset_schedule_with_http_info(body, asset_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_asset_schedule_with_http_info(body, asset_id, **kwargs)  # noqa: E501
+            return data
+
+    def create_asset_schedule_with_http_info(self, body, asset_id, **kwargs):  # noqa: E501
+        """Create a schedule for an asset  # noqa: E501
+
+        Create a new schedule for an asset.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_asset_schedule_with_http_info(body, asset_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AssetScheduleRequest body: Schedule of the asset (required)
+        :param int asset_id: Id of the specified asset (required)
+        :return: AssetScheduleResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'asset_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_asset_schedule" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `create_asset_schedule`")  # noqa: E501
+        # verify the required parameter 'asset_id' is set
+        if ('asset_id' not in params or
+                params['asset_id'] is None):
+            raise ValueError("Missing the required parameter `asset_id` when calling `create_asset_schedule`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'asset_id' in params:
+            path_params['asset_id'] = params['asset_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/assets/{asset_id}/schedules', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AssetScheduleResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def create_asset_value_objects(self, body, asset_id, **kwargs):  # noqa: E501
         """Create asset value objects  # noqa: E501
 
-        Store value objects measured by an asset. For performance reasons, this endpoint behaves somewhat differently than normal endpoints:  * The data passed to this endpoint is processed asynchronously. * This endpoint always returns an empty response with status 204 No Content. * The data will be validated during processing. Invalid data will be dropped silently. * The request size is limited to 500kb, requests larger then 500kb will get an \"413 Payload Too Large\" error.  Data validations and manipultation:    * Keys can only consist of the charaters [a-z A-Z 0-9 . - _ ].   * Keys will be converted to lower case strings.   * Keys must be between 1 and 128 characters long.   * The timestamp is not mandatory and will be set to the time the value was transmitted to the server (This only works if the value objects get transfered one at a time, if you send multiple value objects without timestamp at once, all value objects will get the same timestamp and there for only the last one will be stored)  Difference to path /assets/{asset_id}/values is that the values given here are json objects and not numeric values, the json objects can have any structure.  # noqa: E501
+        Store value objects measured by an asset. For performance reasons, this endpoint behaves somewhat differently than normal endpoints:  * The data passed to this endpoint is processed asynchronously. * This endpoint always returns an empty response with status 204 No Content. * The data will be validated during processing. Invalid data will be dropped silently. * The request size is limited to 500kb, requests larger then 500kb will get an \"413 Payload Too Large\" error.  Data validations and manipulation:    * Keys can only consist of the characters [a-z A-Z 0-9 . - _ ].   * Keys will be converted to lower case strings.   * Keys must be between 1 and 128 characters long.   * The timestamp is not mandatory and will be set to the time the value was transmitted to the server (This only works if the value objects get transferred one at a time, if you send multiple value objects without timestamp at once, all value objects will get the same timestamp and there for only the last one will be stored)  Difference to path /assets/{asset_id}/values is that the values given here are json objects and not numeric values, the json objects can have any structure.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_asset_value_objects(body, asset_id, async_req=True)
@@ -1013,7 +1120,7 @@ class AssetApi(object):
     def create_asset_value_objects_with_http_info(self, body, asset_id, **kwargs):  # noqa: E501
         """Create asset value objects  # noqa: E501
 
-        Store value objects measured by an asset. For performance reasons, this endpoint behaves somewhat differently than normal endpoints:  * The data passed to this endpoint is processed asynchronously. * This endpoint always returns an empty response with status 204 No Content. * The data will be validated during processing. Invalid data will be dropped silently. * The request size is limited to 500kb, requests larger then 500kb will get an \"413 Payload Too Large\" error.  Data validations and manipultation:    * Keys can only consist of the charaters [a-z A-Z 0-9 . - _ ].   * Keys will be converted to lower case strings.   * Keys must be between 1 and 128 characters long.   * The timestamp is not mandatory and will be set to the time the value was transmitted to the server (This only works if the value objects get transfered one at a time, if you send multiple value objects without timestamp at once, all value objects will get the same timestamp and there for only the last one will be stored)  Difference to path /assets/{asset_id}/values is that the values given here are json objects and not numeric values, the json objects can have any structure.  # noqa: E501
+        Store value objects measured by an asset. For performance reasons, this endpoint behaves somewhat differently than normal endpoints:  * The data passed to this endpoint is processed asynchronously. * This endpoint always returns an empty response with status 204 No Content. * The data will be validated during processing. Invalid data will be dropped silently. * The request size is limited to 500kb, requests larger then 500kb will get an \"413 Payload Too Large\" error.  Data validations and manipulation:    * Keys can only consist of the characters [a-z A-Z 0-9 . - _ ].   * Keys will be converted to lower case strings.   * Keys must be between 1 and 128 characters long.   * The timestamp is not mandatory and will be set to the time the value was transmitted to the server (This only works if the value objects get transferred one at a time, if you send multiple value objects without timestamp at once, all value objects will get the same timestamp and there for only the last one will be stored)  Difference to path /assets/{asset_id}/values is that the values given here are json objects and not numeric values, the json objects can have any structure.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_asset_value_objects_with_http_info(body, asset_id, async_req=True)
@@ -1097,7 +1204,7 @@ class AssetApi(object):
     def create_asset_values(self, body, asset_id, **kwargs):  # noqa: E501
         """Create asset values  # noqa: E501
 
-        Store values measured by an asset. For performance reasons, this endpoint behaves somewhat differently than normal endpoints:  * The data passed to this endpoint is processed asynchronously. * This endpoint always returns an empty response with status 204 No Content. * The data will be validated during processing. Invalid data will be dropped silently. * The request size is limited to 500kb, requests larger then 500kb will get an \"413 Payload Too Large\" error.  Data validations and manipultation:    * Keys and groups can only consist of the charaters [a-z A-Z 0-9 . - _ ].   * Keys and groups will be converted to lower case strings.   * Keys and groups must be between 1 and 128 characters long.   * Units can be passed as id or code. See the units endpoint for all available units.   * The timestamp is not mandatory and will be set to the time the value was transmitted to the server (This only works if the values get transfered one at a time, if you send multiple values without timestamp at once, all values will get the same timestamp and there for only the last one will be stored)  # noqa: E501
+        Store values measured by an asset. For performance reasons, this endpoint behaves somewhat differently than normal endpoints:  * The data passed to this endpoint is processed asynchronously. * This endpoint always returns an empty response with status 204 No Content. * The data will be validated during processing. Invalid data will be dropped silently. * The request size is limited to 500kb, requests larger then 500kb will get an \"413 Payload Too Large\" error.  Data validations and manipulation:    * Keys and groups can only consist of the characters [a-z A-Z 0-9 . - _ ].   * Keys and groups will be converted to lower case strings.   * Keys and groups must be between 1 and 128 characters long.   * Units can be passed as id or code. See the units endpoint for all available units.   * The timestamp is not mandatory and will be set to the time the value was transmitted to the server (This only works if the values get transferred one at a time, if you send multiple values without timestamp at once, all values will get the same timestamp and there for only the last one will be stored)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_asset_values(body, asset_id, async_req=True)
@@ -1120,7 +1227,7 @@ class AssetApi(object):
     def create_asset_values_with_http_info(self, body, asset_id, **kwargs):  # noqa: E501
         """Create asset values  # noqa: E501
 
-        Store values measured by an asset. For performance reasons, this endpoint behaves somewhat differently than normal endpoints:  * The data passed to this endpoint is processed asynchronously. * This endpoint always returns an empty response with status 204 No Content. * The data will be validated during processing. Invalid data will be dropped silently. * The request size is limited to 500kb, requests larger then 500kb will get an \"413 Payload Too Large\" error.  Data validations and manipultation:    * Keys and groups can only consist of the charaters [a-z A-Z 0-9 . - _ ].   * Keys and groups will be converted to lower case strings.   * Keys and groups must be between 1 and 128 characters long.   * Units can be passed as id or code. See the units endpoint for all available units.   * The timestamp is not mandatory and will be set to the time the value was transmitted to the server (This only works if the values get transfered one at a time, if you send multiple values without timestamp at once, all values will get the same timestamp and there for only the last one will be stored)  # noqa: E501
+        Store values measured by an asset. For performance reasons, this endpoint behaves somewhat differently than normal endpoints:  * The data passed to this endpoint is processed asynchronously. * This endpoint always returns an empty response with status 204 No Content. * The data will be validated during processing. Invalid data will be dropped silently. * The request size is limited to 500kb, requests larger then 500kb will get an \"413 Payload Too Large\" error.  Data validations and manipulation:    * Keys and groups can only consist of the characters [a-z A-Z 0-9 . - _ ].   * Keys and groups will be converted to lower case strings.   * Keys and groups must be between 1 and 128 characters long.   * Units can be passed as id or code. See the units endpoint for all available units.   * The timestamp is not mandatory and will be set to the time the value was transmitted to the server (This only works if the values get transferred one at a time, if you send multiple values without timestamp at once, all values will get the same timestamp and there for only the last one will be stored)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_asset_values_with_http_info(body, asset_id, async_req=True)
@@ -1492,6 +1599,109 @@ class AssetApi(object):
 
         return self.api_client.call_api(
             '/assets/{asset_id}/pictures/{id}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_asset_schedule(self, asset_id, id, **kwargs):  # noqa: E501
+        """Delete an asset schedule  # noqa: E501
+
+        Delete an asset schedule.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_asset_schedule(asset_id, id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int asset_id: Id of the specified asset (required)
+        :param int id: Id of the schedule (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_asset_schedule_with_http_info(asset_id, id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_asset_schedule_with_http_info(asset_id, id, **kwargs)  # noqa: E501
+            return data
+
+    def delete_asset_schedule_with_http_info(self, asset_id, id, **kwargs):  # noqa: E501
+        """Delete an asset schedule  # noqa: E501
+
+        Delete an asset schedule.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_asset_schedule_with_http_info(asset_id, id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int asset_id: Id of the specified asset (required)
+        :param int id: Id of the schedule (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['asset_id', 'id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_asset_schedule" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'asset_id' is set
+        if ('asset_id' not in params or
+                params['asset_id'] is None):
+            raise ValueError("Missing the required parameter `asset_id` when calling `delete_asset_schedule`")  # noqa: E501
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `delete_asset_schedule`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'asset_id' in params:
+            path_params['asset_id'] = params['asset_id']  # noqa: E501
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/assets/{asset_id}/schedules/{id}', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -2204,117 +2414,6 @@ class AssetApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_asset_history(self, asset_id, **kwargs):  # noqa: E501
-        """Get the history of an asset  # noqa: E501
-
-        Returns a collection of historical values of the asset identified by the id in the URL. Specifications are not included.   With the filter parameters from and to, it is possible to receive the history of a defined time period   Define the from with a ```+``` in front of the date the previous values is part of the collection (+2018-06-21T14:45:23).   Define the to with a ```+``` at the end of the date the next values is part of the collection (2018-06-21T14:45:23+).  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_asset_history(asset_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int asset_id: The resource defined in the URL (required)
-        :param str attribute: limit history to changes of a specific attribute e.g status or serial_number
-        :param date _from: Start date filter for history values. Starting with ```+``` will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Ending with ```+``` will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param str order_by: Order result by attribute value, accepts `datetime`, add `-` as a prefix for descending order.
-        :return: AssetHistoryResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_asset_history_with_http_info(asset_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_asset_history_with_http_info(asset_id, **kwargs)  # noqa: E501
-            return data
-
-    def get_asset_history_with_http_info(self, asset_id, **kwargs):  # noqa: E501
-        """Get the history of an asset  # noqa: E501
-
-        Returns a collection of historical values of the asset identified by the id in the URL. Specifications are not included.   With the filter parameters from and to, it is possible to receive the history of a defined time period   Define the from with a ```+``` in front of the date the previous values is part of the collection (+2018-06-21T14:45:23).   Define the to with a ```+``` at the end of the date the next values is part of the collection (2018-06-21T14:45:23+).  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_asset_history_with_http_info(asset_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int asset_id: The resource defined in the URL (required)
-        :param str attribute: limit history to changes of a specific attribute e.g status or serial_number
-        :param date _from: Start date filter for history values. Starting with ```+``` will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Ending with ```+``` will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param str order_by: Order result by attribute value, accepts `datetime`, add `-` as a prefix for descending order.
-        :return: AssetHistoryResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['asset_id', 'attribute', '_from', 'to', 'order_by']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_asset_history" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'asset_id' is set
-        if ('asset_id' not in params or
-                params['asset_id'] is None):
-            raise ValueError("Missing the required parameter `asset_id` when calling `get_asset_history`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'asset_id' in params:
-            path_params['asset_id'] = params['asset_id']  # noqa: E501
-
-        query_params = []
-        if 'attribute' in params:
-            query_params.append(('attribute', params['attribute']))  # noqa: E501
-        if '_from' in params:
-            query_params.append(('from', params['_from']))  # noqa: E501
-        if 'to' in params:
-            query_params.append(('to', params['to']))  # noqa: E501
-        if 'order_by' in params:
-            query_params.append(('order_by', params['order_by']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/assets/{asset_id}/history', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AssetHistoryResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def get_asset_id_status(self, asset_id, **kwargs):  # noqa: E501
         """Get the status of the specific asset  # noqa: E501
 
@@ -2776,6 +2875,220 @@ class AssetApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='Products',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_asset_schedule(self, asset_id, id, **kwargs):  # noqa: E501
+        """Get an asset schedule  # noqa: E501
+
+        Get an asset schedule.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_asset_schedule(asset_id, id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int asset_id: Id of the asset (required)
+        :param int id: Id of the schedule (required)
+        :return: AssetScheduleResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_asset_schedule_with_http_info(asset_id, id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_asset_schedule_with_http_info(asset_id, id, **kwargs)  # noqa: E501
+            return data
+
+    def get_asset_schedule_with_http_info(self, asset_id, id, **kwargs):  # noqa: E501
+        """Get an asset schedule  # noqa: E501
+
+        Get an asset schedule.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_asset_schedule_with_http_info(asset_id, id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int asset_id: Id of the asset (required)
+        :param int id: Id of the schedule (required)
+        :return: AssetScheduleResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['asset_id', 'id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_asset_schedule" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'asset_id' is set
+        if ('asset_id' not in params or
+                params['asset_id'] is None):
+            raise ValueError("Missing the required parameter `asset_id` when calling `get_asset_schedule`")  # noqa: E501
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `get_asset_schedule`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'asset_id' in params:
+            path_params['asset_id'] = params['asset_id']  # noqa: E501
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/assets/{asset_id}/schedules/{id}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AssetScheduleResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_asset_status_history(self, asset_id, **kwargs):  # noqa: E501
+        """Get the status history of an asset  # noqa: E501
+
+        Returns the collection of historical asset status values.   With the filter parameters from and to, it is possible to receive the history of a defined time period   Define the from with a ```+``` in front of the date the previous values is part of the collection (+2018-06-21T14:45:23).   Define the to with a ```+``` at the end of the date the next values is part of the collection (2018-06-21T14:45:23+).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_asset_status_history(asset_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int asset_id: The resource defined in the URL (required)
+        :param date _from: Start date filter for history values. Starting with ```+``` will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date for history values. Ending with ```+``` will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str order_by: Order result by attribute value, accepts `timestamp`, add `-` as a prefix for descending order.
+        :param str accept_language: The client's accepted languages. One or several (e.g. fr,de,en)
+        :return: AssetStatusHistoryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_asset_status_history_with_http_info(asset_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_asset_status_history_with_http_info(asset_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_asset_status_history_with_http_info(self, asset_id, **kwargs):  # noqa: E501
+        """Get the status history of an asset  # noqa: E501
+
+        Returns the collection of historical asset status values.   With the filter parameters from and to, it is possible to receive the history of a defined time period   Define the from with a ```+``` in front of the date the previous values is part of the collection (+2018-06-21T14:45:23).   Define the to with a ```+``` at the end of the date the next values is part of the collection (2018-06-21T14:45:23+).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_asset_status_history_with_http_info(asset_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int asset_id: The resource defined in the URL (required)
+        :param date _from: Start date filter for history values. Starting with ```+``` will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date for history values. Ending with ```+``` will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str order_by: Order result by attribute value, accepts `timestamp`, add `-` as a prefix for descending order.
+        :param str accept_language: The client's accepted languages. One or several (e.g. fr,de,en)
+        :return: AssetStatusHistoryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['asset_id', '_from', 'to', 'order_by', 'accept_language']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_asset_status_history" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'asset_id' is set
+        if ('asset_id' not in params or
+                params['asset_id'] is None):
+            raise ValueError("Missing the required parameter `asset_id` when calling `get_asset_status_history`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'asset_id' in params:
+            path_params['asset_id'] = params['asset_id']  # noqa: E501
+
+        query_params = []
+        if '_from' in params:
+            query_params.append(('from', params['_from']))  # noqa: E501
+        if 'to' in params:
+            query_params.append(('to', params['to']))  # noqa: E501
+        if 'order_by' in params:
+            query_params.append(('order_by', params['order_by']))  # noqa: E501
+
+        header_params = {}
+        if 'accept_language' in params:
+            header_params['Accept-Language'] = params['accept_language']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/assets/{asset_id}/history/status', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AssetStatusHistoryResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3299,11 +3612,15 @@ class AssetApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
+        :param str status: Status of the value. Possible values are good, uncertain, bad.
+        :param bool hold:
+        :param bool simulated:
         :param str order_by: Order result by attribute value, accepts `timestamp`, add `-` as a prefix for descending order. Default ordering is the order the values were entered in.
         :return: AssetKeyValuesResponse
                  If the method is called asynchronously,
@@ -3332,18 +3649,22 @@ class AssetApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
+        :param str status: Status of the value. Possible values are good, uncertain, bad.
+        :param bool hold:
+        :param bool simulated:
         :param str order_by: Order result by attribute value, accepts `timestamp`, add `-` as a prefix for descending order. Default ordering is the order the values were entered in.
         :return: AssetKeyValuesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'key', 'page', 'per_page', 'include', 'use_preferred_units', '_from', 'to', 'unit_id', 'aggregation', 'interval', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'key', 'page', 'per_page', 'include', 'use_preferred_units', 'include_total_count', '_from', 'to', 'unit_id', 'aggregation', 'interval', 'status', 'hold', 'simulated', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3384,6 +3705,8 @@ class AssetApi(object):
             query_params.append(('include', params['include']))  # noqa: E501
         if 'use_preferred_units' in params:
             query_params.append(('use_preferred_units', params['use_preferred_units']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if '_from' in params:
             query_params.append(('from', params['_from']))  # noqa: E501
         if 'to' in params:
@@ -3394,6 +3717,12 @@ class AssetApi(object):
             query_params.append(('aggregation', params['aggregation']))  # noqa: E501
         if 'interval' in params:
             query_params.append(('interval', params['interval']))  # noqa: E501
+        if 'status' in params:
+            query_params.append(('status', params['status']))  # noqa: E501
+        if 'hold' in params:
+            query_params.append(('hold', params['hold']))  # noqa: E501
+        if 'simulated' in params:
+            query_params.append(('simulated', params['simulated']))  # noqa: E501
         if 'order_by' in params:
             query_params.append(('order_by', params['order_by']))  # noqa: E501
 
@@ -3429,7 +3758,7 @@ class AssetApi(object):
     def get_assets(self, **kwargs):  # noqa: E501
         """Get a range of assets  # noqa: E501
 
-        Returns a list of assets in your accessible scope. You can apply the query parameters listed below to get a filtered list. Possible include values: ```status, tenant, parent, pictures, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit, product, product.manufacturer, product.pictures, product.status, product.categories, product.categories.parent, product.tenant, product.manufacturer.tenant, status.tenant, instrumentations, systems, systems.recipe,  systems.specifications, systems.batches_in_execution, specifications, specifications[key1,key2], product.specifications, product.specifications[key1,key2], instrumentations.status, instrumentations.type, instrumentations.worst_asset_status,  instrumentations.specifications, instrumentations.specifications[key1,key2] add_ons```  # noqa: E501
+        Returns a list of assets in your accessible scope. You can apply the query parameters listed below to get a filtered list. Possible include values: ```status, tenant, parent, pictures, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit, product, product.manufacturer, product.pictures, product.status, product.categories, product.categories.parent, product.tenant, product.manufacturer.tenant, status.tenant, instrumentations, systems, systems.recipe,  systems.specifications, systems.batches_in_execution, specifications, specifications[key1,key2], product.specifications, product.specifications[key1,key2], instrumentations.status, instrumentations.type, instrumentations.worst_asset_status,  instrumentations.specifications, instrumentations.specifications[key1,key2] add_ons in_subscription```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_assets(async_req=True)
@@ -3455,7 +3784,7 @@ class AssetApi(object):
         :param date production_date_to: Expected date format is YYYY-MM-DD
         :param str specifications_key: Filter accepts `*` as wildcard (if used as single specifications filter), supports comma list of keys in connection with specifications_value filter
         :param str specifications_value: Filter accepts `*` as wildcard, supports comma list of values in connection with specifications_key filter. Does not work for vectors
-        :param str node_id: One or multiple ids (comma list). Filter acccepts \"null\" for all assets with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components (nodes, instrumentations and systems), but this is not usable in combination with a comma list.
+        :param str node_id: One or multiple ids (comma list). Filter accepts \"null\" for all assets with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components (nodes, instrumentations and systems), but this is not usable in combination with a comma list.
         :param str instrumentation_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no instrumentations assigned or \"!null\" for any assigned instrumentation
         :param str system_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no systems assigned or \"!null\" for any assigned system
         :param date created_at: Expected date format is YYYY-MM-DD
@@ -3481,7 +3810,7 @@ class AssetApi(object):
     def get_assets_with_http_info(self, **kwargs):  # noqa: E501
         """Get a range of assets  # noqa: E501
 
-        Returns a list of assets in your accessible scope. You can apply the query parameters listed below to get a filtered list. Possible include values: ```status, tenant, parent, pictures, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit, product, product.manufacturer, product.pictures, product.status, product.categories, product.categories.parent, product.tenant, product.manufacturer.tenant, status.tenant, instrumentations, systems, systems.recipe,  systems.specifications, systems.batches_in_execution, specifications, specifications[key1,key2], product.specifications, product.specifications[key1,key2], instrumentations.status, instrumentations.type, instrumentations.worst_asset_status,  instrumentations.specifications, instrumentations.specifications[key1,key2] add_ons```  # noqa: E501
+        Returns a list of assets in your accessible scope. You can apply the query parameters listed below to get a filtered list. Possible include values: ```status, tenant, parent, pictures, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit, product, product.manufacturer, product.pictures, product.status, product.categories, product.categories.parent, product.tenant, product.manufacturer.tenant, status.tenant, instrumentations, systems, systems.recipe,  systems.specifications, systems.batches_in_execution, specifications, specifications[key1,key2], product.specifications, product.specifications[key1,key2], instrumentations.status, instrumentations.type, instrumentations.worst_asset_status,  instrumentations.specifications, instrumentations.specifications[key1,key2] add_ons in_subscription```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_assets_with_http_info(async_req=True)
@@ -3507,7 +3836,7 @@ class AssetApi(object):
         :param date production_date_to: Expected date format is YYYY-MM-DD
         :param str specifications_key: Filter accepts `*` as wildcard (if used as single specifications filter), supports comma list of keys in connection with specifications_value filter
         :param str specifications_value: Filter accepts `*` as wildcard, supports comma list of values in connection with specifications_key filter. Does not work for vectors
-        :param str node_id: One or multiple ids (comma list). Filter acccepts \"null\" for all assets with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components (nodes, instrumentations and systems), but this is not usable in combination with a comma list.
+        :param str node_id: One or multiple ids (comma list). Filter accepts \"null\" for all assets with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components (nodes, instrumentations and systems), but this is not usable in combination with a comma list.
         :param str instrumentation_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no instrumentations assigned or \"!null\" for any assigned instrumentation
         :param str system_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no systems assigned or \"!null\" for any assigned system
         :param date created_at: Expected date format is YYYY-MM-DD
@@ -3630,6 +3959,105 @@ class AssetApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='AssetsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_assetschedules(self, asset_id, **kwargs):  # noqa: E501
+        """Get all schedules of an asset  # noqa: E501
+
+        Returns the list of all asset schedules.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_assetschedules(asset_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int asset_id: The resource defined in the URL (required)
+        :param str schedule_type: Filter by schedule type. Accepts `heartbeat_verification`
+        :return: AssetSchedulesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_assetschedules_with_http_info(asset_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_assetschedules_with_http_info(asset_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_assetschedules_with_http_info(self, asset_id, **kwargs):  # noqa: E501
+        """Get all schedules of an asset  # noqa: E501
+
+        Returns the list of all asset schedules.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_assetschedules_with_http_info(asset_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int asset_id: The resource defined in the URL (required)
+        :param str schedule_type: Filter by schedule type. Accepts `heartbeat_verification`
+        :return: AssetSchedulesResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['asset_id', 'schedule_type']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_assetschedules" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'asset_id' is set
+        if ('asset_id' not in params or
+                params['asset_id'] is None):
+            raise ValueError("Missing the required parameter `asset_id` when calling `get_assetschedules`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'asset_id' in params:
+            path_params['asset_id'] = params['asset_id']  # noqa: E501
+
+        query_params = []
+        if 'schedule_type' in params:
+            query_params.append(('schedule_type', params['schedule_type']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/assets/{asset_id}/schedules', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AssetSchedulesResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7053,6 +7481,228 @@ class AssetApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='PictureResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_asset_schedule(self, body, asset_id, id, **kwargs):  # noqa: E501
+        """Update an asset schedule  # noqa: E501
+
+        Update an asset schedule.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_asset_schedule(body, asset_id, id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AssetScheduleRequest body: Resources that shall be updated (required)
+        :param int asset_id: Id of the asset (required)
+        :param int id: Id of the schedule (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_asset_schedule_with_http_info(body, asset_id, id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_asset_schedule_with_http_info(body, asset_id, id, **kwargs)  # noqa: E501
+            return data
+
+    def update_asset_schedule_with_http_info(self, body, asset_id, id, **kwargs):  # noqa: E501
+        """Update an asset schedule  # noqa: E501
+
+        Update an asset schedule.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_asset_schedule_with_http_info(body, asset_id, id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AssetScheduleRequest body: Resources that shall be updated (required)
+        :param int asset_id: Id of the asset (required)
+        :param int id: Id of the schedule (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'asset_id', 'id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_asset_schedule" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `update_asset_schedule`")  # noqa: E501
+        # verify the required parameter 'asset_id' is set
+        if ('asset_id' not in params or
+                params['asset_id'] is None):
+            raise ValueError("Missing the required parameter `asset_id` when calling `update_asset_schedule`")  # noqa: E501
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `update_asset_schedule`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'asset_id' in params:
+            path_params['asset_id'] = params['asset_id']  # noqa: E501
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/assets/{asset_id}/schedules/{id}', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_asset_status_history(self, body, asset_id, **kwargs):  # noqa: E501
+        """Update the status history of an asset  # noqa: E501
+
+        Update the status history of an asset . An array with several asset status and timestamp combinations. * The data passed to this endpoint is processed asynchronously. * This endpoint always returns an empty response with status 204 No Content. * The data will be validated during processing. Invalid data will be dropped silently. * The request size is limited to 500kb, requests larger then 500kb will get an \"413 Payload Too Large\" error. * Timestamp must be after the creation date of the asset  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_asset_status_history(body, asset_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AssetStatusHistoryRequest body: Asset status history to update. (required)
+        :param int asset_id: The resource defined in the URL (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_asset_status_history_with_http_info(body, asset_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_asset_status_history_with_http_info(body, asset_id, **kwargs)  # noqa: E501
+            return data
+
+    def update_asset_status_history_with_http_info(self, body, asset_id, **kwargs):  # noqa: E501
+        """Update the status history of an asset  # noqa: E501
+
+        Update the status history of an asset . An array with several asset status and timestamp combinations. * The data passed to this endpoint is processed asynchronously. * This endpoint always returns an empty response with status 204 No Content. * The data will be validated during processing. Invalid data will be dropped silently. * The request size is limited to 500kb, requests larger then 500kb will get an \"413 Payload Too Large\" error. * Timestamp must be after the creation date of the asset  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_asset_status_history_with_http_info(body, asset_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AssetStatusHistoryRequest body: Asset status history to update. (required)
+        :param int asset_id: The resource defined in the URL (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'asset_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_asset_status_history" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `update_asset_status_history`")  # noqa: E501
+        # verify the required parameter 'asset_id' is set
+        if ('asset_id' not in params or
+                params['asset_id'] is None):
+            raise ValueError("Missing the required parameter `asset_id` when calling `update_asset_status_history`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'asset_id' in params:
+            path_params['asset_id'] = params['asset_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/assets/{asset_id}/history/status', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

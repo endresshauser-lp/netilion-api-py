@@ -39,8 +39,7 @@ class Link(object):
         """Link - a model defined in Swagger"""  # noqa: E501
         self._href = None
         self.discriminator = None
-        if href is not None:
-            self.href = href
+        self.href = href
 
     @property
     def href(self):
@@ -62,6 +61,8 @@ class Link(object):
         :param href: The href of this Link.  # noqa: E501
         :type: str
         """
+        if href is None:
+            raise ValueError("Invalid value for `href`, must not be `None`")  # noqa: E501
 
         self._href = href
 

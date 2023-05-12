@@ -196,7 +196,7 @@ class APISubscriptionBase(object):
     def external_reference(self):
         """Gets the external_reference of this APISubscriptionBase.  # noqa: E501
 
-        can be used to store id of external api subscription managment system  # noqa: E501
+        can be used to store id of external api subscription management system  # noqa: E501
 
         :return: The external_reference of this APISubscriptionBase.  # noqa: E501
         :rtype: str
@@ -207,7 +207,7 @@ class APISubscriptionBase(object):
     def external_reference(self, external_reference):
         """Sets the external_reference of this APISubscriptionBase.
 
-        can be used to store id of external api subscription managment system  # noqa: E501
+        can be used to store id of external api subscription management system  # noqa: E501
 
         :param external_reference: The external_reference of this APISubscriptionBase.  # noqa: E501
         :type: str
@@ -380,7 +380,7 @@ class APISubscriptionBase(object):
     def external_user_reference(self):
         """Gets the external_user_reference of this APISubscriptionBase.  # noqa: E501
 
-        can be used to store user id of external api subscription managment system  # noqa: E501
+        can be used to store user id of external api subscription management system  # noqa: E501
 
         :return: The external_user_reference of this APISubscriptionBase.  # noqa: E501
         :rtype: str
@@ -391,7 +391,7 @@ class APISubscriptionBase(object):
     def external_user_reference(self, external_user_reference):
         """Sets the external_user_reference of this APISubscriptionBase.
 
-        can be used to store user id of external api subscription managment system  # noqa: E501
+        can be used to store user id of external api subscription management system  # noqa: E501
 
         :param external_user_reference: The external_user_reference of this APISubscriptionBase.  # noqa: E501
         :type: str
@@ -403,7 +403,7 @@ class APISubscriptionBase(object):
     def external_plan_variant_reference(self):
         """Gets the external_plan_variant_reference of this APISubscriptionBase.  # noqa: E501
 
-        can be used to store paln variant of external api subscription managment system  # noqa: E501
+        can be used to store plan variant of external api subscription management system  # noqa: E501
 
         :return: The external_plan_variant_reference of this APISubscriptionBase.  # noqa: E501
         :rtype: str
@@ -414,7 +414,7 @@ class APISubscriptionBase(object):
     def external_plan_variant_reference(self, external_plan_variant_reference):
         """Sets the external_plan_variant_reference of this APISubscriptionBase.
 
-        can be used to store paln variant of external api subscription managment system  # noqa: E501
+        can be used to store plan variant of external api subscription management system  # noqa: E501
 
         :param external_plan_variant_reference: The external_plan_variant_reference of this APISubscriptionBase.  # noqa: E501
         :type: str

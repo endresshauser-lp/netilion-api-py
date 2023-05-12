@@ -567,6 +567,113 @@ class InstrumentationApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def add_notification_to_instrumentation(self, body, instrumentation_id, **kwargs):  # noqa: E501
+        """Add a notification to an instrumentation  # noqa: E501
+
+        Add a notifications to an instrumentation in your accessible scope. This action requires `can_update` permission on the instrumentation. Depending on the event_type, different additional parameters are needed in the request. For the event_type ```health_status``` at least on of the following parameters  are required: ```diagnosis_codes``` (array of strings) and/or ```asset_statuses```  (array of strings of asset status codes)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_notification_to_instrumentation(body, instrumentation_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ResourceNotificationRequest body: Object body of the notification to add. (required)
+        :param int instrumentation_id: Id of the instrumentation to which the notifications will be added (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.add_notification_to_instrumentation_with_http_info(body, instrumentation_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.add_notification_to_instrumentation_with_http_info(body, instrumentation_id, **kwargs)  # noqa: E501
+            return data
+
+    def add_notification_to_instrumentation_with_http_info(self, body, instrumentation_id, **kwargs):  # noqa: E501
+        """Add a notification to an instrumentation  # noqa: E501
+
+        Add a notifications to an instrumentation in your accessible scope. This action requires `can_update` permission on the instrumentation. Depending on the event_type, different additional parameters are needed in the request. For the event_type ```health_status``` at least on of the following parameters  are required: ```diagnosis_codes``` (array of strings) and/or ```asset_statuses```  (array of strings of asset status codes)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_notification_to_instrumentation_with_http_info(body, instrumentation_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ResourceNotificationRequest body: Object body of the notification to add. (required)
+        :param int instrumentation_id: Id of the instrumentation to which the notifications will be added (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'instrumentation_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method add_notification_to_instrumentation" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `add_notification_to_instrumentation`")  # noqa: E501
+        # verify the required parameter 'instrumentation_id' is set
+        if ('instrumentation_id' not in params or
+                params['instrumentation_id'] is None):
+            raise ValueError("Missing the required parameter `instrumentation_id` when calling `add_notification_to_instrumentation`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'instrumentation_id' in params:
+            path_params['instrumentation_id'] = params['instrumentation_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/instrumentations/{instrumentation_id}/notifications', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def create_event_for_instrumentation(self, body, instrumentation_id, **kwargs):  # noqa: E501
         """Create a new event for an instrumentation  # noqa: E501
 
@@ -776,7 +883,7 @@ class InstrumentationApi(object):
     def create_instrumentation_threshold(self, body, instrumentation_id, **kwargs):  # noqa: E501
         """Create an instrumentation threshold  # noqa: E501
 
-        Create a new instrumentation threshold. This action requires ```can_udpate``` permission on the instrumentation.  # noqa: E501
+        Create a new instrumentation threshold. This action requires ```can_update``` permission on the instrumentation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_instrumentation_threshold(body, instrumentation_id, async_req=True)
@@ -799,7 +906,7 @@ class InstrumentationApi(object):
     def create_instrumentation_threshold_with_http_info(self, body, instrumentation_id, **kwargs):  # noqa: E501
         """Create an instrumentation threshold  # noqa: E501
 
-        Create a new instrumentation threshold. This action requires ```can_udpate``` permission on the instrumentation.  # noqa: E501
+        Create a new instrumentation threshold. This action requires ```can_update``` permission on the instrumentation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_instrumentation_threshold_with_http_info(body, instrumentation_id, async_req=True)
@@ -2034,7 +2141,7 @@ class InstrumentationApi(object):
     def get_instrumentation_by_id(self, id, **kwargs):  # noqa: E501
         """Get a single instrumentation  # noqa: E501
 
-        Get a specific instrumentation in your accessible scope, identified by the id in the URL.  Possible include values: ```specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.parent, type.tenant, values, values.unit, values.asset, values_in_preferred_units, values_in_preferred_units.unit, values_in_preferred_units.asset ```   # noqa: E501
+        Get a specific instrumentation in your accessible scope, identified by the id in the URL.  Possible include values: ```assets, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.parent, type.tenant, values, values.unit, values.asset, values_in_preferred_units, values_in_preferred_units.unit, values_in_preferred_units.asset ```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_instrumentation_by_id(id, async_req=True)
@@ -2057,7 +2164,7 @@ class InstrumentationApi(object):
     def get_instrumentation_by_id_with_http_info(self, id, **kwargs):  # noqa: E501
         """Get a single instrumentation  # noqa: E501
 
-        Get a specific instrumentation in your accessible scope, identified by the id in the URL.  Possible include values: ```specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.parent, type.tenant, values, values.unit, values.asset, values_in_preferred_units, values_in_preferred_units.unit, values_in_preferred_units.asset ```   # noqa: E501
+        Get a specific instrumentation in your accessible scope, identified by the id in the URL.  Possible include values: ```assets, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.parent, type.tenant, values, values.unit, values.asset, values_in_preferred_units, values_in_preferred_units.unit, values_in_preferred_units.asset ```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_instrumentation_by_id_with_http_info(id, async_req=True)
@@ -3276,11 +3383,15 @@ class InstrumentationApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
+        :param str status: Status of the value. Possible values are good, uncertain, bad.
+        :param bool hold:
+        :param bool simulated:
         :param str order_by: Order result by attribute value, accepts `timestamp`, add `-` as a prefix for descending order. Default ordering is the order the values were entered in.
         :return: AssetKeyValuesResponse
                  If the method is called asynchronously,
@@ -3309,18 +3420,22 @@ class InstrumentationApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
+        :param str status: Status of the value. Possible values are good, uncertain, bad.
+        :param bool hold:
+        :param bool simulated:
         :param str order_by: Order result by attribute value, accepts `timestamp`, add `-` as a prefix for descending order. Default ordering is the order the values were entered in.
         :return: AssetKeyValuesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'key', 'page', 'per_page', 'include', 'use_preferred_units', '_from', 'to', 'unit_id', 'aggregation', 'interval', 'order_by']  # noqa: E501
+        all_params = ['instrumentation_id', 'key', 'page', 'per_page', 'include', 'use_preferred_units', 'include_total_count', '_from', 'to', 'unit_id', 'aggregation', 'interval', 'status', 'hold', 'simulated', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3361,6 +3476,8 @@ class InstrumentationApi(object):
             query_params.append(('include', params['include']))  # noqa: E501
         if 'use_preferred_units' in params:
             query_params.append(('use_preferred_units', params['use_preferred_units']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if '_from' in params:
             query_params.append(('from', params['_from']))  # noqa: E501
         if 'to' in params:
@@ -3371,6 +3488,12 @@ class InstrumentationApi(object):
             query_params.append(('aggregation', params['aggregation']))  # noqa: E501
         if 'interval' in params:
             query_params.append(('interval', params['interval']))  # noqa: E501
+        if 'status' in params:
+            query_params.append(('status', params['status']))  # noqa: E501
+        if 'hold' in params:
+            query_params.append(('hold', params['hold']))  # noqa: E501
+        if 'simulated' in params:
+            query_params.append(('simulated', params['simulated']))  # noqa: E501
         if 'order_by' in params:
             query_params.append(('order_by', params['order_by']))  # noqa: E501
 
@@ -3406,7 +3529,7 @@ class InstrumentationApi(object):
     def get_instrumentations(self, **kwargs):  # noqa: E501
         """Get a range of instrumentations  # noqa: E501
 
-        Returns a list of instrumentations in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.tenant, type.parent, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit```   # noqa: E501
+        Returns a list of instrumentations in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```assets, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.tenant, type.parent, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_instrumentations(async_req=True)
@@ -3425,8 +3548,8 @@ class InstrumentationApi(object):
         :param str specifications_value: Filter accepts `*` as wildcard, supports comma list of values in connection with specifications_key filter. Does not work for vectors
         :param str criticality: Filter accepts undefined, low, medium or high
         :param str accessibility: Filter accepts undefined, easy, moderate or difficult
-        :param str node_id: One or multiple ids (comma list). Filter acccepts \"null\" for all objects with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components but this is not usable in combination with a comma list.
-        :param str asset_id: One or multiple ids (comma list). Filter acccepts \"null\" for all objects with no assets assigned or \"!null\" for any assigned asset
+        :param str node_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components but this is not usable in combination with a comma list.
+        :param str asset_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no assets assigned or \"!null\" for any assigned asset
         :param str system_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no systems assigned or \"!null\" for any assigned system
         :param str asset_status_id: One or multiple ids (comma list). Expected id format is integer. This retrieves all Instrumentations where at least one of its assets has one of the given statuses.
         :param str permission: Filter by permission of current user. Accepts `can_permit`, `can_delete`, `can_update`, `can_read` (default)
@@ -3445,7 +3568,7 @@ class InstrumentationApi(object):
     def get_instrumentations_with_http_info(self, **kwargs):  # noqa: E501
         """Get a range of instrumentations  # noqa: E501
 
-        Returns a list of instrumentations in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.tenant, type.parent, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit```   # noqa: E501
+        Returns a list of instrumentations in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```assets, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.tenant, type.parent, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_instrumentations_with_http_info(async_req=True)
@@ -3464,8 +3587,8 @@ class InstrumentationApi(object):
         :param str specifications_value: Filter accepts `*` as wildcard, supports comma list of values in connection with specifications_key filter. Does not work for vectors
         :param str criticality: Filter accepts undefined, low, medium or high
         :param str accessibility: Filter accepts undefined, easy, moderate or difficult
-        :param str node_id: One or multiple ids (comma list). Filter acccepts \"null\" for all objects with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components but this is not usable in combination with a comma list.
-        :param str asset_id: One or multiple ids (comma list). Filter acccepts \"null\" for all objects with no assets assigned or \"!null\" for any assigned asset
+        :param str node_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components but this is not usable in combination with a comma list.
+        :param str asset_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no assets assigned or \"!null\" for any assigned asset
         :param str system_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no systems assigned or \"!null\" for any assigned system
         :param str asset_status_id: One or multiple ids (comma list). Expected id format is integer. This retrieves all Instrumentations where at least one of its assets has one of the given statuses.
         :param str permission: Filter by permission of current user. Accepts `can_permit`, `can_delete`, `can_update`, `can_read` (default)
@@ -3690,6 +3813,220 @@ class InstrumentationApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='NodesResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_notification_of_instrumentation(self, instrumentation_id, id, **kwargs):  # noqa: E501
+        """Get a single notification of an Instrumentation  # noqa: E501
+
+        Get a specific notification of an Instrumentation identified by the id in the URL.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_notification_of_instrumentation(instrumentation_id, id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int instrumentation_id: The resource defined in the URL (required)
+        :param int id: Id of the notification (required)
+        :return: ResourceNotificationResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_notification_of_instrumentation_with_http_info(instrumentation_id, id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_notification_of_instrumentation_with_http_info(instrumentation_id, id, **kwargs)  # noqa: E501
+            return data
+
+    def get_notification_of_instrumentation_with_http_info(self, instrumentation_id, id, **kwargs):  # noqa: E501
+        """Get a single notification of an Instrumentation  # noqa: E501
+
+        Get a specific notification of an Instrumentation identified by the id in the URL.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_notification_of_instrumentation_with_http_info(instrumentation_id, id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int instrumentation_id: The resource defined in the URL (required)
+        :param int id: Id of the notification (required)
+        :return: ResourceNotificationResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['instrumentation_id', 'id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_notification_of_instrumentation" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'instrumentation_id' is set
+        if ('instrumentation_id' not in params or
+                params['instrumentation_id'] is None):
+            raise ValueError("Missing the required parameter `instrumentation_id` when calling `get_notification_of_instrumentation`")  # noqa: E501
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `get_notification_of_instrumentation`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'instrumentation_id' in params:
+            path_params['instrumentation_id'] = params['instrumentation_id']  # noqa: E501
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/instrumentations/{instrumentation_id}/notifications/{id}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ResourceNotificationResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_notifications_of_instrumentation(self, instrumentation_id, **kwargs):  # noqa: E501
+        """Get all notifications of an Instrumentation  # noqa: E501
+
+        Returns a list of all notifications that are available in your scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_notifications_of_instrumentation(instrumentation_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int instrumentation_id: The resource defined in the URL (required)
+        :param int page: Page number to load
+        :param int per_page: Number of items to load per page
+        :param bool enabled: Filter accepts true or false
+        :param str event_type: Event type of the notification (e.g. health_status)
+        :return: ResourceNotificationsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_notifications_of_instrumentation_with_http_info(instrumentation_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_notifications_of_instrumentation_with_http_info(instrumentation_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_notifications_of_instrumentation_with_http_info(self, instrumentation_id, **kwargs):  # noqa: E501
+        """Get all notifications of an Instrumentation  # noqa: E501
+
+        Returns a list of all notifications that are available in your scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_notifications_of_instrumentation_with_http_info(instrumentation_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int instrumentation_id: The resource defined in the URL (required)
+        :param int page: Page number to load
+        :param int per_page: Number of items to load per page
+        :param bool enabled: Filter accepts true or false
+        :param str event_type: Event type of the notification (e.g. health_status)
+        :return: ResourceNotificationsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['instrumentation_id', 'page', 'per_page', 'enabled', 'event_type']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_notifications_of_instrumentation" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'instrumentation_id' is set
+        if ('instrumentation_id' not in params or
+                params['instrumentation_id'] is None):
+            raise ValueError("Missing the required parameter `instrumentation_id` when calling `get_notifications_of_instrumentation`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'instrumentation_id' in params:
+            path_params['instrumentation_id'] = params['instrumentation_id']  # noqa: E501
+
+        query_params = []
+        if 'page' in params:
+            query_params.append(('page', params['page']))  # noqa: E501
+        if 'per_page' in params:
+            query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'enabled' in params:
+            query_params.append(('enabled', params['enabled']))  # noqa: E501
+        if 'event_type' in params:
+            query_params.append(('event_type', params['event_type']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/instrumentations/{instrumentation_id}/notifications', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ResourceNotificationsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4158,6 +4495,101 @@ class InstrumentationApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='SystemsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def post_instrumentations_search(self, **kwargs):  # noqa: E501
+        """Returns a range of instrumentations, same as GET /instrumentations, but allows instead URI params uses body  # noqa: E501
+
+        Returns a list of instrumentations in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```assets, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.tenant, type.parent, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit```   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.post_instrumentations_search(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str body: JSON and same as params in GET /instrumentations.
+        :return: InstrumentationsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.post_instrumentations_search_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.post_instrumentations_search_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def post_instrumentations_search_with_http_info(self, **kwargs):  # noqa: E501
+        """Returns a range of instrumentations, same as GET /instrumentations, but allows instead URI params uses body  # noqa: E501
+
+        Returns a list of instrumentations in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```assets, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.tenant, type.parent, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit```   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.post_instrumentations_search_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str body: JSON and same as params in GET /instrumentations.
+        :return: InstrumentationsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method post_instrumentations_search" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/instrumentations/search', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InstrumentationsResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4700,6 +5132,109 @@ class InstrumentationApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def remove_notifications_from_instrumentation(self, instrumentation_id, id, **kwargs):  # noqa: E501
+        """Remove a notification from an instrumentation  # noqa: E501
+
+        Remove a notification from an instrumentation in your accessible scope. This action requires `can_update` permission on the instrumentation.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_notifications_from_instrumentation(instrumentation_id, id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int instrumentation_id: Id of the instrumentation from which the notification will be removed (required)
+        :param int id: Id of the notification to be removed (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.remove_notifications_from_instrumentation_with_http_info(instrumentation_id, id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.remove_notifications_from_instrumentation_with_http_info(instrumentation_id, id, **kwargs)  # noqa: E501
+            return data
+
+    def remove_notifications_from_instrumentation_with_http_info(self, instrumentation_id, id, **kwargs):  # noqa: E501
+        """Remove a notification from an instrumentation  # noqa: E501
+
+        Remove a notification from an instrumentation in your accessible scope. This action requires `can_update` permission on the instrumentation.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_notifications_from_instrumentation_with_http_info(instrumentation_id, id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int instrumentation_id: Id of the instrumentation from which the notification will be removed (required)
+        :param int id: Id of the notification to be removed (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['instrumentation_id', 'id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method remove_notifications_from_instrumentation" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'instrumentation_id' is set
+        if ('instrumentation_id' not in params or
+                params['instrumentation_id'] is None):
+            raise ValueError("Missing the required parameter `instrumentation_id` when calling `remove_notifications_from_instrumentation`")  # noqa: E501
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `remove_notifications_from_instrumentation`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'instrumentation_id' in params:
+            path_params['instrumentation_id'] = params['instrumentation_id']  # noqa: E501
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/instrumentations/{instrumentation_id}/notifications/{id}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def remove_specifications_from_instrumentation(self, body, instrumentation_id, **kwargs):  # noqa: E501
         """Delete specifications of an instrumentation  # noqa: E501
 
@@ -5131,7 +5666,7 @@ class InstrumentationApi(object):
     def replace_documents_of_instrumentation(self, body, instrumentation_id, **kwargs):  # noqa: E501
         """Replace the documents of an instrumentation  # noqa: E501
 
-        Replaces all documents belonging to an instrumentation. You can send a list of resources that will replace all previous values. This action requires `can_udpate` permission on the instrumentation and `can_read` permission on the document.  # noqa: E501
+        Replaces all documents belonging to an instrumentation. You can send a list of resources that will replace all previous values. This action requires `can_update` permission on the instrumentation and `can_read` permission on the document.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.replace_documents_of_instrumentation(body, instrumentation_id, async_req=True)
@@ -5154,7 +5689,7 @@ class InstrumentationApi(object):
     def replace_documents_of_instrumentation_with_http_info(self, body, instrumentation_id, **kwargs):  # noqa: E501
         """Replace the documents of an instrumentation  # noqa: E501
 
-        Replaces all documents belonging to an instrumentation. You can send a list of resources that will replace all previous values. This action requires `can_udpate` permission on the instrumentation and `can_read` permission on the document.  # noqa: E501
+        Replaces all documents belonging to an instrumentation. You can send a list of resources that will replace all previous values. This action requires `can_update` permission on the instrumentation and `can_read` permission on the document.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.replace_documents_of_instrumentation_with_http_info(body, instrumentation_id, async_req=True)
@@ -5328,6 +5863,121 @@ class InstrumentationApi(object):
 
         return self.api_client.call_api(
             '/instrumentations/{instrumentation_id}/nodes', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def replace_notifications_of_instrumentation(self, body, instrumentation_id, id, **kwargs):  # noqa: E501
+        """Update a notification of an instrumentation  # noqa: E501
+
+        Updates a notification belonging to an instrumentation in your accessible scope. This action requires `can_update` permission on the instrumentation. Depending on the event_type, different additional parameters are needed in the request. For the event_type ```health_status``` at least on of the following parameters  are required: ```diagnosis_codes``` (array of strings) and/or ```asset_statuses```  (array of strings)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.replace_notifications_of_instrumentation(body, instrumentation_id, id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ResourceNotificationRequest body: Object body of the notification that will be updated (required)
+        :param int instrumentation_id: Id of the instrumentation of which the notifications will be updated (required)
+        :param int id: Id of the notification to update (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.replace_notifications_of_instrumentation_with_http_info(body, instrumentation_id, id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.replace_notifications_of_instrumentation_with_http_info(body, instrumentation_id, id, **kwargs)  # noqa: E501
+            return data
+
+    def replace_notifications_of_instrumentation_with_http_info(self, body, instrumentation_id, id, **kwargs):  # noqa: E501
+        """Update a notification of an instrumentation  # noqa: E501
+
+        Updates a notification belonging to an instrumentation in your accessible scope. This action requires `can_update` permission on the instrumentation. Depending on the event_type, different additional parameters are needed in the request. For the event_type ```health_status``` at least on of the following parameters  are required: ```diagnosis_codes``` (array of strings) and/or ```asset_statuses```  (array of strings)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.replace_notifications_of_instrumentation_with_http_info(body, instrumentation_id, id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ResourceNotificationRequest body: Object body of the notification that will be updated (required)
+        :param int instrumentation_id: Id of the instrumentation of which the notifications will be updated (required)
+        :param int id: Id of the notification to update (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'instrumentation_id', 'id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method replace_notifications_of_instrumentation" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `replace_notifications_of_instrumentation`")  # noqa: E501
+        # verify the required parameter 'instrumentation_id' is set
+        if ('instrumentation_id' not in params or
+                params['instrumentation_id'] is None):
+            raise ValueError("Missing the required parameter `instrumentation_id` when calling `replace_notifications_of_instrumentation`")  # noqa: E501
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `replace_notifications_of_instrumentation`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'instrumentation_id' in params:
+            path_params['instrumentation_id'] = params['instrumentation_id']  # noqa: E501
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/instrumentations/{instrumentation_id}/notifications/{id}', 'PATCH',
             path_params,
             query_params,
             header_params,

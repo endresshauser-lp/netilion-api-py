@@ -29,23 +29,38 @@ class AssetKeyValuesData(object):
     """
     swagger_types = {
         'timestamp': 'str',
-        'value': 'float'
+        'value': 'float',
+        'status': 'str',
+        'simulated': 'bool',
+        'hold': 'bool'
     }
 
     attribute_map = {
         'timestamp': 'timestamp',
-        'value': 'value'
+        'value': 'value',
+        'status': 'status',
+        'simulated': 'simulated',
+        'hold': 'hold'
     }
 
-    def __init__(self, timestamp=None, value=None):  # noqa: E501
+    def __init__(self, timestamp=None, value=None, status=None, simulated=None, hold=None):  # noqa: E501
         """AssetKeyValuesData - a model defined in Swagger"""  # noqa: E501
         self._timestamp = None
         self._value = None
+        self._status = None
+        self._simulated = None
+        self._hold = None
         self.discriminator = None
         if timestamp is not None:
             self.timestamp = timestamp
         if value is not None:
             self.value = value
+        if status is not None:
+            self.status = status
+        if simulated is not None:
+            self.simulated = simulated
+        if hold is not None:
+            self.hold = hold
 
     @property
     def timestamp(self):
@@ -92,6 +107,71 @@ class AssetKeyValuesData(object):
         """
 
         self._value = value
+
+    @property
+    def status(self):
+        """Gets the status of this AssetKeyValuesData.  # noqa: E501
+
+        Possible values are good, uncertain, bad.  # noqa: E501
+
+        :return: The status of this AssetKeyValuesData.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this AssetKeyValuesData.
+
+        Possible values are good, uncertain, bad.  # noqa: E501
+
+        :param status: The status of this AssetKeyValuesData.  # noqa: E501
+        :type: str
+        """
+
+        self._status = status
+
+    @property
+    def simulated(self):
+        """Gets the simulated of this AssetKeyValuesData.  # noqa: E501
+
+
+        :return: The simulated of this AssetKeyValuesData.  # noqa: E501
+        :rtype: bool
+        """
+        return self._simulated
+
+    @simulated.setter
+    def simulated(self, simulated):
+        """Sets the simulated of this AssetKeyValuesData.
+
+
+        :param simulated: The simulated of this AssetKeyValuesData.  # noqa: E501
+        :type: bool
+        """
+
+        self._simulated = simulated
+
+    @property
+    def hold(self):
+        """Gets the hold of this AssetKeyValuesData.  # noqa: E501
+
+
+        :return: The hold of this AssetKeyValuesData.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hold
+
+    @hold.setter
+    def hold(self, hold):
+        """Sets the hold of this AssetKeyValuesData.
+
+
+        :param hold: The hold of this AssetKeyValuesData.  # noqa: E501
+        :type: bool
+        """
+
+        self._hold = hold
 
     def to_dict(self):
         """Returns the model properties as a dict"""

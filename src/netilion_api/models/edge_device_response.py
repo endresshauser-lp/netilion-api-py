@@ -345,7 +345,7 @@ class EdgeDeviceResponse(EdgeDeviceBase):
     def last_seen_at(self):
         """Gets the last_seen_at of this EdgeDeviceResponse.  # noqa: E501
 
-        timestamp when the edge_device iself has polled the hub the last time. Date format is YYYY-MM-DDThh:mm:ss  # noqa: E501
+        timestamp when the edge_device itself has polled the hub the last time. Date format is YYYY-MM-DDThh:mm:ss  # noqa: E501
 
         :return: The last_seen_at of this EdgeDeviceResponse.  # noqa: E501
         :rtype: str
@@ -356,7 +356,7 @@ class EdgeDeviceResponse(EdgeDeviceBase):
     def last_seen_at(self, last_seen_at):
         """Sets the last_seen_at of this EdgeDeviceResponse.
 
-        timestamp when the edge_device iself has polled the hub the last time. Date format is YYYY-MM-DDThh:mm:ss  # noqa: E501
+        timestamp when the edge_device itself has polled the hub the last time. Date format is YYYY-MM-DDThh:mm:ss  # noqa: E501
 
         :param last_seen_at: The last_seen_at of this EdgeDeviceResponse.  # noqa: E501
         :type: str

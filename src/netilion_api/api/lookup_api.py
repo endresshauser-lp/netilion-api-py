@@ -128,7 +128,7 @@ class LookupApi(object):
             collection_formats=collection_formats)
 
     def eh_product_lookup(self, serial_number, **kwargs):  # noqa: E501
-        """lookup for Endress+Hauser products with asset specific search criterias  # noqa: E501
+        """lookup for Endress+Hauser products with asset specific search criteria  # noqa: E501
 
         Returns an Endress+Hauser product, matching the serial number. The serial number is at least 4 characters long and may include letters, numbers, dashes (-), underscores (_) and backslashes (\\\\).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -150,7 +150,7 @@ class LookupApi(object):
             return data
 
     def eh_product_lookup_with_http_info(self, serial_number, **kwargs):  # noqa: E501
-        """lookup for Endress+Hauser products with asset specific search criterias  # noqa: E501
+        """lookup for Endress+Hauser products with asset specific search criteria  # noqa: E501
 
         Returns an Endress+Hauser product, matching the serial number. The serial number is at least 4 characters long and may include letters, numbers, dashes (-), underscores (_) and backslashes (\\\\).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

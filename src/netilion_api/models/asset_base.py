@@ -42,8 +42,7 @@ class AssetBase(object):
     }
 
     discriminator_value_class_map = {
-          'AssetHistoryBase': 'AssetHistoryBase',
-'AssetRequest': 'AssetRequest',
+          'AssetRequest': 'AssetRequest',
 'AssetResponse': 'AssetResponse'    }
 
     def __init__(self, serial_number=None, description=None, production_date=None, last_seen_at=None):  # noqa: E501

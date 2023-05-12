@@ -42,7 +42,7 @@ class SparePartStatusApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: Id of sparep part status to fetch (required)
+        :param int id: Id of spare part status to fetch (required)
         :param str accept_language: The client's accepted languages. One or several (e.g. fr,de,en)
         :return: SparePartStatusResponse
                  If the method is called asynchronously,
@@ -65,7 +65,7 @@ class SparePartStatusApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int id: Id of sparep part status to fetch (required)
+        :param int id: Id of spare part status to fetch (required)
         :param str accept_language: The client's accepted languages. One or several (e.g. fr,de,en)
         :return: SparePartStatusResponse
                  If the method is called asynchronously,

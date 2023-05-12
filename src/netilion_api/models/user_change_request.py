@@ -106,7 +106,7 @@ class UserChangeRequest(object):
     def disabled(self):
         """Gets the disabled of this UserChangeRequest.  # noqa: E501
 
-        Disables user from acces. Can be set by the user, but cannot be undone without an administrator.  # noqa: E501
+        Disables user from access. Can be set by the user, but cannot be undone without an administrator.  # noqa: E501
 
         :return: The disabled of this UserChangeRequest.  # noqa: E501
         :rtype: bool
@@ -117,7 +117,7 @@ class UserChangeRequest(object):
     def disabled(self, disabled):
         """Sets the disabled of this UserChangeRequest.
 
-        Disables user from acces. Can be set by the user, but cannot be undone without an administrator.  # noqa: E501
+        Disables user from access. Can be set by the user, but cannot be undone without an administrator.  # noqa: E501
 
         :param disabled: The disabled of this UserChangeRequest.  # noqa: E501
         :type: bool

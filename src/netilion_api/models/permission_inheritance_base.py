@@ -83,7 +83,7 @@ class PermissionInheritanceBase(object):
     def inheritance(self):
         """Gets the inheritance of this PermissionInheritanceBase.  # noqa: E501
 
-        define if permission should be inheritated or not  # noqa: E501
+        define if permission should be inherited or not  # noqa: E501
 
         :return: The inheritance of this PermissionInheritanceBase.  # noqa: E501
         :rtype: bool
@@ -94,7 +94,7 @@ class PermissionInheritanceBase(object):
     def inheritance(self, inheritance):
         """Sets the inheritance of this PermissionInheritanceBase.
 
-        define if permission should be inheritated or not  # noqa: E501
+        define if permission should be inherited or not  # noqa: E501
 
         :param inheritance: The inheritance of this PermissionInheritanceBase.  # noqa: E501
         :type: bool

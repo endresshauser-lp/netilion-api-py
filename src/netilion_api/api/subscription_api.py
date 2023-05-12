@@ -668,7 +668,7 @@ class SubscriptionApi(object):
         :param date production_date_to: Expected date format is YYYY-MM-DD
         :param str specifications_key: Filter accepts `*` as wildcard (if used as single specifications filter), supports comma list of keys in connection with specifications_value filter
         :param str specifications_value: Filter accepts `*` as wildcard, supports comma list of values in connection with specifications_key filter. Does not work for vectors
-        :param str node_id: One or multiple ids (comma list). Filter acccepts \"null\" for all assets with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components (nodes, instrumentations and systems), but this is not usable in combination with a comma list.
+        :param str node_id: One or multiple ids (comma list). Filter accepts \"null\" for all assets with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components (nodes, instrumentations and systems), but this is not usable in combination with a comma list.
         :param date created_at: Expected date format is YYYY-MM-DD
         :param str created_at_from: Expected date format is YYYY-MM-DDThh:mm:ss
         :param str created_at_to: Expected date format is YYYY-MM-DDThh:mm:ss
@@ -715,7 +715,7 @@ class SubscriptionApi(object):
         :param date production_date_to: Expected date format is YYYY-MM-DD
         :param str specifications_key: Filter accepts `*` as wildcard (if used as single specifications filter), supports comma list of keys in connection with specifications_value filter
         :param str specifications_value: Filter accepts `*` as wildcard, supports comma list of values in connection with specifications_key filter. Does not work for vectors
-        :param str node_id: One or multiple ids (comma list). Filter acccepts \"null\" for all assets with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components (nodes, instrumentations and systems), but this is not usable in combination with a comma list.
+        :param str node_id: One or multiple ids (comma list). Filter accepts \"null\" for all assets with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components (nodes, instrumentations and systems), but this is not usable in combination with a comma list.
         :param date created_at: Expected date format is YYYY-MM-DD
         :param str created_at_from: Expected date format is YYYY-MM-DDThh:mm:ss
         :param str created_at_to: Expected date format is YYYY-MM-DDThh:mm:ss
@@ -1295,6 +1295,9 @@ class SubscriptionApi(object):
         :param str external_reference: Filter accepts `*` as wildcard
         :param str status: one or multiple statuses (comma list). Allowed values are `open`, `payment_required`, `confirmed`, `scheduled_update`, `non_renewing` and `cancelled`
         :param str notification_status: Filter by notification status - no wildcard support
+        :param str asset_notification_status: Filter by asset notification status - no wildcard support
+        :param str data_storage_notification_status: Filter by data storage notification status - no wildcard support
+        :param str file_storage_notification_status: Filter by file storage notification status - no wildcard support
         :param str specifications_key: Filter accepts `*` as wildcard (if used as single specifications filter), supports comma list of keys in connection with specifications_value filter
         :param str specifications_value: Filter accepts `*` as wildcard, supports comma list of values in connection with specifications_key filter. Does not work for vectors
         :param date start_date: Expected date format is YYYY-MM-DD
@@ -1305,8 +1308,8 @@ class SubscriptionApi(object):
         :param date updated_at: Expected date format is YYYY-MM-DD
         :param str updated_at_from: Expected date format is YYYY-MM-DDThh:mm:ss
         :param str updated_at_to: Expected date format is YYYY-MM-DDThh:mm:ss
-        :param str scope: Filter accepts `RESELLER`, `USER` or `USABLE`.`RESELLER` can be used for reseller users to get subscriptions that they sold to other users. `USER` returns all subscriptions where the user is the owner, is a seat user or has can_read permissions to access the subscription, for a reseller the subscriptions returned from `RESELLER` filter are excluded from the `USER` result. The result of `USER` can include usable and not usable subscriptions. Subscription is marked as usable if it can be used in the applications to access data. `USABLE` filter retruns a subset of the `USER` result which excludes subscriptions that are only visible because of the can_read permission (not usable).
-        :param str reseller_label: Filter accepts `*` as wildcard. Filter acccepts \"null\" for all objects with no reseller label or \"!null\" for all with any reseller label
+        :param str scope: Filter accepts `RESELLER`, `USER` or `USABLE`.`RESELLER` can be used for reseller users to get subscriptions that they sold to other users. `USER` returns all subscriptions where the user is the owner, is a seat user or has can_read permissions to access the subscription, for a reseller the subscriptions returned from `RESELLER` filter are excluded from the `USER` result. The result of `USER` can include usable and not usable subscriptions. Subscription is marked as usable if it can be used in the applications to access data. `USABLE` filter returns a subset of the `USER` result which excludes subscriptions that are only visible because of the can_read permission (not usable).
+        :param str reseller_label: Filter accepts `*` as wildcard. Filter accepts \"null\" for all objects with no reseller label or \"!null\" for all with any reseller label
         :param str customer_id: One or multiple ids (comma list). Expected id format is integer
         :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: SubscriptionsResponse
@@ -1338,6 +1341,9 @@ class SubscriptionApi(object):
         :param str external_reference: Filter accepts `*` as wildcard
         :param str status: one or multiple statuses (comma list). Allowed values are `open`, `payment_required`, `confirmed`, `scheduled_update`, `non_renewing` and `cancelled`
         :param str notification_status: Filter by notification status - no wildcard support
+        :param str asset_notification_status: Filter by asset notification status - no wildcard support
+        :param str data_storage_notification_status: Filter by data storage notification status - no wildcard support
+        :param str file_storage_notification_status: Filter by file storage notification status - no wildcard support
         :param str specifications_key: Filter accepts `*` as wildcard (if used as single specifications filter), supports comma list of keys in connection with specifications_value filter
         :param str specifications_value: Filter accepts `*` as wildcard, supports comma list of values in connection with specifications_key filter. Does not work for vectors
         :param date start_date: Expected date format is YYYY-MM-DD
@@ -1348,8 +1354,8 @@ class SubscriptionApi(object):
         :param date updated_at: Expected date format is YYYY-MM-DD
         :param str updated_at_from: Expected date format is YYYY-MM-DDThh:mm:ss
         :param str updated_at_to: Expected date format is YYYY-MM-DDThh:mm:ss
-        :param str scope: Filter accepts `RESELLER`, `USER` or `USABLE`.`RESELLER` can be used for reseller users to get subscriptions that they sold to other users. `USER` returns all subscriptions where the user is the owner, is a seat user or has can_read permissions to access the subscription, for a reseller the subscriptions returned from `RESELLER` filter are excluded from the `USER` result. The result of `USER` can include usable and not usable subscriptions. Subscription is marked as usable if it can be used in the applications to access data. `USABLE` filter retruns a subset of the `USER` result which excludes subscriptions that are only visible because of the can_read permission (not usable).
-        :param str reseller_label: Filter accepts `*` as wildcard. Filter acccepts \"null\" for all objects with no reseller label or \"!null\" for all with any reseller label
+        :param str scope: Filter accepts `RESELLER`, `USER` or `USABLE`.`RESELLER` can be used for reseller users to get subscriptions that they sold to other users. `USER` returns all subscriptions where the user is the owner, is a seat user or has can_read permissions to access the subscription, for a reseller the subscriptions returned from `RESELLER` filter are excluded from the `USER` result. The result of `USER` can include usable and not usable subscriptions. Subscription is marked as usable if it can be used in the applications to access data. `USABLE` filter returns a subset of the `USER` result which excludes subscriptions that are only visible because of the can_read permission (not usable).
+        :param str reseller_label: Filter accepts `*` as wildcard. Filter accepts \"null\" for all objects with no reseller label or \"!null\" for all with any reseller label
         :param str customer_id: One or multiple ids (comma list). Expected id format is integer
         :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: SubscriptionsResponse
@@ -1357,7 +1363,7 @@ class SubscriptionApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'include', 'user_id', 'client_application_id', 'external_reference', 'status', 'notification_status', 'specifications_key', 'specifications_value', 'start_date', 'end_date', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'scope', 'reseller_label', 'customer_id', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include', 'user_id', 'client_application_id', 'external_reference', 'status', 'notification_status', 'asset_notification_status', 'data_storage_notification_status', 'file_storage_notification_status', 'specifications_key', 'specifications_value', 'start_date', 'end_date', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'scope', 'reseller_label', 'customer_id', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1394,6 +1400,12 @@ class SubscriptionApi(object):
             query_params.append(('status', params['status']))  # noqa: E501
         if 'notification_status' in params:
             query_params.append(('notification_status', params['notification_status']))  # noqa: E501
+        if 'asset_notification_status' in params:
+            query_params.append(('asset_notification_status', params['asset_notification_status']))  # noqa: E501
+        if 'data_storage_notification_status' in params:
+            query_params.append(('data_storage_notification_status', params['data_storage_notification_status']))  # noqa: E501
+        if 'file_storage_notification_status' in params:
+            query_params.append(('file_storage_notification_status', params['file_storage_notification_status']))  # noqa: E501
         if 'specifications_key' in params:
             query_params.append(('specifications_key', params['specifications_key']))  # noqa: E501
         if 'specifications_value' in params:

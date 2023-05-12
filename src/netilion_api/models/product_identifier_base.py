@@ -89,7 +89,7 @@ class ProductIdentifierBase(object):
     def organization_name(self):
         """Gets the organization_name of this ProductIdentifierBase.  # noqa: E501
 
-        Possilbe values are 'FIELDCOMM_GROUP', 'PROFIBUS_PROFINET, 'ODVA', 'MODBUS_ORGANIZATION', 'OTHER_ORGANIZATION'  # noqa: E501
+        Possible values are 'FIELDCOMM_GROUP', 'PROFIBUS_PROFINET, 'ODVA', 'MODBUS_ORGANIZATION', 'OTHER_ORGANIZATION'  # noqa: E501
 
         :return: The organization_name of this ProductIdentifierBase.  # noqa: E501
         :rtype: str
@@ -100,7 +100,7 @@ class ProductIdentifierBase(object):
     def organization_name(self, organization_name):
         """Sets the organization_name of this ProductIdentifierBase.
 
-        Possilbe values are 'FIELDCOMM_GROUP', 'PROFIBUS_PROFINET, 'ODVA', 'MODBUS_ORGANIZATION', 'OTHER_ORGANIZATION'  # noqa: E501
+        Possible values are 'FIELDCOMM_GROUP', 'PROFIBUS_PROFINET, 'ODVA', 'MODBUS_ORGANIZATION', 'OTHER_ORGANIZATION'  # noqa: E501
 
         :param organization_name: The organization_name of this ProductIdentifierBase.  # noqa: E501
         :type: str
@@ -114,7 +114,7 @@ class ProductIdentifierBase(object):
     def protocol(self):
         """Gets the protocol of this ProductIdentifierBase.  # noqa: E501
 
-        Possilbe values are 'HART', 'PROFIBUS', 'ETHERNETIP', 'MODBUS', 'OTHERS'  # noqa: E501
+        Possible values are 'HART', 'PROFIBUS', 'ETHERNETIP', 'MODBUS', 'OTHERS'  # noqa: E501
 
         :return: The protocol of this ProductIdentifierBase.  # noqa: E501
         :rtype: str
@@ -125,7 +125,7 @@ class ProductIdentifierBase(object):
     def protocol(self, protocol):
         """Sets the protocol of this ProductIdentifierBase.
 
-        Possilbe values are 'HART', 'PROFIBUS', 'ETHERNETIP', 'MODBUS', 'OTHERS'  # noqa: E501
+        Possible values are 'HART', 'PROFIBUS', 'ETHERNETIP', 'MODBUS', 'OTHERS'  # noqa: E501
 
         :param protocol: The protocol of this ProductIdentifierBase.  # noqa: E501
         :type: str

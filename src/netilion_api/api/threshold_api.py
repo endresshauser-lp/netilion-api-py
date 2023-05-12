@@ -35,7 +35,7 @@ class ThresholdApi(object):
     def create_instrumentation_threshold(self, body, instrumentation_id, **kwargs):  # noqa: E501
         """Create an instrumentation threshold  # noqa: E501
 
-        Create a new instrumentation threshold. This action requires ```can_udpate``` permission on the instrumentation.  # noqa: E501
+        Create a new instrumentation threshold. This action requires ```can_update``` permission on the instrumentation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_instrumentation_threshold(body, instrumentation_id, async_req=True)
@@ -58,7 +58,7 @@ class ThresholdApi(object):
     def create_instrumentation_threshold_with_http_info(self, body, instrumentation_id, **kwargs):  # noqa: E501
         """Create an instrumentation threshold  # noqa: E501
 
-        Create a new instrumentation threshold. This action requires ```can_udpate``` permission on the instrumentation.  # noqa: E501
+        Create a new instrumentation threshold. This action requires ```can_update``` permission on the instrumentation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_instrumentation_threshold_with_http_info(body, instrumentation_id, async_req=True)
@@ -142,7 +142,7 @@ class ThresholdApi(object):
     def create_recipe_threshold(self, body, recipe_id, **kwargs):  # noqa: E501
         """Create an recipe threshold  # noqa: E501
 
-        Create a new recipe threshold. This action requires ```can_udpate``` permission on the recipe.  # noqa: E501
+        Create a new recipe threshold. This action requires ```can_update``` permission on the recipe.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_recipe_threshold(body, recipe_id, async_req=True)
@@ -165,7 +165,7 @@ class ThresholdApi(object):
     def create_recipe_threshold_with_http_info(self, body, recipe_id, **kwargs):  # noqa: E501
         """Create an recipe threshold  # noqa: E501
 
-        Create a new recipe threshold. This action requires ```can_udpate``` permission on the recipe.  # noqa: E501
+        Create a new recipe threshold. This action requires ```can_update``` permission on the recipe.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_recipe_threshold_with_http_info(body, recipe_id, async_req=True)
@@ -249,7 +249,7 @@ class ThresholdApi(object):
     def create_system_threshold(self, body, system_id, **kwargs):  # noqa: E501
         """Create an system threshold  # noqa: E501
 
-        Create a new system threshold. This action requires ```can_udpate``` permission on the system.  # noqa: E501
+        Create a new system threshold. This action requires ```can_update``` permission on the system.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_system_threshold(body, system_id, async_req=True)
@@ -272,7 +272,7 @@ class ThresholdApi(object):
     def create_system_threshold_with_http_info(self, body, system_id, **kwargs):  # noqa: E501
         """Create an system threshold  # noqa: E501
 
-        Create a new system threshold. This action requires ```can_udpate``` permission on the system.  # noqa: E501
+        Create a new system threshold. This action requires ```can_update``` permission on the system.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_system_threshold_with_http_info(body, system_id, async_req=True)

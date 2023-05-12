@@ -32,7 +32,7 @@ class Features1(object):
         'href': 'str',
         'feature_key': 'str',
         'description': 'str',
-        'options': 'list[Options]'
+        'options': 'list[Options1]'
     }
 
     attribute_map = {
@@ -163,7 +163,7 @@ class Features1(object):
 
 
         :return: The options of this Features1.  # noqa: E501
-        :rtype: list[Options]
+        :rtype: list[Options1]
         """
         return self._options
 
@@ -173,7 +173,7 @@ class Features1(object):
 
 
         :param options: The options of this Features1.  # noqa: E501
-        :type: list[Options]
+        :type: list[Options1]
         """
 
         self._options = options

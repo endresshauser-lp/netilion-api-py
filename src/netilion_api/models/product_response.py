@@ -34,6 +34,7 @@ class ProductResponse(ProductBase):
         'manufacturer': 'NestedIDHref',
         'parent': 'NestedIDHref',
         'tenant': 'NestedIDHref',
+        'maintenance_advices': 'list[object]',
         'links': 'ProductResponseLinks'
     }
     if hasattr(ProductBase, "swagger_types"):
@@ -45,18 +46,20 @@ class ProductResponse(ProductBase):
         'manufacturer': 'manufacturer',
         'parent': 'parent',
         'tenant': 'tenant',
+        'maintenance_advices': 'maintenance_advices',
         'links': 'links'
     }
     if hasattr(ProductBase, "attribute_map"):
         attribute_map.update(ProductBase.attribute_map)
 
-    def __init__(self, id=None, status=None, manufacturer=None, parent=None, tenant=None, links=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, id=None, status=None, manufacturer=None, parent=None, tenant=None, maintenance_advices=None, links=None, *args, **kwargs):  # noqa: E501
         """ProductResponse - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._status = None
         self._manufacturer = None
         self._parent = None
         self._tenant = None
+        self._maintenance_advices = None
         self._links = None
         self.discriminator = None
         if id is not None:
@@ -69,6 +72,8 @@ class ProductResponse(ProductBase):
             self.parent = parent
         if tenant is not None:
             self.tenant = tenant
+        if maintenance_advices is not None:
+            self.maintenance_advices = maintenance_advices
         if links is not None:
             self.links = links
         ProductBase.__init__(self, *args, **kwargs)
@@ -179,6 +184,29 @@ class ProductResponse(ProductBase):
         """
 
         self._tenant = tenant
+
+    @property
+    def maintenance_advices(self):
+        """Gets the maintenance_advices of this ProductResponse.  # noqa: E501
+
+        Maintenance advices for the product  # noqa: E501
+
+        :return: The maintenance_advices of this ProductResponse.  # noqa: E501
+        :rtype: list[object]
+        """
+        return self._maintenance_advices
+
+    @maintenance_advices.setter
+    def maintenance_advices(self, maintenance_advices):
+        """Sets the maintenance_advices of this ProductResponse.
+
+        Maintenance advices for the product  # noqa: E501
+
+        :param maintenance_advices: The maintenance_advices of this ProductResponse.  # noqa: E501
+        :type: list[object]
+        """
+
+        self._maintenance_advices = maintenance_advices
 
     @property
     def links(self):

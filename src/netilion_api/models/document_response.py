@@ -30,6 +30,7 @@ class DocumentResponse(DocumentBase):
     """
     swagger_types = {
         'id': 'int',
+        'source': 'str',
         'classification': 'NestedIDHref',
         'status': 'NestedIDHref',
         'tenant': 'NestedIDHref',
@@ -41,6 +42,7 @@ class DocumentResponse(DocumentBase):
 
     attribute_map = {
         'id': 'id',
+        'source': 'source',
         'classification': 'classification',
         'status': 'status',
         'tenant': 'tenant',
@@ -50,9 +52,10 @@ class DocumentResponse(DocumentBase):
     if hasattr(DocumentBase, "attribute_map"):
         attribute_map.update(DocumentBase.attribute_map)
 
-    def __init__(self, id=None, classification=None, status=None, tenant=None, download_href=None, links=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, id=None, source=None, classification=None, status=None, tenant=None, download_href=None, links=None, *args, **kwargs):  # noqa: E501
         """DocumentResponse - a model defined in Swagger"""  # noqa: E501
         self._id = None
+        self._source = None
         self._classification = None
         self._status = None
         self._tenant = None
@@ -61,6 +64,8 @@ class DocumentResponse(DocumentBase):
         self.discriminator = None
         if id is not None:
             self.id = id
+        if source is not None:
+            self.source = source
         if classification is not None:
             self.classification = classification
         if status is not None:
@@ -95,6 +100,29 @@ class DocumentResponse(DocumentBase):
         """
 
         self._id = id
+
+    @property
+    def source(self):
+        """Gets the source of this DocumentResponse.  # noqa: E501
+
+        Source of the document  # noqa: E501
+
+        :return: The source of this DocumentResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this DocumentResponse.
+
+        Source of the document  # noqa: E501
+
+        :param source: The source of this DocumentResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._source = source
 
     @property
     def classification(self):

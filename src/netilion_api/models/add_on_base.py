@@ -98,7 +98,7 @@ class AddOnBase(object):
     def external_reference(self):
         """Gets the external_reference of this AddOnBase.  # noqa: E501
 
-        can be used to store id of external subscription managment system  # noqa: E501
+        can be used to store id of external subscription management system  # noqa: E501
 
         :return: The external_reference of this AddOnBase.  # noqa: E501
         :rtype: str
@@ -109,7 +109,7 @@ class AddOnBase(object):
     def external_reference(self, external_reference):
         """Sets the external_reference of this AddOnBase.
 
-        can be used to store id of external subscription managment system  # noqa: E501
+        can be used to store id of external subscription management system  # noqa: E501
 
         :param external_reference: The external_reference of this AddOnBase.  # noqa: E501
         :type: str
@@ -190,7 +190,7 @@ class AddOnBase(object):
     def add_on_type(self):
         """Gets the add_on_type of this AddOnBase.  # noqa: E501
 
-        possible values are: connectivity and addon  # noqa: E501
+        possible values are: connectivity, addon and outcome  # noqa: E501
 
         :return: The add_on_type of this AddOnBase.  # noqa: E501
         :rtype: str
@@ -201,7 +201,7 @@ class AddOnBase(object):
     def add_on_type(self, add_on_type):
         """Sets the add_on_type of this AddOnBase.
 
-        possible values are: connectivity and addon  # noqa: E501
+        possible values are: connectivity, addon and outcome  # noqa: E501
 
         :param add_on_type: The add_on_type of this AddOnBase.  # noqa: E501
         :type: str

@@ -31,22 +31,25 @@ class WebhookResponse(object):
         'url': 'str',
         'event_types': 'list[str]',
         'properties': 'WebhookBaseProperties',
-        'disabled': 'bool'
+        'disabled': 'bool',
+        'force_sorted_delivery': 'bool'
     }
 
     attribute_map = {
         'url': 'url',
         'event_types': 'event_types',
         'properties': 'properties',
-        'disabled': 'disabled'
+        'disabled': 'disabled',
+        'force_sorted_delivery': 'force_sorted_delivery'
     }
 
-    def __init__(self, url=None, event_types=None, properties=None, disabled=False):  # noqa: E501
+    def __init__(self, url=None, event_types=None, properties=None, disabled=False, force_sorted_delivery=False):  # noqa: E501
         """WebhookResponse - a model defined in Swagger"""  # noqa: E501
         self._url = None
         self._event_types = None
         self._properties = None
         self._disabled = None
+        self._force_sorted_delivery = None
         self.discriminator = None
         self.url = url
         self.event_types = event_types
@@ -54,6 +57,8 @@ class WebhookResponse(object):
             self.properties = properties
         if disabled is not None:
             self.disabled = disabled
+        if force_sorted_delivery is not None:
+            self.force_sorted_delivery = force_sorted_delivery
 
     @property
     def url(self):
@@ -130,7 +135,7 @@ class WebhookResponse(object):
     def disabled(self):
         """Gets the disabled of this WebhookResponse.  # noqa: E501
 
-        Disables the webhook.  # noqa: E501
+        webhook is disabled and does not receive any events  # noqa: E501
 
         :return: The disabled of this WebhookResponse.  # noqa: E501
         :rtype: bool
@@ -141,13 +146,36 @@ class WebhookResponse(object):
     def disabled(self, disabled):
         """Sets the disabled of this WebhookResponse.
 
-        Disables the webhook.  # noqa: E501
+        webhook is disabled and does not receive any events  # noqa: E501
 
         :param disabled: The disabled of this WebhookResponse.  # noqa: E501
         :type: bool
         """
 
         self._disabled = disabled
+
+    @property
+    def force_sorted_delivery(self):
+        """Gets the force_sorted_delivery of this WebhookResponse.  # noqa: E501
+
+        Send webhooks in the order the data arrives in netilion. Caution: this slows down the delivery of the data because it can no longer be processed in parallel.  # noqa: E501
+
+        :return: The force_sorted_delivery of this WebhookResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._force_sorted_delivery
+
+    @force_sorted_delivery.setter
+    def force_sorted_delivery(self, force_sorted_delivery):
+        """Sets the force_sorted_delivery of this WebhookResponse.
+
+        Send webhooks in the order the data arrives in netilion. Caution: this slows down the delivery of the data because it can no longer be processed in parallel.  # noqa: E501
+
+        :param force_sorted_delivery: The force_sorted_delivery of this WebhookResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._force_sorted_delivery = force_sorted_delivery
 
     def to_dict(self):
         """Returns the model properties as a dict"""
