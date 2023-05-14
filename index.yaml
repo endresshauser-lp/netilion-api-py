@@ -28724,7 +28724,6 @@ definitions:
   AssetValuesPagination:
     type: object
     required:
-    - total_count
     - page_count
     - per_page
     - page

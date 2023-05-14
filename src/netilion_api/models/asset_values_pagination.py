@@ -60,7 +60,8 @@ class AssetValuesPagination(object):
         self._first = None
         self._last = None
         self.discriminator = None
-        self.total_count = total_count
+        if total_count is not None:
+            self.total_count = total_count
         self.page_count = page_count
         self.per_page = per_page
         self.page = page
@@ -93,8 +94,6 @@ class AssetValuesPagination(object):
         :param total_count: The total_count of this AssetValuesPagination.  # noqa: E501
         :type: int
         """
-        if total_count is None:
-            raise ValueError("Invalid value for `total_count`, must not be `None`")  # noqa: E501
 
         self._total_count = total_count
 
