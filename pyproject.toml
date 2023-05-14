@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "netilion_api"
-version = "1.2.1"
+version = "1.2.2"
 authors = [
   { name="Andrey Dodonov", email="Andrey.Dodonov@endress.com" },
 ]
