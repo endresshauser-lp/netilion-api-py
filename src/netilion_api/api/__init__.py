@@ -24,8 +24,10 @@ from netilion_api.api.event_status_api import EventStatusApi
 from netilion_api.api.event_type_api import EventTypeApi
 from netilion_api.api.health_condition_api import HealthConditionApi
 from netilion_api.api.health_condition_cause_api import HealthConditionCauseApi
+from netilion_api.api.health_condition_interval_api import HealthConditionIntervalApi
 from netilion_api.api.health_condition_remedy_api import HealthConditionRemedyApi
 from netilion_api.api.instrumentation_api import InstrumentationApi
+from netilion_api.api.instrumentation_health_condition_api import InstrumentationHealthConditionApi
 from netilion_api.api.instrumentation_status_api import InstrumentationStatusApi
 from netilion_api.api.instrumentation_type_api import InstrumentationTypeApi
 from netilion_api.api.lookup_api import LookupApi

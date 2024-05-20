@@ -53,8 +53,7 @@ class HealthConditionResponse(HealthConditionRequest):
         self._tenant = None
         self._links = None
         self.discriminator = None
-        if id is not None:
-            self.id = id
+        self.id = id
         if asset_status is not None:
             self.asset_status = asset_status
         if tenant is not None:
@@ -83,6 +82,8 @@ class HealthConditionResponse(HealthConditionRequest):
         :param id: The id of this HealthConditionResponse.  # noqa: E501
         :type: int
         """
+        if id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

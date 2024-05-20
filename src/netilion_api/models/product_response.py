@@ -30,6 +30,7 @@ class ProductResponse(ProductBase):
     """
     swagger_types = {
         'id': 'int',
+        'risk_of_maintainability': 'str',
         'status': 'NestedIDHref',
         'manufacturer': 'NestedIDHref',
         'parent': 'NestedIDHref',
@@ -42,6 +43,7 @@ class ProductResponse(ProductBase):
 
     attribute_map = {
         'id': 'id',
+        'risk_of_maintainability': 'risk_of_maintainability',
         'status': 'status',
         'manufacturer': 'manufacturer',
         'parent': 'parent',
@@ -52,9 +54,10 @@ class ProductResponse(ProductBase):
     if hasattr(ProductBase, "attribute_map"):
         attribute_map.update(ProductBase.attribute_map)
 
-    def __init__(self, id=None, status=None, manufacturer=None, parent=None, tenant=None, maintenance_advices=None, links=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, id=None, risk_of_maintainability=None, status=None, manufacturer=None, parent=None, tenant=None, maintenance_advices=None, links=None, *args, **kwargs):  # noqa: E501
         """ProductResponse - a model defined in Swagger"""  # noqa: E501
         self._id = None
+        self._risk_of_maintainability = None
         self._status = None
         self._manufacturer = None
         self._parent = None
@@ -64,6 +67,8 @@ class ProductResponse(ProductBase):
         self.discriminator = None
         if id is not None:
             self.id = id
+        if risk_of_maintainability is not None:
+            self.risk_of_maintainability = risk_of_maintainability
         if status is not None:
             self.status = status
         if manufacturer is not None:
@@ -100,6 +105,29 @@ class ProductResponse(ProductBase):
         """
 
         self._id = id
+
+    @property
+    def risk_of_maintainability(self):
+        """Gets the risk_of_maintainability of this ProductResponse.  # noqa: E501
+
+        The risk of maintainability. The value can be high, medium, low or undefined.  # noqa: E501
+
+        :return: The risk_of_maintainability of this ProductResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._risk_of_maintainability
+
+    @risk_of_maintainability.setter
+    def risk_of_maintainability(self, risk_of_maintainability):
+        """Sets the risk_of_maintainability of this ProductResponse.
+
+        The risk of maintainability. The value can be high, medium, low or undefined.  # noqa: E501
+
+        :param risk_of_maintainability: The risk_of_maintainability of this ProductResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._risk_of_maintainability = risk_of_maintainability
 
     @property
     def status(self):

@@ -39,6 +39,7 @@ class HealthConditionBase(object):
           'HealthConditionRequest': 'HealthConditionRequest',
 'HealthConditionResponse': 'HealthConditionResponse',
 'AssetHealthConditionResponse': 'AssetHealthConditionResponse',
+'InstrumentationHealthConditionResponse': 'InstrumentationHealthConditionResponse',
 'HealthConditionExtended': 'HealthConditionExtended'    }
 
     def __init__(self, diagnosis_code=None):  # noqa: E501

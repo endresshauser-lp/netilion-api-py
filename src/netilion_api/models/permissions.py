@@ -29,7 +29,7 @@ class Permissions(object):
     """
     swagger_types = {
         'permissions': 'list[PermissionResponse]',
-        'pagination': 'Pagination'
+        'pagination': 'PaginationLinks'
     }
 
     attribute_map = {
@@ -74,7 +74,7 @@ class Permissions(object):
 
 
         :return: The pagination of this Permissions.  # noqa: E501
-        :rtype: Pagination
+        :rtype: PaginationLinks
         """
         return self._pagination
 
@@ -84,7 +84,7 @@ class Permissions(object):
 
 
         :param pagination: The pagination of this Permissions.  # noqa: E501
-        :type: Pagination
+        :type: PaginationLinks
         """
 
         self._pagination = pagination

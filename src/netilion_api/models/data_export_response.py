@@ -35,6 +35,7 @@ class DataExportResponse(object):
         'created_at': 'str',
         'finished_at': 'str',
         'language': 'str',
+        'document_category_id': 'str',
         'export_file_name': 'str',
         'export_content_type': 'str',
         'export_file_size': 'str',
@@ -45,6 +46,8 @@ class DataExportResponse(object):
         'instrumentation': 'NestedIDHrefTag',
         'system': 'NestedIDHrefName',
         'batch': 'NestedIDHrefName',
+        'node': 'NestedIDHrefName',
+        'purchase_order': 'NestedIDHrefName',
         'download_href': 'str',
         'available_until': 'str',
         'keys': 'list[str]'
@@ -58,6 +61,7 @@ class DataExportResponse(object):
         'created_at': 'created_at',
         'finished_at': 'finished_at',
         'language': 'language',
+        'document_category_id': 'document_category_id',
         'export_file_name': 'export_file_name',
         'export_content_type': 'export_content_type',
         'export_file_size': 'export_file_size',
@@ -68,12 +72,14 @@ class DataExportResponse(object):
         'instrumentation': 'instrumentation',
         'system': 'system',
         'batch': 'batch',
+        'node': 'node',
+        'purchase_order': 'purchase_order',
         'download_href': 'download_href',
         'available_until': 'available_until',
         'keys': 'keys'
     }
 
-    def __init__(self, status=None, type=None, start_date=None, end_date=None, created_at=None, finished_at=None, language=None, export_file_name=None, export_content_type=None, export_file_size=None, export_updated_at=None, export_fingerprint=None, user=None, asset=None, instrumentation=None, system=None, batch=None, download_href=None, available_until=None, keys=None):  # noqa: E501
+    def __init__(self, status=None, type=None, start_date=None, end_date=None, created_at=None, finished_at=None, language=None, document_category_id=None, export_file_name=None, export_content_type=None, export_file_size=None, export_updated_at=None, export_fingerprint=None, user=None, asset=None, instrumentation=None, system=None, batch=None, node=None, purchase_order=None, download_href=None, available_until=None, keys=None):  # noqa: E501
         """DataExportResponse - a model defined in Swagger"""  # noqa: E501
         self._status = None
         self._type = None
@@ -82,6 +88,7 @@ class DataExportResponse(object):
         self._created_at = None
         self._finished_at = None
         self._language = None
+        self._document_category_id = None
         self._export_file_name = None
         self._export_content_type = None
         self._export_file_size = None
@@ -92,6 +99,8 @@ class DataExportResponse(object):
         self._instrumentation = None
         self._system = None
         self._batch = None
+        self._node = None
+        self._purchase_order = None
         self._download_href = None
         self._available_until = None
         self._keys = None
@@ -107,6 +116,8 @@ class DataExportResponse(object):
             self.finished_at = finished_at
         if language is not None:
             self.language = language
+        if document_category_id is not None:
+            self.document_category_id = document_category_id
         if export_file_name is not None:
             self.export_file_name = export_file_name
         if export_content_type is not None:
@@ -126,6 +137,10 @@ class DataExportResponse(object):
             self.system = system
         if batch is not None:
             self.batch = batch
+        if node is not None:
+            self.node = node
+        if purchase_order is not None:
+            self.purchase_order = purchase_order
         if download_href is not None:
             self.download_href = download_href
         if available_until is not None:
@@ -160,7 +175,7 @@ class DataExportResponse(object):
     def type(self):
         """Gets the type of this DataExportResponse.  # noqa: E501
 
-        can be complete, measurements, batch_values, instrumentation_values, asset_vdi_2770_documentation_container or system_vdi_2770_documentation_container  # noqa: E501
+        can be complete, measurements, batch_values, instrumentation_values, asset_vdi_2770_documentation_container, system_vdi_2770_documentation_container, asset_documents, node_documents_recursive or purchase_order_documents  # noqa: E501
 
         :return: The type of this DataExportResponse.  # noqa: E501
         :rtype: str
@@ -171,7 +186,7 @@ class DataExportResponse(object):
     def type(self, type):
         """Sets the type of this DataExportResponse.
 
-        can be complete, measurements, batch_values, instrumentation_values, asset_vdi_2770_documentation_container or system_vdi_2770_documentation_container  # noqa: E501
+        can be complete, measurements, batch_values, instrumentation_values, asset_vdi_2770_documentation_container, system_vdi_2770_documentation_container, asset_documents, node_documents_recursive or purchase_order_documents  # noqa: E501
 
         :param type: The type of this DataExportResponse.  # noqa: E501
         :type: str
@@ -271,7 +286,7 @@ class DataExportResponse(object):
     def language(self):
         """Gets the language of this DataExportResponse.  # noqa: E501
 
-        language in which the export should be made (currently only applicable to vdi 2770 containers)  # noqa: E501
+        One language (for vdi 2770 type) or multiple languages (comma list) for asset_documents, node_documents_recursive or purchase_order_documents exports. \"null\" can used as well (for asset_documents, node_documents_recursive or purchase_order_documents exports) to retrieve all documents without any language.  # noqa: E501
 
         :return: The language of this DataExportResponse.  # noqa: E501
         :rtype: str
@@ -282,13 +297,36 @@ class DataExportResponse(object):
     def language(self, language):
         """Sets the language of this DataExportResponse.
 
-        language in which the export should be made (currently only applicable to vdi 2770 containers)  # noqa: E501
+        One language (for vdi 2770 type) or multiple languages (comma list) for asset_documents, node_documents_recursive or purchase_order_documents exports. \"null\" can used as well (for asset_documents, node_documents_recursive or purchase_order_documents exports) to retrieve all documents without any language.  # noqa: E501
 
         :param language: The language of this DataExportResponse.  # noqa: E501
         :type: str
         """
 
         self._language = language
+
+    @property
+    def document_category_id(self):
+        """Gets the document_category_id of this DataExportResponse.  # noqa: E501
+
+        One or multiple ids (comma list). This can be used for asset_documents, node_documents_recursive or purchase_order_documents exports. \"null\" can be used to retrieve all documents without any category.  # noqa: E501
+
+        :return: The document_category_id of this DataExportResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._document_category_id
+
+    @document_category_id.setter
+    def document_category_id(self, document_category_id):
+        """Sets the document_category_id of this DataExportResponse.
+
+        One or multiple ids (comma list). This can be used for asset_documents, node_documents_recursive or purchase_order_documents exports. \"null\" can be used to retrieve all documents without any category.  # noqa: E501
+
+        :param document_category_id: The document_category_id of this DataExportResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._document_category_id = document_category_id
 
     @property
     def export_file_name(self):
@@ -501,6 +539,48 @@ class DataExportResponse(object):
         """
 
         self._batch = batch
+
+    @property
+    def node(self):
+        """Gets the node of this DataExportResponse.  # noqa: E501
+
+
+        :return: The node of this DataExportResponse.  # noqa: E501
+        :rtype: NestedIDHrefName
+        """
+        return self._node
+
+    @node.setter
+    def node(self, node):
+        """Sets the node of this DataExportResponse.
+
+
+        :param node: The node of this DataExportResponse.  # noqa: E501
+        :type: NestedIDHrefName
+        """
+
+        self._node = node
+
+    @property
+    def purchase_order(self):
+        """Gets the purchase_order of this DataExportResponse.  # noqa: E501
+
+
+        :return: The purchase_order of this DataExportResponse.  # noqa: E501
+        :rtype: NestedIDHrefName
+        """
+        return self._purchase_order
+
+    @purchase_order.setter
+    def purchase_order(self, purchase_order):
+        """Sets the purchase_order of this DataExportResponse.
+
+
+        :param purchase_order: The purchase_order of this DataExportResponse.  # noqa: E501
+        :type: NestedIDHrefName
+        """
+
+        self._purchase_order = purchase_order
 
     @property
     def download_href(self):

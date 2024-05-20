@@ -28,14 +28,98 @@ class SubscriptionAssetAssignmentRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'object_id': 'int',
+        'object_type': 'str',
+        'asset_search_query': 'str'
     }
 
     attribute_map = {
+        'object_id': 'object_id',
+        'object_type': 'object_type',
+        'asset_search_query': 'asset_search_query'
     }
 
-    def __init__(self):  # noqa: E501
+    def __init__(self, object_id=None, object_type=None, asset_search_query=None):  # noqa: E501
         """SubscriptionAssetAssignmentRequest - a model defined in Swagger"""  # noqa: E501
+        self._object_id = None
+        self._object_type = None
+        self._asset_search_query = None
         self.discriminator = None
+        if object_id is not None:
+            self.object_id = object_id
+        if object_type is not None:
+            self.object_type = object_type
+        if asset_search_query is not None:
+            self.asset_search_query = asset_search_query
+
+    @property
+    def object_id(self):
+        """Gets the object_id of this SubscriptionAssetAssignmentRequest.  # noqa: E501
+
+        Id of object  # noqa: E501
+
+        :return: The object_id of this SubscriptionAssetAssignmentRequest.  # noqa: E501
+        :rtype: int
+        """
+        return self._object_id
+
+    @object_id.setter
+    def object_id(self, object_id):
+        """Sets the object_id of this SubscriptionAssetAssignmentRequest.
+
+        Id of object  # noqa: E501
+
+        :param object_id: The object_id of this SubscriptionAssetAssignmentRequest.  # noqa: E501
+        :type: int
+        """
+
+        self._object_id = object_id
+
+    @property
+    def object_type(self):
+        """Gets the object_type of this SubscriptionAssetAssignmentRequest.  # noqa: E501
+
+        type of object, can only be node,system or instrumentation.  # noqa: E501
+
+        :return: The object_type of this SubscriptionAssetAssignmentRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._object_type
+
+    @object_type.setter
+    def object_type(self, object_type):
+        """Sets the object_type of this SubscriptionAssetAssignmentRequest.
+
+        type of object, can only be node,system or instrumentation.  # noqa: E501
+
+        :param object_type: The object_type of this SubscriptionAssetAssignmentRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._object_type = object_type
+
+    @property
+    def asset_search_query(self):
+        """Gets the asset_search_query of this SubscriptionAssetAssignmentRequest.  # noqa: E501
+
+        Index search query to search for assets (like in the /search endpoint)  # noqa: E501
+
+        :return: The asset_search_query of this SubscriptionAssetAssignmentRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._asset_search_query
+
+    @asset_search_query.setter
+    def asset_search_query(self, asset_search_query):
+        """Sets the asset_search_query of this SubscriptionAssetAssignmentRequest.
+
+        Index search query to search for assets (like in the /search endpoint)  # noqa: E501
+
+        :param asset_search_query: The asset_search_query of this SubscriptionAssetAssignmentRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._asset_search_query = asset_search_query
 
     def to_dict(self):
         """Returns the model properties as a dict"""

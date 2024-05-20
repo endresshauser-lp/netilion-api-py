@@ -45,11 +45,13 @@ class SearchApi(object):
         :param str q: search query (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str manufacturer_id: One or multiple ids (comma list). Expected id format is integer
         :param str product_category_id: One or multiple ids (comma list). By adding `+` after the id, the filter considers the given category and all its children (e.g. 3+).
         :param str product_status_id: One or multiple ids (comma list). Expected id format is integer
         :param str subscription_id: One or multiple ids (comma list). Expected id format is integer
         :param str scope: One or multiple scopes (comma list). Possible values are assets, instrumentations, nodes.
+        :param str node_id: One or multiple node ids (comma list). Expected id format is integer nodes.
         :param str accept_language: The client's accepted languages. One or several (e.g. fr,de,en)
         :return: SearchItemsResponse
                  If the method is called asynchronously,
@@ -75,18 +77,20 @@ class SearchApi(object):
         :param str q: search query (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str manufacturer_id: One or multiple ids (comma list). Expected id format is integer
         :param str product_category_id: One or multiple ids (comma list). By adding `+` after the id, the filter considers the given category and all its children (e.g. 3+).
         :param str product_status_id: One or multiple ids (comma list). Expected id format is integer
         :param str subscription_id: One or multiple ids (comma list). Expected id format is integer
         :param str scope: One or multiple scopes (comma list). Possible values are assets, instrumentations, nodes.
+        :param str node_id: One or multiple node ids (comma list). Expected id format is integer nodes.
         :param str accept_language: The client's accepted languages. One or several (e.g. fr,de,en)
         :return: SearchItemsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['q', 'page', 'per_page', 'manufacturer_id', 'product_category_id', 'product_status_id', 'subscription_id', 'scope', 'accept_language']  # noqa: E501
+        all_params = ['q', 'page', 'per_page', 'include_total_count', 'manufacturer_id', 'product_category_id', 'product_status_id', 'subscription_id', 'scope', 'node_id', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -115,6 +119,8 @@ class SearchApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'q' in params:
             query_params.append(('q', params['q']))  # noqa: E501
         if 'manufacturer_id' in params:
@@ -127,6 +133,8 @@ class SearchApi(object):
             query_params.append(('subscription_id', params['subscription_id']))  # noqa: E501
         if 'scope' in params:
             query_params.append(('scope', params['scope']))  # noqa: E501
+        if 'node_id' in params:
+            query_params.append(('node_id', params['node_id']))  # noqa: E501
 
         header_params = {}
         if 'accept_language' in params:

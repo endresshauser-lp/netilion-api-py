@@ -28,6 +28,7 @@ class WebhookResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'id': 'int',
         'url': 'str',
         'event_types': 'list[str]',
         'properties': 'WebhookBaseProperties',
@@ -36,6 +37,7 @@ class WebhookResponse(object):
     }
 
     attribute_map = {
+        'id': 'id',
         'url': 'url',
         'event_types': 'event_types',
         'properties': 'properties',
@@ -43,14 +45,17 @@ class WebhookResponse(object):
         'force_sorted_delivery': 'force_sorted_delivery'
     }
 
-    def __init__(self, url=None, event_types=None, properties=None, disabled=False, force_sorted_delivery=False):  # noqa: E501
+    def __init__(self, id=None, url=None, event_types=None, properties=None, disabled=False, force_sorted_delivery=False):  # noqa: E501
         """WebhookResponse - a model defined in Swagger"""  # noqa: E501
+        self._id = None
         self._url = None
         self._event_types = None
         self._properties = None
         self._disabled = None
         self._force_sorted_delivery = None
         self.discriminator = None
+        if id is not None:
+            self.id = id
         self.url = url
         self.event_types = event_types
         if properties is not None:
@@ -59,6 +64,29 @@ class WebhookResponse(object):
             self.disabled = disabled
         if force_sorted_delivery is not None:
             self.force_sorted_delivery = force_sorted_delivery
+
+    @property
+    def id(self):
+        """Gets the id of this WebhookResponse.  # noqa: E501
+
+        Id of object  # noqa: E501
+
+        :return: The id of this WebhookResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this WebhookResponse.
+
+        Id of object  # noqa: E501
+
+        :param id: The id of this WebhookResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._id = id
 
     @property
     def url(self):

@@ -28,49 +28,54 @@ class AssetHealthConditionTimemachine(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'health_condition': 'AssetHealthConditionNested',
+        'id': 'int',
         'created_datetime': 'datetime',
-        'deleted_datetime': 'datetime'
+        'deleted_datetime': 'datetime',
+        'health_condition': 'AssetHealthConditionNested'
     }
 
     attribute_map = {
-        'health_condition': 'health_condition',
+        'id': 'id',
         'created_datetime': 'created_datetime',
-        'deleted_datetime': 'deleted_datetime'
+        'deleted_datetime': 'deleted_datetime',
+        'health_condition': 'health_condition'
     }
 
-    def __init__(self, health_condition=None, created_datetime=None, deleted_datetime=None):  # noqa: E501
+    def __init__(self, id=None, created_datetime=None, deleted_datetime=None, health_condition=None):  # noqa: E501
         """AssetHealthConditionTimemachine - a model defined in Swagger"""  # noqa: E501
-        self._health_condition = None
+        self._id = None
         self._created_datetime = None
         self._deleted_datetime = None
+        self._health_condition = None
         self.discriminator = None
-        self.health_condition = health_condition
+        if id is not None:
+            self.id = id
         self.created_datetime = created_datetime
         self.deleted_datetime = deleted_datetime
+        self.health_condition = health_condition
 
     @property
-    def health_condition(self):
-        """Gets the health_condition of this AssetHealthConditionTimemachine.  # noqa: E501
+    def id(self):
+        """Gets the id of this AssetHealthConditionTimemachine.  # noqa: E501
 
+        Id of the health condition interval  # noqa: E501
 
-        :return: The health_condition of this AssetHealthConditionTimemachine.  # noqa: E501
-        :rtype: AssetHealthConditionNested
+        :return: The id of this AssetHealthConditionTimemachine.  # noqa: E501
+        :rtype: int
         """
-        return self._health_condition
+        return self._id
 
-    @health_condition.setter
-    def health_condition(self, health_condition):
-        """Sets the health_condition of this AssetHealthConditionTimemachine.
+    @id.setter
+    def id(self, id):
+        """Sets the id of this AssetHealthConditionTimemachine.
 
+        Id of the health condition interval  # noqa: E501
 
-        :param health_condition: The health_condition of this AssetHealthConditionTimemachine.  # noqa: E501
-        :type: AssetHealthConditionNested
+        :param id: The id of this AssetHealthConditionTimemachine.  # noqa: E501
+        :type: int
         """
-        if health_condition is None:
-            raise ValueError("Invalid value for `health_condition`, must not be `None`")  # noqa: E501
 
-        self._health_condition = health_condition
+        self._id = id
 
     @property
     def created_datetime(self):
@@ -121,6 +126,29 @@ class AssetHealthConditionTimemachine(object):
             raise ValueError("Invalid value for `deleted_datetime`, must not be `None`")  # noqa: E501
 
         self._deleted_datetime = deleted_datetime
+
+    @property
+    def health_condition(self):
+        """Gets the health_condition of this AssetHealthConditionTimemachine.  # noqa: E501
+
+
+        :return: The health_condition of this AssetHealthConditionTimemachine.  # noqa: E501
+        :rtype: AssetHealthConditionNested
+        """
+        return self._health_condition
+
+    @health_condition.setter
+    def health_condition(self, health_condition):
+        """Sets the health_condition of this AssetHealthConditionTimemachine.
+
+
+        :param health_condition: The health_condition of this AssetHealthConditionTimemachine.  # noqa: E501
+        :type: AssetHealthConditionNested
+        """
+        if health_condition is None:
+            raise ValueError("Invalid value for `health_condition`, must not be `None`")  # noqa: E501
+
+        self._health_condition = health_condition
 
     def to_dict(self):
         """Returns the model properties as a dict"""

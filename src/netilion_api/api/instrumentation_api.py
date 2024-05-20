@@ -1404,6 +1404,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str serial_number: Filter accepts `*` as wildcard
         :param str product_id: One or multiple ids (comma list). Expected id format is integer
@@ -1452,6 +1453,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str serial_number: Filter accepts `*` as wildcard
         :param str product_id: One or multiple ids (comma list). Expected id format is integer
@@ -1481,7 +1483,7 @@ class InstrumentationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'page', 'per_page', 'include', 'serial_number', 'product_id', 'product_category_id', 'parent_id', 'manufacturer_id', 'status_id', 'status_code', 'tenant_id', 'production_date', 'production_date_from', 'production_date_to', 'specifications_key', 'specifications_value', 'node_id', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'ownership_claimed', 'permission', 'order_by']  # noqa: E501
+        all_params = ['instrumentation_id', 'page', 'per_page', 'include_total_count', 'include', 'serial_number', 'product_id', 'product_category_id', 'parent_id', 'manufacturer_id', 'status_id', 'status_code', 'tenant_id', 'production_date', 'production_date_from', 'production_date_to', 'specifications_key', 'specifications_value', 'node_id', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'ownership_claimed', 'permission', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1512,6 +1514,8 @@ class InstrumentationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'serial_number' in params:
@@ -1603,6 +1607,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str asset_id: One or multiple ids (comma list). Expected id format is integer
         :param str event: Filter accepts `create` or `destroy`
         :param date event_datetime_from: Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -1632,6 +1637,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str asset_id: One or multiple ids (comma list). Expected id format is integer
         :param str event: Filter accepts `create` or `destroy`
         :param date event_datetime_from: Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -1642,7 +1648,7 @@ class InstrumentationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'page', 'per_page', 'asset_id', 'event', 'event_datetime_from', 'event_datetime_to', 'order_by']  # noqa: E501
+        all_params = ['instrumentation_id', 'page', 'per_page', 'include_total_count', 'asset_id', 'event', 'event_datetime_from', 'event_datetime_to', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1673,6 +1679,8 @@ class InstrumentationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'asset_id' in params:
             query_params.append(('asset_id', params['asset_id']))  # noqa: E501
         if 'event' in params:
@@ -1726,6 +1734,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str author: Filter accepts `*` as wildcard
         :param str _date: Expected date format is YYYY-MM-DD
@@ -1755,6 +1764,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str author: Filter accepts `*` as wildcard
         :param str _date: Expected date format is YYYY-MM-DD
@@ -1765,7 +1775,7 @@ class InstrumentationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'page', 'per_page', 'name', 'author', '_date', 'date_from', 'date_to']  # noqa: E501
+        all_params = ['instrumentation_id', 'page', 'per_page', 'include_total_count', 'name', 'author', '_date', 'date_from', 'date_to']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1796,6 +1806,8 @@ class InstrumentationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'name' in params:
             query_params.append(('name', params['name']))  # noqa: E501
         if 'author' in params:
@@ -1849,6 +1861,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str document_version: Filter accepts `*` as wildcard
@@ -1885,6 +1898,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str document_version: Filter accepts `*` as wildcard
@@ -1902,7 +1916,7 @@ class InstrumentationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'page', 'per_page', 'include', 'name', 'document_version', 'number', 'status_id', 'classification_id', 'tenant_id', 'category_id', 'valid_from', 'valid_until', 'valid_at', 'accept_language']  # noqa: E501
+        all_params = ['instrumentation_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'document_version', 'number', 'status_id', 'classification_id', 'tenant_id', 'category_id', 'valid_from', 'valid_until', 'valid_at', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1933,6 +1947,8 @@ class InstrumentationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -1990,7 +2006,7 @@ class InstrumentationApi(object):
     def get_events_of_instrumentation(self, instrumentation_id, **kwargs):  # noqa: E501
         """Get all events of one instrumentation  # noqa: E501
 
-        Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
+        Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type, specifications``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_instrumentation(instrumentation_id, async_req=True)
@@ -2000,6 +2016,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -2026,7 +2043,7 @@ class InstrumentationApi(object):
     def get_events_of_instrumentation_with_http_info(self, instrumentation_id, **kwargs):  # noqa: E501
         """Get all events of one instrumentation  # noqa: E501
 
-        Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
+        Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type, specifications``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_instrumentation_with_http_info(instrumentation_id, async_req=True)
@@ -2036,6 +2053,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -2053,7 +2071,7 @@ class InstrumentationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'page', 'per_page', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'order_by']  # noqa: E501
+        all_params = ['instrumentation_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2084,6 +2102,8 @@ class InstrumentationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -2141,7 +2161,7 @@ class InstrumentationApi(object):
     def get_instrumentation_by_id(self, id, **kwargs):  # noqa: E501
         """Get a single instrumentation  # noqa: E501
 
-        Get a specific instrumentation in your accessible scope, identified by the id in the URL.  Possible include values: ```assets, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.parent, type.tenant, values, values.unit, values.asset, values_in_preferred_units, values_in_preferred_units.unit, values_in_preferred_units.asset ```   # noqa: E501
+        Get a specific instrumentation in your accessible scope, identified by the id in the URL.  Possible include values: ```assets, assets.product, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.parent, type.tenant, values, values.unit, values.asset, values_in_preferred_units, values_in_preferred_units.unit, values_in_preferred_units.asset, thresholds```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_instrumentation_by_id(id, async_req=True)
@@ -2164,7 +2184,7 @@ class InstrumentationApi(object):
     def get_instrumentation_by_id_with_http_info(self, id, **kwargs):  # noqa: E501
         """Get a single instrumentation  # noqa: E501
 
-        Get a specific instrumentation in your accessible scope, identified by the id in the URL.  Possible include values: ```assets, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.parent, type.tenant, values, values.unit, values.asset, values_in_preferred_units, values_in_preferred_units.unit, values_in_preferred_units.asset ```   # noqa: E501
+        Get a specific instrumentation in your accessible scope, identified by the id in the URL.  Possible include values: ```assets, assets.product, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.parent, type.tenant, values, values.unit, values.asset, values_in_preferred_units, values_in_preferred_units.unit, values_in_preferred_units.asset, thresholds```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_instrumentation_by_id_with_http_info(id, async_req=True)
@@ -2670,6 +2690,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: Id of the instrumentation (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
         :param str name: Filter accepts `*` as wildcard
         :param str code: Filter accepts `*` as wildcard
@@ -2698,6 +2719,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: Id of the instrumentation (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
         :param str name: Filter accepts `*` as wildcard
         :param str code: Filter accepts `*` as wildcard
@@ -2707,7 +2729,7 @@ class InstrumentationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'page', 'per_page', 'tenant_id', 'name', 'code', 'accept_language']  # noqa: E501
+        all_params = ['instrumentation_id', 'page', 'per_page', 'include_total_count', 'tenant_id', 'name', 'code', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2738,6 +2760,8 @@ class InstrumentationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'tenant_id' in params:
             query_params.append(('tenant_id', params['tenant_id']))  # noqa: E501
         if 'name' in params:
@@ -2999,6 +3023,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: Id of the instrumentation (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
         :param str name: Filter accepts `*` as wildcard
         :param str code: Filter accepts `*` as wildcard
@@ -3027,6 +3052,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: Id of the instrumentation (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
         :param str name: Filter accepts `*` as wildcard
         :param str code: Filter accepts `*` as wildcard
@@ -3036,7 +3062,7 @@ class InstrumentationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'page', 'per_page', 'tenant_id', 'name', 'code', 'accept_language']  # noqa: E501
+        all_params = ['instrumentation_id', 'page', 'per_page', 'include_total_count', 'tenant_id', 'name', 'code', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3067,6 +3093,8 @@ class InstrumentationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'tenant_id' in params:
             query_params.append(('tenant_id', params['tenant_id']))  # noqa: E501
         if 'name' in params:
@@ -3119,9 +3147,10 @@ class InstrumentationApi(object):
         :param str key: key for the instrumentation values (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param date _datetime: exact date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param str selector: Supported selector methods are `first, last`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the selector. The value is mandatory if selector is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
@@ -3151,9 +3180,10 @@ class InstrumentationApi(object):
         :param str key: key for the instrumentation values (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param date _datetime: exact date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param str selector: Supported selector methods are `first, last`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the selector. The value is mandatory if selector is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
@@ -3163,7 +3193,7 @@ class InstrumentationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'key', 'page', 'per_page', 'include', '_from', 'to', '_datetime', 'selector', 'interval', 'order_by']  # noqa: E501
+        all_params = ['instrumentation_id', 'key', 'page', 'per_page', 'include_total_count', 'include', '_from', 'to', '_datetime', 'selector', 'interval', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3200,6 +3230,8 @@ class InstrumentationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if '_from' in params:
@@ -3257,6 +3289,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter key_unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
         :param str key: only the values of the specified keys will be returned. If no key is specified all keys of the asset with its latest values will be received. Multiple values can be specified in a comma seperated list.
@@ -3286,6 +3319,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter key_unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
         :param str key: only the values of the specified keys will be returned. If no key is specified all keys of the asset with its latest values will be received. Multiple values can be specified in a comma seperated list.
@@ -3296,7 +3330,7 @@ class InstrumentationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'page', 'per_page', 'include', 'use_preferred_units', 'key', 'key_unit_id', 'group']  # noqa: E501
+        all_params = ['instrumentation_id', 'page', 'per_page', 'include_total_count', 'include', 'use_preferred_units', 'key', 'key_unit_id', 'group']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3327,6 +3361,8 @@ class InstrumentationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'use_preferred_units' in params:
@@ -3383,9 +3419,9 @@ class InstrumentationApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
-        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
@@ -3420,9 +3456,9 @@ class InstrumentationApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
-        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
@@ -3529,7 +3565,7 @@ class InstrumentationApi(object):
     def get_instrumentations(self, **kwargs):  # noqa: E501
         """Get a range of instrumentations  # noqa: E501
 
-        Returns a list of instrumentations in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```assets, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.tenant, type.parent, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit```   # noqa: E501
+        Returns a list of instrumentations in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```assets, assets.product, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.tenant, type.parent, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit, thresholds```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_instrumentations(async_req=True)
@@ -3538,12 +3574,16 @@ class InstrumentationApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
+        :param str id: One or multiple ids (comma list). Expected id format is integer
         :param str tag: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
         :param str parent_id: One or multiple ids (comma list). \"null\" to retrieve all objects without parent, \"!null\" for all objects with parent.
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
+        :param str risk_of_maintainability: Filter one or multiple risk of maintainabilities (comma list). Accepted are `undefined`, `low`, `medium`, `high`.
+        :param str risk_of_maintainability_by_diba: Filter one or multiple risk of maintainabilities (comma list). Accepted are `low`, `medium`, `high`. These values are calculated based on DIBA recommendations.
         :param str specifications_key: Filter accepts `*` as wildcard (if used as single specifications filter), supports comma list of keys in connection with specifications_value filter
         :param str specifications_value: Filter accepts `*` as wildcard, supports comma list of values in connection with specifications_key filter. Does not work for vectors
         :param str criticality: Filter accepts undefined, low, medium or high
@@ -3568,7 +3608,7 @@ class InstrumentationApi(object):
     def get_instrumentations_with_http_info(self, **kwargs):  # noqa: E501
         """Get a range of instrumentations  # noqa: E501
 
-        Returns a list of instrumentations in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```assets, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.tenant, type.parent, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit```   # noqa: E501
+        Returns a list of instrumentations in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```assets, assets.product, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.tenant, type.parent, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit, thresholds```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_instrumentations_with_http_info(async_req=True)
@@ -3577,12 +3617,16 @@ class InstrumentationApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
+        :param str id: One or multiple ids (comma list). Expected id format is integer
         :param str tag: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
         :param str parent_id: One or multiple ids (comma list). \"null\" to retrieve all objects without parent, \"!null\" for all objects with parent.
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
+        :param str risk_of_maintainability: Filter one or multiple risk of maintainabilities (comma list). Accepted are `undefined`, `low`, `medium`, `high`.
+        :param str risk_of_maintainability_by_diba: Filter one or multiple risk of maintainabilities (comma list). Accepted are `low`, `medium`, `high`. These values are calculated based on DIBA recommendations.
         :param str specifications_key: Filter accepts `*` as wildcard (if used as single specifications filter), supports comma list of keys in connection with specifications_value filter
         :param str specifications_value: Filter accepts `*` as wildcard, supports comma list of values in connection with specifications_key filter. Does not work for vectors
         :param str criticality: Filter accepts undefined, low, medium or high
@@ -3598,7 +3642,7 @@ class InstrumentationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'include', 'tag', 'status_id', 'type_id', 'parent_id', 'tenant_id', 'specifications_key', 'specifications_value', 'criticality', 'accessibility', 'node_id', 'asset_id', 'system_id', 'asset_status_id', 'permission', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'include', 'id', 'tag', 'status_id', 'type_id', 'parent_id', 'tenant_id', 'risk_of_maintainability', 'risk_of_maintainability_by_diba', 'specifications_key', 'specifications_value', 'criticality', 'accessibility', 'node_id', 'asset_id', 'system_id', 'asset_status_id', 'permission', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3623,8 +3667,12 @@ class InstrumentationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
+        if 'id' in params:
+            query_params.append(('id', params['id']))  # noqa: E501
         if 'tag' in params:
             query_params.append(('tag', params['tag']))  # noqa: E501
         if 'status_id' in params:
@@ -3635,6 +3683,10 @@ class InstrumentationApi(object):
             query_params.append(('parent_id', params['parent_id']))  # noqa: E501
         if 'tenant_id' in params:
             query_params.append(('tenant_id', params['tenant_id']))  # noqa: E501
+        if 'risk_of_maintainability' in params:
+            query_params.append(('risk_of_maintainability', params['risk_of_maintainability']))  # noqa: E501
+        if 'risk_of_maintainability_by_diba' in params:
+            query_params.append(('risk_of_maintainability_by_diba', params['risk_of_maintainability_by_diba']))  # noqa: E501
         if 'specifications_key' in params:
             query_params.append(('specifications_key', params['specifications_key']))  # noqa: E501
         if 'specifications_value' in params:
@@ -3698,6 +3750,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -3730,6 +3783,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -3743,7 +3797,7 @@ class InstrumentationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'page', 'per_page', 'include', 'name', 'type_id', 'parent_id', 'tenant_id', 'hidden', 'permission', 'order_by']  # noqa: E501
+        all_params = ['instrumentation_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'type_id', 'parent_id', 'tenant_id', 'hidden', 'permission', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3774,6 +3828,8 @@ class InstrumentationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -3936,6 +3992,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param bool enabled: Filter accepts true or false
         :param str event_type: Event type of the notification (e.g. health_status)
         :return: ResourceNotificationsResponse
@@ -3962,6 +4019,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param bool enabled: Filter accepts true or false
         :param str event_type: Event type of the notification (e.g. health_status)
         :return: ResourceNotificationsResponse
@@ -3969,7 +4027,7 @@ class InstrumentationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'page', 'per_page', 'enabled', 'event_type']  # noqa: E501
+        all_params = ['instrumentation_id', 'page', 'per_page', 'include_total_count', 'enabled', 'event_type']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4000,6 +4058,8 @@ class InstrumentationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'enabled' in params:
             query_params.append(('enabled', params['enabled']))  # noqa: E501
         if 'event_type' in params:
@@ -4048,6 +4108,7 @@ class InstrumentationApi(object):
         :param str key: the exact key (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param datetime source_timestamp_from: source_timestamp filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime source_timestamp_to: source_timestamp filter to. Ending with + will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime updated_at_from: updated_at filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -4078,6 +4139,7 @@ class InstrumentationApi(object):
         :param str key: the exact key (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param datetime source_timestamp_from: source_timestamp filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime source_timestamp_to: source_timestamp filter to. Ending with + will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime updated_at_from: updated_at filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -4088,7 +4150,7 @@ class InstrumentationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'key', 'page', 'per_page', 'source_timestamp_from', 'source_timestamp_to', 'updated_at_from', 'updated_at_to', 'order_by']  # noqa: E501
+        all_params = ['instrumentation_id', 'key', 'page', 'per_page', 'include_total_count', 'source_timestamp_from', 'source_timestamp_to', 'updated_at_from', 'updated_at_to', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4125,6 +4187,8 @@ class InstrumentationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'source_timestamp_from' in params:
             query_params.append(('source_timestamp_from', params['source_timestamp_from']))  # noqa: E501
         if 'source_timestamp_to' in params:
@@ -4376,6 +4440,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -4409,6 +4474,7 @@ class InstrumentationApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -4423,7 +4489,7 @@ class InstrumentationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'page', 'per_page', 'include', 'name', 'status_id', 'type_id', 'tenant_id', 'specifications_key', 'specifications_value', 'permission', 'order_by']  # noqa: E501
+        all_params = ['instrumentation_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'status_id', 'type_id', 'tenant_id', 'specifications_key', 'specifications_value', 'permission', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4454,6 +4520,8 @@ class InstrumentationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -4503,16 +4571,16 @@ class InstrumentationApi(object):
             collection_formats=collection_formats)
 
     def post_instrumentations_search(self, **kwargs):  # noqa: E501
-        """Returns a range of instrumentations, same as GET /instrumentations, but allows instead URI params uses body  # noqa: E501
+        """Post equivalent of `GET /instrumentations`  # noqa: E501
 
-        Returns a list of instrumentations in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```assets, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.tenant, type.parent, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit```   # noqa: E501
+        This endpoint is a replicates the behaviour of the `GET /instrumentations` endpoint and accepts the request parameters as json body instead. It returns a list of instrumentations in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```assets, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.tenant, type.parent, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_instrumentations_search(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str body: JSON and same as params in GET /instrumentations.
+        :param InstrumentationsSearchBody body: JSON Object with the same parameters as the GET /instrumentations endpoint
         :return: InstrumentationsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4525,16 +4593,16 @@ class InstrumentationApi(object):
             return data
 
     def post_instrumentations_search_with_http_info(self, **kwargs):  # noqa: E501
-        """Returns a range of instrumentations, same as GET /instrumentations, but allows instead URI params uses body  # noqa: E501
+        """Post equivalent of `GET /instrumentations`  # noqa: E501
 
-        Returns a list of instrumentations in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```assets, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.tenant, type.parent, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit```   # noqa: E501
+        This endpoint is a replicates the behaviour of the `GET /instrumentations` endpoint and accepts the request parameters as json body instead. It returns a list of instrumentations in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```assets, assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent, status, worst_asset_status, type, type.tenant, type.parent, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_instrumentations_search_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str body: JSON and same as params in GET /instrumentations.
+        :param InstrumentationsSearchBody body: JSON Object with the same parameters as the GET /instrumentations endpoint
         :return: InstrumentationsResponse
                  If the method is called asynchronously,
                  returns the request thread.

@@ -153,6 +153,7 @@ class SpecificationApi(object):
         :param str key: the exact key (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param datetime source_timestamp_from: source_timestamp filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime source_timestamp_to: source_timestamp filter to. Ending with + will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime updated_at_from: updated_at filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -183,6 +184,7 @@ class SpecificationApi(object):
         :param str key: the exact key (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param datetime source_timestamp_from: source_timestamp filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime source_timestamp_to: source_timestamp filter to. Ending with + will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime updated_at_from: updated_at filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -193,7 +195,7 @@ class SpecificationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'key', 'page', 'per_page', 'source_timestamp_from', 'source_timestamp_to', 'updated_at_from', 'updated_at_to', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'key', 'page', 'per_page', 'include_total_count', 'source_timestamp_from', 'source_timestamp_to', 'updated_at_from', 'updated_at_to', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -230,6 +232,8 @@ class SpecificationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'source_timestamp_from' in params:
             query_params.append(('source_timestamp_from', params['source_timestamp_from']))  # noqa: E501
         if 'source_timestamp_to' in params:
@@ -284,6 +288,7 @@ class SpecificationApi(object):
         :param str key: the exact key (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param datetime source_timestamp_from: source_timestamp filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime source_timestamp_to: source_timestamp filter to. Ending with + will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime updated_at_from: updated_at filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -314,6 +319,7 @@ class SpecificationApi(object):
         :param str key: the exact key (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param datetime source_timestamp_from: source_timestamp filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime source_timestamp_to: source_timestamp filter to. Ending with + will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime updated_at_from: updated_at filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -324,7 +330,7 @@ class SpecificationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['batch_id', 'key', 'page', 'per_page', 'source_timestamp_from', 'source_timestamp_to', 'updated_at_from', 'updated_at_to', 'order_by']  # noqa: E501
+        all_params = ['batch_id', 'key', 'page', 'per_page', 'include_total_count', 'source_timestamp_from', 'source_timestamp_to', 'updated_at_from', 'updated_at_to', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -361,6 +367,8 @@ class SpecificationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'source_timestamp_from' in params:
             query_params.append(('source_timestamp_from', params['source_timestamp_from']))  # noqa: E501
         if 'source_timestamp_to' in params:
@@ -415,6 +423,7 @@ class SpecificationApi(object):
         :param str key: the exact key (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param datetime source_timestamp_from: source_timestamp filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime source_timestamp_to: source_timestamp filter to. Ending with + will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime updated_at_from: updated_at filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -445,6 +454,7 @@ class SpecificationApi(object):
         :param str key: the exact key (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param datetime source_timestamp_from: source_timestamp filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime source_timestamp_to: source_timestamp filter to. Ending with + will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime updated_at_from: updated_at filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -455,7 +465,7 @@ class SpecificationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'key', 'page', 'per_page', 'source_timestamp_from', 'source_timestamp_to', 'updated_at_from', 'updated_at_to', 'order_by']  # noqa: E501
+        all_params = ['instrumentation_id', 'key', 'page', 'per_page', 'include_total_count', 'source_timestamp_from', 'source_timestamp_to', 'updated_at_from', 'updated_at_to', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -492,6 +502,8 @@ class SpecificationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'source_timestamp_from' in params:
             query_params.append(('source_timestamp_from', params['source_timestamp_from']))  # noqa: E501
         if 'source_timestamp_to' in params:
@@ -546,6 +558,7 @@ class SpecificationApi(object):
         :param str key: the exact key (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param datetime source_timestamp_from: source_timestamp filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime source_timestamp_to: source_timestamp filter to. Ending with + will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime updated_at_from: updated_at filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -576,6 +589,7 @@ class SpecificationApi(object):
         :param str key: the exact key (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param datetime source_timestamp_from: source_timestamp filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime source_timestamp_to: source_timestamp filter to. Ending with + will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime updated_at_from: updated_at filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -586,7 +600,7 @@ class SpecificationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['recipe_id', 'key', 'page', 'per_page', 'source_timestamp_from', 'source_timestamp_to', 'updated_at_from', 'updated_at_to', 'order_by']  # noqa: E501
+        all_params = ['recipe_id', 'key', 'page', 'per_page', 'include_total_count', 'source_timestamp_from', 'source_timestamp_to', 'updated_at_from', 'updated_at_to', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -623,6 +637,8 @@ class SpecificationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'source_timestamp_from' in params:
             query_params.append(('source_timestamp_from', params['source_timestamp_from']))  # noqa: E501
         if 'source_timestamp_to' in params:
@@ -677,6 +693,7 @@ class SpecificationApi(object):
         :param str key: the exact key (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param datetime source_timestamp_from: source_timestamp filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime source_timestamp_to: source_timestamp filter to. Ending with + will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime updated_at_from: updated_at filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -707,6 +724,7 @@ class SpecificationApi(object):
         :param str key: the exact key (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param datetime source_timestamp_from: source_timestamp filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime source_timestamp_to: source_timestamp filter to. Ending with + will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime updated_at_from: updated_at filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -717,7 +735,7 @@ class SpecificationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['system_id', 'key', 'page', 'per_page', 'source_timestamp_from', 'source_timestamp_to', 'updated_at_from', 'updated_at_to', 'order_by']  # noqa: E501
+        all_params = ['system_id', 'key', 'page', 'per_page', 'include_total_count', 'source_timestamp_from', 'source_timestamp_to', 'updated_at_from', 'updated_at_to', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -754,6 +772,8 @@ class SpecificationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'source_timestamp_from' in params:
             query_params.append(('source_timestamp_from', params['source_timestamp_from']))  # noqa: E501
         if 'source_timestamp_to' in params:

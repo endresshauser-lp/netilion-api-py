@@ -72,7 +72,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'Swagger-Codegen/01.02.02/python'
+        self.user_agent = 'Swagger-Codegen/1.0.0/python'
 
     def __del__(self):
         self.pool.close()
@@ -490,10 +490,9 @@ class ApiClient(object):
         """
         if not auth_settings:
             return
-        
-        settings = self.configuration.auth_settings()
+
         for auth in auth_settings:
-            auth_setting = settings.get(auth)
+            auth_setting = self.configuration.auth_settings().get(auth)
             if auth_setting:
                 if not auth_setting['value']:
                     continue

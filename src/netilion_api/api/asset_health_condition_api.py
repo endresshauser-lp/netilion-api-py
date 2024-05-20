@@ -32,6 +32,113 @@ class AssetHealthConditionApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def add_health_condition_intervals_to_asset(self, body, asset_id, **kwargs):  # noqa: E501
+        """Add health conditions to an asset  # noqa: E501
+
+        Add one or more health conditions to an asset, same as POST `/assets/{asset_id}/health_conditions' but this endpoint returns a list of the intervals  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_health_condition_intervals_to_asset(body, asset_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AssetHealthConditionsRequestPost body: Resources that shall be added. (required)
+        :param int asset_id: The resource defined in the URL (required)
+        :return: AssetHealthConditionIntervalsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.add_health_condition_intervals_to_asset_with_http_info(body, asset_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.add_health_condition_intervals_to_asset_with_http_info(body, asset_id, **kwargs)  # noqa: E501
+            return data
+
+    def add_health_condition_intervals_to_asset_with_http_info(self, body, asset_id, **kwargs):  # noqa: E501
+        """Add health conditions to an asset  # noqa: E501
+
+        Add one or more health conditions to an asset, same as POST `/assets/{asset_id}/health_conditions' but this endpoint returns a list of the intervals  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_health_condition_intervals_to_asset_with_http_info(body, asset_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AssetHealthConditionsRequestPost body: Resources that shall be added. (required)
+        :param int asset_id: The resource defined in the URL (required)
+        :return: AssetHealthConditionIntervalsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'asset_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method add_health_condition_intervals_to_asset" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `add_health_condition_intervals_to_asset`")  # noqa: E501
+        # verify the required parameter 'asset_id' is set
+        if ('asset_id' not in params or
+                params['asset_id'] is None):
+            raise ValueError("Missing the required parameter `asset_id` when calling `add_health_condition_intervals_to_asset`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'asset_id' in params:
+            path_params['asset_id'] = params['asset_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/assets/{asset_id}/health_condition_intervals', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AssetHealthConditionIntervalsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def add_health_conditions_to_asset(self, body, asset_id, **kwargs):  # noqa: E501
         """Add health conditions to an asset  # noqa: E501
 
@@ -42,7 +149,7 @@ class AssetHealthConditionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AssetHealthConditionsRequest body: Resources that shall be added. (required)
+        :param AssetHealthConditionsRequestPost body: Resources that shall be added. (required)
         :param int asset_id: The resource defined in the URL (required)
         :return: None
                  If the method is called asynchronously,
@@ -65,7 +172,7 @@ class AssetHealthConditionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AssetHealthConditionsRequest body: Resources that shall be added. (required)
+        :param AssetHealthConditionsRequestPost body: Resources that shall be added. (required)
         :param int asset_id: The resource defined in the URL (required)
         :return: None
                  If the method is called asynchronously,
@@ -154,6 +261,7 @@ class AssetHealthConditionApi(object):
         :param str diagnosis_message: diagnosis message of an asset (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str protocol_version: definition of the protocol version. For example 5, 6 or 7 for HART
         :param str device_ident: device_ident of the asset
@@ -185,6 +293,7 @@ class AssetHealthConditionApi(object):
         :param str diagnosis_message: diagnosis message of an asset (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str protocol_version: definition of the protocol version. For example 5, 6 or 7 for HART
         :param str device_ident: device_ident of the asset
@@ -195,7 +304,7 @@ class AssetHealthConditionApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'protocol', 'diagnosis_message', 'page', 'per_page', 'include', 'protocol_version', 'device_ident', 'product_identifier', 'accept_language']  # noqa: E501
+        all_params = ['asset_id', 'protocol', 'diagnosis_message', 'page', 'per_page', 'include_total_count', 'include', 'protocol_version', 'device_ident', 'product_identifier', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -234,6 +343,8 @@ class AssetHealthConditionApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'protocol' in params:
@@ -398,6 +509,7 @@ class AssetHealthConditionApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str health_condition_id: One or multiple ids (comma list). Expected id format is integer
         :param str diagnosis_code: Filter accepts `*` as wildcard
@@ -427,6 +539,7 @@ class AssetHealthConditionApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str health_condition_id: One or multiple ids (comma list). Expected id format is integer
         :param str diagnosis_code: Filter accepts `*` as wildcard
@@ -437,7 +550,7 @@ class AssetHealthConditionApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'include', 'health_condition_id', 'diagnosis_code', 'asset_status_id', 'accept_language']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'include', 'health_condition_id', 'diagnosis_code', 'asset_status_id', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -468,6 +581,8 @@ class AssetHealthConditionApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'health_condition_id' in params:
@@ -521,8 +636,14 @@ class AssetHealthConditionApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param datetime _from: Start date filter for timemachine values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime to: End date for timemachine values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date created_datetime_from: Start date from filter for timemachine values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date created_datetime_to: Start date to filter for timemachine values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date deleted_datetime_from: Deleted date from filter for timemachine values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date deleted_datetime_to: Deleted date to filter for timemachine values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str deleted_datetime: add null to return all open timemachine values or add deleted date in YYYY-MM-DD format
         :param str order_by: Order result by attribute value, accepts `created_datetime` or `deleted_datetime`, add `-` as a prefix for descending order.
         :return: AssetHealthConditionsTimemachineResponse
                  If the method is called asynchronously,
@@ -548,15 +669,21 @@ class AssetHealthConditionApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param datetime _from: Start date filter for timemachine values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime to: End date for timemachine values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date created_datetime_from: Start date from filter for timemachine values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date created_datetime_to: Start date to filter for timemachine values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date deleted_datetime_from: Deleted date from filter for timemachine values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date deleted_datetime_to: Deleted date to filter for timemachine values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str deleted_datetime: add null to return all open timemachine values or add deleted date in YYYY-MM-DD format
         :param str order_by: Order result by attribute value, accepts `created_datetime` or `deleted_datetime`, add `-` as a prefix for descending order.
         :return: AssetHealthConditionsTimemachineResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', '_from', 'to', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', '_from', 'to', 'created_datetime_from', 'created_datetime_to', 'deleted_datetime_from', 'deleted_datetime_to', 'deleted_datetime', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -587,10 +714,22 @@ class AssetHealthConditionApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if '_from' in params:
             query_params.append(('from', params['_from']))  # noqa: E501
         if 'to' in params:
             query_params.append(('to', params['to']))  # noqa: E501
+        if 'created_datetime_from' in params:
+            query_params.append(('created_datetime_from', params['created_datetime_from']))  # noqa: E501
+        if 'created_datetime_to' in params:
+            query_params.append(('created_datetime_to', params['created_datetime_to']))  # noqa: E501
+        if 'deleted_datetime_from' in params:
+            query_params.append(('deleted_datetime_from', params['deleted_datetime_from']))  # noqa: E501
+        if 'deleted_datetime_to' in params:
+            query_params.append(('deleted_datetime_to', params['deleted_datetime_to']))  # noqa: E501
+        if 'deleted_datetime' in params:
+            query_params.append(('deleted_datetime', params['deleted_datetime']))  # noqa: E501
         if 'order_by' in params:
             query_params.append(('order_by', params['order_by']))  # noqa: E501
 
@@ -633,7 +772,7 @@ class AssetHealthConditionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AssetHealthConditionsRequest body: Resources that shall be replaced. (required)
+        :param AssetHealthConditionsRequestPatch body: Resources that shall be replaced. (required)
         :param int asset_id: The resource defined in the URL (required)
         :return: None
                  If the method is called asynchronously,
@@ -656,7 +795,7 @@ class AssetHealthConditionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AssetHealthConditionsRequest body: Resources that shall be replaced. (required)
+        :param AssetHealthConditionsRequestPatch body: Resources that shall be replaced. (required)
         :param int asset_id: The resource defined in the URL (required)
         :return: None
                  If the method is called asynchronously,
@@ -740,7 +879,7 @@ class AssetHealthConditionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AssetHealthConditionsRequest body: Resources that shall be removed. (required)
+        :param HealthConditions body: Resources that shall be removed. (required)
         :param int asset_id: The resource defined in the URL (required)
         :return: None
                  If the method is called asynchronously,
@@ -763,7 +902,7 @@ class AssetHealthConditionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AssetHealthConditionsRequest body: Resources that shall be removed. (required)
+        :param HealthConditions body: Resources that shall be removed. (required)
         :param int asset_id: The resource defined in the URL (required)
         :return: None
                  If the method is called asynchronously,

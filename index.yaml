@@ -34,6 +34,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/ApiKeyFilter"
       - "$ref": "#/parameters/ValidFromFilter"
       - "$ref": "#/parameters/ValidFromFromFilter"
@@ -210,6 +211,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/UserIDFilter"
       - "$ref": "#/parameters/ClientApplicationIDFilter"
@@ -407,6 +409,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/SerialNumberFilter"
       - "$ref": "#/parameters/ProductIDFilter"
@@ -574,6 +577,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/SerialNumberFilter"
       - "$ref": "#/parameters/NameFilter"
@@ -893,10 +897,11 @@ paths:
         \nsystems.specifications, systems.batches_in_execution, specifications, specifications[key1,key2],\nproduct.specifications,
         product.specifications[key1,key2],\ninstrumentations.status, instrumentations.type,
         instrumentations.worst_asset_status, \ninstrumentations.specifications, instrumentations.specifications[key1,key2]
-        add_ons in_subscription```"
+        add_ons```"
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/SerialNumberFilter"
       - "$ref": "#/parameters/ProductIDFilter"
@@ -916,6 +921,7 @@ paths:
       - "$ref": "#/parameters/SpecificationsValueFilter"
       - "$ref": "#/parameters/NodeIDinAssetFilter"
       - "$ref": "#/parameters/InstrumentationIDNullFilter"
+      - "$ref": "#/parameters/InstrumentationTagFilter"
       - "$ref": "#/parameters/SystemIDNullFilter"
       - "$ref": "#/parameters/CreatedAtFilter"
       - "$ref": "#/parameters/CreatedAtFromFilter"
@@ -1112,6 +1118,7 @@ paths:
       - "$ref": "#/parameters/AssetPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/ProductCodeFilter"
       - "$ref": "#/parameters/MaterialNumberFilter"
@@ -1258,6 +1265,7 @@ paths:
       - "$ref": "#/parameters/AssetPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/UserIDFilter"
       - "$ref": "#/parameters/ClientApplicationIDFilter"
@@ -1303,6 +1311,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
@@ -1386,6 +1395,7 @@ paths:
       - "$ref": "#/parameters/AssetPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -1531,11 +1541,12 @@ paths:
         Returns a list of all documents that are available in your scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.
         Parameters supporting translation: ```name, description```. To get a translation set Accept-Language.
         Possible include values: ```status, tenant, classification,
-        categories, categories.parent, attachments, categories.standards, eventdocuments```
+        categories, categories.parent, attachments, categories.standards, eventdocuments, productdocuments```
       parameters:
       - "$ref": "#/parameters/AssetPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/DocumentVersionFilter"
@@ -1755,6 +1766,7 @@ paths:
       - "$ref": "#/parameters/AssetPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/TagFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -1910,6 +1922,7 @@ paths:
       - "$ref": "#/parameters/AssetPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/InstrumentationIDFilter"
       - "$ref": "#/parameters/HistoryEventFilter"
       - "$ref": "#/parameters/EventDateTimeFromFilter"
@@ -1943,6 +1956,7 @@ paths:
       - "$ref": "#/parameters/AssetPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TypeIDFilter"
@@ -2445,6 +2459,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/ProductCodeFilter"
       - "$ref": "#/parameters/NameFilter"
@@ -2669,6 +2684,7 @@ paths:
       - "$ref": "#/parameters/AssetPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/SoftwareTypeIDFilter"
       - "$ref": "#/parameters/SoftwareOrderBy"
@@ -2967,6 +2983,7 @@ paths:
         description: the exact key
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - name: source_timestamp_from
         in: query
         description: source_timestamp filter from. Starting with + will include the
@@ -3113,6 +3130,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
@@ -3161,6 +3179,7 @@ paths:
       - "$ref": "#/parameters/AssetPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/UserIDFilter"
       - "$ref": "#/parameters/ClientApplicationIDFilter"
@@ -3201,6 +3220,7 @@ paths:
       - "$ref": "#/parameters/AssetPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TypeIDFilter"
@@ -3242,6 +3262,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/DefaultOrderBy"
       responses:
@@ -3332,6 +3353,7 @@ paths:
       - "$ref": "#/parameters/AssetValuesKeyPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/AssetValueFromFilter"
       - "$ref": "#/parameters/AssetValueToFilter"
@@ -3368,6 +3390,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/ContentAuthorFilter"
       - "$ref": "#/parameters/ContentVersionFilter"
       - "$ref": "#/parameters/RemarksFilter"
@@ -3741,6 +3764,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/AuthorFilter"
       - "$ref": "#/parameters/DateFilter"
@@ -3912,6 +3936,7 @@ paths:
       - "$ref": "#/parameters/BillOfMaterialPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/DocumentVersionFilter"
@@ -4063,6 +4088,7 @@ paths:
       - "$ref": "#/parameters/BillOfMaterialPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/TagFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -4216,6 +4242,7 @@ paths:
       - "$ref": "#/parameters/BillOfMaterialPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -4366,6 +4393,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/ContactPersonIDFilter"
@@ -4540,6 +4568,7 @@ paths:
       - "$ref": "#/parameters/ClientApplicationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/ApiKeyFilter"
       - "$ref": "#/parameters/ValidFromFilter"
       - "$ref": "#/parameters/ValidFromFromFilter"
@@ -4583,6 +4612,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/EdgeDeviceTypeIDFilter"
@@ -4620,6 +4650,7 @@ paths:
       - "$ref": "#/parameters/UserrolePathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/FirstNameFilter"
       - "$ref": "#/parameters/LastNameFilter"
       - "$ref": "#/parameters/DefaultOrderBy"
@@ -4715,6 +4746,7 @@ paths:
       - "$ref": "#/parameters/ClientApplicationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/EMailFilter"
       - "$ref": "#/parameters/DefaultOrderBy"
       responses:
@@ -4782,6 +4814,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/DefaultOrderBy"
       responses:
         '200':
@@ -4985,6 +5018,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/StatusFilter"
       - name: event_type
         in: query
@@ -5144,6 +5178,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/ParentIDFilter"
@@ -5327,6 +5362,7 @@ paths:
       - "$ref": "#/parameters/CompanyPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -5364,6 +5400,7 @@ paths:
       - "$ref": "#/parameters/CompanyPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -5402,11 +5439,13 @@ paths:
       - "$ref": "#/parameters/CompanyPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/ProductCodeFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/StatusIDFilter"
       - "$ref": "#/parameters/CategoryIDFilter"
+      - "$ref": "#/parameters/RiskOfMaintainabilityFilter"
       - "$ref": "#/parameters/ParentIDFilter"
       - "$ref": "#/parameters/TenantIDFilter"
       - "$ref": "#/parameters/DefaultOrderBy"
@@ -5440,6 +5479,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/CustomerOrderByParameter"
@@ -5602,6 +5642,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -5779,6 +5820,7 @@ paths:
       - "$ref": "#/parameters/DeliveryPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/SerialNumberFilter"
       - "$ref": "#/parameters/ProductIDFilter"
@@ -5939,6 +5981,7 @@ paths:
       - "$ref": "#/parameters/DeliveryPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/DocumentVersionFilter"
@@ -6090,6 +6133,7 @@ paths:
       - "$ref": "#/parameters/DeliveryPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -6277,6 +6321,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -6466,6 +6511,7 @@ paths:
       - "$ref": "#/parameters/DocumentPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/SerialNumberFilter"
       - "$ref": "#/parameters/ProductIDFilter"
@@ -6516,6 +6562,7 @@ paths:
       - "$ref": "#/parameters/DocumentPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/ContentAuthorFilter"
       - "$ref": "#/parameters/ContentVersionFilter"
       - "$ref": "#/parameters/RemarksFilter"
@@ -6552,6 +6599,7 @@ paths:
       - "$ref": "#/parameters/DocumentPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/AuthorFilter"
       - "$ref": "#/parameters/DateFilter"
@@ -6588,6 +6636,7 @@ paths:
       - "$ref": "#/parameters/DocumentPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/NameFilter"
@@ -6735,6 +6784,7 @@ paths:
       - "$ref": "#/parameters/DocumentPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/ParentIDFilter"
@@ -6810,6 +6860,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
@@ -6852,6 +6903,7 @@ paths:
       - "$ref": "#/parameters/DocumentPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -6929,6 +6981,7 @@ paths:
       - "$ref": "#/parameters/DocumentPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TypeIDFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -6969,6 +7022,7 @@ paths:
       - "$ref": "#/parameters/DocumentPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/TagFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -7010,6 +7064,7 @@ paths:
       - "$ref": "#/parameters/DocumentPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TypeIDFilter"
@@ -7046,6 +7101,7 @@ paths:
       - "$ref": "#/parameters/DocumentPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/ProductCodeFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/ManufacturerIDFilter"
@@ -7053,6 +7109,7 @@ paths:
       - "$ref": "#/parameters/ParentIDFilter"
       - "$ref": "#/parameters/TenantIDFilter"
       - "$ref": "#/parameters/CategoryIDFilter"
+      - "$ref": "#/parameters/RiskOfMaintainabilityFilter"
       - "$ref": "#/parameters/DefaultOrderBy"
       responses:
         '200':
@@ -7082,6 +7139,7 @@ paths:
       - "$ref": "#/parameters/DocumentPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -7120,6 +7178,7 @@ paths:
       - "$ref": "#/parameters/DocumentPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -7158,6 +7217,7 @@ paths:
       - "$ref": "#/parameters/DocumentPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -7235,6 +7295,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/NameFilter"
@@ -7274,10 +7335,11 @@ paths:
       description: |-
         Returns a list of events. If the query has no matches, the response is an empty list.
 
-        Possible include values: ```assets, instrumentations, nodes, status, type```
+        Possible include values: ```assets, instrumentations, nodes, status, type, specifications```
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TypeIDFilter"
@@ -7351,7 +7413,7 @@ paths:
       description: |-
         Get a specific event identified by the id in the URL.
 
-        Possible include values: ```assets, instrumentations, nodes, status, type```
+        Possible include values: ```assets, instrumentations, nodes, status, type, specifications```
       parameters:
       - name: id
         in: path
@@ -7458,6 +7520,7 @@ paths:
       - "$ref": "#/parameters/EventPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/SerialNumberFilter"
       - "$ref": "#/parameters/ProductIDFilter"
@@ -7546,6 +7609,7 @@ paths:
       - "$ref": "#/parameters/EventPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -7697,6 +7761,7 @@ paths:
       - "$ref": "#/parameters/EventPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/TagFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -7777,6 +7842,7 @@ paths:
       - "$ref": "#/parameters/EventPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/TypeIDFilter"
       - "$ref": "#/parameters/ParentIDFilter"
@@ -8050,6 +8116,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/TenantIDFilter"
@@ -8131,6 +8198,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/TenantIDFilter"
@@ -8162,6 +8230,43 @@ paths:
       tags:
       - Event
       - EventType
+  "/health_condition_intervals/{id}":
+    patch:
+      summary: Update health condition interval
+      operationId: updateHealthConditionsInterval
+      description: Update accessible parameters of the requested resource.
+      parameters:
+      - name: id
+        in: path
+        description: Id of the health condition interval to update
+        type: integer
+        format: int64
+        required: true
+      - name: Body
+        in: body
+        description: Parameters that shall be updated.
+        required: true
+        schema:
+          "$ref": "#/definitions/HealthConditionIntervalRequestPatch"
+      responses:
+        '204':
+          "$ref": "#/responses/204"
+        '400':
+          "$ref": "#/responses/400"
+        '401':
+          "$ref": "#/responses/401"
+        '403':
+          "$ref": "#/responses/403"
+        '404':
+          "$ref": "#/responses/404"
+        '409':
+          "$ref": "#/responses/409"
+        '429':
+          "$ref": "#/responses/429"
+        '500':
+          "$ref": "#/responses/500"
+      tags:
+      - HealthConditionInterval
   "/health_conditions":
     get:
       summary: Get a range of health conditions
@@ -8173,6 +8278,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/AssetStatusIDFilter"
       - "$ref": "#/parameters/TenantIDFilter"
@@ -8353,19 +8459,23 @@ paths:
       operationId: getInstrumentations
       description: "Returns a list of instrumentations in your accessible scope. If
         the query has no matches, the response is an empty list.\n\nPossible include
-        values: ```assets, assets.status, assets.specifications, nodes, nodes.type,
-        specifications, specifications[key1,key2], pictures, tenant, parent, status,
-        worst_asset_status, type, type.tenant, type.parent, values, values.unit, values_in_preferred_units,
-        values_in_preferred_units.unit``` "
+        values: ```assets, assets.product, assets.status, assets.specifications, nodes,
+        nodes.type, specifications, specifications[key1,key2], pictures, tenant, parent,
+        status, worst_asset_status, type, type.tenant, type.parent, values, values.unit,
+        values_in_preferred_units, values_in_preferred_units.unit, thresholds``` "
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
+      - "$ref": "#/parameters/TagIDFilter"
       - "$ref": "#/parameters/TagFilter"
       - "$ref": "#/parameters/StatusIDFilter"
       - "$ref": "#/parameters/TypeIDFilter"
       - "$ref": "#/parameters/ParentIDFilter"
       - "$ref": "#/parameters/TenantIDFilter"
+      - "$ref": "#/parameters/RiskOfMaintainabilityFilter"
+      - "$ref": "#/parameters/RiskOfMaintainabilityByDibaFilter"
       - "$ref": "#/parameters/SpecificationsKeyFilter"
       - "$ref": "#/parameters/SpecificationsValueFilter"
       - "$ref": "#/parameters/CriticalityFilter"
@@ -8441,11 +8551,11 @@ paths:
       summary: Get a single instrumentation
       operationId: getInstrumentationById
       description: "Get a specific instrumentation in your accessible scope, identified
-        by the id in the URL.\n\nPossible include values: ```assets, assets.status,
-        assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2],
+        by the id in the URL.\n\nPossible include values: ```assets, assets.product,
+        assets.status, assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2],
         pictures, tenant, parent, status, worst_asset_status, type, type.parent, type.tenant,
         values, values.unit, values.asset, values_in_preferred_units, values_in_preferred_units.unit,
-        values_in_preferred_units.asset ``` "
+        values_in_preferred_units.asset, thresholds``` "
       parameters:
       - name: id
         in: path
@@ -8555,6 +8665,7 @@ paths:
       - "$ref": "#/parameters/InstrumentationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/SerialNumberFilter"
       - "$ref": "#/parameters/ProductIDFilter"
@@ -8721,6 +8832,7 @@ paths:
       - "$ref": "#/parameters/InstrumentationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/AssetIDFilter"
       - "$ref": "#/parameters/HistoryEventFilter"
       - "$ref": "#/parameters/EventDateTimeFromFilter"
@@ -8754,6 +8866,7 @@ paths:
       - "$ref": "#/parameters/InstrumentationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/AuthorFilter"
       - "$ref": "#/parameters/DateFilter"
@@ -8901,6 +9014,7 @@ paths:
       - "$ref": "#/parameters/InstrumentationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/DocumentVersionFilter"
@@ -9056,6 +9170,7 @@ paths:
       - "$ref": "#/parameters/InstrumentationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TypeIDFilter"
@@ -9207,6 +9322,7 @@ paths:
       - "$ref": "#/parameters/InstrumentationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/EnabledFilter"
       - "$ref": "#/parameters/EventTypeFilter"
       responses:
@@ -9882,6 +9998,7 @@ paths:
         description: the exact key
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - name: source_timestamp_from
         in: query
         description: source_timestamp filter from. Starting with + will include the
@@ -10021,6 +10138,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/TenantIDFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/CodeFilter"
@@ -10063,6 +10181,7 @@ paths:
       - "$ref": "#/parameters/InstrumentationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -10331,6 +10450,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/TenantIDFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/CodeFilter"
@@ -10375,6 +10495,7 @@ paths:
       - "$ref": "#/parameters/InstrumentationValuesKeyPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/AssetValueFromFilter"
       - "$ref": "#/parameters/AssetValueToFilter"
@@ -10403,22 +10524,27 @@ paths:
       - Instrumentation
   "/instrumentations/search":
     post:
-      summary: Returns a range of instrumentations, same as GET /instrumentations,
-        but allows instead URI params uses body
+      summary: Post equivalent of `GET /instrumentations`
       operationId: postInstrumentationsSearch
-      description: "Returns a list of instrumentations in your accessible scope. If
-        the query has no matches, the response is an empty list.\n\nPossible include
-        values: ```assets, assets.status, assets.specifications, nodes, nodes.type,
-        specifications, specifications[key1,key2], pictures, tenant, parent, status,
-        worst_asset_status, type, type.tenant, type.parent, values, values.unit, values_in_preferred_units,
-        values_in_preferred_units.unit``` "
+      description: "This endpoint is a replicates the behaviour of the `GET /instrumentations`
+        endpoint and accepts the request parameters as json body instead. It returns
+        a list of instrumentations in your accessible scope. If the query has no matches,
+        the response is an empty list.\n\nPossible include values: ```assets, assets.status,
+        assets.specifications, nodes, nodes.type, specifications, specifications[key1,key2],
+        pictures, tenant, parent, status, worst_asset_status, type, type.tenant, type.parent,
+        values, values.unit, values_in_preferred_units, values_in_preferred_units.unit``` "
       parameters:
-      - name: Body
+      - name: Request parameters
         in: body
-        description: JSON and same as params in GET /instrumentations.
+        description: JSON Object with the same parameters as the GET /instrumentations
+          endpoint
         required: false
         schema:
-          "$ref": "#/definitions/AssetIDFilter"
+          type: object
+          properties:
+            asset_id:
+              type: string
+              description: A comma separated list of all asset ids e.g. "654,1234"
       responses:
         '200':
           description: The request was successful.
@@ -10447,17 +10573,19 @@ paths:
         ```parent, tenant, type, type.parent, specifications, specifications[key1,key2],
         pictures, instrumentations, instrumentations.specifications, instrumentations.specifications[key1,key2],
         instrumentations.values, instrumentations.values.unit, instrumentations.values_in_preferred_units,
-        instrumentations.values_in_preferred_units.unit, worst_asset_status```\nHidden
+        instrumentations.values_in_preferred_units.unit, worst_asset_status add_ons```\nHidden
         nodes are not returned by default, if the hidden nodes should be included,
         add \"```hidden```\" to the include parameter "
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TypeIDFilter"
       - "$ref": "#/parameters/ParentIDFilter"
       - "$ref": "#/parameters/TenantIDFilter"
+      - "$ref": "#/parameters/AddOnTypeFilter"
       - "$ref": "#/parameters/PermissionFilter"
       - "$ref": "#/parameters/NodesOrderByParameter"
       responses:
@@ -10528,7 +10656,7 @@ paths:
         specifications[key1,key2], pictures, instrumentations, instrumentations.specifications,
         instrumentations.specifications[key1,key2], instrumentations.values, instrumentations.values.unit,
         instrumentations.values_in_preferred_units, instrumentations.values_in_preferred_units.unit,
-        worst_asset_status``` "
+        worst_asset_status add_ons``` "
       parameters:
       - name: id
         in: path
@@ -10625,6 +10753,149 @@ paths:
           "$ref": "#/responses/500"
       tags:
       - Node
+  "/nodes/{node_id}/add_ons":
+    get:
+      summary: Get all add_ons of one node
+      operationId: getAddOnsOfNode
+      description: Returns a list of all add_ons that are available in your scope.
+        You can apply query parameters in the request to get a filtered list. If the
+        query has no matches, the response will show an empty array.
+      parameters:
+      - "$ref": "#/parameters/NodePathID"
+      - "$ref": "#/parameters/Pagination_Page"
+      - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
+      - "$ref": "#/parameters/NameFilter"
+      - "$ref": "#/parameters/ProductCodeFilter"
+      - "$ref": "#/parameters/MaterialNumberFilter"
+      - "$ref": "#/parameters/AddOnTypeFilter"
+      - "$ref": "#/parameters/DefaultOrderBy"
+      responses:
+        '200':
+          description: The request was successful.
+          schema:
+            "$ref": "#/definitions/AddOnsResponse"
+        '400':
+          "$ref": "#/responses/400"
+        '401':
+          "$ref": "#/responses/401"
+        '404':
+          "$ref": "#/responses/404"
+        '429':
+          "$ref": "#/responses/429"
+        '500':
+          "$ref": "#/responses/500"
+      tags:
+      - Node
+    post:
+      summary: Add add_ons to an node
+      operationId: addAddOnsToNode
+      description: Add one or more add_ons to an node.
+      parameters:
+      - name: node_id
+        in: path
+        description: Id of the node to which the add_ons will be added
+        type: integer
+        format: int64
+        required: true
+      - name: Body
+        in: body
+        description: Resources that shall be added.
+        required: true
+        schema:
+          "$ref": "#/definitions/AddOnIDs"
+      responses:
+        '204':
+          "$ref": "#/responses/204"
+        '400':
+          "$ref": "#/responses/400"
+        '401':
+          "$ref": "#/responses/401"
+        '403':
+          "$ref": "#/responses/403"
+        '404':
+          "$ref": "#/responses/404"
+        '409':
+          "$ref": "#/responses/409"
+        '429':
+          "$ref": "#/responses/429"
+        '500':
+          "$ref": "#/responses/500"
+      tags:
+      - Node
+    patch:
+      summary: Replace the add_ons of an node
+      operationId: replaceAddOnsOfNode
+      description: Replaces all add_ons belonging to an node in your accessible scope.
+        You can send a list of resources that will replace all previous values.
+      parameters:
+      - name: node_id
+        in: path
+        description: Id of the node of which the add_ons will be replaced
+        type: integer
+        format: int64
+        required: true
+      - name: Body
+        in: body
+        description: Resources that shall be replaced
+        required: true
+        schema:
+          "$ref": "#/definitions/AddOnIDs"
+      responses:
+        '204':
+          "$ref": "#/responses/204"
+        '400':
+          "$ref": "#/responses/400"
+        '401':
+          "$ref": "#/responses/401"
+        '403':
+          "$ref": "#/responses/403"
+        '404':
+          "$ref": "#/responses/404"
+        '409':
+          "$ref": "#/responses/409"
+        '429':
+          "$ref": "#/responses/429"
+        '500':
+          "$ref": "#/responses/500"
+      tags:
+      - Node
+    delete:
+      summary: Remove add_ons from an node
+      operationId: removeAddOnsFromNode
+      description: Remove one or more add_ons from an node in your accessible scope.
+      parameters:
+      - name: node_id
+        in: path
+        description: Id of the node from which the add_ons will be removed
+        type: integer
+        format: int64
+        required: true
+      - name: Body
+        in: body
+        description: Resources that shall be removed.
+        required: true
+        schema:
+          "$ref": "#/definitions/AddOnIDs"
+      responses:
+        '204':
+          "$ref": "#/responses/204"
+        '400':
+          "$ref": "#/responses/400"
+        '401':
+          "$ref": "#/responses/401"
+        '403':
+          "$ref": "#/responses/403"
+        '404':
+          "$ref": "#/responses/404"
+        '409':
+          "$ref": "#/responses/409"
+        '429':
+          "$ref": "#/responses/429"
+        '500':
+          "$ref": "#/responses/500"
+      tags:
+      - Node
   "/nodes/{node_id}/assets":
     get:
       summary: Get all assets of one node
@@ -10638,6 +10909,7 @@ paths:
       - "$ref": "#/parameters/NodePathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/SerialNumberFilter"
       - "$ref": "#/parameters/ProductIDFilter"
@@ -10801,6 +11073,7 @@ paths:
       - "$ref": "#/parameters/NodePathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/DocumentVersionFilter"
@@ -10954,6 +11227,7 @@ paths:
       - "$ref": "#/parameters/NodePathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/TagFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -11455,6 +11729,7 @@ paths:
       - "$ref": "#/parameters/NodePathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -11769,6 +12044,7 @@ paths:
       - "$ref": "#/parameters/NodePathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -11958,6 +12234,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/TenantIDFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/CodeFilter"
@@ -11989,6 +12266,42 @@ paths:
       - Node
       - NodeType
   "/permission_requests":
+    get:
+      summary: Get all permission requests
+      operationId: getPermissionRequests
+      description: Get all permission requests in your accessible scope.
+      parameters:
+      - "$ref": "#/parameters/Pagination_Page"
+      - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
+      - "$ref": "#/parameters/PermissionRequestStatusFilter"
+      responses:
+        '200':
+          description: The request was successful.
+          schema:
+            type: object
+            title: permission requests
+            properties:
+              permission_requests:
+                type: array
+                items:
+                  "$ref": "#/definitions/PermissionRequestResponse"
+              pagination:
+                "$ref": "#/definitions/PaginationLinks"
+        '400':
+          "$ref": "#/responses/400"
+        '401':
+          "$ref": "#/responses/401"
+        '402':
+          "$ref": "#/responses/402"
+        '404':
+          "$ref": "#/responses/404"
+        '429':
+          "$ref": "#/responses/429"
+        '500':
+          "$ref": "#/responses/500"
+      tags:
+      - PermissionRequest
     post:
       summary: Create a new permission request
       operationId: createPermissionRequest
@@ -12176,7 +12489,7 @@ paths:
                 items:
                   "$ref": "#/definitions/PermissionResponse"
               pagination:
-                "$ref": "#/definitions/Pagination"
+                "$ref": "#/definitions/PaginationLinks"
         '400':
           "$ref": "#/responses/400"
         '401':
@@ -12270,6 +12583,12 @@ paths:
         type: integer
         format: int64
         required: true
+      - name: all
+        in: query
+        description: If set to true, all permissions for the assignable and permitable
+          found for the given id will be deleted.
+        required: false
+        type: boolean
       responses:
         '204':
           "$ref": "#/responses/204"
@@ -12301,16 +12620,19 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/ProductCodeFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/ManufacturerIDFilter"
       - "$ref": "#/parameters/StatusIDFilter"
       - "$ref": "#/parameters/CategoryIDFilter"
+      - "$ref": "#/parameters/RiskOfMaintainabilityFilter"
       - "$ref": "#/parameters/ParentIDFilter"
       - "$ref": "#/parameters/TenantIDFilter"
       - "$ref": "#/parameters/SpecificationsKeyFilter"
       - "$ref": "#/parameters/SpecificationsValueFilter"
+      - "$ref": "#/parameters/DiagnosisCodeFilter"
       - "$ref": "#/parameters/DefaultOrderBy"
       - "$ref": "#/parameters/AcceptLanguageHeader"
       responses:
@@ -12482,6 +12804,7 @@ paths:
       - "$ref": "#/parameters/ProductPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/CodeFilter"
@@ -12520,6 +12843,7 @@ paths:
       - "$ref": "#/parameters/ProductPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/DocumentVersionFilter"
@@ -12671,6 +12995,7 @@ paths:
       - "$ref": "#/parameters/ProductPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/DefaultOrderBy"
@@ -13160,6 +13485,7 @@ paths:
       - "$ref": "#/parameters/ProductPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -13308,6 +13634,7 @@ paths:
       - "$ref": "#/parameters/ProductPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -13456,6 +13783,7 @@ paths:
       - "$ref": "#/parameters/ProductPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/SoftwareOrderBy"
       - "$ref": "#/parameters/AcceptLanguageHeader"
@@ -13599,6 +13927,7 @@ paths:
       - "$ref": "#/parameters/ProductPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/OrderCodeFilter"
@@ -13944,6 +14273,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
       - "$ref": "#/parameters/CodeFilter"
@@ -13984,6 +14314,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/CustomerPurchaseOrderNumberFilter"
@@ -14149,6 +14480,73 @@ paths:
           "$ref": "#/responses/500"
       tags:
       - PurchaseOrder
+  "/purchase_orders/{purchase_order_id}/claimed_assets":
+    get:
+      summary: Get all claimed assets of one purchase order
+      operationId: getClaimedAssetsOfPurchaseOrder
+      description: |-
+        Returns a list of all claimed assets that linked to this purchase order.
+        You can apply query parameters in the request to get a filtered list. If the
+        query has no matches, the response will show an empty array.
+        Possible include values: ```status,
+        tenant, parent, pictures, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit,
+        product, product.manufacturer, product.pictures, product.status, product.categories, product.categories.parent,
+        product.tenant, product.manufacturer.tenant, status.tenant, instrumentations, systems, systems.recipe,
+        systems.specifications, systems.batches_in_execution, specifications, specifications[key1,key2],
+        product.specifications, product.specifications[key1,key2],
+        instrumentations.status, instrumentations.type, instrumentations.worst_asset_status,
+        instrumentations.specifications, instrumentations.specifications[key1,key2] add_ons```
+      parameters:
+      - "$ref": "#/parameters/PurchaseOrderPathID"
+      - "$ref": "#/parameters/Pagination_Page"
+      - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
+      - "$ref": "#/parameters/IncludeParam"
+      - "$ref": "#/parameters/SerialNumberFilter"
+      - "$ref": "#/parameters/ProductIDFilter"
+      - "$ref": "#/parameters/ProductStatusIDFilter"
+      - "$ref": "#/parameters/ProductCategoryIDFilter"
+      - "$ref": "#/parameters/ParentIDFilter"
+      - "$ref": "#/parameters/ManufacturerIDFilter"
+      - "$ref": "#/parameters/StatusIDFilter"
+      - "$ref": "#/parameters/StatusCodeFilter"
+      - "$ref": "#/parameters/TenantIDFilter"
+      - "$ref": "#/parameters/LastSeenAtFromFilter"
+      - "$ref": "#/parameters/LastSeenAtToFilter"
+      - "$ref": "#/parameters/ProductionDateFilter"
+      - "$ref": "#/parameters/ProductionDateFromFilter"
+      - "$ref": "#/parameters/ProductionDateToFilter"
+      - "$ref": "#/parameters/SpecificationsKeyFilter"
+      - "$ref": "#/parameters/SpecificationsValueFilter"
+      - "$ref": "#/parameters/NodeIDinAssetFilter"
+      - "$ref": "#/parameters/InstrumentationIDNullFilter"
+      - "$ref": "#/parameters/InstrumentationTagFilter"
+      - "$ref": "#/parameters/SystemIDNullFilter"
+      - "$ref": "#/parameters/CreatedAtFilter"
+      - "$ref": "#/parameters/CreatedAtFromFilter"
+      - "$ref": "#/parameters/CreatedAtToFilter"
+      - "$ref": "#/parameters/UpdatedAtFilter"
+      - "$ref": "#/parameters/UpdatedAtFromFilter"
+      - "$ref": "#/parameters/UpdatedAtToFilter"
+      - "$ref": "#/parameters/PermissionFilter"
+      - "$ref": "#/parameters/AssetsOrderByParameter"
+      responses:
+        '200':
+          description: The request was successful.
+          schema:
+            "$ref": "#/definitions/AssetsResponse"
+        '400':
+          "$ref": "#/responses/400"
+        '401':
+          "$ref": "#/responses/401"
+        '404':
+          "$ref": "#/responses/404"
+        '429':
+          "$ref": "#/responses/429"
+        '500':
+          "$ref": "#/responses/500"
+      tags:
+      - PurchaseOrder
   "/purchase_orders/{purchase_order_id}/deliveries":
     get:
       summary: Get all deliveries of one purchase order
@@ -14160,6 +14558,7 @@ paths:
       - "$ref": "#/parameters/PurchaseOrderPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/DateOfShipmentFilter"
@@ -14308,6 +14707,7 @@ paths:
       - "$ref": "#/parameters/PurchaseOrderPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/DocumentVersionFilter"
@@ -14460,6 +14860,7 @@ paths:
       - "$ref": "#/parameters/PurchaseOrderPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/ProductCodeFilter"
       - "$ref": "#/parameters/NameFilter"
@@ -14678,6 +15079,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -14854,6 +15256,7 @@ paths:
       - "$ref": "#/parameters/QuotationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/DocumentVersionFilter"
@@ -15005,6 +15408,7 @@ paths:
       - "$ref": "#/parameters/QuotationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/ProductCodeFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/ManufacturerIDFilter"
@@ -15187,6 +15591,7 @@ paths:
       - "$ref": "#/parameters/QuotationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/DateFilter"
@@ -15368,6 +15773,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -15543,6 +15949,7 @@ paths:
       - "$ref": "#/parameters/RequestForQuotationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/AuthorFilter"
       - "$ref": "#/parameters/DateFilter"
@@ -15691,6 +16098,7 @@ paths:
       - "$ref": "#/parameters/RequestForQuotationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/DocumentVersionFilter"
@@ -15844,6 +16252,7 @@ paths:
       - "$ref": "#/parameters/RequestForQuotationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/NumberFilter"
       - "$ref": "#/parameters/StatusIDFilter"
@@ -16028,6 +16437,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/SoftwareTypeIDFilter"
       - "$ref": "#/parameters/SoftwareOrderBy"
@@ -16206,6 +16616,7 @@ paths:
       - "$ref": "#/parameters/SoftwarePathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/RemarksFilter"
       - "$ref": "#/parameters/FileNameFilter"
       - "$ref": "#/parameters/DefaultOrderBy"
@@ -16239,6 +16650,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/OrderCodeFilter"
       - "$ref": "#/parameters/NameFilter"
@@ -16415,6 +16827,7 @@ paths:
       - "$ref": "#/parameters/SparePartPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/DocumentVersionFilter"
@@ -16571,6 +16984,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
       - "$ref": "#/parameters/CodeFilter"
@@ -16619,6 +17033,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
       - "$ref": "#/parameters/CodeFilter"
@@ -16659,6 +17074,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/UserIDFilter"
       - "$ref": "#/parameters/ClientApplicationIDFilter"
@@ -16714,7 +17130,7 @@ paths:
         description: subscription body
         required: true
         schema:
-          "$ref": "#/definitions/SubscriptionRequest"
+          "$ref": "#/definitions/SubscriptionPostRequest"
       responses:
         '201':
           description: The new resource was successfully created. The response body
@@ -16790,7 +17206,7 @@ paths:
         description: Parameters that shall be updated.
         required: true
         schema:
-          "$ref": "#/definitions/SubscriptionRequest"
+          "$ref": "#/definitions/SubscriptionPatchRequest"
       responses:
         '204':
           "$ref": "#/responses/204"
@@ -16943,6 +17359,7 @@ paths:
       - "$ref": "#/parameters/SubscriptionPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/SerialNumberFilter"
       - "$ref": "#/parameters/ProductIDFilter"
@@ -17093,6 +17510,56 @@ paths:
           "$ref": "#/responses/500"
       tags:
       - Subscription
+  "/subscriptions/{subscription_id}/auto_registration":
+    post:
+      summary: Prepare for auto registration
+      operationId: autoRegistration
+      description: Verify and link customer object to the subscription
+      parameters:
+      - name: subscription_id
+        in: path
+        description: Id of the specified subscription
+        type: integer
+        format: int64
+        required: true
+      - name: Body
+        in: body
+        description: Customer data needed to verify and link customer object to subscription
+        required: true
+        schema:
+          type: object
+          required:
+          - customer_number
+          - serial_number
+          properties:
+            customer_number:
+              type: string
+              description: Customer number
+            serial_number:
+              type: string
+              description: Asset serial number
+            order_number:
+              type: string
+              description: Order number
+      responses:
+        '204':
+          "$ref": "#/responses/204"
+        '400':
+          "$ref": "#/responses/400"
+        '401':
+          "$ref": "#/responses/401"
+        '403':
+          "$ref": "#/responses/403"
+        '404':
+          "$ref": "#/responses/404"
+        '409':
+          "$ref": "#/responses/409"
+        '429':
+          "$ref": "#/responses/429"
+        '500':
+          "$ref": "#/responses/500"
+      tags:
+      - Subscription
   "/subscriptions/{subscription_id}/seats":
     get:
       summary: Get all users or invited emails having a seat in subscription
@@ -17105,6 +17572,7 @@ paths:
       - "$ref": "#/parameters/SubscriptionPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/EMailFilter"
       - "$ref": "#/parameters/UserIDFilter"
@@ -17379,6 +17847,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/AdminUserIDFilter"
       - "$ref": "#/parameters/AdminOrUserIDFilter"
@@ -17545,14 +18014,17 @@ paths:
     get:
       summary: Get all admins of a tenant
       operationId: getTenantAdmins
-      description: Returns a list of all admins that are available for the tenant.
+      description: 'Returns a list of all admins that are available for the tenant.
         You can apply query parameters in the request to get a filtered list. If the
-        query has no matches, the response will show an empty array.
+        query has no matches, the response will show an empty array. Possible include
+        values: ```technical_connect_users```'
       parameters:
       - "$ref": "#/parameters/TenantPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
+      - "$ref": "#/parameters/EMailFilter"
       - "$ref": "#/parameters/FirstNameFilter"
       - "$ref": "#/parameters/LastNameFilter"
       - "$ref": "#/parameters/UserOrderBy"
@@ -17688,13 +18160,17 @@ paths:
     get:
       summary: Get all users of a tenant
       operationId: getTenantUsers
-      description: Returns a list of all users that are available for the tenant.
+      description: 'Returns a list of all users that are available for the tenant.
         You can apply query parameters in the request to get a filtered list. If the
-        query has no matches, the response will show an empty array.
+        query has no matches, the response will show an empty array. Possible include
+        values: ```technical_connect_users```'
       parameters:
       - "$ref": "#/parameters/TenantPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
+      - "$ref": "#/parameters/IncludeParam"
+      - "$ref": "#/parameters/EMailFilter"
       - "$ref": "#/parameters/FirstNameFilter"
       - "$ref": "#/parameters/LastNameFilter"
       - "$ref": "#/parameters/UserOrderBy"
@@ -17837,6 +18313,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/SymbolFilter"
@@ -17905,6 +18382,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/EMailFilter"
       - "$ref": "#/parameters/FirstNameFilter"
@@ -18052,6 +18530,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/TimeFilter"
       - "$ref": "#/parameters/TimeFromFilter"
       - "$ref": "#/parameters/TimeToFilter"
@@ -18279,6 +18758,7 @@ paths:
       - "$ref": "#/parameters/UserPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/UserGroupOrderBy"
       responses:
@@ -18419,6 +18899,7 @@ paths:
       - "$ref": "#/parameters/UserPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/UserRoleOrderBy"
       responses:
@@ -18555,7 +19036,7 @@ paths:
       summary: Get current user
       operationId: getCurrentUser
       description: 'Get the user authenticated in the current context. Possible include
-        values: ```userroles, usergroups, usage, demo_data, specifications, specifications[key1,key2]```'
+        values: ```userroles, usergroups, usage, details, specifications, specifications[key1,key2]```'
       parameters:
       - "$ref": "#/parameters/IncludeParam"
       responses:
@@ -18620,8 +19101,10 @@ paths:
       parameters:
       - name: type
         in: query
-        description: type of data export, can be complete, measurements, batch_values,
-          instrumentation_values, asset_vdi_2770_documentation_container or system_vdi_2770_documentation_container.
+        description: Comma separated list of types of data export, can be complete,
+          measurements, batch_values, instrumentation_values, asset_vdi_2770_documentation_container,
+          system_vdi_2770_documentation_container, asset_documents, node_documents_recursive
+          or purchase_order_documents.
         type: string
         required: false
       - name: instrumentation_id
@@ -18633,6 +19116,18 @@ paths:
       - name: asset_id
         in: query
         description: ID of the asset to export data from.
+        type: integer
+        format: int64
+        required: false
+      - name: node_id
+        in: query
+        description: ID of the node to export data from.
+        type: integer
+        format: int64
+        required: false
+      - name: purchase_order_id
+        in: query
+        description: ID of the purchase_order to export its assets from.
         type: integer
         format: int64
         required: false
@@ -18651,6 +19146,13 @@ paths:
       - name: language
         in: query
         description: filter for requested export language
+        type: string
+        required: false
+      - name: order_by
+        in: query
+        description: Order result by attribute value, accepts `id`, `created_at` or
+          `updated_at`. Add `-` as a prefix for descending order. Default value is
+          `id`
         type: string
         required: false
       responses:
@@ -18860,6 +19362,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/StartDatetimeFilter"
       - "$ref": "#/parameters/StartDatetimeFromFilter"
       - "$ref": "#/parameters/StartDatetimeToFilter"
@@ -19002,6 +19505,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
@@ -19190,11 +19694,12 @@ paths:
       description: |-
         Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.
 
-        Possible include values: ``assets, instrumentations, nodes, status, type``
+        Possible include values: ``assets, instrumentations, nodes, status, type, specifications``
       parameters:
       - "$ref": "#/parameters/AssetPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TypeIDFilter"
@@ -19316,6 +19821,41 @@ paths:
       tags:
       - Event
       - Asset
+  "/assets/{asset_id}/health_condition_intervals":
+    post:
+      summary: Add health conditions to an asset
+      operationId: addHealthConditionIntervalsToAsset
+      description: Add one or more health conditions to an asset, same as POST `/assets/{asset_id}/health_conditions'
+        but this endpoint returns a list of the intervals
+      parameters:
+      - "$ref": "#/parameters/AssetPathID"
+      - name: Body
+        in: body
+        description: Resources that shall be added.
+        required: true
+        schema:
+          "$ref": "#/definitions/AssetHealthConditionsRequestPost"
+      responses:
+        '200':
+          description: The request was successful.
+          schema:
+            "$ref": "#/definitions/AssetHealthConditionIntervalsResponse"
+        '400':
+          "$ref": "#/responses/400"
+        '401':
+          "$ref": "#/responses/401"
+        '403':
+          "$ref": "#/responses/403"
+        '404':
+          "$ref": "#/responses/404"
+        '409':
+          "$ref": "#/responses/409"
+        '429':
+          "$ref": "#/responses/429"
+        '500':
+          "$ref": "#/responses/500"
+      tags:
+      - AssetHealthCondition
   "/assets/{asset_id}/health_conditions":
     get:
       summary: Get all health conditions assigned to an asset
@@ -19328,6 +19868,7 @@ paths:
       - "$ref": "#/parameters/AssetPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/HealthConditionIDFilter"
       - "$ref": "#/parameters/DiagnosisCodeFilter"
@@ -19367,7 +19908,7 @@ paths:
         description: Resources that shall be added.
         required: true
         schema:
-          "$ref": "#/definitions/AssetHealthConditionsRequest"
+          "$ref": "#/definitions/AssetHealthConditionsRequestPost"
       responses:
         '204':
           "$ref": "#/responses/204"
@@ -19399,7 +19940,7 @@ paths:
         description: Resources that shall be replaced.
         required: true
         schema:
-          "$ref": "#/definitions/AssetHealthConditionsRequest"
+          "$ref": "#/definitions/AssetHealthConditionsRequestPatch"
       responses:
         '204':
           "$ref": "#/responses/204"
@@ -19430,7 +19971,16 @@ paths:
         description: Resources that shall be removed.
         required: true
         schema:
-          "$ref": "#/definitions/AssetHealthConditionsRequest"
+          type: object
+          title: health_conditions
+          required:
+          - health_conditions
+          properties:
+            health_conditions:
+              type: array
+              title: health_conditions
+              items:
+                "$ref": "#/definitions/Nested_ID"
       responses:
         '204':
           "$ref": "#/responses/204"
@@ -19460,6 +20010,7 @@ paths:
       - "$ref": "#/parameters/AssetPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - name: protocol
         in: query
@@ -19558,8 +20109,14 @@ paths:
       - "$ref": "#/parameters/AssetPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/FromPlainFilter"
       - "$ref": "#/parameters/ToPlainFilter"
+      - "$ref": "#/parameters/CreatedDateTimeFromFilter"
+      - "$ref": "#/parameters/CreatedDateTimeToFilter"
+      - "$ref": "#/parameters/DeletedDateTimeFromFilter"
+      - "$ref": "#/parameters/DeletedDateTimeToFilter"
+      - "$ref": "#/parameters/DeletedDatetimeFilter"
       - "$ref": "#/parameters/AssetHealthConditionTimemachineOrderByParameter"
       responses:
         '200':
@@ -19627,6 +20184,42 @@ paths:
       tags:
       - Values
       - Asset
+    delete:
+      summary: Delete asset values.
+      operationId: deleteAssetValues
+      description: |-
+        Delete values for the asset. The values will be removed for all existing keys within a specified time range.
+        This time range is determined by the 'from' and 'to' parameters. The 'to' parameter is mandatory.
+        To delete all values for the asset, set the 'to' parameter to a future date.
+      parameters:
+      - "$ref": "#/parameters/AssetPathID"
+      - "$ref": "#/parameters/AssetValueFromFilter"
+      - name: to
+        in: query
+        description: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        type: string
+        format: date
+        required: true
+      responses:
+        '204':
+          "$ref": "#/responses/204"
+        '400':
+          "$ref": "#/responses/400"
+        '401':
+          "$ref": "#/responses/401"
+        '403':
+          "$ref": "#/responses/403"
+        '404':
+          "$ref": "#/responses/404"
+        '409':
+          "$ref": "#/responses/409"
+        '429':
+          "$ref": "#/responses/429"
+        '500':
+          "$ref": "#/responses/500"
+      tags:
+      - Values
+      - Asset
     get:
       summary: Get latest values for the asset.
       operationId: getAssetValues
@@ -19637,6 +20230,7 @@ paths:
       - "$ref": "#/parameters/AssetPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/UsePreferredUnitsAssetParam"
       - "$ref": "#/parameters/KeyFilter"
@@ -19679,7 +20273,7 @@ paths:
       - "$ref": "#/parameters/AssetValuePagination_Per_Page"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/UsePreferredUnitsAssetKeyParam"
-      - "$ref": "#/parameters/IncludeTotalCountParam"
+      - "$ref": "#/parameters/AssetValuesIncludeTotalCountParam"
       - "$ref": "#/parameters/AssetValueFromFilter"
       - "$ref": "#/parameters/AssetValueToFilter"
       - "$ref": "#/parameters/UnitFilter"
@@ -19702,6 +20296,43 @@ paths:
           "$ref": "#/responses/401"
         '404':
           "$ref": "#/responses/404"
+        '429':
+          "$ref": "#/responses/429"
+        '500':
+          "$ref": "#/responses/500"
+      tags:
+      - Values
+      - Asset
+    delete:
+      summary: Delete asset values for a specific key.
+      operationId: deleteAssetValuesForKey
+      description: |-
+        Delete asset values for a specific key. The values will be deleted within the specified time range.
+        This time range is defined by the 'from' and 'to' parameters. The 'to' parameter is required.
+        To delete all values for the asset, set the 'to' parameter to a future date.
+      parameters:
+      - "$ref": "#/parameters/AssetPathID"
+      - "$ref": "#/parameters/AssetValuesKeyPathID"
+      - "$ref": "#/parameters/AssetValueFromFilter"
+      - name: to
+        in: query
+        description: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        type: string
+        format: date
+        required: true
+      responses:
+        '204':
+          "$ref": "#/responses/204"
+        '400':
+          "$ref": "#/responses/400"
+        '401':
+          "$ref": "#/responses/401"
+        '403':
+          "$ref": "#/responses/403"
+        '404':
+          "$ref": "#/responses/404"
+        '409':
+          "$ref": "#/responses/409"
         '429':
           "$ref": "#/responses/429"
         '500':
@@ -19852,6 +20483,7 @@ paths:
         description: the exact key
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - name: source_timestamp_from
         in: query
         description: source_timestamp filter from. Starting with + will include the
@@ -19950,6 +20582,7 @@ paths:
       - "$ref": "#/parameters/BatchPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/UsePreferredUnitsInstrumentationParam"
       - "$ref": "#/parameters/KeyFilter"
@@ -19991,7 +20624,7 @@ paths:
       - "$ref": "#/parameters/AssetValuePagination_Per_Page"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/UsePreferredUnitsInstrumentationKeyParam"
-      - "$ref": "#/parameters/IncludeTotalCountParam"
+      - "$ref": "#/parameters/AssetValuesIncludeTotalCountParam"
       - "$ref": "#/parameters/AssetValueFromFilter"
       - "$ref": "#/parameters/AssetValueToFilter"
       - "$ref": "#/parameters/UnitFilter"
@@ -20033,6 +20666,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
@@ -20215,6 +20849,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/NameFilter"
@@ -20399,6 +21034,7 @@ paths:
         required: true
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/DocumentVersionFilter"
@@ -20436,6 +21072,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - name: category_id
         in: path
         description: Id of the category
@@ -20552,6 +21189,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
@@ -20735,6 +21373,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
@@ -20917,6 +21556,7 @@ paths:
       - "$ref": "#/parameters/EdgeDeviceApplicationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/CodeFilter"
@@ -21180,6 +21820,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
@@ -21361,6 +22002,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
@@ -21544,6 +22186,7 @@ paths:
       - "$ref": "#/parameters/HealthConditionPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/DescriptionFilter"
       - "$ref": "#/parameters/HealthConditionCausesOrderBy"
@@ -21726,6 +22369,7 @@ paths:
       - "$ref": "#/parameters/HealthConditionCausePathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/DescriptionFilter"
       - "$ref": "#/parameters/HealthConditionRemediesOrderBy"
@@ -21945,6 +22589,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - name: name
         in: query
         description: searches instrumentation statuses with given name
@@ -22134,6 +22779,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - name: name
         in: query
@@ -22319,11 +22965,12 @@ paths:
       description: |-
         Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.
 
-        Possible include values: ``assets, instrumentations, nodes, status, type``
+        Possible include values: ``assets, instrumentations, nodes, status, type, specifications``
       parameters:
       - "$ref": "#/parameters/InstrumentationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TypeIDFilter"
@@ -22444,6 +23091,83 @@ paths:
       tags:
       - Event
       - Instrumentation
+  "/instrumentations/{instrumentation_id}/health_conditions":
+    get:
+      summary: Get all health conditions assigned to an instrumentation
+      operationId: getInstrumentationHealthConditions
+      description: |-
+        Returns a list of health conditions of an instrumentation.
+
+        Possible include value: ``asset_status, causes, causes.remedies``
+      parameters:
+      - "$ref": "#/parameters/InstrumentationPathID"
+      - "$ref": "#/parameters/Pagination_Page"
+      - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
+      - "$ref": "#/parameters/IncludeParam"
+      - "$ref": "#/parameters/HealthConditionIDFilter"
+      - "$ref": "#/parameters/DiagnosisCodeFilter"
+      - "$ref": "#/parameters/AssetStatusIDFilter"
+      - "$ref": "#/parameters/AcceptLanguageHeader"
+      responses:
+        '200':
+          description: The request was successful.
+          headers:
+            Content-Language:
+              description: language of the description field, can be a list of languages
+              type: string
+          schema:
+            "$ref": "#/definitions/InstrumentationHealthConditionsResponse"
+        '400':
+          "$ref": "#/responses/400"
+        '401':
+          "$ref": "#/responses/401"
+        '402':
+          "$ref": "#/responses/402"
+        '404':
+          "$ref": "#/responses/404"
+        '429':
+          "$ref": "#/responses/429"
+        '500':
+          "$ref": "#/responses/500"
+      tags:
+      - InstrumentationHealthCondition
+  "/instrumentations/{instrumentation_id}/health_conditions/timemachine":
+    get:
+      summary: Get all health_conditions historical evolution the given instrumentation
+        had assigned
+      operationId: getHealthConditionsOfInstrumentationTimemachine
+      description: |-
+        Returns a list of all health_conditions available in your scope of
+        an instrumentation.
+        You can apply query parameters in the request
+        to get a filtered list. If the query has no matches, the response will show
+        an empty array.
+      parameters:
+      - "$ref": "#/parameters/InstrumentationPathID"
+      - "$ref": "#/parameters/Pagination_Page"
+      - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
+      - "$ref": "#/parameters/FromPlainFilter"
+      - "$ref": "#/parameters/ToPlainFilter"
+      - "$ref": "#/parameters/InstrumentationHealthConditionTimemachineOrderByParameter"
+      responses:
+        '200':
+          description: The request was successful.
+          schema:
+            "$ref": "#/definitions/InstrumentationHealthConditionsTimemachineResponse"
+        '400':
+          "$ref": "#/responses/400"
+        '401':
+          "$ref": "#/responses/401"
+        '404':
+          "$ref": "#/responses/404"
+        '429':
+          "$ref": "#/responses/429"
+        '500':
+          "$ref": "#/responses/500"
+      tags:
+      - InstrumentationHealthCondition
   "/instrumentations/{instrumentation_id}/values":
     get:
       summary: Get latest values for the instrumentation.
@@ -22455,6 +23179,7 @@ paths:
       - "$ref": "#/parameters/InstrumentationPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/UsePreferredUnitsInstrumentationParam"
       - "$ref": "#/parameters/KeyFilter"
@@ -22497,7 +23222,7 @@ paths:
       - "$ref": "#/parameters/AssetValuePagination_Per_Page"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/UsePreferredUnitsInstrumentationKeyParam"
-      - "$ref": "#/parameters/IncludeTotalCountParam"
+      - "$ref": "#/parameters/AssetValuesIncludeTotalCountParam"
       - "$ref": "#/parameters/AssetValueFromFilter"
       - "$ref": "#/parameters/AssetValueToFilter"
       - "$ref": "#/parameters/UnitFilter"
@@ -22574,6 +23299,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - name: name
         in: query
@@ -22759,11 +23485,12 @@ paths:
       description: |-
         Returns a list of all events belonging to a node in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.
 
-        Possible include values: ``assets, instrumentations, nodes, status, type``
+        Possible include values: ``assets, instrumentations, nodes, status, type, specifications``
       parameters:
       - "$ref": "#/parameters/NodePathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TypeIDFilter"
@@ -22883,6 +23610,69 @@ paths:
       tags:
       - Event
       - Node
+  "/owners":
+    post:
+      summary: Add an owner
+      operationId: addOwner
+      description: Add a new owner to an object and all underlying objects
+      parameters:
+      - name: Body
+        in: body
+        description: Permitable is the root object, as assignable type, currently
+          only User is supported.
+        required: true
+        schema:
+          "$ref": "#/definitions/OwnerRequest"
+      responses:
+        '204':
+          "$ref": "#/responses/204"
+        '400':
+          "$ref": "#/responses/400"
+        '401':
+          "$ref": "#/responses/401"
+        '403':
+          "$ref": "#/responses/403"
+        '404':
+          "$ref": "#/responses/404"
+        '409':
+          "$ref": "#/responses/409"
+        '429':
+          "$ref": "#/responses/429"
+        '500':
+          "$ref": "#/responses/500"
+      tags:
+      - Permission
+    delete:
+      summary: Delete an owner
+      operationId: deleteOwner
+      description: Removes an existing owner in an object and in all underlying objects.
+      parameters:
+      - name: Body
+        in: body
+        description: Permitable is the root object, as assignable type, currently
+          only User is supported.
+        required: true
+        schema:
+          "$ref": "#/definitions/OwnerRequest"
+      responses:
+        '204':
+          "$ref": "#/responses/204"
+        '400':
+          "$ref": "#/responses/400"
+        '401':
+          "$ref": "#/responses/401"
+        '403':
+          "$ref": "#/responses/403"
+        '404':
+          "$ref": "#/responses/404"
+        '409':
+          "$ref": "#/responses/409"
+        '429':
+          "$ref": "#/responses/429"
+        '500':
+          "$ref": "#/responses/500"
+      tags:
+      - Permission
   "/permission_inheritances":
     get:
       summary: Get a range of permission inheritances
@@ -22893,6 +23683,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - name: permission_type
         in: query
         description: filter by one of the permission_types (`can_read`, `can_update`,
@@ -23046,6 +23837,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/NameFilter"
@@ -23224,12 +24016,14 @@ paths:
       - "$ref": "#/parameters/CategoryPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/ProductCodeFilter"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/ManufacturerIDFilter"
       - "$ref": "#/parameters/StatusIDFilter"
       - "$ref": "#/parameters/ParentIDFilter"
       - "$ref": "#/parameters/TenantIDFilter"
+      - "$ref": "#/parameters/RiskOfMaintainabilityFilter"
       - "$ref": "#/parameters/DefaultOrderBy"
       responses:
         '200':
@@ -23370,6 +24164,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/ProductIdentifierOrganizationFilter"
       - "$ref": "#/parameters/ProductIdentifierProtocolFilter"
@@ -23547,6 +24342,7 @@ paths:
       - "$ref": "#/parameters/ProductIdentifierPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/ProductCodeFilter"
       - "$ref": "#/parameters/NameFilter"
@@ -23663,6 +24459,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
       - "$ref": "#/parameters/CodeFilter"
@@ -23808,6 +24605,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/ProductIDFilter"
       - "$ref": "#/parameters/ProductFeatureKeyFilter"
       - "$ref": "#/parameters/DefaultOrderBy"
@@ -23972,6 +24770,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/ProductFeatureIDFilter"
       - "$ref": "#/parameters/ProductOptionKeyFilter"
       - "$ref": "#/parameters/DefaultOrderBy"
@@ -24133,6 +24932,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/ProductIDFilter"
       - "$ref": "#/parameters/ProductVariantCodeFilter"
       - "$ref": "#/parameters/DefaultOrderBy"
@@ -24288,7 +25088,9 @@ paths:
     get:
       summary: get configuration of product variant
       operationId: getProductVariantConfigurations
-      description: get configuration of a product variant
+      description: |-
+        Get configuration of a product variant.
+        Parameters supporting translation: ```description```. To get a translation set Accept-Language.
       parameters:
       - name: id
         in: path
@@ -24297,6 +25099,7 @@ paths:
         format: int64
         required: true
       - "$ref": "#/parameters/DefaultOrderBy"
+      - "$ref": "#/parameters/AcceptLanguageHeader"
       responses:
         '200':
           description: The request was successful.
@@ -24363,6 +25166,7 @@ paths:
       - "$ref": "#/parameters/ProductVariantPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/DocumentVersionFilter"
@@ -24406,6 +25210,7 @@ paths:
       - "$ref": "#/parameters/ProductPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/CodeFilter"
@@ -24555,6 +25360,7 @@ paths:
       - "$ref": "#/parameters/ProductPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/HealthConditionIDFilter"
       - "$ref": "#/parameters/DiagnosisCodeFilter"
@@ -24693,6 +25499,7 @@ paths:
       - "$ref": "#/parameters/ProductPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       responses:
         '200':
@@ -24815,6 +25622,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
       - "$ref": "#/parameters/CodeFilter"
@@ -24998,6 +25806,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
       - "$ref": "#/parameters/CodeFilter"
@@ -25312,6 +26121,7 @@ paths:
         description: the exact key
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - name: source_timestamp_from
         in: query
         description: source_timestamp filter from. Starting with + will include the
@@ -25598,6 +26408,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
       - "$ref": "#/parameters/CodeFilter"
@@ -25781,12 +26592,14 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/SearchQueryFilter"
       - "$ref": "#/parameters/ManufacturerIDFilter"
       - "$ref": "#/parameters/ProductCategoryIDFilter"
       - "$ref": "#/parameters/ProductStatusIDFilter"
       - "$ref": "#/parameters/SubscriptionIDFilter"
       - "$ref": "#/parameters/SearchScopesFilter"
+      - "$ref": "#/parameters/SearchNodeIDsFilter"
       - "$ref": "#/parameters/AcceptLanguageHeader"
       responses:
         '200':
@@ -25816,6 +26629,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/TimeFilter"
       - "$ref": "#/parameters/TimeFromFilter"
       - "$ref": "#/parameters/TimeToFilter"
@@ -25848,6 +26662,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/ContentDateFilter"
       - "$ref": "#/parameters/RemarksFilter"
       - "$ref": "#/parameters/FileNameFilter"
@@ -26195,6 +27010,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
       - "$ref": "#/parameters/CodeFilter"
@@ -26272,6 +27088,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/CodeFilter"
       - "$ref": "#/parameters/TenantIDFilter"
@@ -26452,6 +27269,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/EMailFilter"
       - "$ref": "#/parameters/UserIDFilter"
@@ -26695,6 +27513,7 @@ paths:
         description: the exact key
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - name: source_timestamp_from
         in: query
         description: source_timestamp filter from. Starting with + will include the
@@ -26979,6 +27798,7 @@ paths:
       - "$ref": "#/parameters/SystemPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/UsePreferredUnitsInstrumentationParam"
       - "$ref": "#/parameters/KeyFilter"
@@ -27020,7 +27840,7 @@ paths:
       - "$ref": "#/parameters/AssetValuePagination_Per_Page"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/UsePreferredUnitsInstrumentationKeyParam"
-      - "$ref": "#/parameters/IncludeTotalCountParam"
+      - "$ref": "#/parameters/AssetValuesIncludeTotalCountParam"
       - "$ref": "#/parameters/AssetValueFromFilter"
       - "$ref": "#/parameters/AssetValueToFilter"
       - "$ref": "#/parameters/UnitFilter"
@@ -27058,6 +27878,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/EMailFilter"
       - "$ref": "#/parameters/UserOrderBy"
@@ -27191,6 +28012,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/UserGroupOrderBy"
       responses:
@@ -27347,13 +28169,16 @@ paths:
     get:
       summary: Get the users of a user group
       operationId: getUsersOfUserGroup
-      description: Returns a list of all users of a specific user group identified
+      description: 'Returns a list of all users of a specific user group identified
         by id in the url. You can apply query parameters in the request to get a filtered
         list. If the query has no matches, the response will show an empty array.
+        Possible include values: ```technical_connect_users```'
       parameters:
       - "$ref": "#/parameters/UsergroupPathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
+      - "$ref": "#/parameters/IncludeParam"
       - "$ref": "#/parameters/FirstNameFilter"
       - "$ref": "#/parameters/LastNameFilter"
       - "$ref": "#/parameters/UserOrderBy"
@@ -27494,6 +28319,7 @@ paths:
       parameters:
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/NameFilter"
       - "$ref": "#/parameters/TenantIDFilter"
       - "$ref": "#/parameters/UserRoleOrderBy"
@@ -27661,6 +28487,7 @@ paths:
       - "$ref": "#/parameters/UserrolePathID"
       - "$ref": "#/parameters/Pagination_Page"
       - "$ref": "#/parameters/Pagination_Per_Page"
+      - "$ref": "#/parameters/IncludeTotalCountParam"
       - "$ref": "#/parameters/FirstNameFilter"
       - "$ref": "#/parameters/LastNameFilter"
       - "$ref": "#/parameters/UserOrderBy"
@@ -28037,7 +28864,7 @@ definitions:
     required:
     - add_ons
     properties:
-      nodes:
+      add_ons:
         type: array
         title: add_ons
         items:
@@ -28129,6 +28956,35 @@ definitions:
         format: dateTime
         description: last time this asset has been visited/seen/scanned by a person
           or edge device
+  AssetHealthConditionInterval:
+    required:
+    - health_condition
+    - created_datetime
+    - deleted_datetime
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Id of the health condition interval
+      created_datetime:
+        type: string
+        format: date-time
+        description: Date of the Create Event
+      deleted_datetime:
+        type: string
+        format: date-time
+        description: Date of the Destroy Event
+      health_condition:
+        "$ref": "#/definitions/Nested_ID"
+  AssetHealthConditionIntervalsResponse:
+    type: object
+    required:
+    - health_condition_intervals
+    properties:
+      health_condition_intervals:
+        type: array
+        items:
+          "$ref": "#/definitions/AssetHealthConditionInterval"
   AssetHealthConditionResponse:
     required:
     - id
@@ -28160,8 +29016,10 @@ definitions:
     - created_datetime
     - deleted_datetime
     properties:
-      health_condition:
-        "$ref": "#/definitions/AssetHealthCondition_nested"
+      id:
+        type: integer
+        format: int64
+        description: Id of the health condition interval
       created_datetime:
         type: string
         format: date-time
@@ -28170,6 +29028,8 @@ definitions:
         type: string
         format: date-time
         description: Date of the Destroy Event
+      health_condition:
+        "$ref": "#/definitions/AssetHealthCondition_nested"
   AssetHealthCondition_nested:
     type: object
     required:
@@ -28225,7 +29085,7 @@ definitions:
         type: string
         description: the protocol dependent product identifier, mandatory for HART
           and PROFIBUS protocol
-  AssetHealthConditionsRequest:
+  AssetHealthConditionsRequestPatch:
     type: object
     title: causes
     required:
@@ -28249,6 +29109,48 @@ definitions:
             module:
               type: string
               description: module for the health condition
+      instrumentations:
+        type: array
+        title: instrumentations
+        items:
+          "$ref": "#/definitions/Nested_ID"
+  AssetHealthConditionsRequestPost:
+    type: object
+    title: causes
+    required:
+    - health_conditions
+    properties:
+      health_conditions:
+        type: array
+        title: health_conditions
+        items:
+          type: object
+          required:
+          - id
+          properties:
+            id:
+              type: integer
+              format: int64
+              description: Id of the health condition
+            channel:
+              type: string
+              description: channel for the health condition
+            module:
+              type: string
+              description: module for the health condition
+      instrumentations:
+        type: array
+        title: instrumentations
+        items:
+          "$ref": "#/definitions/Nested_ID"
+      created_datetime:
+        type: string
+        format: date-time
+        description: Date of the Create Event
+      deleted_datetime:
+        type: string
+        format: date-time
+        description: Date of the Destroy Event
   AssetHealthConditionsResponse:
     type: object
     properties:
@@ -28270,9 +29172,6 @@ definitions:
           "$ref": "#/definitions/AssetHealthConditionTimemachine"
       pagination:
         "$ref": "#/definitions/Pagination"
-  AssetIDFilter:
-    description: One or multiple ids (comma list). Expected id format is integer
-    type: string
   AssetIDs:
     type: object
     title: assets
@@ -28689,6 +29588,11 @@ definitions:
         type: array
         items:
           "$ref": "#/definitions/AssetValueObjectRequest"
+      instrumentations:
+        type: array
+        title: instrumentations
+        items:
+          "$ref": "#/definitions/Nested_ID"
   AssetValueRequest:
     properties:
       key:
@@ -28724,7 +29628,6 @@ definitions:
   AssetValuesPagination:
     type: object
     required:
-    - page_count
     - per_page
     - page
     properties:
@@ -28756,6 +29659,11 @@ definitions:
         description: The link for the last page for the data.
   AssetValuesRequest:
     properties:
+      instrumentations:
+        type: array
+        title: instrumentations
+        items:
+          "$ref": "#/definitions/Nested_ID"
       values:
         type: array
         items:
@@ -29296,7 +30204,8 @@ definitions:
       type:
         type: string
         description: can be complete, measurements, batch_values, instrumentation_values,
-          asset_vdi_2770_documentation_container or system_vdi_2770_documentation_container
+          asset_vdi_2770_documentation_container, system_vdi_2770_documentation_container,
+          asset_documents, node_documents_recursive or purchase_order_documents
       start_date:
         type: string
         format: dateTime
@@ -29308,8 +30217,16 @@ definitions:
           be used
       language:
         type: string
-        description: language in which the export should be made (currently only applicable
-          to vdi 2770 containers)
+        description: One language (for vdi 2770 type) or multiple languages (comma
+          list) for asset_documents, node_documents_recursive or purchase_order_documents
+          exports. "null" can used as well (for asset_documents, node_documents_recursive
+          or purchase_order_documents exports) to retrieve all documents without any
+          language.
+      document_category_id:
+        type: string
+        description: One or multiple ids (comma list). This can be used for asset_documents,
+          node_documents_recursive or purchase_order_documents exports. "null" can
+          be used to retrieve all documents without any category.
       asset:
         "$ref": "#/definitions/Nested_ID"
       instrumentation:
@@ -29317,6 +30234,10 @@ definitions:
       system:
         "$ref": "#/definitions/Nested_ID"
       batch:
+        "$ref": "#/definitions/Nested_ID"
+      node:
+        "$ref": "#/definitions/Nested_ID"
+      purchase_order:
         "$ref": "#/definitions/Nested_ID"
       keys:
         description: value keys to export (in case of type instrumentation_values)
@@ -29336,7 +30257,8 @@ definitions:
       type:
         type: string
         description: can be complete, measurements, batch_values, instrumentation_values,
-          asset_vdi_2770_documentation_container or system_vdi_2770_documentation_container
+          asset_vdi_2770_documentation_container, system_vdi_2770_documentation_container,
+          asset_documents, node_documents_recursive or purchase_order_documents
       start_date:
         type: string
         format: dateTime
@@ -29351,8 +30273,16 @@ definitions:
         format: dateTime
       language:
         type: string
-        description: language in which the export should be made (currently only applicable
-          to vdi 2770 containers)
+        description: One language (for vdi 2770 type) or multiple languages (comma
+          list) for asset_documents, node_documents_recursive or purchase_order_documents
+          exports. "null" can used as well (for asset_documents, node_documents_recursive
+          or purchase_order_documents exports) to retrieve all documents without any
+          language.
+      document_category_id:
+        type: string
+        description: One or multiple ids (comma list). This can be used for asset_documents,
+          node_documents_recursive or purchase_order_documents exports. "null" can
+          be used to retrieve all documents without any category.
       export_file_name:
         type: string
       export_content_type:
@@ -29373,6 +30303,10 @@ definitions:
       system:
         "$ref": "#/definitions/Nested_ID_href_name"
       batch:
+        "$ref": "#/definitions/Nested_ID_href_name"
+      node:
+        "$ref": "#/definitions/Nested_ID_href_name"
+      purchase_order:
         "$ref": "#/definitions/Nested_ID_href_name"
       download_href:
         type: string
@@ -30428,6 +31362,22 @@ definitions:
               type: integer
               format: int64
               description: needed for rules of type 'bitarea', 'channel', 'integer'
+  HealthConditionIntervalRequestPatch:
+    type: object
+    title: causes
+    properties:
+      health_condition_id:
+        type: integer
+        format: int64
+        description: Id of health condition
+      created_datetime:
+        type: string
+        format: date-time
+        description: Date of the Create Event
+      deleted_datetime:
+        type: string
+        format: date-time
+        description: Date of the Destroy Event
   HealthConditionRemedyBase:
     discriminator: healthConditionRemedyBaseType
     required:
@@ -30564,6 +31514,102 @@ definitions:
         type: string
         description: 'possible values are: undefined, easy, moderate and difficult.
           Undefined is assigned per default'
+  InstrumentationHealthConditionResponse:
+    required:
+    - id
+    allOf:
+    - "$ref": "#/definitions/HealthConditionBase"
+    - type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Id of health condition
+      asset_status:
+        "$ref": "#/definitions/Nested_ID_href"
+      channel:
+        type: string
+        description: channel for the health condition
+      module:
+        type: string
+        description: module for the health condition
+      links:
+        type: object
+        title: links
+        properties:
+          causes:
+            "$ref": "#/definitions/Link"
+  InstrumentationHealthConditionTimemachine:
+    required:
+    - health_condition
+    - created_datetime
+    - deleted_datetime
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Id of the health condition interval
+      created_datetime:
+        type: string
+        format: date-time
+        description: Date of the Create Event
+      deleted_datetime:
+        type: string
+        format: date-time
+        description: Date of the Destroy Event
+      health_condition:
+        "$ref": "#/definitions/InstrumentationHealthCondition_nested"
+  InstrumentationHealthCondition_nested:
+    type: object
+    required:
+    - id
+    - diagnosis_code
+    - asset_status
+    - channel
+    - module
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: ID of the nested resources
+      diagnosis_code:
+        type: string
+        description: diagnosis_code of the nested resource
+      asset_status:
+        "$ref": "#/definitions/Nested_ID_href"
+      channel:
+        type: string
+        description: channel of the nested resource
+      module:
+        type: string
+        description: module of the nested resource
+      links:
+        type: object
+        title: links
+        properties:
+          causes:
+            "$ref": "#/definitions/Link"
+  InstrumentationHealthConditionsResponse:
+    type: object
+    properties:
+      health_conditions:
+        type: array
+        items:
+          "$ref": "#/definitions/InstrumentationHealthConditionResponse"
+      pagination:
+        "$ref": "#/definitions/Pagination"
+  InstrumentationHealthConditionsTimemachineResponse:
+    type: object
+    required:
+    - asset_health_condition_timemachine
+    - pagination
+    properties:
+      instrumentation_health_condition_timemachine:
+        type: array
+        items:
+          "$ref": "#/definitions/InstrumentationHealthConditionTimemachine"
+      pagination:
+        "$ref": "#/definitions/Pagination"
   InstrumentationIDs:
     type: object
     title: instrumentations
@@ -31009,6 +32055,38 @@ definitions:
           properties:
             client_applications:
               "$ref": "#/definitions/Link"
+  OwnerRequest:
+    required:
+    - assignable
+    - permitable
+    properties:
+      assignable:
+        type: object
+        title: assignable
+        required:
+        - id
+        - type
+        properties:
+          id:
+            type: integer
+            description: id of the assignable
+          type:
+            type: string
+            description: object type of the assignable with uppercase, can be 'User'
+      permitable:
+        type: object
+        title: permitable
+        required:
+        - id
+        - type
+        properties:
+          id:
+            type: integer
+            description: id of the permitable
+          type:
+            type: string
+            description: object type of the permitable with uppercase, eg. 'Asset'
+              or 'Node'
   Pagination:
     type: object
     required:
@@ -31027,7 +32105,7 @@ definitions:
         type: integer
         description: items per page
         minimum: 1
-        maximum: 100
+        maximum: 300
       page:
         type: integer
         description: current page
@@ -31043,6 +32121,29 @@ definitions:
       last:
         type: string
         description: The link for the last page of results.
+  PaginationLinks:
+    type: object
+    required:
+    - per_page
+    - page
+    properties:
+      per_page:
+        type: integer
+        description: items per page
+        minimum: 1
+        maximum: 300
+      page:
+        type: integer
+        description: current page
+      prev:
+        type: string
+        description: The link for the immediate previous page of results.
+      next:
+        type: string
+        description: The link for the immediate next page of results.
+      first:
+        type: string
+        description: The link for the first page of results.
   PermissionBase:
     discriminator: permissionBaseType
     properties:
@@ -31340,6 +32441,10 @@ definitions:
         type: string
         format: date
         description: Date until calibration of product is offered
+      risk_of_maintainability:
+        type: string
+        description: The risk of maintainability. The value can be high, medium, low
+          or undefined.
   ProductCategoriesResponse:
     type: object
     properties:
@@ -31631,6 +32736,10 @@ definitions:
           type: integer
           format: int64
           description: Id of object
+        risk_of_maintainability:
+          type: string
+          description: The risk of maintainability. The value can be high, medium,
+            low or undefined.
         status:
           "$ref": "#/definitions/Nested_ID_href"
         manufacturer:
@@ -32812,13 +33921,6 @@ definitions:
         ui_visible:
           type: boolean
           description: specification should be visible in ui
-  SpecificationsUIVisibleResponse:
-    description: |-
-      is a map of keys and values in which the values are of the from defined
-                                  in #/definitions/Specification. 
-    type: object
-    additionalProperties:
-      "$ref": "#/definitions/SpecificationUIVisibleResponse"
   SpecificationsDelete:
     description: An array that contains the keys to delete entirely from the specification
       object
@@ -32873,6 +33975,12 @@ definitions:
         "$ref": "#/definitions/SpecificationUIVisibleRequest"
     additionalProperties:
       "$ref": "#/definitions/SpecificationUIVisibleRequest"
+  SpecificationsUIVisibleResponse:
+    description: "is a map of keys and values in which the values are of the from
+      defined \n                          in #/definitions/Specification."
+    type: object
+    additionalProperties:
+      "$ref": "#/definitions/SpecificationUIVisibleResponse"
   SubscriptionAssetAssignmentRequest:
     allOf:
     - type: object
@@ -32984,7 +34092,35 @@ definitions:
       reseller_label:
         type: string
         description: Custom label given to the subscription by the reseller user
-  SubscriptionRequest:
+  SubscriptionPatchRequest:
+    required:
+    - user
+    - client_application
+    allOf:
+    - "$ref": "#/definitions/SubscriptionBase"
+    - type: object
+      properties:
+        auto_registration_is_active:
+          type: boolean
+          description: indicates whether the assets auto registration is active for
+            the subscription
+        user:
+          "$ref": "#/definitions/Nested_ID"
+        client_application:
+          "$ref": "#/definitions/Nested_ID"
+        billing_address:
+          "$ref": "#/definitions/BillingAddressRequest"
+        shipping_address:
+          "$ref": "#/definitions/ShippingAddressRequest"
+        successor:
+          "$ref": "#/definitions/Nested_ID"
+        predecessor:
+          "$ref": "#/definitions/Nested_ID"
+        customer:
+          "$ref": "#/definitions/Nested_ID"
+        auto_registration_node:
+          "$ref": "#/definitions/Nested_ID"
+  SubscriptionPostRequest:
     required:
     - user
     - client_application
@@ -33024,6 +34160,10 @@ definitions:
         updated_at:
           type: string
           description: Timestamp at which the subscription was last changed
+        auto_registration_is_active:
+          type: boolean
+          description: indicates whether the assets auto registration is active for
+            the subscription
         user:
           "$ref": "#/definitions/Nested_ID_href"
         client_application:
@@ -33044,6 +34184,8 @@ definitions:
             (user is owner or a seat user) in our service applications e.g. Analytics.
             This information will only be part of the response if scope with value
             'USER' is used.
+        auto_registration_node:
+          "$ref": "#/definitions/Nested_ID_href"
         links:
           type: object
           title: links
@@ -33863,7 +35005,7 @@ parameters:
   AddOnTypeFilter:
     name: add_on_type
     in: query
-    description: Filter accepts addon or connectivity
+    description: Filter accepts addon, connectivity or outcome
     type: string
     required: false
   AdminOrUserIDFilter:
@@ -33984,10 +35126,19 @@ parameters:
   AssetValueToFilter:
     name: to
     in: query
-    description: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+    description: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
     type: string
     format: date
     required: false
+  AssetValuesIncludeTotalCountParam:
+    name: include_total_count
+    in: query
+    description: whether to return total count related information in the response
+      or just the next url if it exists. Using false value will enhance the performance
+      of this call. Default value is false. Please specify the value of this parameter
+      if you want a specific behavior.
+    required: false
+    type: boolean
   AssetValuesKeyPathID:
     name: key
     in: path
@@ -34176,6 +35327,22 @@ parameters:
     type: string
     format: dateTime
     required: false
+  CreatedDateTimeFromFilter:
+    name: created_datetime_from
+    in: query
+    description: Start date from filter for timemachine values. Expected date format
+      is YYYY-MM-DDThh:mm:ss
+    type: string
+    format: date
+    required: false
+  CreatedDateTimeToFilter:
+    name: created_datetime_to
+    in: query
+    description: Start date to filter for timemachine values. Expected date format
+      is YYYY-MM-DDThh:mm:ss
+    type: string
+    format: date
+    required: false
   CriticalityFilter:
     name: criticality
     in: query
@@ -34258,6 +35425,30 @@ parameters:
     description: Order result by attribute value, accepts `id`, `created_at` or `updated_at`.
       Add `-` as a prefix for descending order. Default value is `id`
     type: string
+  DeletedDateTimeFromFilter:
+    name: deleted_datetime_from
+    in: query
+    description: Deleted date from filter for timemachine values. Expected date format
+      is YYYY-MM-DDThh:mm:ss
+    type: string
+    format: date
+    required: false
+  DeletedDateTimeToFilter:
+    name: deleted_datetime_to
+    in: query
+    description: Deleted date to filter for timemachine values. Expected date format
+      is YYYY-MM-DDThh:mm:ss
+    type: string
+    format: date
+    required: false
+  DeletedDatetimeFilter:
+    name: deleted_datetime
+    in: query
+    description: add null to return all open timemachine values or add deleted date
+      in YYYY-MM-DD format
+    type: string
+    format: string
+    required: false
   DeliveryPathID:
     name: delivery_id
     in: path
@@ -34515,8 +35706,8 @@ parameters:
     in: query
     description: whether to return total count related information in the response
       or just the next url if it exists. Using false value will enhance the performance
-      of this call. Default value is true but will change in the near future to false.
-      Please specify the value of this parameter if you want a specific behavior.
+      of this call. Default value is true. Please specify the value of this parameter
+      if you want a specific behavior.
     required: false
     type: boolean
   InstrumentationAssetStatusIDFilter:
@@ -34526,6 +35717,13 @@ parameters:
       This retrieves all Instrumentations where at least one of its assets has one
       of the given statuses.
     required: false
+    type: string
+  InstrumentationHealthConditionTimemachineOrderByParameter:
+    required: false
+    name: order_by
+    in: query
+    description: Order result by attribute value, accepts `created_datetime` or `deleted_datetime`,
+      add `-` as a prefix for descending order.
     type: string
   InstrumentationIDFilter:
     name: instrumentation_id
@@ -34551,6 +35749,11 @@ parameters:
     type: integer
     format: int64
     required: true
+  InstrumentationTagFilter:
+    name: instrumentation_tag
+    in: query
+    description: Filter accepts `*` as wildcard
+    type: string
   InstrumentationValuesKeyPathID:
     name: key
     in: path
@@ -34718,7 +35921,7 @@ parameters:
     type: integer
     required: false
     minimum: 1
-    maximum: 100
+    maximum: 300
   ParentIDFilter:
     name: parent_id
     in: query
@@ -34733,6 +35936,12 @@ parameters:
       `can_update`, `can_read` (default)
     type: string
     required: false
+  PermissionRequestStatusFilter:
+    name: status
+    in: query
+    description: Filter by status - no wildcard support
+    required: false
+    type: string
   ProductCategoryIDFilter:
     name: product_category_id
     in: query
@@ -34927,6 +36136,20 @@ parameters:
       with no reseller label or "!null" for all with any reseller label
     type: string
     required: false
+  RiskOfMaintainabilityByDibaFilter:
+    name: risk_of_maintainability_by_diba
+    in: query
+    description: Filter one or multiple risk of maintainabilities (comma list). Accepted
+      are `low`, `medium`, `high`. These values are calculated based on DIBA recommendations.
+    required: false
+    type: string
+  RiskOfMaintainabilityFilter:
+    name: risk_of_maintainability
+    in: query
+    description: Filter one or multiple risk of maintainabilities (comma list). Accepted
+      are `undefined`, `low`, `medium`, `high`.
+    required: false
+    type: string
   ScheduleTypeFilter:
     name: schedule_type
     in: query
@@ -34947,6 +36170,13 @@ parameters:
       only visible because of the can_read permission (not usable).
     required: false
     type: string
+  SearchNodeIDsFilter:
+    name: node_id
+    in: query
+    description: One or multiple node ids (comma list). Expected id format is integer
+      nodes.
+    type: string
+    required: false
   SearchQueryFilter:
     name: q
     in: query
@@ -35167,6 +36397,12 @@ parameters:
     description: Filter accepts `*` as wildcard
     type: string
     required: false
+  TagIDFilter:
+    name: id
+    in: query
+    description: One or multiple ids (comma list). Expected id format is integer
+    required: false
+    type: string
   TechnicalUserIDFilter:
     name: technical_user_id
     in: query

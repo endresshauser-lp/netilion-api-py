@@ -32,6 +32,7 @@ class SubscriptionResponse(SubscriptionBase):
         'id': 'int',
         'created_at': 'str',
         'updated_at': 'str',
+        'auto_registration_is_active': 'bool',
         'user': 'NestedIDHref',
         'client_application': 'NestedIDHrefName',
         'billing_address': 'BillingAddressResponse',
@@ -40,6 +41,7 @@ class SubscriptionResponse(SubscriptionBase):
         'predecessor': 'NestedIDHref',
         'customer': 'NestedIDHref',
         'usable': 'bool',
+        'auto_registration_node': 'NestedIDHref',
         'links': 'Links21'
     }
     if hasattr(SubscriptionBase, "swagger_types"):
@@ -49,6 +51,7 @@ class SubscriptionResponse(SubscriptionBase):
         'id': 'id',
         'created_at': 'created_at',
         'updated_at': 'updated_at',
+        'auto_registration_is_active': 'auto_registration_is_active',
         'user': 'user',
         'client_application': 'client_application',
         'billing_address': 'billing_address',
@@ -57,16 +60,18 @@ class SubscriptionResponse(SubscriptionBase):
         'predecessor': 'predecessor',
         'customer': 'customer',
         'usable': 'usable',
+        'auto_registration_node': 'auto_registration_node',
         'links': 'links'
     }
     if hasattr(SubscriptionBase, "attribute_map"):
         attribute_map.update(SubscriptionBase.attribute_map)
 
-    def __init__(self, id=None, created_at=None, updated_at=None, user=None, client_application=None, billing_address=None, shipping_address=None, successor=None, predecessor=None, customer=None, usable=None, links=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, id=None, created_at=None, updated_at=None, auto_registration_is_active=None, user=None, client_application=None, billing_address=None, shipping_address=None, successor=None, predecessor=None, customer=None, usable=None, auto_registration_node=None, links=None, *args, **kwargs):  # noqa: E501
         """SubscriptionResponse - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._created_at = None
         self._updated_at = None
+        self._auto_registration_is_active = None
         self._user = None
         self._client_application = None
         self._billing_address = None
@@ -75,6 +80,7 @@ class SubscriptionResponse(SubscriptionBase):
         self._predecessor = None
         self._customer = None
         self._usable = None
+        self._auto_registration_node = None
         self._links = None
         self.discriminator = None
         if id is not None:
@@ -83,6 +89,8 @@ class SubscriptionResponse(SubscriptionBase):
             self.created_at = created_at
         if updated_at is not None:
             self.updated_at = updated_at
+        if auto_registration_is_active is not None:
+            self.auto_registration_is_active = auto_registration_is_active
         if user is not None:
             self.user = user
         if client_application is not None:
@@ -99,6 +107,8 @@ class SubscriptionResponse(SubscriptionBase):
             self.customer = customer
         if usable is not None:
             self.usable = usable
+        if auto_registration_node is not None:
+            self.auto_registration_node = auto_registration_node
         if links is not None:
             self.links = links
         SubscriptionBase.__init__(self, *args, **kwargs)
@@ -171,6 +181,29 @@ class SubscriptionResponse(SubscriptionBase):
         """
 
         self._updated_at = updated_at
+
+    @property
+    def auto_registration_is_active(self):
+        """Gets the auto_registration_is_active of this SubscriptionResponse.  # noqa: E501
+
+        indicates whether the assets auto registration is active for the subscription  # noqa: E501
+
+        :return: The auto_registration_is_active of this SubscriptionResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._auto_registration_is_active
+
+    @auto_registration_is_active.setter
+    def auto_registration_is_active(self, auto_registration_is_active):
+        """Sets the auto_registration_is_active of this SubscriptionResponse.
+
+        indicates whether the assets auto registration is active for the subscription  # noqa: E501
+
+        :param auto_registration_is_active: The auto_registration_is_active of this SubscriptionResponse.  # noqa: E501
+        :type: bool
+        """
+
+        self._auto_registration_is_active = auto_registration_is_active
 
     @property
     def user(self):
@@ -341,6 +374,27 @@ class SubscriptionResponse(SubscriptionBase):
         """
 
         self._usable = usable
+
+    @property
+    def auto_registration_node(self):
+        """Gets the auto_registration_node of this SubscriptionResponse.  # noqa: E501
+
+
+        :return: The auto_registration_node of this SubscriptionResponse.  # noqa: E501
+        :rtype: NestedIDHref
+        """
+        return self._auto_registration_node
+
+    @auto_registration_node.setter
+    def auto_registration_node(self, auto_registration_node):
+        """Sets the auto_registration_node of this SubscriptionResponse.
+
+
+        :param auto_registration_node: The auto_registration_node of this SubscriptionResponse.  # noqa: E501
+        :type: NestedIDHref
+        """
+
+        self._auto_registration_node = auto_registration_node
 
     @property
     def links(self):

@@ -272,6 +272,7 @@ class HealthConditionRemedyApi(object):
         :param int cause_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str code: Filter accepts `*` as wildcard
         :param str description: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `code`, `created_at` or `updated_at`, add `-` as a prefix for descending order. Default value is `id`
@@ -301,6 +302,7 @@ class HealthConditionRemedyApi(object):
         :param int cause_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str code: Filter accepts `*` as wildcard
         :param str description: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `code`, `created_at` or `updated_at`, add `-` as a prefix for descending order. Default value is `id`
@@ -310,7 +312,7 @@ class HealthConditionRemedyApi(object):
                  returns the request thread.
         """
 
-        all_params = ['health_condition_id', 'cause_id', 'page', 'per_page', 'code', 'description', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['health_condition_id', 'cause_id', 'page', 'per_page', 'include_total_count', 'code', 'description', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -347,6 +349,8 @@ class HealthConditionRemedyApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'code' in params:
             query_params.append(('code', params['code']))  # noqa: E501
         if 'description' in params:

@@ -436,6 +436,7 @@ class DocumentStatusApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
@@ -464,6 +465,7 @@ class DocumentStatusApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
@@ -474,7 +476,7 @@ class DocumentStatusApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'code', 'name', 'tenant_id', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'code', 'name', 'tenant_id', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -499,6 +501,8 @@ class DocumentStatusApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'code' in params:
             query_params.append(('code', params['code']))  # noqa: E501
         if 'name' in params:
@@ -552,6 +556,7 @@ class DocumentStatusApi(object):
         :param int document_id: Id of the specified document (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
@@ -582,6 +587,7 @@ class DocumentStatusApi(object):
         :param int document_id: Id of the specified document (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
@@ -593,7 +599,7 @@ class DocumentStatusApi(object):
                  returns the request thread.
         """
 
-        all_params = ['document_id', 'page', 'per_page', 'include', 'code', 'name', 'tenant_id', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['document_id', 'page', 'per_page', 'include_total_count', 'include', 'code', 'name', 'tenant_id', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -624,6 +630,8 @@ class DocumentStatusApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'code' in params:
