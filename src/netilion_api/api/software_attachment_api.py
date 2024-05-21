@@ -432,6 +432,7 @@ class SoftwareAttachmentApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param date content_date: Expected date format is YYYY-MM-DD or YYYY-MM-DDThh:mm:ss
         :param str remarks: Filter accepts `*` as wildcard
         :param str file_name: Filter accepts `*` as wildcard
@@ -459,6 +460,7 @@ class SoftwareAttachmentApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param date content_date: Expected date format is YYYY-MM-DD or YYYY-MM-DDThh:mm:ss
         :param str remarks: Filter accepts `*` as wildcard
         :param str file_name: Filter accepts `*` as wildcard
@@ -468,7 +470,7 @@ class SoftwareAttachmentApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'content_date', 'remarks', 'file_name', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'content_date', 'remarks', 'file_name', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -493,6 +495,8 @@ class SoftwareAttachmentApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'content_date' in params:
             query_params.append(('content_date', params['content_date']))  # noqa: E501
         if 'remarks' in params:

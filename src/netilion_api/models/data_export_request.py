@@ -32,10 +32,13 @@ class DataExportRequest(object):
         'start_date': 'str',
         'end_date': 'str',
         'language': 'str',
+        'document_category_id': 'str',
         'asset': 'NestedID',
         'instrumentation': 'NestedID',
         'system': 'NestedID',
         'batch': 'NestedID',
+        'node': 'NestedID',
+        'purchase_order': 'NestedID',
         'keys': 'list[str]'
     }
 
@@ -44,23 +47,29 @@ class DataExportRequest(object):
         'start_date': 'start_date',
         'end_date': 'end_date',
         'language': 'language',
+        'document_category_id': 'document_category_id',
         'asset': 'asset',
         'instrumentation': 'instrumentation',
         'system': 'system',
         'batch': 'batch',
+        'node': 'node',
+        'purchase_order': 'purchase_order',
         'keys': 'keys'
     }
 
-    def __init__(self, type=None, start_date=None, end_date=None, language=None, asset=None, instrumentation=None, system=None, batch=None, keys=None):  # noqa: E501
+    def __init__(self, type=None, start_date=None, end_date=None, language=None, document_category_id=None, asset=None, instrumentation=None, system=None, batch=None, node=None, purchase_order=None, keys=None):  # noqa: E501
         """DataExportRequest - a model defined in Swagger"""  # noqa: E501
         self._type = None
         self._start_date = None
         self._end_date = None
         self._language = None
+        self._document_category_id = None
         self._asset = None
         self._instrumentation = None
         self._system = None
         self._batch = None
+        self._node = None
+        self._purchase_order = None
         self._keys = None
         self.discriminator = None
         self.type = type
@@ -70,6 +79,8 @@ class DataExportRequest(object):
             self.end_date = end_date
         if language is not None:
             self.language = language
+        if document_category_id is not None:
+            self.document_category_id = document_category_id
         if asset is not None:
             self.asset = asset
         if instrumentation is not None:
@@ -78,6 +89,10 @@ class DataExportRequest(object):
             self.system = system
         if batch is not None:
             self.batch = batch
+        if node is not None:
+            self.node = node
+        if purchase_order is not None:
+            self.purchase_order = purchase_order
         if keys is not None:
             self.keys = keys
 
@@ -85,7 +100,7 @@ class DataExportRequest(object):
     def type(self):
         """Gets the type of this DataExportRequest.  # noqa: E501
 
-        can be complete, measurements, batch_values, instrumentation_values, asset_vdi_2770_documentation_container or system_vdi_2770_documentation_container  # noqa: E501
+        can be complete, measurements, batch_values, instrumentation_values, asset_vdi_2770_documentation_container, system_vdi_2770_documentation_container, asset_documents, node_documents_recursive or purchase_order_documents  # noqa: E501
 
         :return: The type of this DataExportRequest.  # noqa: E501
         :rtype: str
@@ -96,7 +111,7 @@ class DataExportRequest(object):
     def type(self, type):
         """Sets the type of this DataExportRequest.
 
-        can be complete, measurements, batch_values, instrumentation_values, asset_vdi_2770_documentation_container or system_vdi_2770_documentation_container  # noqa: E501
+        can be complete, measurements, batch_values, instrumentation_values, asset_vdi_2770_documentation_container, system_vdi_2770_documentation_container, asset_documents, node_documents_recursive or purchase_order_documents  # noqa: E501
 
         :param type: The type of this DataExportRequest.  # noqa: E501
         :type: str
@@ -156,7 +171,7 @@ class DataExportRequest(object):
     def language(self):
         """Gets the language of this DataExportRequest.  # noqa: E501
 
-        language in which the export should be made (currently only applicable to vdi 2770 containers)  # noqa: E501
+        One language (for vdi 2770 type) or multiple languages (comma list) for asset_documents, node_documents_recursive or purchase_order_documents exports. \"null\" can used as well (for asset_documents, node_documents_recursive or purchase_order_documents exports) to retrieve all documents without any language.  # noqa: E501
 
         :return: The language of this DataExportRequest.  # noqa: E501
         :rtype: str
@@ -167,13 +182,36 @@ class DataExportRequest(object):
     def language(self, language):
         """Sets the language of this DataExportRequest.
 
-        language in which the export should be made (currently only applicable to vdi 2770 containers)  # noqa: E501
+        One language (for vdi 2770 type) or multiple languages (comma list) for asset_documents, node_documents_recursive or purchase_order_documents exports. \"null\" can used as well (for asset_documents, node_documents_recursive or purchase_order_documents exports) to retrieve all documents without any language.  # noqa: E501
 
         :param language: The language of this DataExportRequest.  # noqa: E501
         :type: str
         """
 
         self._language = language
+
+    @property
+    def document_category_id(self):
+        """Gets the document_category_id of this DataExportRequest.  # noqa: E501
+
+        One or multiple ids (comma list). This can be used for asset_documents, node_documents_recursive or purchase_order_documents exports. \"null\" can be used to retrieve all documents without any category.  # noqa: E501
+
+        :return: The document_category_id of this DataExportRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._document_category_id
+
+    @document_category_id.setter
+    def document_category_id(self, document_category_id):
+        """Sets the document_category_id of this DataExportRequest.
+
+        One or multiple ids (comma list). This can be used for asset_documents, node_documents_recursive or purchase_order_documents exports. \"null\" can be used to retrieve all documents without any category.  # noqa: E501
+
+        :param document_category_id: The document_category_id of this DataExportRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._document_category_id = document_category_id
 
     @property
     def asset(self):
@@ -258,6 +296,48 @@ class DataExportRequest(object):
         """
 
         self._batch = batch
+
+    @property
+    def node(self):
+        """Gets the node of this DataExportRequest.  # noqa: E501
+
+
+        :return: The node of this DataExportRequest.  # noqa: E501
+        :rtype: NestedID
+        """
+        return self._node
+
+    @node.setter
+    def node(self, node):
+        """Sets the node of this DataExportRequest.
+
+
+        :param node: The node of this DataExportRequest.  # noqa: E501
+        :type: NestedID
+        """
+
+        self._node = node
+
+    @property
+    def purchase_order(self):
+        """Gets the purchase_order of this DataExportRequest.  # noqa: E501
+
+
+        :return: The purchase_order of this DataExportRequest.  # noqa: E501
+        :rtype: NestedID
+        """
+        return self._purchase_order
+
+    @purchase_order.setter
+    def purchase_order(self, purchase_order):
+        """Sets the purchase_order of this DataExportRequest.
+
+
+        :param purchase_order: The purchase_order of this DataExportRequest.  # noqa: E501
+        :type: NestedID
+        """
+
+        self._purchase_order = purchase_order
 
     @property
     def keys(self):

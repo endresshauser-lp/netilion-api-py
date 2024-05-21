@@ -74,7 +74,7 @@ class Assignable(object):
     def type(self):
         """Gets the type of this Assignable.  # noqa: E501
 
-        object type of the assignable with uppercase, can be 'User' or 'Usergroup'  # noqa: E501
+        object type of the assignable with uppercase, can be 'User'  # noqa: E501
 
         :return: The type of this Assignable.  # noqa: E501
         :rtype: str
@@ -85,7 +85,7 @@ class Assignable(object):
     def type(self, type):
         """Sets the type of this Assignable.
 
-        object type of the assignable with uppercase, can be 'User' or 'Usergroup'  # noqa: E501
+        object type of the assignable with uppercase, can be 'User'  # noqa: E501
 
         :param type: The type of this Assignable.  # noqa: E501
         :type: str

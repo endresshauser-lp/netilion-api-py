@@ -56,8 +56,7 @@ class AssetHealthConditionResponse(HealthConditionBase):
         self._module = None
         self._links = None
         self.discriminator = None
-        if id is not None:
-            self.id = id
+        self.id = id
         if asset_status is not None:
             self.asset_status = asset_status
         if channel is not None:
@@ -88,6 +87,8 @@ class AssetHealthConditionResponse(HealthConditionBase):
         :param id: The id of this AssetHealthConditionResponse.  # noqa: E501
         :type: int
         """
+        if id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 

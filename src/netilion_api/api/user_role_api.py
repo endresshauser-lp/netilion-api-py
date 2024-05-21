@@ -547,6 +547,7 @@ class UserRoleApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
         :param str order_by: Order result by attribute value, accepts `id`, `name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -573,6 +574,7 @@ class UserRoleApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
         :param str order_by: Order result by attribute value, accepts `id`, `name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -581,7 +583,7 @@ class UserRoleApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'name', 'tenant_id', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'name', 'tenant_id', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -606,6 +608,8 @@ class UserRoleApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'name' in params:
             query_params.append(('name', params['name']))  # noqa: E501
         if 'tenant_id' in params:
@@ -655,6 +659,7 @@ class UserRoleApi(object):
         :param int userrole_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str first_name: Filter accepts `*` as wildcard
         :param str last_name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `email`, `first_name`, `last_name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -682,6 +687,7 @@ class UserRoleApi(object):
         :param int userrole_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str first_name: Filter accepts `*` as wildcard
         :param str last_name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `email`, `first_name`, `last_name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -690,7 +696,7 @@ class UserRoleApi(object):
                  returns the request thread.
         """
 
-        all_params = ['userrole_id', 'page', 'per_page', 'first_name', 'last_name', 'order_by']  # noqa: E501
+        all_params = ['userrole_id', 'page', 'per_page', 'include_total_count', 'first_name', 'last_name', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -721,6 +727,8 @@ class UserRoleApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'first_name' in params:
             query_params.append(('first_name', params['first_name']))  # noqa: E501
         if 'last_name' in params:

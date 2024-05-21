@@ -453,6 +453,7 @@ class TenantApi(object):
         :param int asset_id: Id of the specified asset (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: Tenants
@@ -479,6 +480,7 @@ class TenantApi(object):
         :param int asset_id: Id of the specified asset (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: Tenants
@@ -486,7 +488,7 @@ class TenantApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'name', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'name', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -517,6 +519,8 @@ class TenantApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'name' in params:
             query_params.append(('name', params['name']))  # noqa: E501
         if 'order_by' in params:
@@ -554,7 +558,7 @@ class TenantApi(object):
     def get_tenant_admins(self, tenant_id, **kwargs):  # noqa: E501
         """Get all admins of a tenant  # noqa: E501
 
-        Returns a list of all admins that are available for the tenant. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  # noqa: E501
+        Returns a list of all admins that are available for the tenant. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array. Possible include values: ```technical_connect_users```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tenant_admins(tenant_id, async_req=True)
@@ -564,7 +568,9 @@ class TenantApi(object):
         :param int tenant_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
+        :param str email: Filter accepts `*` as wildcard
         :param str first_name: Filter accepts `*` as wildcard
         :param str last_name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `email`, `first_name`, `last_name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -582,7 +588,7 @@ class TenantApi(object):
     def get_tenant_admins_with_http_info(self, tenant_id, **kwargs):  # noqa: E501
         """Get all admins of a tenant  # noqa: E501
 
-        Returns a list of all admins that are available for the tenant. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  # noqa: E501
+        Returns a list of all admins that are available for the tenant. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array. Possible include values: ```technical_connect_users```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tenant_admins_with_http_info(tenant_id, async_req=True)
@@ -592,7 +598,9 @@ class TenantApi(object):
         :param int tenant_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
+        :param str email: Filter accepts `*` as wildcard
         :param str first_name: Filter accepts `*` as wildcard
         :param str last_name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `email`, `first_name`, `last_name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -601,7 +609,7 @@ class TenantApi(object):
                  returns the request thread.
         """
 
-        all_params = ['tenant_id', 'page', 'per_page', 'include', 'first_name', 'last_name', 'order_by']  # noqa: E501
+        all_params = ['tenant_id', 'page', 'per_page', 'include_total_count', 'include', 'email', 'first_name', 'last_name', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -632,8 +640,12 @@ class TenantApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
+        if 'email' in params:
+            query_params.append(('email', params['email']))  # noqa: E501
         if 'first_name' in params:
             query_params.append(('first_name', params['first_name']))  # noqa: E501
         if 'last_name' in params:
@@ -673,7 +685,7 @@ class TenantApi(object):
     def get_tenant_users(self, tenant_id, **kwargs):  # noqa: E501
         """Get all users of a tenant  # noqa: E501
 
-        Returns a list of all users that are available for the tenant. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  # noqa: E501
+        Returns a list of all users that are available for the tenant. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array. Possible include values: ```technical_connect_users```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tenant_users(tenant_id, async_req=True)
@@ -683,6 +695,9 @@ class TenantApi(object):
         :param int tenant_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
+        :param str include: Comma separated list of objects to include in response
+        :param str email: Filter accepts `*` as wildcard
         :param str first_name: Filter accepts `*` as wildcard
         :param str last_name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `email`, `first_name`, `last_name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -700,7 +715,7 @@ class TenantApi(object):
     def get_tenant_users_with_http_info(self, tenant_id, **kwargs):  # noqa: E501
         """Get all users of a tenant  # noqa: E501
 
-        Returns a list of all users that are available for the tenant. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  # noqa: E501
+        Returns a list of all users that are available for the tenant. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array. Possible include values: ```technical_connect_users```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tenant_users_with_http_info(tenant_id, async_req=True)
@@ -710,6 +725,9 @@ class TenantApi(object):
         :param int tenant_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
+        :param str include: Comma separated list of objects to include in response
+        :param str email: Filter accepts `*` as wildcard
         :param str first_name: Filter accepts `*` as wildcard
         :param str last_name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `email`, `first_name`, `last_name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -718,7 +736,7 @@ class TenantApi(object):
                  returns the request thread.
         """
 
-        all_params = ['tenant_id', 'page', 'per_page', 'first_name', 'last_name', 'order_by']  # noqa: E501
+        all_params = ['tenant_id', 'page', 'per_page', 'include_total_count', 'include', 'email', 'first_name', 'last_name', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -749,6 +767,12 @@ class TenantApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
+        if 'include' in params:
+            query_params.append(('include', params['include']))  # noqa: E501
+        if 'email' in params:
+            query_params.append(('email', params['email']))  # noqa: E501
         if 'first_name' in params:
             query_params.append(('first_name', params['first_name']))  # noqa: E501
         if 'last_name' in params:
@@ -797,6 +821,7 @@ class TenantApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str admin_user_id: One or multiple ids (comma list). Expected id format is integer
         :param str admin_or_user_id: One or multiple ids (comma list). Expected id format is integer
@@ -825,6 +850,7 @@ class TenantApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str admin_user_id: One or multiple ids (comma list). Expected id format is integer
         :param str admin_or_user_id: One or multiple ids (comma list). Expected id format is integer
@@ -835,7 +861,7 @@ class TenantApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'name', 'admin_user_id', 'admin_or_user_id', 'public', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'name', 'admin_user_id', 'admin_or_user_id', 'public', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -860,6 +886,8 @@ class TenantApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'name' in params:
             query_params.append(('name', params['name']))  # noqa: E501
         if 'admin_user_id' in params:

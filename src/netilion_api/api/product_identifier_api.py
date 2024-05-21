@@ -551,6 +551,7 @@ class ProductIdentifierApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str organization_name: Filter accepts `FIELDCOMM_GROUP`, `PROFIBUS_PROFINET`, `ODVA`, `MODBUS_ORGANIZATION`, `OTHER_ORGANIZATION`
         :param str protocol: Filter accepts `PROFIBUS`, `HART`, `ETHERNETIP`, `MODBUS`, `OTHERS
@@ -580,6 +581,7 @@ class ProductIdentifierApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str organization_name: Filter accepts `FIELDCOMM_GROUP`, `PROFIBUS_PROFINET`, `ODVA`, `MODBUS_ORGANIZATION`, `OTHER_ORGANIZATION`
         :param str protocol: Filter accepts `PROFIBUS`, `HART`, `ETHERNETIP`, `MODBUS`, `OTHERS
@@ -591,7 +593,7 @@ class ProductIdentifierApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'include', 'organization_name', 'protocol', 'protocol_version', 'product_identifier', 'tenant_id']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'include', 'organization_name', 'protocol', 'protocol_version', 'product_identifier', 'tenant_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -616,6 +618,8 @@ class ProductIdentifierApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'organization_name' in params:
@@ -671,6 +675,7 @@ class ProductIdentifierApi(object):
         :param int product_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :return: ProductIdentifiersResponse
                  If the method is called asynchronously,
@@ -696,13 +701,14 @@ class ProductIdentifierApi(object):
         :param int product_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :return: ProductIdentifiersResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['product_id', 'page', 'per_page', 'include']  # noqa: E501
+        all_params = ['product_id', 'page', 'per_page', 'include_total_count', 'include']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -733,6 +739,8 @@ class ProductIdentifierApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
 
@@ -778,6 +786,7 @@ class ProductIdentifierApi(object):
         :param int product_identifier_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str product_code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
@@ -814,6 +823,7 @@ class ProductIdentifierApi(object):
         :param int product_identifier_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str product_code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
@@ -831,7 +841,7 @@ class ProductIdentifierApi(object):
                  returns the request thread.
         """
 
-        all_params = ['product_identifier_id', 'page', 'per_page', 'include', 'product_code', 'name', 'manufacturer_id', 'status_id', 'category_id', 'parent_id', 'tenant_id', 'specifications_key', 'specifications_value', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['product_identifier_id', 'page', 'per_page', 'include_total_count', 'include', 'product_code', 'name', 'manufacturer_id', 'status_id', 'category_id', 'parent_id', 'tenant_id', 'specifications_key', 'specifications_value', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -862,6 +872,8 @@ class ProductIdentifierApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'product_code' in params:

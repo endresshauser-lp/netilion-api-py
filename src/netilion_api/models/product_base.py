@@ -36,7 +36,8 @@ class ProductBase(object):
         'spare_parts_until': 'date',
         'spare_sensors_until': 'date',
         'repair_until': 'date',
-        'calibration_until': 'date'
+        'calibration_until': 'date',
+        'risk_of_maintainability': 'str'
     }
 
     attribute_map = {
@@ -48,14 +49,15 @@ class ProductBase(object):
         'spare_parts_until': 'spare_parts_until',
         'spare_sensors_until': 'spare_sensors_until',
         'repair_until': 'repair_until',
-        'calibration_until': 'calibration_until'
+        'calibration_until': 'calibration_until',
+        'risk_of_maintainability': 'risk_of_maintainability'
     }
 
     discriminator_value_class_map = {
           'ProductResponse': 'ProductResponse',
 'ProductRequest': 'ProductRequest'    }
 
-    def __init__(self, product_code=None, name=None, description=None, phase_out_date=None, order_stop_date=None, spare_parts_until=None, spare_sensors_until=None, repair_until=None, calibration_until=None):  # noqa: E501
+    def __init__(self, product_code=None, name=None, description=None, phase_out_date=None, order_stop_date=None, spare_parts_until=None, spare_sensors_until=None, repair_until=None, calibration_until=None, risk_of_maintainability=None):  # noqa: E501
         """ProductBase - a model defined in Swagger"""  # noqa: E501
         self._product_code = None
         self._name = None
@@ -66,6 +68,7 @@ class ProductBase(object):
         self._spare_sensors_until = None
         self._repair_until = None
         self._calibration_until = None
+        self._risk_of_maintainability = None
         self.discriminator = 'productBaseType'
         if product_code is not None:
             self.product_code = product_code
@@ -85,6 +88,8 @@ class ProductBase(object):
             self.repair_until = repair_until
         if calibration_until is not None:
             self.calibration_until = calibration_until
+        if risk_of_maintainability is not None:
+            self.risk_of_maintainability = risk_of_maintainability
 
     @property
     def product_code(self):
@@ -292,6 +297,29 @@ class ProductBase(object):
         """
 
         self._calibration_until = calibration_until
+
+    @property
+    def risk_of_maintainability(self):
+        """Gets the risk_of_maintainability of this ProductBase.  # noqa: E501
+
+        The risk of maintainability. The value can be high, medium, low or undefined.  # noqa: E501
+
+        :return: The risk_of_maintainability of this ProductBase.  # noqa: E501
+        :rtype: str
+        """
+        return self._risk_of_maintainability
+
+    @risk_of_maintainability.setter
+    def risk_of_maintainability(self, risk_of_maintainability):
+        """Sets the risk_of_maintainability of this ProductBase.
+
+        The risk of maintainability. The value can be high, medium, low or undefined.  # noqa: E501
+
+        :param risk_of_maintainability: The risk_of_maintainability of this ProductBase.  # noqa: E501
+        :type: str
+        """
+
+        self._risk_of_maintainability = risk_of_maintainability
 
     def get_real_child_model(self, data):
         """Returns the real base class specified by the discriminator"""

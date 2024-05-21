@@ -547,6 +547,229 @@ class PurchaseOrderApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_claimed_assets_of_purchase_order(self, purchase_order_id, **kwargs):  # noqa: E501
+        """Get all claimed assets of one purchase order  # noqa: E501
+
+        Returns a list of all claimed assets that linked to this purchase order. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array. Possible include values: ```status, tenant, parent, pictures, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit, product, product.manufacturer, product.pictures, product.status, product.categories, product.categories.parent, product.tenant, product.manufacturer.tenant, status.tenant, instrumentations, systems, systems.recipe, systems.specifications, systems.batches_in_execution, specifications, specifications[key1,key2], product.specifications, product.specifications[key1,key2], instrumentations.status, instrumentations.type, instrumentations.worst_asset_status, instrumentations.specifications, instrumentations.specifications[key1,key2] add_ons```  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_claimed_assets_of_purchase_order(purchase_order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int purchase_order_id: The resource defined in the URL (required)
+        :param int page: Page number to load
+        :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
+        :param str include: Comma separated list of objects to include in response
+        :param str serial_number: Filter accepts `*` as wildcard
+        :param str product_id: One or multiple ids (comma list). Expected id format is integer
+        :param str product_status_id: One or multiple ids (comma list). Expected id format is integer
+        :param str product_category_id: One or multiple ids (comma list). By adding `+` after the id, the filter considers the given category and all its children (e.g. 3+).
+        :param str parent_id: One or multiple ids (comma list). \"null\" to retrieve all objects without parent, \"!null\" for all objects with parent.
+        :param str manufacturer_id: One or multiple ids (comma list). Expected id format is integer
+        :param str status_id: One or multiple ids (comma list). Expected id format is integer
+        :param str status_code: Filter accepts `*` as wildcard
+        :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
+        :param str last_seen_at_from: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str last_seen_at_to: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date production_date: Expected date format is YYYY-MM-DD
+        :param date production_date_from: Expected date format is YYYY-MM-DD
+        :param date production_date_to: Expected date format is YYYY-MM-DD
+        :param str specifications_key: Filter accepts `*` as wildcard (if used as single specifications filter), supports comma list of keys in connection with specifications_value filter
+        :param str specifications_value: Filter accepts `*` as wildcard, supports comma list of values in connection with specifications_key filter. Does not work for vectors
+        :param str node_id: One or multiple ids (comma list). Filter accepts \"null\" for all assets with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components (nodes, instrumentations and systems), but this is not usable in combination with a comma list.
+        :param str instrumentation_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no instrumentations assigned or \"!null\" for any assigned instrumentation
+        :param str instrumentation_tag: Filter accepts `*` as wildcard
+        :param str system_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no systems assigned or \"!null\" for any assigned system
+        :param date created_at: Expected date format is YYYY-MM-DD
+        :param str created_at_from: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str created_at_to: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date updated_at: Expected date format is YYYY-MM-DD
+        :param str updated_at_from: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str updated_at_to: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str permission: Filter by permission of current user. Accepts `can_permit`, `can_delete`, `can_update`, `can_read` (default)
+        :param str order_by: Order result by attribute value, accepts `id`, `serial_number`, `created_at` or `updated_at`, `last_seen_at`, add `-` as a prefix for descending order. Default value is `id`
+        :return: AssetsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_claimed_assets_of_purchase_order_with_http_info(purchase_order_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_claimed_assets_of_purchase_order_with_http_info(purchase_order_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_claimed_assets_of_purchase_order_with_http_info(self, purchase_order_id, **kwargs):  # noqa: E501
+        """Get all claimed assets of one purchase order  # noqa: E501
+
+        Returns a list of all claimed assets that linked to this purchase order. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array. Possible include values: ```status, tenant, parent, pictures, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit, product, product.manufacturer, product.pictures, product.status, product.categories, product.categories.parent, product.tenant, product.manufacturer.tenant, status.tenant, instrumentations, systems, systems.recipe, systems.specifications, systems.batches_in_execution, specifications, specifications[key1,key2], product.specifications, product.specifications[key1,key2], instrumentations.status, instrumentations.type, instrumentations.worst_asset_status, instrumentations.specifications, instrumentations.specifications[key1,key2] add_ons```  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_claimed_assets_of_purchase_order_with_http_info(purchase_order_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int purchase_order_id: The resource defined in the URL (required)
+        :param int page: Page number to load
+        :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
+        :param str include: Comma separated list of objects to include in response
+        :param str serial_number: Filter accepts `*` as wildcard
+        :param str product_id: One or multiple ids (comma list). Expected id format is integer
+        :param str product_status_id: One or multiple ids (comma list). Expected id format is integer
+        :param str product_category_id: One or multiple ids (comma list). By adding `+` after the id, the filter considers the given category and all its children (e.g. 3+).
+        :param str parent_id: One or multiple ids (comma list). \"null\" to retrieve all objects without parent, \"!null\" for all objects with parent.
+        :param str manufacturer_id: One or multiple ids (comma list). Expected id format is integer
+        :param str status_id: One or multiple ids (comma list). Expected id format is integer
+        :param str status_code: Filter accepts `*` as wildcard
+        :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
+        :param str last_seen_at_from: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str last_seen_at_to: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date production_date: Expected date format is YYYY-MM-DD
+        :param date production_date_from: Expected date format is YYYY-MM-DD
+        :param date production_date_to: Expected date format is YYYY-MM-DD
+        :param str specifications_key: Filter accepts `*` as wildcard (if used as single specifications filter), supports comma list of keys in connection with specifications_value filter
+        :param str specifications_value: Filter accepts `*` as wildcard, supports comma list of values in connection with specifications_key filter. Does not work for vectors
+        :param str node_id: One or multiple ids (comma list). Filter accepts \"null\" for all assets with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components (nodes, instrumentations and systems), but this is not usable in combination with a comma list.
+        :param str instrumentation_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no instrumentations assigned or \"!null\" for any assigned instrumentation
+        :param str instrumentation_tag: Filter accepts `*` as wildcard
+        :param str system_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no systems assigned or \"!null\" for any assigned system
+        :param date created_at: Expected date format is YYYY-MM-DD
+        :param str created_at_from: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str created_at_to: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date updated_at: Expected date format is YYYY-MM-DD
+        :param str updated_at_from: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str updated_at_to: Expected date format is YYYY-MM-DDThh:mm:ss
+        :param str permission: Filter by permission of current user. Accepts `can_permit`, `can_delete`, `can_update`, `can_read` (default)
+        :param str order_by: Order result by attribute value, accepts `id`, `serial_number`, `created_at` or `updated_at`, `last_seen_at`, add `-` as a prefix for descending order. Default value is `id`
+        :return: AssetsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['purchase_order_id', 'page', 'per_page', 'include_total_count', 'include', 'serial_number', 'product_id', 'product_status_id', 'product_category_id', 'parent_id', 'manufacturer_id', 'status_id', 'status_code', 'tenant_id', 'last_seen_at_from', 'last_seen_at_to', 'production_date', 'production_date_from', 'production_date_to', 'specifications_key', 'specifications_value', 'node_id', 'instrumentation_id', 'instrumentation_tag', 'system_id', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'permission', 'order_by']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_claimed_assets_of_purchase_order" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'purchase_order_id' is set
+        if ('purchase_order_id' not in params or
+                params['purchase_order_id'] is None):
+            raise ValueError("Missing the required parameter `purchase_order_id` when calling `get_claimed_assets_of_purchase_order`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'purchase_order_id' in params:
+            path_params['purchase_order_id'] = params['purchase_order_id']  # noqa: E501
+
+        query_params = []
+        if 'page' in params:
+            query_params.append(('page', params['page']))  # noqa: E501
+        if 'per_page' in params:
+            query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
+        if 'include' in params:
+            query_params.append(('include', params['include']))  # noqa: E501
+        if 'serial_number' in params:
+            query_params.append(('serial_number', params['serial_number']))  # noqa: E501
+        if 'product_id' in params:
+            query_params.append(('product_id', params['product_id']))  # noqa: E501
+        if 'product_status_id' in params:
+            query_params.append(('product_status_id', params['product_status_id']))  # noqa: E501
+        if 'product_category_id' in params:
+            query_params.append(('product_category_id', params['product_category_id']))  # noqa: E501
+        if 'parent_id' in params:
+            query_params.append(('parent_id', params['parent_id']))  # noqa: E501
+        if 'manufacturer_id' in params:
+            query_params.append(('manufacturer_id', params['manufacturer_id']))  # noqa: E501
+        if 'status_id' in params:
+            query_params.append(('status_id', params['status_id']))  # noqa: E501
+        if 'status_code' in params:
+            query_params.append(('status_code', params['status_code']))  # noqa: E501
+        if 'tenant_id' in params:
+            query_params.append(('tenant_id', params['tenant_id']))  # noqa: E501
+        if 'last_seen_at_from' in params:
+            query_params.append(('last_seen_at_from', params['last_seen_at_from']))  # noqa: E501
+        if 'last_seen_at_to' in params:
+            query_params.append(('last_seen_at_to', params['last_seen_at_to']))  # noqa: E501
+        if 'production_date' in params:
+            query_params.append(('production_date', params['production_date']))  # noqa: E501
+        if 'production_date_from' in params:
+            query_params.append(('production_date_from', params['production_date_from']))  # noqa: E501
+        if 'production_date_to' in params:
+            query_params.append(('production_date_to', params['production_date_to']))  # noqa: E501
+        if 'specifications_key' in params:
+            query_params.append(('specifications_key', params['specifications_key']))  # noqa: E501
+        if 'specifications_value' in params:
+            query_params.append(('specifications_value', params['specifications_value']))  # noqa: E501
+        if 'node_id' in params:
+            query_params.append(('node_id', params['node_id']))  # noqa: E501
+        if 'instrumentation_id' in params:
+            query_params.append(('instrumentation_id', params['instrumentation_id']))  # noqa: E501
+        if 'instrumentation_tag' in params:
+            query_params.append(('instrumentation_tag', params['instrumentation_tag']))  # noqa: E501
+        if 'system_id' in params:
+            query_params.append(('system_id', params['system_id']))  # noqa: E501
+        if 'created_at' in params:
+            query_params.append(('created_at', params['created_at']))  # noqa: E501
+        if 'created_at_from' in params:
+            query_params.append(('created_at_from', params['created_at_from']))  # noqa: E501
+        if 'created_at_to' in params:
+            query_params.append(('created_at_to', params['created_at_to']))  # noqa: E501
+        if 'updated_at' in params:
+            query_params.append(('updated_at', params['updated_at']))  # noqa: E501
+        if 'updated_at_from' in params:
+            query_params.append(('updated_at_from', params['updated_at_from']))  # noqa: E501
+        if 'updated_at_to' in params:
+            query_params.append(('updated_at_to', params['updated_at_to']))  # noqa: E501
+        if 'permission' in params:
+            query_params.append(('permission', params['permission']))  # noqa: E501
+        if 'order_by' in params:
+            query_params.append(('order_by', params['order_by']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/purchase_orders/{purchase_order_id}/claimed_assets', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AssetsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_deliviers_of_purchase_order(self, purchase_order_id, **kwargs):  # noqa: E501
         """Get all deliveries of one purchase order  # noqa: E501
 
@@ -560,6 +783,7 @@ class PurchaseOrderApi(object):
         :param int purchase_order_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str number: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
         :param date date_of_shipment: Expected date format is YYYY-MM-DD
@@ -594,6 +818,7 @@ class PurchaseOrderApi(object):
         :param int purchase_order_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str number: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
         :param date date_of_shipment: Expected date format is YYYY-MM-DD
@@ -609,7 +834,7 @@ class PurchaseOrderApi(object):
                  returns the request thread.
         """
 
-        all_params = ['purchase_order_id', 'page', 'per_page', 'number', 'name', 'date_of_shipment', 'date_of_shipment_from', 'date_of_shipment_to', 'status_id', 'sender_id', 'receiver_id', 'customer_number', 'order_by']  # noqa: E501
+        all_params = ['purchase_order_id', 'page', 'per_page', 'include_total_count', 'number', 'name', 'date_of_shipment', 'date_of_shipment_from', 'date_of_shipment_to', 'status_id', 'sender_id', 'receiver_id', 'customer_number', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -640,6 +865,8 @@ class PurchaseOrderApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'number' in params:
             query_params.append(('number', params['number']))  # noqa: E501
         if 'name' in params:
@@ -703,6 +930,7 @@ class PurchaseOrderApi(object):
         :param int purchase_order_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str document_version: Filter accepts `*` as wildcard
@@ -740,6 +968,7 @@ class PurchaseOrderApi(object):
         :param int purchase_order_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str document_version: Filter accepts `*` as wildcard
@@ -758,7 +987,7 @@ class PurchaseOrderApi(object):
                  returns the request thread.
         """
 
-        all_params = ['purchase_order_id', 'page', 'per_page', 'include', 'name', 'document_version', 'number', 'status_id', 'classification_id', 'tenant_id', 'category_id', 'valid_from', 'valid_until', 'valid_at', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['purchase_order_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'document_version', 'number', 'status_id', 'classification_id', 'tenant_id', 'category_id', 'valid_from', 'valid_until', 'valid_at', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -789,6 +1018,8 @@ class PurchaseOrderApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -858,6 +1089,7 @@ class PurchaseOrderApi(object):
         :param int purchase_order_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str product_code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
@@ -892,6 +1124,7 @@ class PurchaseOrderApi(object):
         :param int purchase_order_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str product_code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
@@ -907,7 +1140,7 @@ class PurchaseOrderApi(object):
                  returns the request thread.
         """
 
-        all_params = ['purchase_order_id', 'page', 'per_page', 'include', 'product_code', 'name', 'manufacturer_id', 'status_id', 'parent_id', 'tenant_id', 'category_id', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['purchase_order_id', 'page', 'per_page', 'include_total_count', 'include', 'product_code', 'name', 'manufacturer_id', 'status_id', 'parent_id', 'tenant_id', 'category_id', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -938,6 +1171,8 @@ class PurchaseOrderApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'product_code' in params:
@@ -1198,6 +1433,7 @@ class PurchaseOrderApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str number: Filter accepts `*` as wildcard
         :param str customer_purchase_order_number: Filter accepts `*` as wildcard
@@ -1233,6 +1469,7 @@ class PurchaseOrderApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str number: Filter accepts `*` as wildcard
         :param str customer_purchase_order_number: Filter accepts `*` as wildcard
@@ -1250,7 +1487,7 @@ class PurchaseOrderApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'name', 'number', 'customer_purchase_order_number', 'status_id', '_date', 'date_from', 'date_to', 'sender_id', 'receiver_id', 'quotation_id', 'customer_number', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'name', 'number', 'customer_purchase_order_number', 'status_id', '_date', 'date_from', 'date_to', 'sender_id', 'receiver_id', 'quotation_id', 'customer_number', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1275,6 +1512,8 @@ class PurchaseOrderApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'name' in params:
             query_params.append(('name', params['name']))  # noqa: E501
         if 'number' in params:

@@ -667,6 +667,7 @@ class EventApi(object):
         :param int event_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str serial_number: Filter accepts `*` as wildcard
         :param str product_id: One or multiple ids (comma list). Expected id format is integer
@@ -713,6 +714,7 @@ class EventApi(object):
         :param int event_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str serial_number: Filter accepts `*` as wildcard
         :param str product_id: One or multiple ids (comma list). Expected id format is integer
@@ -740,7 +742,7 @@ class EventApi(object):
                  returns the request thread.
         """
 
-        all_params = ['event_id', 'page', 'per_page', 'include', 'serial_number', 'product_id', 'product_category_id', 'parent_id', 'manufacturer_id', 'status_id', 'status_code', 'production_date', 'production_date_from', 'production_date_to', 'specifications_key', 'specifications_value', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'ownership_claimed', 'permission', 'order_by']  # noqa: E501
+        all_params = ['event_id', 'page', 'per_page', 'include_total_count', 'include', 'serial_number', 'product_id', 'product_category_id', 'parent_id', 'manufacturer_id', 'status_id', 'status_code', 'production_date', 'production_date_from', 'production_date_to', 'specifications_key', 'specifications_value', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'ownership_claimed', 'permission', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -771,6 +773,8 @@ class EventApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'serial_number' in params:
@@ -858,6 +862,7 @@ class EventApi(object):
         :param int event_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -895,6 +900,7 @@ class EventApi(object):
         :param int event_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -913,7 +919,7 @@ class EventApi(object):
                  returns the request thread.
         """
 
-        all_params = ['event_id', 'page', 'per_page', 'include', 'name', 'status_id', 'classification_id', 'document_version', 'number', 'tenant_id', 'category_id', 'valid_from', 'valid_until', 'valid_at', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['event_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'status_id', 'classification_id', 'document_version', 'number', 'tenant_id', 'category_id', 'valid_from', 'valid_until', 'valid_at', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -944,6 +950,8 @@ class EventApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -1003,7 +1011,7 @@ class EventApi(object):
     def get_event_by_id(self, id, **kwargs):  # noqa: E501
         """Get a single event  # noqa: E501
 
-        Get a specific event identified by the id in the URL.  Possible include values: ```assets, instrumentations, nodes, status, type```  # noqa: E501
+        Get a specific event identified by the id in the URL.  Possible include values: ```assets, instrumentations, nodes, status, type, specifications```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_event_by_id(id, async_req=True)
@@ -1026,7 +1034,7 @@ class EventApi(object):
     def get_event_by_id_with_http_info(self, id, **kwargs):  # noqa: E501
         """Get a single event  # noqa: E501
 
-        Get a specific event identified by the id in the URL.  Possible include values: ```assets, instrumentations, nodes, status, type```  # noqa: E501
+        Get a specific event identified by the id in the URL.  Possible include values: ```assets, instrumentations, nodes, status, type, specifications```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_event_by_id_with_http_info(id, async_req=True)
@@ -1310,6 +1318,7 @@ class EventApi(object):
         :param int event_id: Id of the specified event (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str code: Filter accepts `*` as wildcard
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
@@ -1339,6 +1348,7 @@ class EventApi(object):
         :param int event_id: Id of the specified event (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str code: Filter accepts `*` as wildcard
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
@@ -1349,7 +1359,7 @@ class EventApi(object):
                  returns the request thread.
         """
 
-        all_params = ['event_id', 'page', 'per_page', 'name', 'code', 'tenant_id', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['event_id', 'page', 'per_page', 'include_total_count', 'name', 'code', 'tenant_id', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1380,6 +1390,8 @@ class EventApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'name' in params:
             query_params.append(('name', params['name']))  # noqa: E501
         if 'code' in params:
@@ -1433,6 +1445,7 @@ class EventApi(object):
         :param int event_id: Id of the specified event (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str code: Filter accepts `*` as wildcard
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
@@ -1462,6 +1475,7 @@ class EventApi(object):
         :param int event_id: Id of the specified event (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str code: Filter accepts `*` as wildcard
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
@@ -1472,7 +1486,7 @@ class EventApi(object):
                  returns the request thread.
         """
 
-        all_params = ['event_id', 'page', 'per_page', 'name', 'code', 'tenant_id', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['event_id', 'page', 'per_page', 'include_total_count', 'name', 'code', 'tenant_id', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1503,6 +1517,8 @@ class EventApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'name' in params:
             query_params.append(('name', params['name']))  # noqa: E501
         if 'code' in params:
@@ -1546,7 +1562,7 @@ class EventApi(object):
     def get_events(self, **kwargs):  # noqa: E501
         """Get a range of events  # noqa: E501
 
-        Returns a list of events. If the query has no matches, the response is an empty list.  Possible include values: ```assets, instrumentations, nodes, status, type```  # noqa: E501
+        Returns a list of events. If the query has no matches, the response is an empty list.  Possible include values: ```assets, instrumentations, nodes, status, type, specifications```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events(async_req=True)
@@ -1555,6 +1571,7 @@ class EventApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -1584,7 +1601,7 @@ class EventApi(object):
     def get_events_with_http_info(self, **kwargs):  # noqa: E501
         """Get a range of events  # noqa: E501
 
-        Returns a list of events. If the query has no matches, the response is an empty list.  Possible include values: ```assets, instrumentations, nodes, status, type```  # noqa: E501
+        Returns a list of events. If the query has no matches, the response is an empty list.  Possible include values: ```assets, instrumentations, nodes, status, type, specifications```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_with_http_info(async_req=True)
@@ -1593,6 +1610,7 @@ class EventApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -1613,7 +1631,7 @@ class EventApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'asset_id', 'instrumentation_id', 'node_id', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'asset_id', 'instrumentation_id', 'node_id', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1638,6 +1656,8 @@ class EventApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -1701,7 +1721,7 @@ class EventApi(object):
     def get_events_of_asset(self, asset_id, **kwargs):  # noqa: E501
         """Get all events of one asset  # noqa: E501
 
-        Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
+        Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type, specifications``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_asset(asset_id, async_req=True)
@@ -1711,6 +1731,7 @@ class EventApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -1737,7 +1758,7 @@ class EventApi(object):
     def get_events_of_asset_with_http_info(self, asset_id, **kwargs):  # noqa: E501
         """Get all events of one asset  # noqa: E501
 
-        Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
+        Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type, specifications``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_asset_with_http_info(asset_id, async_req=True)
@@ -1747,6 +1768,7 @@ class EventApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -1764,7 +1786,7 @@ class EventApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1795,6 +1817,8 @@ class EventApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -1852,7 +1876,7 @@ class EventApi(object):
     def get_events_of_instrumentation(self, instrumentation_id, **kwargs):  # noqa: E501
         """Get all events of one instrumentation  # noqa: E501
 
-        Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
+        Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type, specifications``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_instrumentation(instrumentation_id, async_req=True)
@@ -1862,6 +1886,7 @@ class EventApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -1888,7 +1913,7 @@ class EventApi(object):
     def get_events_of_instrumentation_with_http_info(self, instrumentation_id, **kwargs):  # noqa: E501
         """Get all events of one instrumentation  # noqa: E501
 
-        Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
+        Returns a list of all events belonging to an instrumentation in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type, specifications``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_instrumentation_with_http_info(instrumentation_id, async_req=True)
@@ -1898,6 +1923,7 @@ class EventApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -1915,7 +1941,7 @@ class EventApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'page', 'per_page', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'order_by']  # noqa: E501
+        all_params = ['instrumentation_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1946,6 +1972,8 @@ class EventApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -2003,7 +2031,7 @@ class EventApi(object):
     def get_events_of_node(self, node_id, **kwargs):  # noqa: E501
         """Get all events of one node  # noqa: E501
 
-        Returns a list of all events belonging to a node in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
+        Returns a list of all events belonging to a node in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type, specifications``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_node(node_id, async_req=True)
@@ -2013,6 +2041,7 @@ class EventApi(object):
         :param int node_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -2039,7 +2068,7 @@ class EventApi(object):
     def get_events_of_node_with_http_info(self, node_id, **kwargs):  # noqa: E501
         """Get all events of one node  # noqa: E501
 
-        Returns a list of all events belonging to a node in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
+        Returns a list of all events belonging to a node in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type, specifications``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_node_with_http_info(node_id, async_req=True)
@@ -2049,6 +2078,7 @@ class EventApi(object):
         :param int node_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -2066,7 +2096,7 @@ class EventApi(object):
                  returns the request thread.
         """
 
-        all_params = ['node_id', 'page', 'per_page', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'order_by']  # noqa: E501
+        all_params = ['node_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2097,6 +2127,8 @@ class EventApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -2164,6 +2196,7 @@ class EventApi(object):
         :param int event_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str tag: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -2202,6 +2235,7 @@ class EventApi(object):
         :param int event_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str tag: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -2221,7 +2255,7 @@ class EventApi(object):
                  returns the request thread.
         """
 
-        all_params = ['event_id', 'page', 'per_page', 'include', 'tag', 'status_id', 'type_id', 'parent_id', 'tenant_id', 'specifications_key', 'specifications_value', 'criticality', 'accessibility', 'node_id', 'asset_status_id', 'permission', 'order_by']  # noqa: E501
+        all_params = ['event_id', 'page', 'per_page', 'include_total_count', 'include', 'tag', 'status_id', 'type_id', 'parent_id', 'tenant_id', 'specifications_key', 'specifications_value', 'criticality', 'accessibility', 'node_id', 'asset_status_id', 'permission', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2252,6 +2286,8 @@ class EventApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'tag' in params:
@@ -2323,6 +2359,7 @@ class EventApi(object):
         :param int event_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
         :param str parent_id: One or multiple ids (comma list). \"null\" to retrieve all objects without parent, \"!null\" for all objects with parent.
@@ -2353,6 +2390,7 @@ class EventApi(object):
         :param int event_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
         :param str parent_id: One or multiple ids (comma list). \"null\" to retrieve all objects without parent, \"!null\" for all objects with parent.
@@ -2364,7 +2402,7 @@ class EventApi(object):
                  returns the request thread.
         """
 
-        all_params = ['event_id', 'page', 'per_page', 'include', 'type_id', 'parent_id', 'tenant_id', 'permission', 'order_by']  # noqa: E501
+        all_params = ['event_id', 'page', 'per_page', 'include_total_count', 'include', 'type_id', 'parent_id', 'tenant_id', 'permission', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2395,6 +2433,8 @@ class EventApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'type_id' in params:

@@ -1716,6 +1716,228 @@ class AssetApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_asset_values(self, asset_id, to, **kwargs):  # noqa: E501
+        """Delete asset values.  # noqa: E501
+
+        Delete values for the asset. The values will be removed for all existing keys within a specified time range. This time range is determined by the 'from' and 'to' parameters. The 'to' parameter is mandatory. To delete all values for the asset, set the 'to' parameter to a future date.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_asset_values(asset_id, to, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int asset_id: The resource defined in the URL (required)
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss (required)
+        :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_asset_values_with_http_info(asset_id, to, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_asset_values_with_http_info(asset_id, to, **kwargs)  # noqa: E501
+            return data
+
+    def delete_asset_values_with_http_info(self, asset_id, to, **kwargs):  # noqa: E501
+        """Delete asset values.  # noqa: E501
+
+        Delete values for the asset. The values will be removed for all existing keys within a specified time range. This time range is determined by the 'from' and 'to' parameters. The 'to' parameter is mandatory. To delete all values for the asset, set the 'to' parameter to a future date.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_asset_values_with_http_info(asset_id, to, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int asset_id: The resource defined in the URL (required)
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss (required)
+        :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['asset_id', 'to', '_from']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_asset_values" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'asset_id' is set
+        if ('asset_id' not in params or
+                params['asset_id'] is None):
+            raise ValueError("Missing the required parameter `asset_id` when calling `delete_asset_values`")  # noqa: E501
+        # verify the required parameter 'to' is set
+        if ('to' not in params or
+                params['to'] is None):
+            raise ValueError("Missing the required parameter `to` when calling `delete_asset_values`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'asset_id' in params:
+            path_params['asset_id'] = params['asset_id']  # noqa: E501
+
+        query_params = []
+        if '_from' in params:
+            query_params.append(('from', params['_from']))  # noqa: E501
+        if 'to' in params:
+            query_params.append(('to', params['to']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/assets/{asset_id}/values', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_asset_values_for_key(self, asset_id, key, to, **kwargs):  # noqa: E501
+        """Delete asset values for a specific key.  # noqa: E501
+
+        Delete asset values for a specific key. The values will be deleted within the specified time range. This time range is defined by the 'from' and 'to' parameters. The 'to' parameter is required. To delete all values for the asset, set the 'to' parameter to a future date.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_asset_values_for_key(asset_id, key, to, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int asset_id: The resource defined in the URL (required)
+        :param str key: key for the asset values (required)
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss (required)
+        :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_asset_values_for_key_with_http_info(asset_id, key, to, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_asset_values_for_key_with_http_info(asset_id, key, to, **kwargs)  # noqa: E501
+            return data
+
+    def delete_asset_values_for_key_with_http_info(self, asset_id, key, to, **kwargs):  # noqa: E501
+        """Delete asset values for a specific key.  # noqa: E501
+
+        Delete asset values for a specific key. The values will be deleted within the specified time range. This time range is defined by the 'from' and 'to' parameters. The 'to' parameter is required. To delete all values for the asset, set the 'to' parameter to a future date.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_asset_values_for_key_with_http_info(asset_id, key, to, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int asset_id: The resource defined in the URL (required)
+        :param str key: key for the asset values (required)
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss (required)
+        :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['asset_id', 'key', 'to', '_from']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_asset_values_for_key" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'asset_id' is set
+        if ('asset_id' not in params or
+                params['asset_id'] is None):
+            raise ValueError("Missing the required parameter `asset_id` when calling `delete_asset_values_for_key`")  # noqa: E501
+        # verify the required parameter 'key' is set
+        if ('key' not in params or
+                params['key'] is None):
+            raise ValueError("Missing the required parameter `key` when calling `delete_asset_values_for_key`")  # noqa: E501
+        # verify the required parameter 'to' is set
+        if ('to' not in params or
+                params['to'] is None):
+            raise ValueError("Missing the required parameter `to` when calling `delete_asset_values_for_key`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'asset_id' in params:
+            path_params['asset_id'] = params['asset_id']  # noqa: E501
+        if 'key' in params:
+            path_params['key'] = params['key']  # noqa: E501
+
+        query_params = []
+        if '_from' in params:
+            query_params.append(('from', params['_from']))  # noqa: E501
+        if 'to' in params:
+            query_params.append(('to', params['to']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/assets/{asset_id}/values/{key}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def delete_specifications_of_asset(self, body, asset_id, **kwargs):  # noqa: E501
         """Delete specifications of an asset  # noqa: E501
 
@@ -1939,10 +2161,11 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str product_code: Filter accepts `*` as wildcard
         :param str material_number: Filter accepts `*` as wildcard
-        :param str add_on_type: Filter accepts addon or connectivity
+        :param str add_on_type: Filter accepts addon, connectivity or outcome
         :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: AddOnsResponse
                  If the method is called asynchronously,
@@ -1968,17 +2191,18 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str product_code: Filter accepts `*` as wildcard
         :param str material_number: Filter accepts `*` as wildcard
-        :param str add_on_type: Filter accepts addon or connectivity
+        :param str add_on_type: Filter accepts addon, connectivity or outcome
         :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: AddOnsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'name', 'product_code', 'material_number', 'add_on_type', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'name', 'product_code', 'material_number', 'add_on_type', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2009,6 +2233,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'name' in params:
             query_params.append(('name', params['name']))  # noqa: E501
         if 'product_code' in params:
@@ -2062,6 +2288,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param int user_id: One or multiple ids (comma list). Expected id format is integer
         :param int client_application_id: One or multiple ids (comma list). Expected id format is integer
@@ -2097,6 +2324,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param int user_id: One or multiple ids (comma list). Expected id format is integer
         :param int client_application_id: One or multiple ids (comma list). Expected id format is integer
@@ -2113,7 +2341,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'include', 'user_id', 'client_application_id', 'external_reference', 'status', 'notification_status', 'specifications_key', 'specifications_value', 'start_date', 'end_date', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'include', 'user_id', 'client_application_id', 'external_reference', 'status', 'notification_status', 'specifications_key', 'specifications_value', 'start_date', 'end_date', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2144,6 +2372,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'user_id' in params:
@@ -2308,6 +2538,7 @@ class AssetApi(object):
         :param int asset_id: Id of the specified asset (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
@@ -2336,6 +2567,7 @@ class AssetApi(object):
         :param int asset_id: Id of the specified asset (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
@@ -2345,7 +2577,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'include', 'name', 'tenant_id', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'tenant_id', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2376,6 +2608,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -2756,6 +2990,7 @@ class AssetApi(object):
         :param int asset_id: Id of the specified asset (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str product_code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
@@ -2789,6 +3024,7 @@ class AssetApi(object):
         :param int asset_id: Id of the specified asset (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str product_code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
@@ -2803,7 +3039,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'include', 'product_code', 'name', 'manufacturer_id', 'status_id', 'category_id', 'parent_id', 'tenant_id', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'include', 'product_code', 'name', 'manufacturer_id', 'status_id', 'category_id', 'parent_id', 'tenant_id', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2834,6 +3070,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'product_code' in params:
@@ -3109,6 +3347,7 @@ class AssetApi(object):
         :param int asset_id: Id of the specified asset (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
@@ -3139,6 +3378,7 @@ class AssetApi(object):
         :param int asset_id: Id of the specified asset (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
@@ -3150,7 +3390,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'include', 'name', 'tenant_id', 'code', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'tenant_id', 'code', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3181,6 +3421,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -3236,6 +3478,7 @@ class AssetApi(object):
         :param int asset_id: Id of the specified asset (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: Tenants
@@ -3262,6 +3505,7 @@ class AssetApi(object):
         :param int asset_id: Id of the specified asset (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: Tenants
@@ -3269,7 +3513,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'name', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'name', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3300,6 +3544,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'name' in params:
             query_params.append(('name', params['name']))  # noqa: E501
         if 'order_by' in params:
@@ -3348,9 +3594,10 @@ class AssetApi(object):
         :param str key: key for the asset values (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param date _datetime: exact date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param str selector: Supported selector methods are `first, last`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the selector. The value is mandatory if selector is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
@@ -3380,9 +3627,10 @@ class AssetApi(object):
         :param str key: key for the asset values (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param date _datetime: exact date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param str selector: Supported selector methods are `first, last`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the selector. The value is mandatory if selector is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
@@ -3392,7 +3640,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'key', 'page', 'per_page', 'include', '_from', 'to', '_datetime', 'selector', 'interval', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'key', 'page', 'per_page', 'include_total_count', 'include', '_from', 'to', '_datetime', 'selector', 'interval', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3429,6 +3677,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if '_from' in params:
@@ -3486,6 +3736,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not. These values have lower precedence than the parameter key_unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
         :param str key: only the values of the specified keys will be returned. If no key is specified all keys of the asset with its latest values will be received. Multiple values can be specified in a comma seperated list.
@@ -3515,6 +3766,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not. These values have lower precedence than the parameter key_unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
         :param str key: only the values of the specified keys will be returned. If no key is specified all keys of the asset with its latest values will be received. Multiple values can be specified in a comma seperated list.
@@ -3525,7 +3777,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'include', 'use_preferred_units', 'key', 'key_unit_id', 'group']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'include', 'use_preferred_units', 'key', 'key_unit_id', 'group']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3556,6 +3808,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'use_preferred_units' in params:
@@ -3612,9 +3866,9 @@ class AssetApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
-        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
@@ -3649,9 +3903,9 @@ class AssetApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
-        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
@@ -3758,7 +4012,7 @@ class AssetApi(object):
     def get_assets(self, **kwargs):  # noqa: E501
         """Get a range of assets  # noqa: E501
 
-        Returns a list of assets in your accessible scope. You can apply the query parameters listed below to get a filtered list. Possible include values: ```status, tenant, parent, pictures, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit, product, product.manufacturer, product.pictures, product.status, product.categories, product.categories.parent, product.tenant, product.manufacturer.tenant, status.tenant, instrumentations, systems, systems.recipe,  systems.specifications, systems.batches_in_execution, specifications, specifications[key1,key2], product.specifications, product.specifications[key1,key2], instrumentations.status, instrumentations.type, instrumentations.worst_asset_status,  instrumentations.specifications, instrumentations.specifications[key1,key2] add_ons in_subscription```  # noqa: E501
+        Returns a list of assets in your accessible scope. You can apply the query parameters listed below to get a filtered list. Possible include values: ```status, tenant, parent, pictures, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit, product, product.manufacturer, product.pictures, product.status, product.categories, product.categories.parent, product.tenant, product.manufacturer.tenant, status.tenant, instrumentations, systems, systems.recipe,  systems.specifications, systems.batches_in_execution, specifications, specifications[key1,key2], product.specifications, product.specifications[key1,key2], instrumentations.status, instrumentations.type, instrumentations.worst_asset_status,  instrumentations.specifications, instrumentations.specifications[key1,key2] add_ons```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_assets(async_req=True)
@@ -3767,6 +4021,7 @@ class AssetApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str serial_number: Filter accepts `*` as wildcard
         :param str product_id: One or multiple ids (comma list). Expected id format is integer
@@ -3786,6 +4041,7 @@ class AssetApi(object):
         :param str specifications_value: Filter accepts `*` as wildcard, supports comma list of values in connection with specifications_key filter. Does not work for vectors
         :param str node_id: One or multiple ids (comma list). Filter accepts \"null\" for all assets with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components (nodes, instrumentations and systems), but this is not usable in combination with a comma list.
         :param str instrumentation_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no instrumentations assigned or \"!null\" for any assigned instrumentation
+        :param str instrumentation_tag: Filter accepts `*` as wildcard
         :param str system_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no systems assigned or \"!null\" for any assigned system
         :param date created_at: Expected date format is YYYY-MM-DD
         :param str created_at_from: Expected date format is YYYY-MM-DDThh:mm:ss
@@ -3810,7 +4066,7 @@ class AssetApi(object):
     def get_assets_with_http_info(self, **kwargs):  # noqa: E501
         """Get a range of assets  # noqa: E501
 
-        Returns a list of assets in your accessible scope. You can apply the query parameters listed below to get a filtered list. Possible include values: ```status, tenant, parent, pictures, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit, product, product.manufacturer, product.pictures, product.status, product.categories, product.categories.parent, product.tenant, product.manufacturer.tenant, status.tenant, instrumentations, systems, systems.recipe,  systems.specifications, systems.batches_in_execution, specifications, specifications[key1,key2], product.specifications, product.specifications[key1,key2], instrumentations.status, instrumentations.type, instrumentations.worst_asset_status,  instrumentations.specifications, instrumentations.specifications[key1,key2] add_ons in_subscription```  # noqa: E501
+        Returns a list of assets in your accessible scope. You can apply the query parameters listed below to get a filtered list. Possible include values: ```status, tenant, parent, pictures, values, values.unit, values_in_preferred_units, values_in_preferred_units.unit, product, product.manufacturer, product.pictures, product.status, product.categories, product.categories.parent, product.tenant, product.manufacturer.tenant, status.tenant, instrumentations, systems, systems.recipe,  systems.specifications, systems.batches_in_execution, specifications, specifications[key1,key2], product.specifications, product.specifications[key1,key2], instrumentations.status, instrumentations.type, instrumentations.worst_asset_status,  instrumentations.specifications, instrumentations.specifications[key1,key2] add_ons```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_assets_with_http_info(async_req=True)
@@ -3819,6 +4075,7 @@ class AssetApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str serial_number: Filter accepts `*` as wildcard
         :param str product_id: One or multiple ids (comma list). Expected id format is integer
@@ -3838,6 +4095,7 @@ class AssetApi(object):
         :param str specifications_value: Filter accepts `*` as wildcard, supports comma list of values in connection with specifications_key filter. Does not work for vectors
         :param str node_id: One or multiple ids (comma list). Filter accepts \"null\" for all assets with no nodes assigned or \"!null\" for any assigned node.  By adding `+` after the id, the filter considers the given node and all its sub components (nodes, instrumentations and systems), but this is not usable in combination with a comma list.
         :param str instrumentation_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no instrumentations assigned or \"!null\" for any assigned instrumentation
+        :param str instrumentation_tag: Filter accepts `*` as wildcard
         :param str system_id: One or multiple ids (comma list). Filter accepts \"null\" for all objects with no systems assigned or \"!null\" for any assigned system
         :param date created_at: Expected date format is YYYY-MM-DD
         :param str created_at_from: Expected date format is YYYY-MM-DDThh:mm:ss
@@ -3853,7 +4111,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'include', 'serial_number', 'product_id', 'product_status_id', 'product_category_id', 'parent_id', 'manufacturer_id', 'status_id', 'status_code', 'tenant_id', 'last_seen_at_from', 'last_seen_at_to', 'production_date', 'production_date_from', 'production_date_to', 'specifications_key', 'specifications_value', 'node_id', 'instrumentation_id', 'system_id', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'ownership_claimed', 'permission', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'include', 'serial_number', 'product_id', 'product_status_id', 'product_category_id', 'parent_id', 'manufacturer_id', 'status_id', 'status_code', 'tenant_id', 'last_seen_at_from', 'last_seen_at_to', 'production_date', 'production_date_from', 'production_date_to', 'specifications_key', 'specifications_value', 'node_id', 'instrumentation_id', 'instrumentation_tag', 'system_id', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'ownership_claimed', 'permission', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3878,6 +4136,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'serial_number' in params:
@@ -3916,6 +4176,8 @@ class AssetApi(object):
             query_params.append(('node_id', params['node_id']))  # noqa: E501
         if 'instrumentation_id' in params:
             query_params.append(('instrumentation_id', params['instrumentation_id']))  # noqa: E501
+        if 'instrumentation_tag' in params:
+            query_params.append(('instrumentation_tag', params['instrumentation_tag']))  # noqa: E501
         if 'system_id' in params:
             query_params.append(('system_id', params['system_id']))  # noqa: E501
         if 'created_at' in params:
@@ -4078,6 +4340,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str number: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -4112,6 +4375,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str number: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -4127,7 +4391,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'number', 'name', 'status_id', 'date_of_shipment', 'date_of_shipment_from', 'date_of_shipment_to', 'sender_id', 'receiver_id', 'customer_number', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'number', 'name', 'status_id', 'date_of_shipment', 'date_of_shipment_from', 'date_of_shipment_to', 'sender_id', 'receiver_id', 'customer_number', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4158,6 +4422,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'number' in params:
             query_params.append(('number', params['number']))  # noqa: E501
         if 'name' in params:
@@ -4211,7 +4477,7 @@ class AssetApi(object):
     def get_documents_of_asset(self, asset_id, **kwargs):  # noqa: E501
         """Get all documents of an asset  # noqa: E501
 
-        Returns a list of all documents that are available in your scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array. Parameters supporting translation: ```name, description```. To get a translation set Accept-Language. Possible include values: ```status, tenant, classification, categories, categories.parent, attachments, categories.standards, eventdocuments```  # noqa: E501
+        Returns a list of all documents that are available in your scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array. Parameters supporting translation: ```name, description```. To get a translation set Accept-Language. Possible include values: ```status, tenant, classification, categories, categories.parent, attachments, categories.standards, eventdocuments, productdocuments```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_documents_of_asset(asset_id, async_req=True)
@@ -4221,6 +4487,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str document_version: Filter accepts `*` as wildcard
@@ -4248,7 +4515,7 @@ class AssetApi(object):
     def get_documents_of_asset_with_http_info(self, asset_id, **kwargs):  # noqa: E501
         """Get all documents of an asset  # noqa: E501
 
-        Returns a list of all documents that are available in your scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array. Parameters supporting translation: ```name, description```. To get a translation set Accept-Language. Possible include values: ```status, tenant, classification, categories, categories.parent, attachments, categories.standards, eventdocuments```  # noqa: E501
+        Returns a list of all documents that are available in your scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array. Parameters supporting translation: ```name, description```. To get a translation set Accept-Language. Possible include values: ```status, tenant, classification, categories, categories.parent, attachments, categories.standards, eventdocuments, productdocuments```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_documents_of_asset_with_http_info(asset_id, async_req=True)
@@ -4258,6 +4525,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str document_version: Filter accepts `*` as wildcard
@@ -4276,7 +4544,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'include', 'name', 'document_version', 'number', 'status_id', 'classification_id', 'tenant_id', 'category_id', 'valid_from', 'valid_until', 'valid_at', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'document_version', 'number', 'status_id', 'classification_id', 'tenant_id', 'category_id', 'valid_from', 'valid_until', 'valid_at', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4307,6 +4575,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -4366,7 +4636,7 @@ class AssetApi(object):
     def get_events_of_asset(self, asset_id, **kwargs):  # noqa: E501
         """Get all events of one asset  # noqa: E501
 
-        Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
+        Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type, specifications``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_asset(asset_id, async_req=True)
@@ -4376,6 +4646,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -4402,7 +4673,7 @@ class AssetApi(object):
     def get_events_of_asset_with_http_info(self, asset_id, **kwargs):  # noqa: E501
         """Get all events of one asset  # noqa: E501
 
-        Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
+        Returns a list of all events belonging to an asset in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type, specifications``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_asset_with_http_info(asset_id, async_req=True)
@@ -4412,6 +4683,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -4429,7 +4701,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4460,6 +4732,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -4527,6 +4801,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str tag: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -4564,6 +4839,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str tag: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -4582,7 +4858,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'include', 'tag', 'status_id', 'type_id', 'parent_id', 'tenant_id', 'specifications_key', 'specifications_value', 'criticality', 'accessibility', 'node_id', 'permission', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'include', 'tag', 'status_id', 'type_id', 'parent_id', 'tenant_id', 'specifications_key', 'specifications_value', 'criticality', 'accessibility', 'node_id', 'permission', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4613,6 +4889,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'tag' in params:
@@ -4682,6 +4960,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str instrumentation_id: One or multiple ids (comma list). Expected id format is integer
         :param str event: Filter accepts `create` or `destroy`
         :param date event_datetime_from: Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -4711,6 +4990,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str instrumentation_id: One or multiple ids (comma list). Expected id format is integer
         :param str event: Filter accepts `create` or `destroy`
         :param date event_datetime_from: Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -4721,7 +5001,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'instrumentation_id', 'event', 'event_datetime_from', 'event_datetime_to', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'instrumentation_id', 'event', 'event_datetime_from', 'event_datetime_to', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4752,6 +5032,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'instrumentation_id' in params:
             query_params.append(('instrumentation_id', params['instrumentation_id']))  # noqa: E501
         if 'event' in params:
@@ -4805,6 +5087,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -4837,6 +5120,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -4850,7 +5134,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'include', 'name', 'type_id', 'parent_id', 'tenant_id', 'hidden', 'permission', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'type_id', 'parent_id', 'tenant_id', 'hidden', 'permission', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4881,6 +5165,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -4940,6 +5226,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str software_type_id: One or multiple ids (comma list). Expected id format is integer
         :param str order_by: Order result by attribute value, accepts `version_number`, `name`, `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -4968,6 +5255,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str software_type_id: One or multiple ids (comma list). Expected id format is integer
         :param str order_by: Order result by attribute value, accepts `version_number`, `name`, `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -4977,7 +5265,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'include', 'software_type_id', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'include', 'software_type_id', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5008,6 +5296,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'software_type_id' in params:
@@ -5060,6 +5350,7 @@ class AssetApi(object):
         :param str key: the exact key (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param datetime source_timestamp_from: source_timestamp filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime source_timestamp_to: source_timestamp filter to. Ending with + will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime updated_at_from: updated_at filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -5090,6 +5381,7 @@ class AssetApi(object):
         :param str key: the exact key (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param datetime source_timestamp_from: source_timestamp filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime source_timestamp_to: source_timestamp filter to. Ending with + will include the next value as well. Expected date format is YYYY-MM-DDThh:mm:ss
         :param datetime updated_at_from: updated_at filter from. Starting with + will include the previous value as well. Expected date format is YYYY-MM-DDThh:mm:ss
@@ -5100,7 +5392,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'key', 'page', 'per_page', 'source_timestamp_from', 'source_timestamp_to', 'updated_at_from', 'updated_at_to', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'key', 'page', 'per_page', 'include_total_count', 'source_timestamp_from', 'source_timestamp_to', 'updated_at_from', 'updated_at_to', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5137,6 +5429,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'source_timestamp_from' in params:
             query_params.append(('source_timestamp_from', params['source_timestamp_from']))  # noqa: E501
         if 'source_timestamp_to' in params:
@@ -5388,6 +5682,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param int user_id: One or multiple ids (comma list). Expected id format is integer
         :param int client_application_id: One or multiple ids (comma list). Expected id format is integer
@@ -5423,6 +5718,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param int user_id: One or multiple ids (comma list). Expected id format is integer
         :param int client_application_id: One or multiple ids (comma list). Expected id format is integer
@@ -5439,7 +5735,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'include', 'user_id', 'client_application_id', 'external_reference', 'status', 'notification_status', 'specifications_key', 'specifications_value', 'start_date', 'end_date', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'include', 'user_id', 'client_application_id', 'external_reference', 'status', 'notification_status', 'specifications_key', 'specifications_value', 'start_date', 'end_date', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5470,6 +5766,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'user_id' in params:
@@ -5535,6 +5833,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -5566,6 +5865,7 @@ class AssetApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -5578,7 +5878,7 @@ class AssetApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'include', 'name', 'type_id', 'parent_id', 'tenant_id', 'permission', 'order_by']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'type_id', 'parent_id', 'tenant_id', 'permission', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5609,6 +5909,8 @@ class AssetApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:

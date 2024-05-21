@@ -440,6 +440,7 @@ class UserGroupApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: UserGroupsWithUsers
@@ -465,6 +466,7 @@ class UserGroupApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: UserGroupsWithUsers
@@ -472,7 +474,7 @@ class UserGroupApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'name', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'name', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -497,6 +499,8 @@ class UserGroupApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'name' in params:
             query_params.append(('name', params['name']))  # noqa: E501
         if 'order_by' in params:
@@ -534,7 +538,7 @@ class UserGroupApi(object):
     def get_users_of_user_group(self, usergroup_id, **kwargs):  # noqa: E501
         """Get the users of a user group  # noqa: E501
 
-        Returns a list of all users of a specific user group identified by id in the url. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  # noqa: E501
+        Returns a list of all users of a specific user group identified by id in the url. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array. Possible include values: ```technical_connect_users```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_users_of_user_group(usergroup_id, async_req=True)
@@ -544,6 +548,8 @@ class UserGroupApi(object):
         :param int usergroup_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
+        :param str include: Comma separated list of objects to include in response
         :param str first_name: Filter accepts `*` as wildcard
         :param str last_name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `email`, `first_name`, `last_name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -561,7 +567,7 @@ class UserGroupApi(object):
     def get_users_of_user_group_with_http_info(self, usergroup_id, **kwargs):  # noqa: E501
         """Get the users of a user group  # noqa: E501
 
-        Returns a list of all users of a specific user group identified by id in the url. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  # noqa: E501
+        Returns a list of all users of a specific user group identified by id in the url. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array. Possible include values: ```technical_connect_users```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_users_of_user_group_with_http_info(usergroup_id, async_req=True)
@@ -571,6 +577,8 @@ class UserGroupApi(object):
         :param int usergroup_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
+        :param str include: Comma separated list of objects to include in response
         :param str first_name: Filter accepts `*` as wildcard
         :param str last_name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `email`, `first_name`, `last_name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -579,7 +587,7 @@ class UserGroupApi(object):
                  returns the request thread.
         """
 
-        all_params = ['usergroup_id', 'page', 'per_page', 'first_name', 'last_name', 'order_by']  # noqa: E501
+        all_params = ['usergroup_id', 'page', 'per_page', 'include_total_count', 'include', 'first_name', 'last_name', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -610,6 +618,10 @@ class UserGroupApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
+        if 'include' in params:
+            query_params.append(('include', params['include']))  # noqa: E501
         if 'first_name' in params:
             query_params.append(('first_name', params['first_name']))  # noqa: E501
         if 'last_name' in params:

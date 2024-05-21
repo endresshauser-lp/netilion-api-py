@@ -32,6 +32,113 @@ class NodeApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def add_add_ons_to_node(self, body, node_id, **kwargs):  # noqa: E501
+        """Add add_ons to an node  # noqa: E501
+
+        Add one or more add_ons to an node.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_add_ons_to_node(body, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AddOnIDs body: Resources that shall be added. (required)
+        :param int node_id: Id of the node to which the add_ons will be added (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.add_add_ons_to_node_with_http_info(body, node_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.add_add_ons_to_node_with_http_info(body, node_id, **kwargs)  # noqa: E501
+            return data
+
+    def add_add_ons_to_node_with_http_info(self, body, node_id, **kwargs):  # noqa: E501
+        """Add add_ons to an node  # noqa: E501
+
+        Add one or more add_ons to an node.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_add_ons_to_node_with_http_info(body, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AddOnIDs body: Resources that shall be added. (required)
+        :param int node_id: Id of the node to which the add_ons will be added (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'node_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method add_add_ons_to_node" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `add_add_ons_to_node`")  # noqa: E501
+        # verify the required parameter 'node_id' is set
+        if ('node_id' not in params or
+                params['node_id'] is None):
+            raise ValueError("Missing the required parameter `node_id` when calling `add_add_ons_to_node`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'node_id' in params:
+            path_params['node_id'] = params['node_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/nodes/{node_id}/add_ons', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def add_assets_to_node(self, body, node_id, **kwargs):  # noqa: E501
         """Add assets to a node  # noqa: E501
 
@@ -1181,6 +1288,133 @@ class NodeApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_add_ons_of_node(self, node_id, **kwargs):  # noqa: E501
+        """Get all add_ons of one node  # noqa: E501
+
+        Returns a list of all add_ons that are available in your scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_add_ons_of_node(node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int node_id: The resource defined in the URL (required)
+        :param int page: Page number to load
+        :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
+        :param str name: Filter accepts `*` as wildcard
+        :param str product_code: Filter accepts `*` as wildcard
+        :param str material_number: Filter accepts `*` as wildcard
+        :param str add_on_type: Filter accepts addon, connectivity or outcome
+        :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
+        :return: AddOnsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_add_ons_of_node_with_http_info(node_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_add_ons_of_node_with_http_info(node_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_add_ons_of_node_with_http_info(self, node_id, **kwargs):  # noqa: E501
+        """Get all add_ons of one node  # noqa: E501
+
+        Returns a list of all add_ons that are available in your scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_add_ons_of_node_with_http_info(node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int node_id: The resource defined in the URL (required)
+        :param int page: Page number to load
+        :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
+        :param str name: Filter accepts `*` as wildcard
+        :param str product_code: Filter accepts `*` as wildcard
+        :param str material_number: Filter accepts `*` as wildcard
+        :param str add_on_type: Filter accepts addon, connectivity or outcome
+        :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
+        :return: AddOnsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['node_id', 'page', 'per_page', 'include_total_count', 'name', 'product_code', 'material_number', 'add_on_type', 'order_by']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_add_ons_of_node" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'node_id' is set
+        if ('node_id' not in params or
+                params['node_id'] is None):
+            raise ValueError("Missing the required parameter `node_id` when calling `get_add_ons_of_node`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'node_id' in params:
+            path_params['node_id'] = params['node_id']  # noqa: E501
+
+        query_params = []
+        if 'page' in params:
+            query_params.append(('page', params['page']))  # noqa: E501
+        if 'per_page' in params:
+            query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
+        if 'name' in params:
+            query_params.append(('name', params['name']))  # noqa: E501
+        if 'product_code' in params:
+            query_params.append(('product_code', params['product_code']))  # noqa: E501
+        if 'material_number' in params:
+            query_params.append(('material_number', params['material_number']))  # noqa: E501
+        if 'add_on_type' in params:
+            query_params.append(('add_on_type', params['add_on_type']))  # noqa: E501
+        if 'order_by' in params:
+            query_params.append(('order_by', params['order_by']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/nodes/{node_id}/add_ons', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AddOnsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_assets_of_node(self, node_id, **kwargs):  # noqa: E501
         """Get all assets of one node  # noqa: E501
 
@@ -1194,6 +1428,7 @@ class NodeApi(object):
         :param int node_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str serial_number: Filter accepts `*` as wildcard
         :param str product_id: One or multiple ids (comma list). Expected id format is integer
@@ -1240,6 +1475,7 @@ class NodeApi(object):
         :param int node_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str serial_number: Filter accepts `*` as wildcard
         :param str product_id: One or multiple ids (comma list). Expected id format is integer
@@ -1267,7 +1503,7 @@ class NodeApi(object):
                  returns the request thread.
         """
 
-        all_params = ['node_id', 'page', 'per_page', 'include', 'serial_number', 'product_id', 'product_category_id', 'parent_id', 'manufacturer_id', 'status_id', 'status_code', 'production_date', 'production_date_from', 'production_date_to', 'specifications_key', 'specifications_value', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'ownership_claimed', 'permission', 'order_by']  # noqa: E501
+        all_params = ['node_id', 'page', 'per_page', 'include_total_count', 'include', 'serial_number', 'product_id', 'product_category_id', 'parent_id', 'manufacturer_id', 'status_id', 'status_code', 'production_date', 'production_date_from', 'production_date_to', 'specifications_key', 'specifications_value', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'ownership_claimed', 'permission', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1298,6 +1534,8 @@ class NodeApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'serial_number' in params:
@@ -1385,6 +1623,7 @@ class NodeApi(object):
         :param int node_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str document_version: Filter accepts `*` as wildcard
@@ -1421,6 +1660,7 @@ class NodeApi(object):
         :param int node_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str document_version: Filter accepts `*` as wildcard
@@ -1438,7 +1678,7 @@ class NodeApi(object):
                  returns the request thread.
         """
 
-        all_params = ['node_id', 'page', 'per_page', 'include', 'name', 'document_version', 'number', 'status_id', 'classification_id', 'tenant_id', 'category_id', 'valid_from', 'valid_until', 'valid_at', 'accept_language']  # noqa: E501
+        all_params = ['node_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'document_version', 'number', 'status_id', 'classification_id', 'tenant_id', 'category_id', 'valid_from', 'valid_until', 'valid_at', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1469,6 +1709,8 @@ class NodeApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -1526,7 +1768,7 @@ class NodeApi(object):
     def get_events_of_node(self, node_id, **kwargs):  # noqa: E501
         """Get all events of one node  # noqa: E501
 
-        Returns a list of all events belonging to a node in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
+        Returns a list of all events belonging to a node in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type, specifications``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_node(node_id, async_req=True)
@@ -1536,6 +1778,7 @@ class NodeApi(object):
         :param int node_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -1562,7 +1805,7 @@ class NodeApi(object):
     def get_events_of_node_with_http_info(self, node_id, **kwargs):  # noqa: E501
         """Get all events of one node  # noqa: E501
 
-        Returns a list of all events belonging to a node in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type``  # noqa: E501
+        Returns a list of all events belonging to a node in your accessible scope. You can apply query parameters in the request to get a filtered list. If the query has no matches, the response will show an empty array.  Possible include values: ``assets, instrumentations, nodes, status, type, specifications``  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_events_of_node_with_http_info(node_id, async_req=True)
@@ -1572,6 +1815,7 @@ class NodeApi(object):
         :param int node_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
@@ -1589,7 +1833,7 @@ class NodeApi(object):
                  returns the request thread.
         """
 
-        all_params = ['node_id', 'page', 'per_page', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'order_by']  # noqa: E501
+        all_params = ['node_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'type_id', 'status_id', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'tenant_id', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1620,6 +1864,8 @@ class NodeApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -1687,6 +1933,7 @@ class NodeApi(object):
         :param int node_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str tag: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -1724,6 +1971,7 @@ class NodeApi(object):
         :param int node_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str tag: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -1742,7 +1990,7 @@ class NodeApi(object):
                  returns the request thread.
         """
 
-        all_params = ['node_id', 'page', 'per_page', 'include', 'tag', 'status_id', 'type_id', 'parent_id', 'tenant_id', 'specifications_key', 'specifications_value', 'criticality', 'accessibility', 'asset_status_id', 'permission', 'order_by']  # noqa: E501
+        all_params = ['node_id', 'page', 'per_page', 'include_total_count', 'include', 'tag', 'status_id', 'type_id', 'parent_id', 'tenant_id', 'specifications_key', 'specifications_value', 'criticality', 'accessibility', 'asset_status_id', 'permission', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1773,6 +2021,8 @@ class NodeApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'tag' in params:
@@ -2167,6 +2417,7 @@ class NodeApi(object):
         :param int node_id: Id of the node (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
         :param str name: Filter accepts `*` as wildcard
         :param str code: Filter accepts `*` as wildcard
@@ -2195,6 +2446,7 @@ class NodeApi(object):
         :param int node_id: Id of the node (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
         :param str name: Filter accepts `*` as wildcard
         :param str code: Filter accepts `*` as wildcard
@@ -2204,7 +2456,7 @@ class NodeApi(object):
                  returns the request thread.
         """
 
-        all_params = ['node_id', 'page', 'per_page', 'tenant_id', 'name', 'code', 'accept_language']  # noqa: E501
+        all_params = ['node_id', 'page', 'per_page', 'include_total_count', 'tenant_id', 'name', 'code', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2235,6 +2487,8 @@ class NodeApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'tenant_id' in params:
             query_params.append(('tenant_id', params['tenant_id']))  # noqa: E501
         if 'name' in params:
@@ -2276,7 +2530,7 @@ class NodeApi(object):
     def get_nodes(self, **kwargs):  # noqa: E501
         """Get a range of nodes  # noqa: E501
 
-        Returns a list of nodes in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```parent, tenant, type, type.parent, specifications, specifications[key1,key2], pictures, instrumentations, instrumentations.specifications, instrumentations.specifications[key1,key2], instrumentations.values, instrumentations.values.unit, instrumentations.values_in_preferred_units, instrumentations.values_in_preferred_units.unit, worst_asset_status``` Hidden nodes are not returned by default, if the hidden nodes should be included, add \"```hidden```\" to the include parameter   # noqa: E501
+        Returns a list of nodes in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```parent, tenant, type, type.parent, specifications, specifications[key1,key2], pictures, instrumentations, instrumentations.specifications, instrumentations.specifications[key1,key2], instrumentations.values, instrumentations.values.unit, instrumentations.values_in_preferred_units, instrumentations.values_in_preferred_units.unit, worst_asset_status add_ons``` Hidden nodes are not returned by default, if the hidden nodes should be included, add \"```hidden```\" to the include parameter   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_nodes(async_req=True)
@@ -2285,11 +2539,13 @@ class NodeApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
         :param str parent_id: One or multiple ids (comma list). \"null\" to retrieve all objects without parent, \"!null\" for all objects with parent.
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
+        :param str add_on_type: Filter accepts addon, connectivity or outcome
         :param str permission: Filter by permission of current user. Accepts `can_permit`, `can_delete`, `can_update`, `can_read` (default)
         :param str order_by: Order result by attribute value, accepts `id`, `name`, `created_at` or `updated_at`, add `-` as a prefix for descending order. Default value is `id`
         :return: NodesResponse
@@ -2306,7 +2562,7 @@ class NodeApi(object):
     def get_nodes_with_http_info(self, **kwargs):  # noqa: E501
         """Get a range of nodes  # noqa: E501
 
-        Returns a list of nodes in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```parent, tenant, type, type.parent, specifications, specifications[key1,key2], pictures, instrumentations, instrumentations.specifications, instrumentations.specifications[key1,key2], instrumentations.values, instrumentations.values.unit, instrumentations.values_in_preferred_units, instrumentations.values_in_preferred_units.unit, worst_asset_status``` Hidden nodes are not returned by default, if the hidden nodes should be included, add \"```hidden```\" to the include parameter   # noqa: E501
+        Returns a list of nodes in your accessible scope. If the query has no matches, the response is an empty list.  Possible include values: ```parent, tenant, type, type.parent, specifications, specifications[key1,key2], pictures, instrumentations, instrumentations.specifications, instrumentations.specifications[key1,key2], instrumentations.values, instrumentations.values.unit, instrumentations.values_in_preferred_units, instrumentations.values_in_preferred_units.unit, worst_asset_status add_ons``` Hidden nodes are not returned by default, if the hidden nodes should be included, add \"```hidden```\" to the include parameter   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_nodes_with_http_info(async_req=True)
@@ -2315,11 +2571,13 @@ class NodeApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str type_id: One or multiple ids (comma list). Expected id format is integer
         :param str parent_id: One or multiple ids (comma list). \"null\" to retrieve all objects without parent, \"!null\" for all objects with parent.
         :param str tenant_id: One or multiple ids (comma list). Expected id format is integer
+        :param str add_on_type: Filter accepts addon, connectivity or outcome
         :param str permission: Filter by permission of current user. Accepts `can_permit`, `can_delete`, `can_update`, `can_read` (default)
         :param str order_by: Order result by attribute value, accepts `id`, `name`, `created_at` or `updated_at`, add `-` as a prefix for descending order. Default value is `id`
         :return: NodesResponse
@@ -2327,7 +2585,7 @@ class NodeApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'include', 'name', 'type_id', 'parent_id', 'tenant_id', 'permission', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'include', 'name', 'type_id', 'parent_id', 'tenant_id', 'add_on_type', 'permission', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2352,6 +2610,8 @@ class NodeApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -2362,6 +2622,8 @@ class NodeApi(object):
             query_params.append(('parent_id', params['parent_id']))  # noqa: E501
         if 'tenant_id' in params:
             query_params.append(('tenant_id', params['tenant_id']))  # noqa: E501
+        if 'add_on_type' in params:
+            query_params.append(('add_on_type', params['add_on_type']))  # noqa: E501
         if 'permission' in params:
             query_params.append(('permission', params['permission']))  # noqa: E501
         if 'order_by' in params:
@@ -2399,7 +2661,7 @@ class NodeApi(object):
     def get_nodes_by_id(self, id, **kwargs):  # noqa: E501
         """Get a single node  # noqa: E501
 
-        Get a specific node in your accessible scope, identified by the id in the URL.  Possible include values: ```parent, tenant, type, specifications, specifications[key1,key2], pictures, instrumentations, instrumentations.specifications, instrumentations.specifications[key1,key2], instrumentations.values, instrumentations.values.unit, instrumentations.values_in_preferred_units, instrumentations.values_in_preferred_units.unit, worst_asset_status```   # noqa: E501
+        Get a specific node in your accessible scope, identified by the id in the URL.  Possible include values: ```parent, tenant, type, specifications, specifications[key1,key2], pictures, instrumentations, instrumentations.specifications, instrumentations.specifications[key1,key2], instrumentations.values, instrumentations.values.unit, instrumentations.values_in_preferred_units, instrumentations.values_in_preferred_units.unit, worst_asset_status add_ons```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_nodes_by_id(id, async_req=True)
@@ -2422,7 +2684,7 @@ class NodeApi(object):
     def get_nodes_by_id_with_http_info(self, id, **kwargs):  # noqa: E501
         """Get a single node  # noqa: E501
 
-        Get a specific node in your accessible scope, identified by the id in the URL.  Possible include values: ```parent, tenant, type, specifications, specifications[key1,key2], pictures, instrumentations, instrumentations.specifications, instrumentations.specifications[key1,key2], instrumentations.values, instrumentations.values.unit, instrumentations.values_in_preferred_units, instrumentations.values_in_preferred_units.unit, worst_asset_status```   # noqa: E501
+        Get a specific node in your accessible scope, identified by the id in the URL.  Possible include values: ```parent, tenant, type, specifications, specifications[key1,key2], pictures, instrumentations, instrumentations.specifications, instrumentations.specifications[key1,key2], instrumentations.values, instrumentations.values.unit, instrumentations.values_in_preferred_units, instrumentations.values_in_preferred_units.unit, worst_asset_status add_ons```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_nodes_by_id_with_http_info(id, async_req=True)
@@ -2508,6 +2770,7 @@ class NodeApi(object):
         :param int node_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -2540,6 +2803,7 @@ class NodeApi(object):
         :param int node_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -2553,7 +2817,7 @@ class NodeApi(object):
                  returns the request thread.
         """
 
-        all_params = ['node_id', 'page', 'per_page', 'include', 'name', 'status_id', 'type_id', 'tenant_id', 'specifications_key', 'specifications_value', 'order_by']  # noqa: E501
+        all_params = ['node_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'status_id', 'type_id', 'tenant_id', 'specifications_key', 'specifications_value', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2584,6 +2848,8 @@ class NodeApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -2841,6 +3107,7 @@ class NodeApi(object):
         :param int node_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -2874,6 +3141,7 @@ class NodeApi(object):
         :param int node_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -2888,7 +3156,7 @@ class NodeApi(object):
                  returns the request thread.
         """
 
-        all_params = ['node_id', 'page', 'per_page', 'include', 'name', 'status_id', 'type_id', 'tenant_id', 'specifications_key', 'specifications_value', 'permission', 'order_by']  # noqa: E501
+        all_params = ['node_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'status_id', 'type_id', 'tenant_id', 'specifications_key', 'specifications_value', 'permission', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2919,6 +3187,8 @@ class NodeApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -2960,6 +3230,113 @@ class NodeApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='SystemsResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def remove_add_ons_from_node(self, body, node_id, **kwargs):  # noqa: E501
+        """Remove add_ons from an node  # noqa: E501
+
+        Remove one or more add_ons from an node in your accessible scope.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_add_ons_from_node(body, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AddOnIDs body: Resources that shall be removed. (required)
+        :param int node_id: Id of the node from which the add_ons will be removed (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.remove_add_ons_from_node_with_http_info(body, node_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.remove_add_ons_from_node_with_http_info(body, node_id, **kwargs)  # noqa: E501
+            return data
+
+    def remove_add_ons_from_node_with_http_info(self, body, node_id, **kwargs):  # noqa: E501
+        """Remove add_ons from an node  # noqa: E501
+
+        Remove one or more add_ons from an node in your accessible scope.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_add_ons_from_node_with_http_info(body, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AddOnIDs body: Resources that shall be removed. (required)
+        :param int node_id: Id of the node from which the add_ons will be removed (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'node_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method remove_add_ons_from_node" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `remove_add_ons_from_node`")  # noqa: E501
+        # verify the required parameter 'node_id' is set
+        if ('node_id' not in params or
+                params['node_id'] is None):
+            raise ValueError("Missing the required parameter `node_id` when calling `remove_add_ons_from_node`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'node_id' in params:
+            path_params['node_id'] = params['node_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/nodes/{node_id}/add_ons', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3809,6 +4186,113 @@ class NodeApi(object):
 
         return self.api_client.call_api(
             '/nodes/{node_id}/specifications/rename', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def replace_add_ons_of_node(self, body, node_id, **kwargs):  # noqa: E501
+        """Replace the add_ons of an node  # noqa: E501
+
+        Replaces all add_ons belonging to an node in your accessible scope. You can send a list of resources that will replace all previous values.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.replace_add_ons_of_node(body, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AddOnIDs body: Resources that shall be replaced (required)
+        :param int node_id: Id of the node of which the add_ons will be replaced (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.replace_add_ons_of_node_with_http_info(body, node_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.replace_add_ons_of_node_with_http_info(body, node_id, **kwargs)  # noqa: E501
+            return data
+
+    def replace_add_ons_of_node_with_http_info(self, body, node_id, **kwargs):  # noqa: E501
+        """Replace the add_ons of an node  # noqa: E501
+
+        Replaces all add_ons belonging to an node in your accessible scope. You can send a list of resources that will replace all previous values.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.replace_add_ons_of_node_with_http_info(body, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param AddOnIDs body: Resources that shall be replaced (required)
+        :param int node_id: Id of the node of which the add_ons will be replaced (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'node_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method replace_add_ons_of_node" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `replace_add_ons_of_node`")  # noqa: E501
+        # verify the required parameter 'node_id' is set
+        if ('node_id' not in params or
+                params['node_id'] is None):
+            raise ValueError("Missing the required parameter `node_id` when calling `replace_add_ons_of_node`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'node_id' in params:
+            path_params['node_id'] = params['node_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/nodes/{node_id}/add_ons', 'PATCH',
             path_params,
             query_params,
             header_params,

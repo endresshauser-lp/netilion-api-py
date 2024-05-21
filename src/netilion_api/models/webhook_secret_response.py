@@ -28,14 +28,42 @@ class WebhookSecretResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'secret': 'str'
     }
 
     attribute_map = {
+        'secret': 'secret'
     }
 
-    def __init__(self):  # noqa: E501
+    def __init__(self, secret=None):  # noqa: E501
         """WebhookSecretResponse - a model defined in Swagger"""  # noqa: E501
+        self._secret = None
         self.discriminator = None
+        if secret is not None:
+            self.secret = secret
+
+    @property
+    def secret(self):
+        """Gets the secret of this WebhookSecretResponse.  # noqa: E501
+
+        Secret key of the webhook used to sign the payload  # noqa: E501
+
+        :return: The secret of this WebhookSecretResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._secret
+
+    @secret.setter
+    def secret(self, secret):
+        """Sets the secret of this WebhookSecretResponse.
+
+        Secret key of the webhook used to sign the payload  # noqa: E501
+
+        :param secret: The secret of this WebhookSecretResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._secret = secret
 
     def to_dict(self):
         """Returns the model properties as a dict"""

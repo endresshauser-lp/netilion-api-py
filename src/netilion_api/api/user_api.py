@@ -914,7 +914,7 @@ class UserApi(object):
     def get_current_user(self, **kwargs):  # noqa: E501
         """Get current user  # noqa: E501
 
-        Get the user authenticated in the current context. Possible include values: ```userroles, usergroups, usage, demo_data, specifications, specifications[key1,key2]```  # noqa: E501
+        Get the user authenticated in the current context. Possible include values: ```userroles, usergroups, usage, details, specifications, specifications[key1,key2]```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_current_user(async_req=True)
@@ -936,7 +936,7 @@ class UserApi(object):
     def get_current_user_with_http_info(self, **kwargs):  # noqa: E501
         """Get current user  # noqa: E501
 
-        Get the user authenticated in the current context. Possible include values: ```userroles, usergroups, usage, demo_data, specifications, specifications[key1,key2]```  # noqa: E501
+        Get the user authenticated in the current context. Possible include values: ```userroles, usergroups, usage, details, specifications, specifications[key1,key2]```  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_current_user_with_http_info(async_req=True)
@@ -1210,12 +1210,15 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str type: type of data export, can be complete, measurements, batch_values, instrumentation_values, asset_vdi_2770_documentation_container or system_vdi_2770_documentation_container.
+        :param str type: Comma separated list of types of data export, can be complete, measurements, batch_values, instrumentation_values, asset_vdi_2770_documentation_container, system_vdi_2770_documentation_container, asset_documents, node_documents_recursive or purchase_order_documents.
         :param int instrumentation_id: ID of the instrumentation to export data from.
         :param int asset_id: ID of the asset to export data from.
+        :param int node_id: ID of the node to export data from.
+        :param int purchase_order_id: ID of the purchase_order to export its assets from.
         :param int system_id: ID of the system to export data from.
         :param int batch_id: ID of the batch to export data from.
         :param str language: filter for requested export language
+        :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: DataExportsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1237,18 +1240,21 @@ class UserApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str type: type of data export, can be complete, measurements, batch_values, instrumentation_values, asset_vdi_2770_documentation_container or system_vdi_2770_documentation_container.
+        :param str type: Comma separated list of types of data export, can be complete, measurements, batch_values, instrumentation_values, asset_vdi_2770_documentation_container, system_vdi_2770_documentation_container, asset_documents, node_documents_recursive or purchase_order_documents.
         :param int instrumentation_id: ID of the instrumentation to export data from.
         :param int asset_id: ID of the asset to export data from.
+        :param int node_id: ID of the node to export data from.
+        :param int purchase_order_id: ID of the purchase_order to export its assets from.
         :param int system_id: ID of the system to export data from.
         :param int batch_id: ID of the batch to export data from.
         :param str language: filter for requested export language
+        :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: DataExportsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['type', 'instrumentation_id', 'asset_id', 'system_id', 'batch_id', 'language']  # noqa: E501
+        all_params = ['type', 'instrumentation_id', 'asset_id', 'node_id', 'purchase_order_id', 'system_id', 'batch_id', 'language', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1275,12 +1281,18 @@ class UserApi(object):
             query_params.append(('instrumentation_id', params['instrumentation_id']))  # noqa: E501
         if 'asset_id' in params:
             query_params.append(('asset_id', params['asset_id']))  # noqa: E501
+        if 'node_id' in params:
+            query_params.append(('node_id', params['node_id']))  # noqa: E501
+        if 'purchase_order_id' in params:
+            query_params.append(('purchase_order_id', params['purchase_order_id']))  # noqa: E501
         if 'system_id' in params:
             query_params.append(('system_id', params['system_id']))  # noqa: E501
         if 'batch_id' in params:
             query_params.append(('batch_id', params['batch_id']))  # noqa: E501
         if 'language' in params:
             query_params.append(('language', params['language']))  # noqa: E501
+        if 'order_by' in params:
+            query_params.append(('order_by', params['order_by']))  # noqa: E501
 
         header_params = {}
 
@@ -1505,6 +1517,7 @@ class UserApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str start_datetime: Expected date format is YYYY-MM-DDThh:mm:ss
         :param str start_datetime_from: Expected date format is YYYY-MM-DDThh:mm:ss
         :param str start_datetime_to: Expected date format is YYYY-MM-DDThh:mm:ss
@@ -1536,6 +1549,7 @@ class UserApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str start_datetime: Expected date format is YYYY-MM-DDThh:mm:ss
         :param str start_datetime_from: Expected date format is YYYY-MM-DDThh:mm:ss
         :param str start_datetime_to: Expected date format is YYYY-MM-DDThh:mm:ss
@@ -1549,7 +1563,7 @@ class UserApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'start_datetime', 'start_datetime_from', 'start_datetime_to', 'end_datetime', 'end_datetime_from', 'end_datetime_to', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1574,6 +1588,8 @@ class UserApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'start_datetime' in params:
             query_params.append(('start_datetime', params['start_datetime']))  # noqa: E501
         if 'start_datetime_from' in params:
@@ -1632,6 +1648,7 @@ class UserApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param date time: Expected format is YYYY-MM-DD
         :param str time_from: Expected format is YYYY-MM-DDThh:mm:ss
         :param str time_to: Expected format is YYYY-MM-DDThh:mm:ss
@@ -1658,6 +1675,7 @@ class UserApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param date time: Expected format is YYYY-MM-DD
         :param str time_from: Expected format is YYYY-MM-DDThh:mm:ss
         :param str time_to: Expected format is YYYY-MM-DDThh:mm:ss
@@ -1666,7 +1684,7 @@ class UserApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'time', 'time_from', 'time_to']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'time', 'time_from', 'time_to']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1691,6 +1709,8 @@ class UserApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'time' in params:
             query_params.append(('time', params['time']))  # noqa: E501
         if 'time_from' in params:
@@ -1740,6 +1760,7 @@ class UserApi(object):
         :param int user_id: Id of the user to fetch (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param date time: Expected format is YYYY-MM-DD
         :param str time_from: Expected format is YYYY-MM-DDThh:mm:ss
         :param str time_to: Expected format is YYYY-MM-DDThh:mm:ss
@@ -1767,6 +1788,7 @@ class UserApi(object):
         :param int user_id: Id of the user to fetch (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param date time: Expected format is YYYY-MM-DD
         :param str time_from: Expected format is YYYY-MM-DDThh:mm:ss
         :param str time_to: Expected format is YYYY-MM-DDThh:mm:ss
@@ -1775,7 +1797,7 @@ class UserApi(object):
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'page', 'per_page', 'time', 'time_from', 'time_to']  # noqa: E501
+        all_params = ['user_id', 'page', 'per_page', 'include_total_count', 'time', 'time_from', 'time_to']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1806,6 +1828,8 @@ class UserApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'time' in params:
             query_params.append(('time', params['time']))  # noqa: E501
         if 'time_from' in params:
@@ -1953,6 +1977,7 @@ class UserApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str email: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `email`, `first_name`, `last_name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -1979,6 +2004,7 @@ class UserApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str email: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `email`, `first_name`, `last_name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -1987,7 +2013,7 @@ class UserApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'include', 'email', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'include', 'email', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2012,6 +2038,8 @@ class UserApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'email' in params:
@@ -2255,6 +2283,7 @@ class UserApi(object):
         :param int user_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: UserGroupsWithUsers
@@ -2281,6 +2310,7 @@ class UserApi(object):
         :param int user_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: UserGroupsWithUsers
@@ -2288,7 +2318,7 @@ class UserApi(object):
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'page', 'per_page', 'name', 'order_by']  # noqa: E501
+        all_params = ['user_id', 'page', 'per_page', 'include_total_count', 'name', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2319,6 +2349,8 @@ class UserApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'name' in params:
             query_params.append(('name', params['name']))  # noqa: E501
         if 'order_by' in params:
@@ -2366,6 +2398,7 @@ class UserApi(object):
         :param int user_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: UserRolesResponse
@@ -2392,6 +2425,7 @@ class UserApi(object):
         :param int user_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `name`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: UserRolesResponse
@@ -2399,7 +2433,7 @@ class UserApi(object):
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'page', 'per_page', 'name', 'order_by']  # noqa: E501
+        all_params = ['user_id', 'page', 'per_page', 'include_total_count', 'name', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2430,6 +2464,8 @@ class UserApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'name' in params:
             query_params.append(('name', params['name']))  # noqa: E501
         if 'order_by' in params:
@@ -2476,6 +2512,7 @@ class UserApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str email: Filter accepts `*` as wildcard
         :param str first_name: Filter accepts `*` as wildcard
@@ -2512,6 +2549,7 @@ class UserApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str email: Filter accepts `*` as wildcard
         :param str first_name: Filter accepts `*` as wildcard
@@ -2530,7 +2568,7 @@ class UserApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'include', 'email', 'first_name', 'last_name', 'specifications_key', 'specifications_value', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'include', 'email', 'first_name', 'last_name', 'specifications_key', 'specifications_value', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2555,6 +2593,8 @@ class UserApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'email' in params:

@@ -46,6 +46,7 @@ class DocumentCategoryApi(object):
         :param int category_id: Id of the category (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -71,12 +72,13 @@ class DocumentCategoryApi(object):
         :param int category_id: Id of the category (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['body', 'category_id', 'page', 'per_page']  # noqa: E501
+        all_params = ['body', 'category_id', 'page', 'per_page', 'include_total_count']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -111,6 +113,8 @@ class DocumentCategoryApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
 
         header_params = {}
 
@@ -354,6 +358,7 @@ class DocumentCategoryApi(object):
         :param int document_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
@@ -386,6 +391,7 @@ class DocumentCategoryApi(object):
         :param int document_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
@@ -399,7 +405,7 @@ class DocumentCategoryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['document_id', 'page', 'per_page', 'include', 'code', 'name', 'parent_id', 'tenant_id', 'standard_id', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['document_id', 'page', 'per_page', 'include_total_count', 'include', 'code', 'name', 'parent_id', 'tenant_id', 'standard_id', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -430,6 +436,8 @@ class DocumentCategoryApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'code' in params:
@@ -489,6 +497,7 @@ class DocumentCategoryApi(object):
         :param int document_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
         :param str parent_id: One or multiple ids (comma list). \"null\" to retrieve all objects without parent, \"!null\" for all objects with parent.
@@ -519,6 +528,7 @@ class DocumentCategoryApi(object):
         :param int document_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
         :param str parent_id: One or multiple ids (comma list). \"null\" to retrieve all objects without parent, \"!null\" for all objects with parent.
@@ -530,7 +540,7 @@ class DocumentCategoryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['document_id', 'page', 'per_page', 'code', 'name', 'parent_id', 'tenant_id', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['document_id', 'page', 'per_page', 'include_total_count', 'code', 'name', 'parent_id', 'tenant_id', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -561,6 +571,8 @@ class DocumentCategoryApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'code' in params:
             query_params.append(('code', params['code']))  # noqa: E501
         if 'name' in params:
@@ -615,6 +627,7 @@ class DocumentCategoryApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
@@ -646,6 +659,7 @@ class DocumentCategoryApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
@@ -659,7 +673,7 @@ class DocumentCategoryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'include', 'code', 'name', 'parent_id', 'tenant_id', 'standard_id', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'include', 'code', 'name', 'parent_id', 'tenant_id', 'standard_id', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -684,6 +698,8 @@ class DocumentCategoryApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'code' in params:
@@ -846,6 +862,7 @@ class DocumentCategoryApi(object):
         :param int category_id: Id of the category (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str document_version: Filter accepts `*` as wildcard
@@ -882,6 +899,7 @@ class DocumentCategoryApi(object):
         :param int category_id: Id of the category (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str document_version: Filter accepts `*` as wildcard
@@ -899,7 +917,7 @@ class DocumentCategoryApi(object):
                  returns the request thread.
         """
 
-        all_params = ['category_id', 'page', 'per_page', 'include', 'name', 'document_version', 'number', 'status_id', 'classification_id', 'tenant_id', 'valid_from', 'valid_until', 'valid_at', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['category_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'document_version', 'number', 'status_id', 'classification_id', 'tenant_id', 'valid_from', 'valid_until', 'valid_at', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -930,6 +948,8 @@ class DocumentCategoryApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:

@@ -239,6 +239,7 @@ class SoftwareApi(object):
         :param int software_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str remarks: Filter accepts `*` as wildcard
         :param str file_name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -266,6 +267,7 @@ class SoftwareApi(object):
         :param int software_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str remarks: Filter accepts `*` as wildcard
         :param str file_name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -274,7 +276,7 @@ class SoftwareApi(object):
                  returns the request thread.
         """
 
-        all_params = ['software_id', 'page', 'per_page', 'remarks', 'file_name', 'order_by']  # noqa: E501
+        all_params = ['software_id', 'page', 'per_page', 'include_total_count', 'remarks', 'file_name', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -305,6 +307,8 @@ class SoftwareApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'remarks' in params:
             query_params.append(('remarks', params['remarks']))  # noqa: E501
         if 'file_name' in params:
@@ -456,6 +460,7 @@ class SoftwareApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str software_type_id: One or multiple ids (comma list). Expected id format is integer
         :param str order_by: Order result by attribute value, accepts `version_number`, `name`, `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -483,6 +488,7 @@ class SoftwareApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str software_type_id: One or multiple ids (comma list). Expected id format is integer
         :param str order_by: Order result by attribute value, accepts `version_number`, `name`, `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -492,7 +498,7 @@ class SoftwareApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'include', 'software_type_id', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'include', 'software_type_id', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -517,6 +523,8 @@ class SoftwareApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'software_type_id' in params:

@@ -84,8 +84,9 @@ class SubscriptionBase(object):
     }
 
     discriminator_value_class_map = {
-          'SubscriptionResponse': 'SubscriptionResponse',
-'SubscriptionRequest': 'SubscriptionRequest'    }
+          'SubscriptionPatchRequest': 'SubscriptionPatchRequest',
+'SubscriptionResponse': 'SubscriptionResponse',
+'SubscriptionPostRequest': 'SubscriptionPostRequest'    }
 
     def __init__(self, display_name=None, description=None, external_reference=None, status=None, notification_status=None, asset_notification_status=None, file_storage_notification_status=None, data_storage_notification_status=None, data_storage_notification_status_updated_at=None, file_storage_notification_status_updated_at=None, customer_purchase_order=None, start_date=None, end_date=None, billed_until=None, trial_end_date=None, cancelled_at=None, external_user_reference=None, external_plan_variant_reference=None, number_assigned_assets=None, asset_quota=None, storage_quota=None, data_storage_quota=None, seat_quota=None, force_mfa=None, reseller_label=None):  # noqa: E501
         """SubscriptionBase - a model defined in Swagger"""  # noqa: E501

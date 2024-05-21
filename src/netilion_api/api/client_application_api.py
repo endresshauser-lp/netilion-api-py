@@ -881,6 +881,7 @@ class ClientApplicationApi(object):
         :param int client_application_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str api_key: Filter accepts `*` as wildcard
         :param date valid_from: Expected date format is YYYY-MM-DD
         :param date valid_from_from: Expected date format is YYYY-MM-DD
@@ -913,6 +914,7 @@ class ClientApplicationApi(object):
         :param int client_application_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str api_key: Filter accepts `*` as wildcard
         :param date valid_from: Expected date format is YYYY-MM-DD
         :param date valid_from_from: Expected date format is YYYY-MM-DD
@@ -926,7 +928,7 @@ class ClientApplicationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['client_application_id', 'page', 'per_page', 'api_key', 'valid_from', 'valid_from_from', 'valid_from_to', 'valid_until', 'valid_until_from', 'valid_until_to', 'order_by']  # noqa: E501
+        all_params = ['client_application_id', 'page', 'per_page', 'include_total_count', 'api_key', 'valid_from', 'valid_from_from', 'valid_from_to', 'valid_until', 'valid_until_from', 'valid_until_to', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -957,6 +959,8 @@ class ClientApplicationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'api_key' in params:
             query_params.append(('api_key', params['api_key']))  # noqa: E501
         if 'valid_from' in params:
@@ -1114,6 +1118,7 @@ class ClientApplicationApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str contact_person_id: One or multiple ids (comma list). Expected id format is integer
@@ -1141,6 +1146,7 @@ class ClientApplicationApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str contact_person_id: One or multiple ids (comma list). Expected id format is integer
@@ -1150,7 +1156,7 @@ class ClientApplicationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'include', 'name', 'contact_person_id', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'include', 'name', 'contact_person_id', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1175,6 +1181,8 @@ class ClientApplicationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -1226,6 +1234,7 @@ class ClientApplicationApi(object):
         :param int edge_device_application_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str code: Filter accepts `*` as wildcard
@@ -1255,6 +1264,7 @@ class ClientApplicationApi(object):
         :param int edge_device_application_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str code: Filter accepts `*` as wildcard
@@ -1265,7 +1275,7 @@ class ClientApplicationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['edge_device_application_id', 'page', 'per_page', 'include', 'name', 'code', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['edge_device_application_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'code', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1296,6 +1306,8 @@ class ClientApplicationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -1436,6 +1448,7 @@ class ClientApplicationApi(object):
         :param int client_application_id: id of the client application to fetch (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str code: Filter accepts `*` as wildcard
         :param str edge_device_type_id: One or multiple ids (comma list). Expected id format is integer
@@ -1466,6 +1479,7 @@ class ClientApplicationApi(object):
         :param int client_application_id: id of the client application to fetch (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str code: Filter accepts `*` as wildcard
         :param str edge_device_type_id: One or multiple ids (comma list). Expected id format is integer
@@ -1477,7 +1491,7 @@ class ClientApplicationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['client_application_id', 'page', 'per_page', 'name', 'code', 'edge_device_type_id', 'software_version_id', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['client_application_id', 'page', 'per_page', 'include_total_count', 'name', 'code', 'edge_device_type_id', 'software_version_id', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1508,6 +1522,8 @@ class ClientApplicationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'name' in params:
             query_params.append(('name', params['name']))  # noqa: E501
         if 'code' in params:
@@ -1563,6 +1579,7 @@ class ClientApplicationApi(object):
         :param int client_application_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str email: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: TechnicalUsersResponse
@@ -1589,6 +1606,7 @@ class ClientApplicationApi(object):
         :param int client_application_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str email: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: TechnicalUsersResponse
@@ -1596,7 +1614,7 @@ class ClientApplicationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['client_application_id', 'page', 'per_page', 'email', 'order_by']  # noqa: E501
+        all_params = ['client_application_id', 'page', 'per_page', 'include_total_count', 'email', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1627,6 +1645,8 @@ class ClientApplicationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'email' in params:
             query_params.append(('email', params['email']))  # noqa: E501
         if 'order_by' in params:
@@ -1675,6 +1695,7 @@ class ClientApplicationApi(object):
         :param int userrole_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str first_name: Filter accepts `*` as wildcard
         :param str last_name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -1703,6 +1724,7 @@ class ClientApplicationApi(object):
         :param int userrole_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str first_name: Filter accepts `*` as wildcard
         :param str last_name: Filter accepts `*` as wildcard
         :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
@@ -1711,7 +1733,7 @@ class ClientApplicationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['client_application_id', 'userrole_id', 'page', 'per_page', 'first_name', 'last_name', 'order_by']  # noqa: E501
+        all_params = ['client_application_id', 'userrole_id', 'page', 'per_page', 'include_total_count', 'first_name', 'last_name', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1748,6 +1770,8 @@ class ClientApplicationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'first_name' in params:
             query_params.append(('first_name', params['first_name']))  # noqa: E501
         if 'last_name' in params:
@@ -1901,6 +1925,7 @@ class ClientApplicationApi(object):
         :param int id: Id of the webhook (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str status: Filter by status - no wildcard support
         :param str event_type: Filter by event type - no wildcard support
         :param date occurred_at: Expected date format is YYYY-MM-DD
@@ -1932,6 +1957,7 @@ class ClientApplicationApi(object):
         :param int id: Id of the webhook (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str status: Filter by status - no wildcard support
         :param str event_type: Filter by event type - no wildcard support
         :param date occurred_at: Expected date format is YYYY-MM-DD
@@ -1943,7 +1969,7 @@ class ClientApplicationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['client_application_id', 'id', 'page', 'per_page', 'status', 'event_type', 'occurred_at', 'occurred_at_from', 'occurred_at_to', 'order_by']  # noqa: E501
+        all_params = ['client_application_id', 'id', 'page', 'per_page', 'include_total_count', 'status', 'event_type', 'occurred_at', 'occurred_at_from', 'occurred_at_to', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1980,6 +2006,8 @@ class ClientApplicationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'status' in params:
             query_params.append(('status', params['status']))  # noqa: E501
         if 'event_type' in params:
@@ -2035,6 +2063,7 @@ class ClientApplicationApi(object):
         :param int client_application_id: Id of the client_application to update (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: WebhookResponses
                  If the method is called asynchronously,
@@ -2060,13 +2089,14 @@ class ClientApplicationApi(object):
         :param int client_application_id: Id of the client_application to update (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str order_by: Order result by attribute value, accepts `id`, `created_at` or `updated_at`. Add `-` as a prefix for descending order. Default value is `id`
         :return: WebhookResponses
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['client_application_id', 'page', 'per_page', 'order_by']  # noqa: E501
+        all_params = ['client_application_id', 'page', 'per_page', 'include_total_count', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2097,6 +2127,8 @@ class ClientApplicationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'order_by' in params:
             query_params.append(('order_by', params['order_by']))  # noqa: E501
 

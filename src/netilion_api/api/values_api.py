@@ -139,6 +139,228 @@ class ValuesApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_asset_values(self, asset_id, to, **kwargs):  # noqa: E501
+        """Delete asset values.  # noqa: E501
+
+        Delete values for the asset. The values will be removed for all existing keys within a specified time range. This time range is determined by the 'from' and 'to' parameters. The 'to' parameter is mandatory. To delete all values for the asset, set the 'to' parameter to a future date.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_asset_values(asset_id, to, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int asset_id: The resource defined in the URL (required)
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss (required)
+        :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_asset_values_with_http_info(asset_id, to, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_asset_values_with_http_info(asset_id, to, **kwargs)  # noqa: E501
+            return data
+
+    def delete_asset_values_with_http_info(self, asset_id, to, **kwargs):  # noqa: E501
+        """Delete asset values.  # noqa: E501
+
+        Delete values for the asset. The values will be removed for all existing keys within a specified time range. This time range is determined by the 'from' and 'to' parameters. The 'to' parameter is mandatory. To delete all values for the asset, set the 'to' parameter to a future date.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_asset_values_with_http_info(asset_id, to, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int asset_id: The resource defined in the URL (required)
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss (required)
+        :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['asset_id', 'to', '_from']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_asset_values" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'asset_id' is set
+        if ('asset_id' not in params or
+                params['asset_id'] is None):
+            raise ValueError("Missing the required parameter `asset_id` when calling `delete_asset_values`")  # noqa: E501
+        # verify the required parameter 'to' is set
+        if ('to' not in params or
+                params['to'] is None):
+            raise ValueError("Missing the required parameter `to` when calling `delete_asset_values`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'asset_id' in params:
+            path_params['asset_id'] = params['asset_id']  # noqa: E501
+
+        query_params = []
+        if '_from' in params:
+            query_params.append(('from', params['_from']))  # noqa: E501
+        if 'to' in params:
+            query_params.append(('to', params['to']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/assets/{asset_id}/values', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_asset_values_for_key(self, asset_id, key, to, **kwargs):  # noqa: E501
+        """Delete asset values for a specific key.  # noqa: E501
+
+        Delete asset values for a specific key. The values will be deleted within the specified time range. This time range is defined by the 'from' and 'to' parameters. The 'to' parameter is required. To delete all values for the asset, set the 'to' parameter to a future date.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_asset_values_for_key(asset_id, key, to, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int asset_id: The resource defined in the URL (required)
+        :param str key: key for the asset values (required)
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss (required)
+        :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_asset_values_for_key_with_http_info(asset_id, key, to, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_asset_values_for_key_with_http_info(asset_id, key, to, **kwargs)  # noqa: E501
+            return data
+
+    def delete_asset_values_for_key_with_http_info(self, asset_id, key, to, **kwargs):  # noqa: E501
+        """Delete asset values for a specific key.  # noqa: E501
+
+        Delete asset values for a specific key. The values will be deleted within the specified time range. This time range is defined by the 'from' and 'to' parameters. The 'to' parameter is required. To delete all values for the asset, set the 'to' parameter to a future date.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_asset_values_for_key_with_http_info(asset_id, key, to, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int asset_id: The resource defined in the URL (required)
+        :param str key: key for the asset values (required)
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss (required)
+        :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['asset_id', 'key', 'to', '_from']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_asset_values_for_key" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'asset_id' is set
+        if ('asset_id' not in params or
+                params['asset_id'] is None):
+            raise ValueError("Missing the required parameter `asset_id` when calling `delete_asset_values_for_key`")  # noqa: E501
+        # verify the required parameter 'key' is set
+        if ('key' not in params or
+                params['key'] is None):
+            raise ValueError("Missing the required parameter `key` when calling `delete_asset_values_for_key`")  # noqa: E501
+        # verify the required parameter 'to' is set
+        if ('to' not in params or
+                params['to'] is None):
+            raise ValueError("Missing the required parameter `to` when calling `delete_asset_values_for_key`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'asset_id' in params:
+            path_params['asset_id'] = params['asset_id']  # noqa: E501
+        if 'key' in params:
+            path_params['key'] = params['key']  # noqa: E501
+
+        query_params = []
+        if '_from' in params:
+            query_params.append(('from', params['_from']))  # noqa: E501
+        if 'to' in params:
+            query_params.append(('to', params['to']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/assets/{asset_id}/values/{key}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_asset_values(self, asset_id, **kwargs):  # noqa: E501
         """Get latest values for the asset.  # noqa: E501
 
@@ -152,6 +374,7 @@ class ValuesApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not. These values have lower precedence than the parameter key_unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
         :param str key: only the values of the specified keys will be returned. If no key is specified all keys of the asset with its latest values will be received. Multiple values can be specified in a comma seperated list.
@@ -181,6 +404,7 @@ class ValuesApi(object):
         :param int asset_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not. These values have lower precedence than the parameter key_unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
         :param str key: only the values of the specified keys will be returned. If no key is specified all keys of the asset with its latest values will be received. Multiple values can be specified in a comma seperated list.
@@ -191,7 +415,7 @@ class ValuesApi(object):
                  returns the request thread.
         """
 
-        all_params = ['asset_id', 'page', 'per_page', 'include', 'use_preferred_units', 'key', 'key_unit_id', 'group']  # noqa: E501
+        all_params = ['asset_id', 'page', 'per_page', 'include_total_count', 'include', 'use_preferred_units', 'key', 'key_unit_id', 'group']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -222,6 +446,8 @@ class ValuesApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'use_preferred_units' in params:
@@ -278,9 +504,9 @@ class ValuesApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
-        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
@@ -315,9 +541,9 @@ class ValuesApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
-        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
@@ -434,6 +660,7 @@ class ValuesApi(object):
         :param int batch_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter key_unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
         :param str key: only the values of the specified keys will be returned. If no key is specified all keys of the asset with its latest values will be received. Multiple values can be specified in a comma seperated list.
@@ -463,6 +690,7 @@ class ValuesApi(object):
         :param int batch_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter key_unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
         :param str key: only the values of the specified keys will be returned. If no key is specified all keys of the asset with its latest values will be received. Multiple values can be specified in a comma seperated list.
@@ -473,7 +701,7 @@ class ValuesApi(object):
                  returns the request thread.
         """
 
-        all_params = ['batch_id', 'page', 'per_page', 'include', 'use_preferred_units', 'key', 'key_unit_id', 'group']  # noqa: E501
+        all_params = ['batch_id', 'page', 'per_page', 'include_total_count', 'include', 'use_preferred_units', 'key', 'key_unit_id', 'group']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -504,6 +732,8 @@ class ValuesApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'use_preferred_units' in params:
@@ -560,9 +790,9 @@ class ValuesApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
-        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
@@ -597,9 +827,9 @@ class ValuesApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
-        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
@@ -716,6 +946,7 @@ class ValuesApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter key_unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
         :param str key: only the values of the specified keys will be returned. If no key is specified all keys of the asset with its latest values will be received. Multiple values can be specified in a comma seperated list.
@@ -745,6 +976,7 @@ class ValuesApi(object):
         :param int instrumentation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter key_unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
         :param str key: only the values of the specified keys will be returned. If no key is specified all keys of the asset with its latest values will be received. Multiple values can be specified in a comma seperated list.
@@ -755,7 +987,7 @@ class ValuesApi(object):
                  returns the request thread.
         """
 
-        all_params = ['instrumentation_id', 'page', 'per_page', 'include', 'use_preferred_units', 'key', 'key_unit_id', 'group']  # noqa: E501
+        all_params = ['instrumentation_id', 'page', 'per_page', 'include_total_count', 'include', 'use_preferred_units', 'key', 'key_unit_id', 'group']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -786,6 +1018,8 @@ class ValuesApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'use_preferred_units' in params:
@@ -842,9 +1076,9 @@ class ValuesApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
-        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
@@ -879,9 +1113,9 @@ class ValuesApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
-        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
@@ -998,6 +1232,7 @@ class ValuesApi(object):
         :param int system_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter key_unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
         :param str key: only the values of the specified keys will be returned. If no key is specified all keys of the asset with its latest values will be received. Multiple values can be specified in a comma seperated list.
@@ -1027,6 +1262,7 @@ class ValuesApi(object):
         :param int system_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter key_unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
         :param str key: only the values of the specified keys will be returned. If no key is specified all keys of the asset with its latest values will be received. Multiple values can be specified in a comma seperated list.
@@ -1037,7 +1273,7 @@ class ValuesApi(object):
                  returns the request thread.
         """
 
-        all_params = ['system_id', 'page', 'per_page', 'include', 'use_preferred_units', 'key', 'key_unit_id', 'group']  # noqa: E501
+        all_params = ['system_id', 'page', 'per_page', 'include_total_count', 'include', 'use_preferred_units', 'key', 'key_unit_id', 'group']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1068,6 +1304,8 @@ class ValuesApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'use_preferred_units' in params:
@@ -1124,9 +1362,9 @@ class ValuesApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
-        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.
@@ -1161,9 +1399,9 @@ class ValuesApi(object):
         :param int per_page: Number of items to load per page, default value is 500, maximum is 1000
         :param str include: Comma separated list of objects to include in response
         :param bool use_preferred_units: whether to return the values in the preferred units described in the asset specification 'preferred_units' or not, for the instrumentation the mapping will result from the merge of all its assets mappings. These values have lower precedence than the parameter unit_id. Example value of the specification is '{\"key_1\"\\:\"unit_code_1\", \"key_2\"\\:\"unit_code_2\"}'
-        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true but will change in the near future to false. Please specify the value of this parameter if you want a specific behavior.
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is false. Please specify the value of this parameter if you want a specific behavior.
         :param date _from: Start date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
-        :param date to: End date for history values. Expected date format is YYYY-MM-DDThh:mm:ss
+        :param date to: End date filter for history values. Expected date format is YYYY-MM-DDThh:mm:ss
         :param int unit_id: Id of the unit in which the values are to be returned.
         :param str aggregation: Supported aggregation methods are `mean, min, max, sum, stddev`. This value is mandatory if interval is defined.
         :param str interval: Interval which is used for the aggregation. The value is mandatory if aggregation is defined. Supported intervals are number of `s, m, h, d, w`. Example `3h`.

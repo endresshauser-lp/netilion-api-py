@@ -353,6 +353,113 @@ class SubscriptionApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def auto_registration(self, body, subscription_id, **kwargs):  # noqa: E501
+        """Prepare for auto registration  # noqa: E501
+
+        Verify and link customer object to the subscription  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auto_registration(body, subscription_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param SubscriptionIdAutoRegistrationBody body: Customer data needed to verify and link customer object to subscription (required)
+        :param int subscription_id: Id of the specified subscription (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.auto_registration_with_http_info(body, subscription_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.auto_registration_with_http_info(body, subscription_id, **kwargs)  # noqa: E501
+            return data
+
+    def auto_registration_with_http_info(self, body, subscription_id, **kwargs):  # noqa: E501
+        """Prepare for auto registration  # noqa: E501
+
+        Verify and link customer object to the subscription  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.auto_registration_with_http_info(body, subscription_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param SubscriptionIdAutoRegistrationBody body: Customer data needed to verify and link customer object to subscription (required)
+        :param int subscription_id: Id of the specified subscription (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'subscription_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method auto_registration" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `auto_registration`")  # noqa: E501
+        # verify the required parameter 'subscription_id' is set
+        if ('subscription_id' not in params or
+                params['subscription_id'] is None):
+            raise ValueError("Missing the required parameter `subscription_id` when calling `auto_registration`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'subscription_id' in params:
+            path_params['subscription_id'] = params['subscription_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['API-Key', 'Authentication']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/subscriptions/{subscription_id}/auto_registration', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def create_subscription(self, body, **kwargs):  # noqa: E501
         """Create a new subscription  # noqa: E501
 
@@ -363,7 +470,7 @@ class SubscriptionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionRequest body: subscription body (required)
+        :param SubscriptionPostRequest body: subscription body (required)
         :return: SubscriptionResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -385,7 +492,7 @@ class SubscriptionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionRequest body: subscription body (required)
+        :param SubscriptionPostRequest body: subscription body (required)
         :return: SubscriptionResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -655,6 +762,7 @@ class SubscriptionApi(object):
         :param int subscription_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str serial_number: Filter accepts `*` as wildcard
         :param str product_id: One or multiple ids (comma list). Expected id format is integer
@@ -702,6 +810,7 @@ class SubscriptionApi(object):
         :param int subscription_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str serial_number: Filter accepts `*` as wildcard
         :param str product_id: One or multiple ids (comma list). Expected id format is integer
@@ -730,7 +839,7 @@ class SubscriptionApi(object):
                  returns the request thread.
         """
 
-        all_params = ['subscription_id', 'page', 'per_page', 'include', 'serial_number', 'product_id', 'product_category_id', 'parent_id', 'manufacturer_id', 'status_id', 'status_code', 'production_date', 'production_date_from', 'production_date_to', 'specifications_key', 'specifications_value', 'node_id', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'ownership_claimed', 'permission', 'order_by']  # noqa: E501
+        all_params = ['subscription_id', 'page', 'per_page', 'include_total_count', 'include', 'serial_number', 'product_id', 'product_category_id', 'parent_id', 'manufacturer_id', 'status_id', 'status_code', 'production_date', 'production_date_from', 'production_date_to', 'specifications_key', 'specifications_value', 'node_id', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'ownership_claimed', 'permission', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -761,6 +870,8 @@ class SubscriptionApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'serial_number' in params:
@@ -850,6 +961,7 @@ class SubscriptionApi(object):
         :param int subscription_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str email: Filter accepts `*` as wildcard
         :param int user_id: One or multiple ids (comma list). Expected id format is integer
@@ -879,6 +991,7 @@ class SubscriptionApi(object):
         :param int subscription_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str email: Filter accepts `*` as wildcard
         :param int user_id: One or multiple ids (comma list). Expected id format is integer
@@ -889,7 +1002,7 @@ class SubscriptionApi(object):
                  returns the request thread.
         """
 
-        all_params = ['subscription_id', 'page', 'per_page', 'include', 'email', 'user_id', 'status', 'order_by']  # noqa: E501
+        all_params = ['subscription_id', 'page', 'per_page', 'include_total_count', 'include', 'email', 'user_id', 'status', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -920,6 +1033,8 @@ class SubscriptionApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'email' in params:
@@ -1170,6 +1285,7 @@ class SubscriptionApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str email: Filter accepts `*` as wildcard
         :param int user_id: One or multiple ids (comma list). Expected id format is integer
@@ -1199,6 +1315,7 @@ class SubscriptionApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str email: Filter accepts `*` as wildcard
         :param int user_id: One or multiple ids (comma list). Expected id format is integer
@@ -1210,7 +1327,7 @@ class SubscriptionApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'include', 'email', 'user_id', 'status', 'client_application_id', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'include', 'email', 'user_id', 'status', 'client_application_id', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1235,6 +1352,8 @@ class SubscriptionApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'email' in params:
@@ -1289,6 +1408,7 @@ class SubscriptionApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param int user_id: One or multiple ids (comma list). Expected id format is integer
         :param int client_application_id: One or multiple ids (comma list). Expected id format is integer
@@ -1335,6 +1455,7 @@ class SubscriptionApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param int user_id: One or multiple ids (comma list). Expected id format is integer
         :param int client_application_id: One or multiple ids (comma list). Expected id format is integer
@@ -1363,7 +1484,7 @@ class SubscriptionApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'include', 'user_id', 'client_application_id', 'external_reference', 'status', 'notification_status', 'asset_notification_status', 'data_storage_notification_status', 'file_storage_notification_status', 'specifications_key', 'specifications_value', 'start_date', 'end_date', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'scope', 'reseller_label', 'customer_id', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'include', 'user_id', 'client_application_id', 'external_reference', 'status', 'notification_status', 'asset_notification_status', 'data_storage_notification_status', 'file_storage_notification_status', 'specifications_key', 'specifications_value', 'start_date', 'end_date', 'created_at', 'created_at_from', 'created_at_to', 'updated_at', 'updated_at_from', 'updated_at_to', 'scope', 'reseller_label', 'customer_id', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1388,6 +1509,8 @@ class SubscriptionApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'user_id' in params:
@@ -2223,7 +2346,7 @@ class SubscriptionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionRequest body: Parameters that shall be updated. (required)
+        :param SubscriptionPatchRequest body: Parameters that shall be updated. (required)
         :param int id: Id of the subscription to update (required)
         :return: None
                  If the method is called asynchronously,
@@ -2246,7 +2369,7 @@ class SubscriptionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SubscriptionRequest body: Parameters that shall be updated. (required)
+        :param SubscriptionPatchRequest body: Parameters that shall be updated. (required)
         :param int id: Id of the subscription to update (required)
         :return: None
                  If the method is called asynchronously,

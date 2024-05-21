@@ -29,7 +29,7 @@ class PermissionBase(object):
     """
     swagger_types = {
         'permission_type': 'str',
-        'assignable': 'Assignable',
+        'assignable': 'Assignable1',
         'permitable': 'Permitable'
     }
 
@@ -85,7 +85,7 @@ class PermissionBase(object):
 
 
         :return: The assignable of this PermissionBase.  # noqa: E501
-        :rtype: Assignable
+        :rtype: Assignable1
         """
         return self._assignable
 
@@ -95,7 +95,7 @@ class PermissionBase(object):
 
 
         :param assignable: The assignable of this PermissionBase.  # noqa: E501
-        :type: Assignable
+        :type: Assignable1
         """
 
         self._assignable = assignable

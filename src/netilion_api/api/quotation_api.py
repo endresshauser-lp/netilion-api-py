@@ -560,6 +560,7 @@ class QuotationApi(object):
         :param int quotation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str document_version: Filter accepts `*` as wildcard
@@ -597,6 +598,7 @@ class QuotationApi(object):
         :param int quotation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str include: Comma separated list of objects to include in response
         :param str name: Filter accepts `*` as wildcard
         :param str document_version: Filter accepts `*` as wildcard
@@ -615,7 +617,7 @@ class QuotationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['quotation_id', 'page', 'per_page', 'include', 'name', 'document_version', 'number', 'status_id', 'classification_id', 'tenant_id', 'category_id', 'valid_from', 'valid_until', 'valid_at', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['quotation_id', 'page', 'per_page', 'include_total_count', 'include', 'name', 'document_version', 'number', 'status_id', 'classification_id', 'tenant_id', 'category_id', 'valid_from', 'valid_until', 'valid_at', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -646,6 +648,8 @@ class QuotationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'include' in params:
             query_params.append(('include', params['include']))  # noqa: E501
         if 'name' in params:
@@ -715,6 +719,7 @@ class QuotationApi(object):
         :param int quotation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str product_code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
         :param str manufacturer_id: One or multiple ids (comma list). Expected id format is integer
@@ -746,6 +751,7 @@ class QuotationApi(object):
         :param int quotation_id: The resource defined in the URL (required)
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str product_code: Filter accepts `*` as wildcard
         :param str name: Filter accepts `*` as wildcard
         :param str manufacturer_id: One or multiple ids (comma list). Expected id format is integer
@@ -758,7 +764,7 @@ class QuotationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['quotation_id', 'page', 'per_page', 'product_code', 'name', 'manufacturer_id', 'status_id', 'parent_id', 'order_by', 'accept_language']  # noqa: E501
+        all_params = ['quotation_id', 'page', 'per_page', 'include_total_count', 'product_code', 'name', 'manufacturer_id', 'status_id', 'parent_id', 'order_by', 'accept_language']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -789,6 +795,8 @@ class QuotationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'product_code' in params:
             query_params.append(('product_code', params['product_code']))  # noqa: E501
         if 'name' in params:
@@ -846,6 +854,7 @@ class QuotationApi(object):
         :param str quotation_id: One or multiple ids (comma list). Expected id format is integer
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str number: Filter accepts `*` as wildcard
         :param str _date: Expected date format is YYYY-MM-DD
@@ -880,6 +889,7 @@ class QuotationApi(object):
         :param str quotation_id: One or multiple ids (comma list). Expected id format is integer
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str number: Filter accepts `*` as wildcard
         :param str _date: Expected date format is YYYY-MM-DD
@@ -895,7 +905,7 @@ class QuotationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['quotation_id', 'page', 'per_page', 'name', 'number', '_date', 'date_from', 'date_to', 'status_id', 'sender_id', 'receiver_id', 'customer_number', 'order_by']  # noqa: E501
+        all_params = ['quotation_id', 'page', 'per_page', 'include_total_count', 'name', 'number', '_date', 'date_from', 'date_to', 'status_id', 'sender_id', 'receiver_id', 'customer_number', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -922,6 +932,8 @@ class QuotationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'name' in params:
             query_params.append(('name', params['name']))  # noqa: E501
         if 'number' in params:
@@ -1182,6 +1194,7 @@ class QuotationApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str number: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -1215,6 +1228,7 @@ class QuotationApi(object):
         :param async_req bool
         :param int page: Page number to load
         :param int per_page: Number of items to load per page
+        :param bool include_total_count: whether to return total count related information in the response or just the next url if it exists. Using false value will enhance the performance of this call. Default value is true. Please specify the value of this parameter if you want a specific behavior.
         :param str name: Filter accepts `*` as wildcard
         :param str number: Filter accepts `*` as wildcard
         :param str status_id: One or multiple ids (comma list). Expected id format is integer
@@ -1230,7 +1244,7 @@ class QuotationApi(object):
                  returns the request thread.
         """
 
-        all_params = ['page', 'per_page', 'name', 'number', 'status_id', '_date', 'date_from', 'date_to', 'sender_id', 'receiver_id', 'request_for_quotation_id', 'order_by']  # noqa: E501
+        all_params = ['page', 'per_page', 'include_total_count', 'name', 'number', 'status_id', '_date', 'date_from', 'date_to', 'sender_id', 'receiver_id', 'request_for_quotation_id', 'order_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1255,6 +1269,8 @@ class QuotationApi(object):
             query_params.append(('page', params['page']))  # noqa: E501
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))  # noqa: E501
+        if 'include_total_count' in params:
+            query_params.append(('include_total_count', params['include_total_count']))  # noqa: E501
         if 'name' in params:
             query_params.append(('name', params['name']))  # noqa: E501
         if 'number' in params:

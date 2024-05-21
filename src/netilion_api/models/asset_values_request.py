@@ -28,19 +28,45 @@ class AssetValuesRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'instrumentations': 'list[NestedID]',
         'values': 'list[AssetValueRequest]'
     }
 
     attribute_map = {
+        'instrumentations': 'instrumentations',
         'values': 'values'
     }
 
-    def __init__(self, values=None):  # noqa: E501
+    def __init__(self, instrumentations=None, values=None):  # noqa: E501
         """AssetValuesRequest - a model defined in Swagger"""  # noqa: E501
+        self._instrumentations = None
         self._values = None
         self.discriminator = None
+        if instrumentations is not None:
+            self.instrumentations = instrumentations
         if values is not None:
             self.values = values
+
+    @property
+    def instrumentations(self):
+        """Gets the instrumentations of this AssetValuesRequest.  # noqa: E501
+
+
+        :return: The instrumentations of this AssetValuesRequest.  # noqa: E501
+        :rtype: list[NestedID]
+        """
+        return self._instrumentations
+
+    @instrumentations.setter
+    def instrumentations(self, instrumentations):
+        """Sets the instrumentations of this AssetValuesRequest.
+
+
+        :param instrumentations: The instrumentations of this AssetValuesRequest.  # noqa: E501
+        :type: list[NestedID]
+        """
+
+        self._instrumentations = instrumentations
 
     @property
     def values(self):
