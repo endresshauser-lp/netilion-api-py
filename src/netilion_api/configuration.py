@@ -24,6 +24,7 @@ from six.moves import http_client as httplib
 from enum import Enum
 
 from oauthlib.oauth2 import LegacyApplicationClient
+from oauthlib.oauth2.rfc6749.errors import InvalidGrantError
 from requests_oauthlib import OAuth2Session
 
 
@@ -76,7 +77,11 @@ class OAuthPasswordGrant():
             token_expiry = self._token["created_at"] + self._token["expires_in"]
             token_expired = token_expiry <= time.time()
             if token_expired:
-                self._token = self._refresh_token()
+                try:
+                    self._token = self._refresh_token()
+                except InvalidGrantError:
+                    # Refresh token expired, fall back to full re-authentication
+                    self._token = self._fetch_token()
         token = self._prefix + self._token["access_token"]
         return token
 
